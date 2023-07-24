@@ -1,5 +1,23 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./components/header";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Home } from "./containers/home/home";
 
-const App: React.FC = () => <div>Company Bench </div>;
+export const App = (): JSX.Element => {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="about" element={<About />} /> */}
+          {/* <Route path="dashboard" element={<Dashboard />} />
+          <Route path="*" element={<NoMatch />} /> */}
+        </Route>
+      </Routes>
+    </>
+  );
+};
 
-export default App;
+

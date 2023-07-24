@@ -1,15 +1,23 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./public/index.html",
   filename: "./index.html",
 });
+
+const root = path.resolve(__dirname, '../../');
 
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   module: {
     rules: [
+      {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -39,10 +47,14 @@ module.exports = {
         exclude: /node_modules/,
       },
     ],
-    
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".jsx", ],
+    plugins: [new TsconfigPathsPlugin()],
+    alias: {
+      '@components': path.resolve(root, 'src/components'),
+      '@images': path.resolve(root, 'src/images')
+    }
   },
   output: {
     filename: "bundle.js",
@@ -50,10 +62,10 @@ module.exports = {
   },
   devServer: {
     static: {
-        directory: path.join(__dirname, "./")
-      },
+      directory: path.join(__dirname, "./"),
+    },
     compress: true,
-    port: 8080
+    port: 8080,
   },
   plugins: [htmlPlugin],
 };
