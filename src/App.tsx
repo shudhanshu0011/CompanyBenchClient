@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Header } from "./components/header";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Header } from "./components/header";
 import { Home } from "./containers/home/home";
 
 export const App = (): JSX.Element => {
@@ -19,5 +19,3 @@ export const App = (): JSX.Element => {
     </>
   );
 };
-
-
