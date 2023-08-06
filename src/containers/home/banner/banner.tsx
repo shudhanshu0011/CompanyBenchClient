@@ -28,6 +28,15 @@ export const Banner = () => {
       </components.ClearIndicator>
     );
   };
+  const selectStyleConfig = {
+    control: (baseStyles: any, state: { isFocused: any }) => ({
+      ...baseStyles,
+      borderColor: state.isFocused ? "transparent" : "transparent",
+      "&:hover, &:focus": {
+        borderColor: "transparent",
+      },
+    }),
+  };
 
   const contractorTabContent = () => {
     return (
@@ -52,20 +61,7 @@ export const Banner = () => {
                       options={options}
                       isClearable={true}
                       placeholder="Search Candidates by Technology..."
-                      styles={{
-                        control: (
-                          baseStyles: any,
-                          state: { isFocused: any }
-                        ) => ({
-                          ...baseStyles,
-                          borderColor: state.isFocused
-                            ? "transparent"
-                            : "transparent",
-                          "&:hover, &:focus": {
-                            borderColor: "transparent",
-                          },
-                        }),
-                      }}
+                      styles={selectStyleConfig}
                       components={{
                         IndicatorSeparator: () => null,
                         DropdownIndicator: () => null,
