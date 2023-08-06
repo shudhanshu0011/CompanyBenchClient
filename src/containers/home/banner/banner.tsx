@@ -1,9 +1,34 @@
 import React from "react";
 import { Tab, Tabs } from "react-bootstrap";
+import { ClearIndicatorProps, GroupBase, components } from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CloseSharpIcon from "@mui/icons-material/CloseSharp";
+import { SelectDropdown } from "../../../components/select";
 import "./styles.scss";
 
 export const Banner = () => {
+  const options = [
+    { value: ".NET", label: ".NET" },
+    { value: "Android", label: "Android" },
+    { value: "Angular", label: "Angular" },
+    { value: "Apttus CPQ", label: "Apttus CPQ" },
+    { value: "Artificial Intelligence", label: "Artificial Intelligence" },
+    { value: "Automation Anywhere", label: "Automation Anywhere" },
+  ];
+
+  const ClearIndicator = (
+    props: React.JSX.IntrinsicAttributes &
+      ClearIndicatorProps<unknown, boolean, GroupBase<unknown>>
+  ) => {
+    return (
+      <components.ClearIndicator {...props}>
+        <div className="crossIcon">
+          <CloseSharpIcon />
+        </div>
+      </components.ClearIndicator>
+    );
+  };
+
   const contractorTabContent = () => {
     return (
       <>
@@ -23,17 +48,37 @@ export const Banner = () => {
               <form className="ng-untouched ng-pristine ng-valid ng-invalid">
                 <div className="autocomplete-container">
                   <div className="input-container">
-                    <input
-                      type="text"
+                    <SelectDropdown
+                      options={options}
+                      isClearable={true}
                       placeholder="Search Candidates by Technology..."
-                      className="ng-untouched ng-pristine ng-valid"
+                      styles={{
+                        control: (
+                          baseStyles: any,
+                          state: { isFocused: any }
+                        ) => ({
+                          ...baseStyles,
+                          borderColor: state.isFocused
+                            ? "transparent"
+                            : "transparent",
+                          "&:hover, &:focus": {
+                            borderColor: "transparent",
+                          },
+                        }),
+                      }}
+                      components={{
+                        IndicatorSeparator: () => null,
+                        DropdownIndicator: () => null,
+                        ClearIndicator: (
+                          props: React.JSX.IntrinsicAttributes &
+                            ClearIndicatorProps<
+                              unknown,
+                              boolean,
+                              GroupBase<unknown>
+                            >
+                        ) => ClearIndicator(props),
+                      }}
                     />
-                  </div>
-                  <div className="suggestions-container is-hidden">
-                    <ul></ul>
-                  </div>
-                  <div className="suggestions-container is-visible">
-                    <ul></ul>
                   </div>
                 </div>
                 <button
@@ -55,11 +100,7 @@ export const Banner = () => {
       <div className="banner-inner">
         <div className="block-banner">
           <div className="tabs-block">
-            <Tabs
-              defaultActiveKey="profile"
-              className="mb-40"
-              variant="pills"
-            >
+            <Tabs defaultActiveKey="profile" className="mb-40" variant="pills">
               <Tab eventKey="home" title="I want to hire contractors">
                 <h1 className="text-42 color-white wow animate__animated animate__fadeInUp mt-30">
                   Hire #<span className="color-green">Remote Developers</span>

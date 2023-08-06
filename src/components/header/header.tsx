@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import { Btn } from "../../common/button";
+import { Navigation } from "../navigation";
 import "./header.scss";
+
 
 export const Header = (): JSX.Element => {
   return (
@@ -15,37 +17,7 @@ export const Header = (): JSX.Element => {
               </a>
             </div>
           </div>
-          <div className="header-nav">
-            <nav className="nav-main-menu">
-              <ul className="main-menu">
-                <li className="dashboard">
-                  <a className="" href="index.html">
-                    Apply for Job
-                  </a>
-                </li>
-                <li>
-                  <a href="jobs-grid.html">Hire Developer</a>
-                </li>
-                <li>
-                  <a href="companies-grid.html">Find a Job</a>
-                </li>
-                <li>
-                  <a href="candidates-grid.html">Find Candidates</a>
-                </li>
-                <li>
-                  <a href="blog-grid.html">Blog</a>
-                </li>
-                <li>
-                  <a href="blog-grid.html">Contact Us</a>
-                </li>
-              </ul>
-            </nav>
-            <div className="burger-icon burger-icon-white">
-              <span className="burger-icon-top"></span>
-              <span className="burger-icon-mid"></span>
-              <span className="burger-icon-bottom"></span>
-            </div>
-          </div>
+          <Navigation />
           <div className="header-right">
             <div className="block-signin">
               <a

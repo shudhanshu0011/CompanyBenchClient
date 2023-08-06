@@ -106,15 +106,20 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     // "skipLibCheck": true,                               /* Skip type checking all .d.ts files. */
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
+      "@src/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@images/*": ["src/images/*"]
     }
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./test/**/*.ts", "./tests/**/*.ts"],
+//   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./test/**/*.ts", "./tests/**/*.ts"],
   "typeAcquisition": {
     "include": ["jest"]
   },
+//   "include": [
+//    "src"
+//  ],
+//  "extends": "./tsconfig.paths.json",
   "exclude": ["node_modules", "jest"]
 }

@@ -56,7 +56,7 @@
         min-width: 122px;
         padding-left: 10px;
         padding-right: 15px;
-        
+
         svg {
           padding-right: 15px;
         }
@@ -362,11 +362,13 @@
   padding-bottom: 10px;
 }
 .search-form {
+  font-family: $font-heading;
+  text-align: left;
   form {
     position: relative;
     input {
       border-radius: 10px;
-      height: 50px;
+      height: 38px;
       -webkit-box-shadow: none;
       box-shadow: none;
       padding-left: 20px;
@@ -386,6 +388,20 @@
       background-color: transparent;
       color: #242424;
     }
+  }
+  .crossIcon {
+    position: absolute;
+    right: 10px;
+    margin: auto;
+    cursor: pointer;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    color: rgba(0,0,0,0.55);
+    border: 1px solid rgba(0,0,0,0.55);
+    border-radius: 50px;
+    padding: 5px;
   }
 }
 
@@ -416,6 +432,7 @@
       }
     }
   }
+  
 }
 
 .post-list-small-item {
@@ -463,11 +480,10 @@
         color: #fff;
         border-radius: 50px;
         margin-right: 15px;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         &.active {
           color: #0138e3;
           background: #fff;
-
         }
       }
     }

@@ -60,9 +60,10 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".jsx", ],
+    extensions: [".tsx", ".ts", ".js", ".jsx", '.js' ],
     plugins: [new TsconfigPathsPlugin()],
     alias: {
+      '@src': path.resolve(root, 'src'),
       '@components': path.resolve(root, 'src/components'),
       '@images': path.resolve(root, 'src/images')
     }
