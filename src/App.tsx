@@ -2,7 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Header } from "./components/header";
-import { Home } from "./containers/home/home";
+import { Home } from "./containers/home";
+import { Candidates } from "./containers/candidates";
 
 export const App = (): JSX.Element => {
   return (
@@ -11,7 +12,7 @@ export const App = (): JSX.Element => {
       <Routes>
         <Route>
           <Route path="/" element={<Home />} />
-          {/* <Route path="about" element={<About />} /> */}
+          <Route path="/candidates" element={<Candidates />} />
           {/* <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<NoMatch />} /> */}
         </Route>

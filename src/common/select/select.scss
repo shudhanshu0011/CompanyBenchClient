@@ -1,0 +1,12 @@
+@import "../../styles/common/variables.scss";
+
+
+.select-wrapper{
+    font-family: $font-heading;
+    font-size: 14px;
+    &.size-lg {
+        input {
+            height: 40px;
+        }
+    }
+}

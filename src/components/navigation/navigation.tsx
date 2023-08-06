@@ -17,7 +17,7 @@ export const Navigation = (): JSX.Element => {
             <a href="companies-grid.html">Find a Job</a>
           </li>
           <li>
-            <a href="candidates-grid.html">Find Candidates</a>
+            <a href="/candidates">Find Candidates</a>
           </li>
           <li>
             <a href="blog-grid.html">Blog</a>

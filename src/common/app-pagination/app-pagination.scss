@@ -1,0 +1,34 @@
+@import "../../styles/common/variables.scss";
+
+.pagination {
+  .page-item {
+    .page-link {
+      border-color: $color-brand-2;
+      background: $color-brand-2;
+      color: $color-white;
+      border-radius: 100%;
+      width: 32px;
+      height: 32px;
+      line-height: 16px;
+      font-size: 12px;
+      text-align: center;
+      font-weight: 400;
+      margin: 0 1px;
+    }
+
+    &.disabled  .page-link{
+      background: $color-page-background;
+      color: $color-disable-text;
+      border-color: $color-page-background;
+      
+    }
+  }
+
+  .page-item:first-child .page-link,
+  .page-item:last-child .page-link {
+    border-radius: 50px;
+    padding: 2px 20px;
+    width:auto;
+    line-height: 24px;
+  }
+}

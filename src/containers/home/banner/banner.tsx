@@ -3,7 +3,7 @@ import { Tab, Tabs } from "react-bootstrap";
 import { ClearIndicatorProps, GroupBase, components } from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
-import { SelectDropdown } from "../../../components/select";
+import { SelectDropdown } from "../../../common/select";
 import "./styles.scss";
 
 export const Banner = () => {
@@ -63,7 +63,6 @@ export const Banner = () => {
                       placeholder="Search Candidates by Technology..."
                       styles={selectStyleConfig}
                       components={{
-                        IndicatorSeparator: () => null,
                         DropdownIndicator: () => null,
                         ClearIndicator: (
                           props: React.JSX.IntrinsicAttributes &

@@ -669,3 +669,32 @@ iframe {
 .ml-40 {
   margin-left: 40px;
 }
+
+
+.divider-text-center {
+  position: relative;
+  text-align: center;
+}
+.divider-text-center::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  background-color: #E0E6F6;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+}
+.divider-text-center span {
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 15px;
+  z-index: 2;
+  position: relative;
+}
+.flex-box {
+  display: flex;
+  &.justify-content-space-between {
+    justify-content: space-between;
+  }
+}
