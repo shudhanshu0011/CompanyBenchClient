@@ -11,7 +11,7 @@ export const App = (): JSX.Element => {
       <Header />
       <Routes>
         <Route>
-          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="/candidates" element={<Candidates />} />
           {/* <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<NoMatch />} /> */}

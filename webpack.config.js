@@ -77,7 +77,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "./"),
     },
-    historyApiFallback: true,
+    // historyApiFallback: true,
     compress: true,
     port: 8080,
   },
