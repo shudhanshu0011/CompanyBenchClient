@@ -7,7 +7,6 @@ import {  Link } from 'react-router-dom';
 export const Header = () => {
   const [current, setCurrent] = useState('h');
   const onClick = (e: { key: SetStateAction<string>; }) => {
-    console.log('click ', e);
     setCurrent(e.key);
   };
   return (

@@ -6,9 +6,16 @@ import { AppPagination } from "@common/app-pagination";
 import { CandidateCard } from "@components/candidate-card";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
+import { useGetCandidates } from "@hooks/useGetCandidates";
 import "./candidates.scss";
 
-export const Candidates = () => {
+
+export const Candidates = (): JSX.Element => {
+  const {data: candidateData} = useGetCandidates();
+
+  
+
+
   const options = [
     { value: ".NET", label: ".NET" },
     { value: "Android", label: "Android" },
@@ -28,6 +35,7 @@ export const Candidates = () => {
     ];
     return <SelectDropdown options={options} size="sm" />;
   };
+
   return (
     <PageWrapper>
       <Container fluid>

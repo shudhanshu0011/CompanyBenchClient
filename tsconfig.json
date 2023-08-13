@@ -28,7 +28,10 @@
       "@services/*": ["./src/services/*"],
       "@components/*": ["./src/components/*"],
       "@common/*": ["./src/common/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@types/*": ["./src/types/*"],
+      "@config/*": ["./src/config/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["src"],
