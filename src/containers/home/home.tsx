@@ -1,12 +1,12 @@
-import React from "react";
-import { Banner } from "./banner";
+import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { Banner } from "@components/banner";
 
 export const Home = (): JSX.Element => {
   return (
-    <main className="main">
+    <PageWrapper>
       <section className="section-box">
         <Banner />
       </section>
-    </main>
+    </PageWrapper>
   );
 };

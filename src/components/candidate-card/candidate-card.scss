@@ -68,8 +68,8 @@
     padding: 0px 15px 0px 0px;
     display: inline-block;
     width: 30%;
-    min-width: 115px;
-    max-width: 115px;
+    min-width: 80px;
+    max-width: 80px;
     figure {
       position: relative;
       display: inline-block;
@@ -476,4 +476,20 @@ ul {
       background-color: rgba(81, 146, 255, 0.12);
     }
   }
+}
+
+
+
+
+.btn-tags-sm {
+  font-family: $font-heading;
+  background-color: #eaf2ff;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 7px 10px;
+  border-radius: 0;
+  color: #66789c;
+  margin: 0 5px 5px 0;
+  pointer-events: none;
+  display: inline-block;
 }

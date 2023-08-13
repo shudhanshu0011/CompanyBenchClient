@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./paper.scss";
 
 interface Props {

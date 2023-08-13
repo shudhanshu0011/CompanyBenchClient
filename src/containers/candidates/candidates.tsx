@@ -1,12 +1,12 @@
-import React from "react";
+
 import { Container, Row, Col } from "react-bootstrap";
-import { SelectDropdown } from "../../common/select";
-import { Paper } from "../../common/Paper";
-import "../../styles/common/_pages.scss";
+import { SelectDropdown } from "@common/select";
+import { Paper } from "@common/Paper";
+import { AppPagination } from "@common/app-pagination";
+import { CandidateCard } from "@components/candidate-card";
+import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import "@styles/common/_pages.scss";
 import "./candidates.scss";
-import { AppPagination } from "../../common/app-pagination";
-import { Card } from "../../common/card";
-import { CandidateCard } from "../../components/candidate-card";
 
 export const Candidates = () => {
   const options = [
@@ -29,7 +29,7 @@ export const Candidates = () => {
     return <SelectDropdown options={options} size="sm" />;
   };
   return (
-    <div className="page-wrapper">
+    <PageWrapper>
       <Container fluid>
         <Row>
           <Col xs={12} md={2}>
@@ -99,6 +99,6 @@ export const Candidates = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </PageWrapper>
   );
 };

@@ -1,9 +1,9 @@
-import React from "react";
+
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import BusinessCenterSharpIcon from "@mui/icons-material/BusinessCenterSharp";
 import AccessTimeSharpIcon from "@mui/icons-material/AccessTimeSharp";
-import "./candidate-card.scss";
 import { Btn } from "../../common/button";
+import "./candidate-card.scss";
 
 export const CandidateCard = (): JSX.Element => {
   return (
@@ -37,17 +37,17 @@ export const CandidateCard = (): JSX.Element => {
       <div className="card-block-info">
         <div className="card-2-bottom card-2-bottom-candidate">
           <div className="text-start">
-            <span className="btn btn-tags-sm mb-10 mr-5">Figma</span>
-            <span className="btn btn-tags-sm mb-10 mr-5">Adobe XD</span>
-            <span className="btn btn-tags-sm mb-10 mr-5">PSD</span>
-            <span className="btn btn-tags-sm mb-10 mr-5">App</span>
-            <span className="btn btn-tags-sm mb-10 mr-5">Digital</span>
+            <span className="btn-tags-sm mb-10 mr-5">Figma</span>
+            <span className="btn-tags-sm mb-10 mr-5">Adobe XD</span>
+            <span className="btn-tags-sm mb-10 mr-5">PSD</span>
+            <span className="btn-tags-sm mb-10 mr-5">App</span>
+            <span className="btn-tags-sm mb-10 mr-5">Digital</span>
           </div>
         </div>
         <div className="mt-5">
           <div className="row">
             <div className="col-6">
-              <Btn className="btn btn-apply-now" title="View Details" />
+              <Btn className="btn-apply-now" title="View Details" />
             </div>
           </div>
         </div>

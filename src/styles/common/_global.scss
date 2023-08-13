@@ -166,6 +166,7 @@ input:focus::-moz-placeholder {
 }
 a {
   color: $color-brand;
+  font-family: $font-heading;
   &:hover {
     color: $color-brand-2;
   }
@@ -697,4 +698,8 @@ iframe {
   &.justify-content-space-between {
     justify-content: space-between;
   }
+}
+
+.btn {
+  font-family: $font-heading;
 }

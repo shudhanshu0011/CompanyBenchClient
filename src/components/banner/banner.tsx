@@ -1,10 +1,11 @@
-import React from "react";
+
 import { Tab, Tabs } from "react-bootstrap";
-import { ClearIndicatorProps, GroupBase, components } from "react-select";
+import { ClearIndicatorProps, ControlProps, GroupBase, components } from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
-import { SelectDropdown } from "../../../common/select";
+import { SelectDropdown } from "@common/select";
 import "./styles.scss";
+
 
 export const Banner = () => {
   const options = [
@@ -28,10 +29,12 @@ export const Banner = () => {
       </components.ClearIndicator>
     );
   };
+
   const selectStyleConfig = {
-    control: (baseStyles: any, state: { isFocused: any }) => ({
+    /* eslint-disable-next-line*/
+    control: ({isFocused, ...baseStyles }: ControlProps) => ({
       ...baseStyles,
-      borderColor: state.isFocused ? "transparent" : "transparent",
+      borderColor:isFocused ? "transparent" : "transparent",
       "&:hover, &:focus": {
         borderColor: "transparent",
       },
