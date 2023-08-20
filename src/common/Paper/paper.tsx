@@ -5,11 +5,12 @@ interface Props {
   children?: React.ReactNode;
   title?: string | React.ReactElement;
   titleRight?: string | React.ReactElement;
+  className?: string;
 }
 
-export const Paper = ({ title, titleRight, children }: Props) => {
+export const Paper = ({ title, titleRight, children, className }: Props) => {
   return (
-    <div className="panel-white">
+    <div className={`panel-white ${className}`}>
       {title && (
         <div className="mb-15">
           <div className="panel_header flex-box justify-content-space-between">

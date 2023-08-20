@@ -1,11 +1,16 @@
-
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import BusinessCenterSharpIcon from "@mui/icons-material/BusinessCenterSharp";
 import AccessTimeSharpIcon from "@mui/icons-material/AccessTimeSharp";
 import { Btn } from "../../common/button";
 import "./candidate-card.scss";
 
-export const CandidateCard = (): JSX.Element => {
+interface Props {
+  handleShowDetails(isVisible: boolean): void;
+}
+export const CandidateCard = ({ handleShowDetails }: Props): JSX.Element => {
+  const handleBtnClick = () => {
+    handleShowDetails(true);
+  }
   return (
     <div className="card-grid-2 hover-up">
       <div className="card-grid-2-image-left">
@@ -47,7 +52,7 @@ export const CandidateCard = (): JSX.Element => {
         <div className="mt-5">
           <div className="row">
             <div className="col-6">
-              <Btn className="btn-apply-now" title="View Details" />
+              <Btn className="btn-apply-now" title="View Details" handleOnClick={handleBtnClick} />
             </div>
           </div>
         </div>
