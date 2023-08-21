@@ -5,55 +5,54 @@ interface Props{
   activeLink: string;
 }
 export const Sidebar = ({activeLink}: Props): JSX.Element => {
-  const [isExpanded, setExpandState] = useState(false);
+  const [isExpanded, setExpandState] = useState(true);
   const menuItems = [
 		{
 			text: "Dashboard",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/dashboard.svg",
-      link: "/cdashboard",
+      		link: "/cdashboard",
 		},
 		{
 			text: "My Jobs",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/jobs.svg",
-      link: "/cmyjobs",
+      		link: "/cmyjobs",
 		},
 		{
 			text: "Post Job",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/tasks.svg",
-      link: "/newjob",
+      		link: "/newjob",
 		},
 		{
 			text: "Shortlisted",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/settings.svg",
-      link: "/shortlistedcandidates",
+      		link: "/shortlistedcandidates",
 		},
 		{
 			text: "All Candidates",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/candidates.svg",
-      link: "/allcandidates",
+      		link: "/allcandidates",
 		},
 		{
 			text: "Matching Candidates",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/profiles.svg",
-      link: "/cmatchingcandidate",
+      		link: "/cmatchingcandidate",
 		},
 		{
 			text: "Applied Candidates",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/recruiters.svg",
-      link: "/interestedcandidate",
+      		link: "/interestedcandidate",
 		},
 		{
 			text: "Interview",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/cv-manage.svg",
-      link: "/jobinterviewlist",
+      		link: "/jobinterviewlist",
 		},
     {
 			text: "Logout",
 			icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/logout.svg",
-      link: "/home",
+      		link: "/",
 		},
 	];
-  // var activeLink = "/allcandidates"
   return (
     <div className={isExpanded ? "side-nav-container" : "side-nav-container side-nav-container-NX"}>
       <div className="nav-upper">
