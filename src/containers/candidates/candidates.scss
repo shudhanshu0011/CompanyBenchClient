@@ -5,6 +5,17 @@
   display: inline-block;
   width: 100%;
   padding: 30px;
+  .title-icon {
+    display: inline-flex;
+    margin-top: 8px;
+    margin-left: 16px;
+    span {
+      display: inline-block;
+    }
+    svg {
+      height: 18px;
+    }
+  }
 }
 .candidate-card-wrapper {
   flex-wrap: wrap;
@@ -48,4 +59,39 @@
     display: inline-block;
     margin-top: -15px;
   }
+}
+
+.job-overview {
+  font-family: $font-heading;
+  .sidebar-icon-item {
+    font-size: 18px;
+    color: #a0abb8;
+    min-width: 20px;
+  }
+  .sidebar-text-info {
+    display: flex;
+    &.skill_custom {
+      align-items: baseline;
+    }
+    .text-description {
+      font-size: 14px;
+      color: #66789c;
+      line-height: 22px;
+      display: inline-block;
+      width: 50%;
+      min-width: 120px;
+      max-width: 120px;
+    }
+  }
+}
+.btn.tab-btn , .btn.tab-btn:hover {
+  color: #05264e;
+  background-color: #fff;
+  border-color: #b4c0e0;
+  padding: 8px 16px;
+  line-height: 32px;
+}
+.about-icon {
+  display: flex;
+  padding-top: 8px;
 }

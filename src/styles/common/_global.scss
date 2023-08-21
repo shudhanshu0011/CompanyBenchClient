@@ -698,8 +698,21 @@ iframe {
   &.justify-content-space-between {
     justify-content: space-between;
   }
+  &.align-items-center {
+    align-items: center;
+  }
 }
 
 .btn {
   font-family: $font-heading;
+}
+
+
+.people-icon{
+  background-image: url('/assets/icons/icon-people.svg');
+  background-position: 17px 14px;
+  background-repeat: no-repeat;
+  font-weight: 500;
+  padding-left: 45px;
+  border-color: #EFF2FB;
 }
