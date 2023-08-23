@@ -4,7 +4,6 @@ import { Sidebar } from "../../components/sidebar/sidebar";
 import { Row, Col } from "react-bootstrap";
 import "@styles/common/_pages.scss";
 import "./postjob.scss";
-import axios from "axios";
 
 const defaultFormData = {
     duration: 0,
@@ -19,91 +18,53 @@ const defaultFormData = {
     jobStatus: "",
 };
 
+const skillList = [
+  {
+    skillName: "React",
+    skillId: 1,
+  },
+  {
+    skillName: "Python",
+    skillId: 2
+  },
+  {
+    skillName: "Django",
+    skillId: 3
+  },
+  {
+    skillName: "Node Js",
+    skillId: 4,
+  },
+];
+
 export const PostJob = (): JSX.Element => {
-  // const [locationList, setLocationList] = useState([{'cityName':'', 'cityId': ''}])
+  const [locationLists, setLocationLists] = useState([]);
+  const [statusList, setStatusList] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchData =async () => {
-  //     const response = await fetch(`http://localhost:3001/v1/joblocation`);
-  //     const newData = await response.json();
-  //     setLocationList(newData);
-  //     console.log(newData);
-  //   };
-  //   fetchData();
-  // }, [])
-
-  const locationList = [
-    {
-      cityName: "Delhi",
-      cityId: 1,
-    },
-    {
-      cityName: "Guragon",
-      cityId: 2,
-    },
-    {
-      cityName: "Hyderabad",
-      cityId: 3,
-    },
-    {
-      cityName: "Bangalore",
-      cityId: 4,
+  useEffect(() => {
+    const getLocationList = async() => {
+      const reqData = await fetch("http://localhost:3001/v1/joblocation", {
+        method: 'GET',
+        headers: { "service_ref": 123456 },
+      });
+      const resData = await reqData.json();
+      setLocationLists(resData.data.joblocations);
     }
-  ];
+    getLocationList();
+  }, []);
 
-  const skillList = [
-    {
-      skillName: "React",
-      skillId: 1,
-    },
-    {
-      skillName: "Python",
-      skillId: 2
-    },
-    {
-      skillName: "Django",
-      skillId: 3
-    },
-    {
-      skillName: "Node Js",
-      skillId: 4,
-    },
-  ];
-
-  const statusList = [
-    {
-      statusName: "New",
-      statusId: 1,
-    },
-    {
-      statusName: "Assigned",
-      statusId: 2,
-    },
-    {
-      statusName: "Profile Shared",
-      statusId: 3,
-    },
-    {
-      statusName: "Interviews",
-      statusId: 4,
-    },
-    {
-      statusName: "Selected",
-      statusId: 5,
-    },
-    {
-      statusName: "Won",
-      statusId: 6,
-    },
-    {
-      statusName: "Lost",
-      statusId: 7,
-    },
-    {
-      statusName: "Hold",
-      statusId: 8,
-    },
-  ];
+  useEffect(() => {
+    const getStatus = async () =>{
+      const statusData = await fetch("http://localhost:3001/v1/jobstatus/codes", {
+        method: 'GET',
+        headers: { "service_ref": 123456 },
+      });
+      const resData = await statusData.json();
+      console.log(resData);
+      setStatusList(resData.data.jobs)
+    }
+    getStatus();
+  }, []);
 
   const [formData, setFormData] = useState(defaultFormData);
   const {duration,
@@ -128,14 +89,6 @@ export const PostJob = (): JSX.Element => {
     e.preventDefault();
     console.log(formData);
     setFormData(defaultFormData);
-    // fetch("http://localhost:3001/v1/job", {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     formData
-    //   })
-    // }).then((response) => response.json()).then((data) => {
-    //   console.log(data)
-    // })
   };  
 
   return (
@@ -158,7 +111,7 @@ export const PostJob = (): JSX.Element => {
                             <select className="basic-single" type="text" id="location" value={location} placeholder="Location" onChange={onChange}>
                               <option selected disabled hidden>Select an Option</option>
                               {
-                                locationList.map(locations => (
+                                locationLists.map(locations => (
                                   <option value={locations.cityId}>{locations.cityName}</option>
                                 ))
                               }
@@ -193,11 +146,10 @@ export const PostJob = (): JSX.Element => {
                                 </Row>
                                 <Row>
                                   <label>Status</label>
-                                  <select type="text" id="status" value={jobStatus} placeholder="Select Status" onChange={onChange}>
-                                  <option selected disabled hidden>Select an Option</option>
+                                  <select type="text" id="jobStatus" value={jobStatus} placeholder="Select Status" onChange={onChange}>
                                     {
-                                      statusList.map(statuss => (
-                                        <option value={statuss.statusId}>{statuss.statusName}</option>
+                                      statusList.map(status => (
+                                        <option value={status.statusId}>{status.statusName}</option>
                                       ))
                                     }
                                   </select>
