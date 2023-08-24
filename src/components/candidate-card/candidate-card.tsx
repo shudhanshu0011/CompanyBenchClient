@@ -2,7 +2,7 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import BusinessCenterSharpIcon from "@mui/icons-material/BusinessCenterSharp";
 import AccessTimeSharpIcon from "@mui/icons-material/AccessTimeSharp";
 import { Btn } from "../../common/button";
-import "./candidate-card.scss";
+import "./candidate-card.scss"; 
 
 interface Props {
   handleShowDetails(isVisible: boolean): void;
