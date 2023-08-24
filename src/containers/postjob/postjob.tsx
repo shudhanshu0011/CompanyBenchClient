@@ -4,36 +4,37 @@ import { Sidebar } from "../../components/sidebar/sidebar";
 import { Row, Col } from "react-bootstrap";
 import "@styles/common/_pages.scss";
 import "./postjob.scss";
+import Select from 'react-select';
 
 const defaultFormData = {
     duration: 0,
-    skill: "",
+    skill: [],
     JobHeading: "",
-    location: "",
-    openpositions: 0,
-    experienceLevel: 0,
+    location: [],
+    openpositions: "",
+    experienceLevel: "",
     startDate: "",
-    hourlyPrice: 0,
+    hourlyPrice: "",
     description: "",
     jobStatus: "",
 };
 
 const skillList = [
   {
-    skillName: "React",
-    skillId: 1,
+    label: "React",
+    value: 1,
   },
   {
-    skillName: "Python",
-    skillId: 2
+    label: "Python",
+    value: 2
   },
   {
-    skillName: "Django",
-    skillId: 3
+    label: "Django",
+    value: 3
   },
   {
-    skillName: "Node Js",
-    skillId: 4,
+    label: "Node Js",
+    value: 4,
   },
 ];
 
@@ -48,7 +49,12 @@ export const PostJob = (): JSX.Element => {
         headers: { "service_ref": 123456 },
       });
       const resData = await reqData.json();
-      setLocationLists(resData.data.joblocations);
+      const options = []
+      resData.data.joblocations.map(tmp => {
+        options.push({value: tmp.cityId, label: tmp.cityName})
+      })
+      // console.log(options);
+      setLocationLists(options);
     }
     getLocationList();
   }, []);
@@ -60,8 +66,12 @@ export const PostJob = (): JSX.Element => {
         headers: { "service_ref": 123456 },
       });
       const resData = await statusData.json();
-      console.log(resData);
-      setStatusList(resData.data.jobs)
+      const options = []
+      resData.data.jobs.map(tmp => {
+        options.push({value: tmp.statusId, label: tmp.statusName})
+      })
+      // console.log(options);
+      setStatusList(options);
     }
     getStatus();
   }, []);
@@ -87,9 +97,16 @@ export const PostJob = (): JSX.Element => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
     setFormData(defaultFormData);
-  };  
+    console.log(formData)
+  };
+  const defaultLocation = [
+    {value:1, label: "Anywhere in India"}
+  ]
+
+  const defaultStatus = [
+    {value: 0, label: "New"}
+  ]
 
   return (
     <PageWrapper>
@@ -102,36 +119,50 @@ export const PostJob = (): JSX.Element => {
                   <form onSubmit={onSubmit}>
                     <div className="form">
                       <div className="coll-1">
+                        <div className="container">
                           <Row>
                             <label>Job Title*</label>
                             <input type="text" id="JobHeading" value={JobHeading} placeholder="Enter Title" onChange={onChange} />
                           </Row>
                           <Row>
                             <label>Locations</label>
-                            <select className="basic-single" type="text" id="location" value={location} placeholder="Location" onChange={onChange}>
-                              <option selected disabled hidden>Select an Option</option>
-                              {
-                                locationLists.map(locations => (
-                                  <option value={locations.cityId}>{locations.cityName}</option>
-                                ))
-                              }
-                            </select>
+                            <Select
+                              className="basic-multi-single"
+                              classNamePrefix="select"
+                              defaultValue={defaultLocation}
+                              isMulti
+                              options={locationLists}
+                              onChange={(event) => {
+                                defaultFormData.location.length=0
+                                for(let i=0; i<event.length; i++){
+                                  defaultFormData.location.push(event[i].label)
+                                }
+                                console.log(defaultFormData.location)
+                              }}
+                            />
                           </Row>
                           <Row>
                             <label>Skills</label>
-                            <select type="text" id="skill" value={skill} placeholder="Skill" onChange={onChange}>
-                            <option selected disabled hidden>Select an Option</option>
-                              {
-                                skillList.map(skills => (
-                                  <option value={skills.skillId}>{skills.skillName}</option>
-                                ))
-                              }
-                            </select>
+                            <Select
+                              className="basic-multi-single"
+                              classNamePrefix="select"
+                              isMulti
+                              placeholder="You can add upto 10 skills"
+                              options={skillList}
+                              onChange={(event) => {
+                                defaultFormData.skill.length=0
+                                for(let i=0; i<event.length; i++){
+                                  defaultFormData.skill.push(event[i].label)
+                                }
+                                console.log(defaultFormData.skill)
+                              }}
+                            />
                           </Row>
                           <Row>
                             <label>Summary</label>
                             <textarea rows={6} id="description" value={description} placeholder="Description" onChange={onChange}></textarea>
                           </Row>
+                        </div>
                       </div>
                       <div className="coll-2">
                         <div className="coll-2-card">
@@ -146,13 +177,16 @@ export const PostJob = (): JSX.Element => {
                                 </Row>
                                 <Row>
                                   <label>Status</label>
-                                  <select type="text" id="jobStatus" value={jobStatus} placeholder="Select Status" onChange={onChange}>
-                                    {
-                                      statusList.map(status => (
-                                        <option value={status.statusId}>{status.statusName}</option>
-                                      ))
-                                    }
-                                  </select>
+                                  <Select
+                                    className="basic-single"
+                                    classNamePrefix="select"
+                                    defaultValue={defaultStatus}
+                                    options={statusList}
+                                    onChange={(event) => {
+                                      defaultFormData.jobStatus = event.value;
+                                      console.log(defaultFormData.jobStatus)
+                                    }}
+                                  />
                                 </Row>
                           </div>
                           <div className="coll-2-2">
@@ -176,7 +210,6 @@ export const PostJob = (): JSX.Element => {
                       <button type="submit" className="submit-btn"><span>Submit</span></button>
                     </div>
                   </form>
-                  
                 </div>
                 </div>
             </Col>
