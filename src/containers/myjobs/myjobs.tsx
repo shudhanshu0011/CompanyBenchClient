@@ -14,7 +14,7 @@ import "@styles/common/_pages.scss";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import BusinessCenterSharpIcon from "@mui/icons-material/BusinessCenterSharp";
 import AccessTimeSharpIcon from "@mui/icons-material/AccessTimeSharp";
-import "./candidate-card.scss";
+import "./myjobs-card.scss";
 
 
 interface Props {
@@ -166,7 +166,7 @@ export const MyJobs = (): JSX.Element => {
                   titleRight={pageViewDropdown()}
                 >
                   <div className="flex-box candidate-card-wrapper">
-                    <div className="candidate-card-item">
+                    <div>
                       {
                         jobList.map(job => (
 

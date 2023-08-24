@@ -38,7 +38,8 @@
   margin-bottom: 24px;
   position: relative;
   background: $background-5;
-  width: 25%;
+  flex: 25%;
+  margin-left: 20px;
   i {
     font-size: $font-xl;
     color: $color-text-mutted;
@@ -63,6 +64,36 @@
     color: $color-brand;
     &:hover {
       color: $color-brand-2;
+    }
+  }
+  .card-grid-2-image-rd {
+    padding: 0px 15px 0px 0px;
+    display: inline-block;
+    width: 30%;
+    min-width: 80px;
+    max-width: 100px;
+    figure {
+      position: relative;
+      display: inline-block;
+      img {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+      }
+    }
+    &.online {
+      figure {
+        &::before {
+          height: 18px;
+          width: 18px;
+          border-radius: 50%;
+          content: "";
+          position: absolute;
+          bottom: 13px;
+          right: 9px;
+          background: $background-success;
+        }
+      }
     }
   }
   &.grid-bd-16 {
