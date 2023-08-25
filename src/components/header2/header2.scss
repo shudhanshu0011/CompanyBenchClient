@@ -1,0 +1,31 @@
+@import url(https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800);
+
+*{
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.header-left2{
+  flex: 95%;
+  display: flex;
+  align-items: center;
+  .header-logo {
+    margin-right: 0;
+    min-width: 139px;
+    width: 200px;
+    max-width: 250px;
+  }
+}
+.header-right2{
+  flex: 5%;
+  display: flex;
+  min-width: 180px;
+  text-align: left;
+  align-items: center;
+  img{
+    width: 35px;
+    height: 35px;
+  }
+  .client-name{
+    font-weight: 1000;
+  }
+}

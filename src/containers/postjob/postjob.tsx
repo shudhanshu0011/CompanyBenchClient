@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper";
 import { Sidebar } from "../../components/sidebar/sidebar";
 import { Row, Col } from "react-bootstrap";
 import "@styles/common/_pages.scss";
@@ -109,7 +109,7 @@ export const PostJob = (): JSX.Element => {
   ]
 
   return (
-    <PageWrapper>
+    <PageWrapperUser>
       <div className="body-items">
         <Sidebar activeLink="/newjob"/>
         <Col xs={12} md={10}>
@@ -214,6 +214,6 @@ export const PostJob = (): JSX.Element => {
                 </div>
             </Col>
       </div>  
-    </PageWrapper>
+    </PageWrapperUser>
   );
 };

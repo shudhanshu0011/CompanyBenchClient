@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper";
 import "@styles/common/_pages.scss";
 import "./myjobs.scss";
 import { Sidebar } from "../../components/sidebar/sidebar";
@@ -30,6 +30,19 @@ export const MyJobs = (): JSX.Element => {
 
 
   useEffect(() => {
+    const getJobList = async() => {
+      const reqData = await fetch("http://localhost:3001/v1/job", {
+        method: 'GET',
+        headers: { "service_ref": 123456 },
+      });
+      const resData = await reqData.json();
+      console.log(resData.data.jobs);
+      setJobList(resData.data.jobs);
+    }
+    getJobList();
+  }, []);
+
+  useEffect(() => {
     const getLocationList = async() => {
       const reqData = await fetch("http://localhost:3001/v1/joblocation", {
         method: 'GET',
@@ -40,7 +53,7 @@ export const MyJobs = (): JSX.Element => {
       resData.data.joblocations.map(tmp => {
         options.push({value: tmp.cityId, label: tmp.cityName})
       })
-      console.log(options);
+      // console.log(options);
       setLocationLists(options);
     }
     getLocationList();
@@ -61,19 +74,6 @@ export const MyJobs = (): JSX.Element => {
       setTechnologyLists(options);
     }
     getTechnologyList();
-  }, []);
-
-  useEffect(() => {
-    const getJobList = async() => {
-      const reqData = await fetch("http://localhost:3001/v1/job", {
-        method: 'GET',
-        headers: { "service_ref": 123456 },
-      });
-      const resData = await reqData.json();
-      console.log(resData.data.jobs);
-      setJobList(resData.data.jobs);
-    }
-    getJobList();
   }, []);
 
   useEffect(() => {
@@ -130,7 +130,7 @@ export const MyJobs = (): JSX.Element => {
   }
 
   return (
-    <PageWrapper>
+    <PageWrapperUser>
         <div className="body-items">
           <Sidebar activeLink="/cmyjobs"/>
           {showDetail ? (
@@ -165,13 +165,12 @@ export const MyJobs = (): JSX.Element => {
                   title={candidatePagination()}
                   titleRight={pageViewDropdown()}
                 >
-                  <div className="flex-box candidate-card-wrapper">
-                    <div>
+                  <div className="job-container">
                       {
                         jobList.map(job => (
 
 
-                          <div className="card-grid-2 hover-up">
+                          <div className="job-card-grid-2 hover-up">
                             <div className="card-grid-2-image-left">
                               <div className="card-profile pt-10">
                                 <a href="candidate-details.html">
@@ -213,7 +212,6 @@ export const MyJobs = (): JSX.Element => {
                         ))
                       }
                       
-                    </div>
                   </div>
                   <Btn
                     title="Login to see more"
@@ -224,6 +222,6 @@ export const MyJobs = (): JSX.Element => {
             </Col>
           )}
         </div>
-    </PageWrapper>
+    </PageWrapperUser>
   );
 };

@@ -1,5 +1,11 @@
 @import "../../styles/common/variables.scss";
 
+.body-items{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
 .card-shadow {
   box-shadow: $box-shadow-2;
 }
@@ -29,16 +35,28 @@
   // background: url(../imgs/template/icons/location.svg) no-repeat 0px 6px;
   line-height: 24px;
 }
-
+.job-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1300px){
+  .job-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 600px){
+  .job-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 // new
-.card-grid-2 {
+.job-card-grid-2 {
   border-radius: 8px;
   border: 1px solid $color-border-2;
   overflow: hidden;
   margin-bottom: 24px;
   position: relative;
   background: $background-5;
-  flex: 25%;
   margin-left: 20px;
   i {
     font-size: $font-xl;

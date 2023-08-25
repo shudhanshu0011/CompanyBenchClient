@@ -4,7 +4,7 @@ import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
 import { CandidateCard } from "@components/candidate-card";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import "./allcandidates.scss";
 import { Sidebar } from "../../components/sidebar/sidebar";
@@ -41,7 +41,7 @@ export const AllCandidates = (): JSX.Element => {
     setShowDetail(isVisible);
   };
   return (
-    <PageWrapper>
+    <PageWrapperUser>
         <div className="body-items">
           <Sidebar activeLink="/allcandidates"/>
           {showDetail ? (
@@ -106,6 +106,6 @@ export const AllCandidates = (): JSX.Element => {
             </Col>
           )}
         </div>
-    </PageWrapper>
+    </PageWrapperUser>
   );
 };
