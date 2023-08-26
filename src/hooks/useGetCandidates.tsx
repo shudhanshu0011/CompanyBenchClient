@@ -1,4 +1,5 @@
 import { http } from "@config/request";
+import { AxiosResponse } from "axios";
 import { UseQueryResult, useQuery } from "react-query";
 
 const getCandidatesList = async () => {
@@ -13,7 +14,7 @@ export const useGetCandidates = (
   return useQuery(["QUERY_ID"], async () => getCandidatesList(), {
     onSuccess,
     onError,
-    select: (data: unknown) => data.data,
+    select: (data: AxiosResponse) => data.data,
     staleTime: 0
   });
 };

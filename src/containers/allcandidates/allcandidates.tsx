@@ -14,9 +14,6 @@ import { Sidebar } from "../../components/sidebar/sidebar";
 export const AllCandidates = (): JSX.Element => {
   // const {data: candidateData} = useGetCandidates();
 
-  
-
-
   const options = [
     { value: ".NET", label: ".NET" },
     { value: "Android", label: "Android" },
