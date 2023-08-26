@@ -1,4 +1,4 @@
-import { Header2 } from "../header2";
+import { Header2 } from "../user-header";
 
 interface Props {
   children: React.ReactElement;

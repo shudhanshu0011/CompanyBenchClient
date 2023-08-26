@@ -1,5 +1,5 @@
 import logo from "../../assets/logo.png";
-import "./header2.scss";
+import "./user-header.scss";
 
 
 export const Header2 = (): JSX.Element => {

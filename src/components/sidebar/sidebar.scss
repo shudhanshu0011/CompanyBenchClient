@@ -1,102 +1,112 @@
-.side-nav-container{
-  background-color: white;
+@import "../../styles/common/variables.scss";
+
+// Styles for the side navigation container
+.side-nav-container {
+  background-color: $color-white;
   width: 340px;
   height: 100%;
   position: relative;
-  color: white;
+  color: $color-white;
   transition: 0.4s;
+
+  &.side-nav-container-NX {
+    width: 78px;
+  }
 }
 
-.side-nav-container-NX{
-  width: 78px;
-}
-
+// Styles for various navigation elements
 .nav-upper,
 .nav-heading,
 .nav-menu,
 .menu-item {
-	display: grid;
+  display: grid;
 }
 
 .nav-menu {
-	grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
 }
 
 .menu-item {
-	height: 57px;
-	display: flex;
-	text-decoration: none;
-	margin: auto 20px;
+  height: 57px;
+  display: flex;
+  text-decoration: none;
+  margin: auto 20px;
   padding: 15px;
-	border-radius: 10px;
+  border-radius: 10px;
   justify-content: left;
   align-items: center;
   margin-bottom: 5px;
+
+  &:hover {
+    background-color: #d1d1d1;
+    color: $color-white;
+    text-decoration: $color-white;
+    cursor: pointer;
+  }
+
+  img {
+    width: 25px;
+    &:hover {
+      filter: invert(100%);
+    }
+  }
+
+  p {
+    margin-left: 5px;
+    &:hover {
+      color: $color-white;
+    }
+  }
 }
 
-.menu-item:hover {
-	background-color: #d1d1d1;
-  color: white;
-  text-decoration: white;
-  cursor: pointer;
-}
-
-.menu-item img{
-  width: 25px;
-}
-.menu-item img:hover{
-  filter: invert(100%);
-}
-
-.menu-item p{
-  margin-left: 5px;
-}
-.menu-item p:hover{
-  color: white;
-}
-
-.menu-item-NX{
+.menu-item-NX {
   height: 47px;
   width: 47px;
   padding: 10px;
-	display: flex;
-	color: grey;
-	text-decoration: none;
-	border-radius: 10px;
+  display: flex;
+  color: grey;
+  text-decoration: none;
+  border-radius: 10px;
   justify-content: left;
   align-items: center;
 }
 
 .nav-heading {
-	grid-template-columns: 2fr 1fr;
-	grid-template-rows: 1fr;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
 }
 
-.hamburger{
+.hamburger {
   position: absolute;
   right: 0;
-
   background: none;
   border: none;
   cursor: pointer;
-
   margin: -13px -18px;
-  background-color: white;
-  border: 1px solid rgb(216, 216, 216);
+  background-color: $color-white;
+  border: 1px solid $color-border-2;
   border-radius: 50%;
   height: 30px;
   width: 31px;
   padding: 5px;
+
+  &.hamburger-in {
+    background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/142053.png?raw=true);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 6px;
+  }
+
+  &.hamburger-out {
+    background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/rright.png?raw=true);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 8px;
+  }
 }
-.hamburger-in{
-  background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/142053.png?raw=true);
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: 6px;
-}
-.hamburger-out{
-  background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/rright.png?raw=true);
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: 8px;
+
+.body-items{
+  display: flex;
+  height: 100%;
+  width: 100%;
 }

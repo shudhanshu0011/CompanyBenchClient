@@ -17,79 +17,99 @@ import AccessTimeSharpIcon from "@mui/icons-material/AccessTimeSharp";
 import "./myjobs-card.scss";
 
 
+interface LocationOption {
+  value: string;
+  label: string;
+}
+
+interface TechnologyOption {
+  value: string;
+  label: string;
+}
+
+interface StatusOption {
+  value: string;
+  label: string;
+}
+
+interface Job {
+  company: string;
+  location: string;
+  jobStatus: string;
+  startdate: string;
+  skill: string[];
+}
+
 interface Props {
   handleShowDetails(isVisible: boolean): void;
 }
 
 export const MyJobs = (): JSX.Element => {
-  const [showDetail, setShowDetail] = useState(false);
-  const [locationLists, setLocationLists] = useState([]);
-  const [technologyList, setTechnologyLists] = useState([]);
-  const [jobList, setJobList] = useState([]);
-  const [statusList, setStatusList] = useState([]);
+  const [showDetail, setShowDetail] = useState<boolean>(false);
+  const [locationLists, setLocationLists] = useState<LocationOption[]>([]);
+  const [technologyList, setTechnologyLists] = useState<TechnologyOption[]>([]);
+  const [jobList, setJobList] = useState<Job[]>([]);
+  const [statusList, setStatusList] = useState<StatusOption[]>([]);
 
 
   useEffect(() => {
-    const getJobList = async() => {
+    const getJobList = async () => {
       const reqData = await fetch("http://localhost:3001/v1/job", {
-        method: 'GET',
-        headers: { "service_ref": 123456 },
+        method: "GET",
+        headers: { "service_ref": "123456" },
       });
       const resData = await reqData.json();
       console.log(resData.data.jobs);
       setJobList(resData.data.jobs);
-    }
+    };
     getJobList();
   }, []);
 
   useEffect(() => {
-    const getLocationList = async() => {
+    const getLocationList = async () => {
       const reqData = await fetch("http://localhost:3001/v1/joblocation", {
-        method: 'GET',
-        headers: { "service_ref": 123456 },
+        method: "GET",
+        headers: { "service_ref": "123456" },
       });
       const resData = await reqData.json();
-      const options = []
-      resData.data.joblocations.map(tmp => {
-        options.push({value: tmp.cityId, label: tmp.cityName})
-      })
-      // console.log(options);
+      const options: LocationOption[] = resData.data.joblocations.map(tmp => ({
+        value: tmp.cityId,
+        label: tmp.cityName,
+      }));
       setLocationLists(options);
-    }
+    };
     getLocationList();
   }, []);
 
   useEffect(() => {
-    const getTechnologyList = async() => {
+    const getTechnologyList = async () => {
       const reqData = await fetch("http://localhost:3001/v1/technology", {
-        method: 'GET',
-        headers: { "service_ref": 123456 },
+        method: "GET",
+        headers: { "service_ref": "123456" },
       });
       const resData = await reqData.json();
-      const options = []
-      resData.data.technologys.map(tmp => {
-        options.push({value: tmp.technologyId, label: tmp.technologyName})
-      })
-      // console.log(options);
+      const options: TechnologyOption[] = resData.data.technologys.map(tmp => ({
+        value: tmp.technologyId,
+        label: tmp.technologyName,
+      }));
       setTechnologyLists(options);
-    }
+    };
     getTechnologyList();
   }, []);
 
   useEffect(() => {
-    const getStatus = async () =>{
+    const getStatus = async () => {
       const statusData = await fetch("http://localhost:3001/v1/jobstatus/codes", {
-        method: 'GET',
-        headers: { "service_ref": 123456 },
+        method: "GET",
+        headers: { "service_ref": "123456" },
       });
       const resData = await statusData.json();
-      const options = []
-      resData.data.jobs.map(tmp => {
-        options.push({value: tmp.statusId, label: tmp.statusName})
-      })
-      // console.log(options);
+      const options: StatusOption[] = resData.data.jobs.map(tmp => ({
+        value: tmp.statusId,
+        label: tmp.statusName,
+      }));
       setStatusList(options);
-    }
+    };
     getStatus();
   }, []);
 
@@ -113,21 +133,15 @@ export const MyJobs = (): JSX.Element => {
     handleShowDetails(true);
   }
 
-  const findLocById = (id) => {
-    for(let i=0; i<locationLists.length; i++){
-      if(locationLists[i].value==id){
-        return locationLists[i].label;
-      }
-    }
-  }
+  const findLocById = (id: string): string | undefined => {
+    const location = locationLists.find(loc => loc.value === id);
+    return location?.label;
+  };
 
-  const findStatusById = (id) => {
-    for(let i=0; i<statusList.length; i++){
-      if(statusList[i].value==id){
-        return statusList[i].label;
-      }
-    }
-  }
+  const findStatusById = (id: string): string | undefined => {
+    const status = statusList.find(s => s.value === id);
+    return status?.label;
+  };
 
   return (
     <PageWrapperUser>

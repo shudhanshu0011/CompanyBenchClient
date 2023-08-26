@@ -15,6 +15,7 @@ import "@styles/common/_pages.scss";
 
 export const AllCandidates = (): JSX.Element => {
   const { data: candidateData } = useGetCandidates();
+  // console.log(candidateData.data.candidate);
   const [showDetail, setShowDetail] = useState(false);
 
   const options = [

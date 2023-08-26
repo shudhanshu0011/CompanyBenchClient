@@ -2,7 +2,7 @@ import { http } from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 
 const getCandidatesList = async () => {
-  return await http.get<unknown>("localhost:3001/v1/candidate/vendor/4321", {
+  return await http.get<unknown>("http://localhost:3001/v1/candidate/vendor/4321", {
     headers: { "service_ref": 123456 },
   });
 };
