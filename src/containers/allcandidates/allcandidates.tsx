@@ -1,18 +1,18 @@
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
 import { CandidateCard } from "@components/candidate-card";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
-import { useGetCandidates } from "@hooks/useGetCandidates";
+// import { useGetCandidates } from "@hooks/useGetCandidates";
 import "./allcandidates.scss";
 import { Sidebar } from "../../components/sidebar/sidebar";
 
 
 export const AllCandidates = (): JSX.Element => {
-  const {data: candidateData} = useGetCandidates();
+  // const {data: candidateData} = useGetCandidates();
 
   
 

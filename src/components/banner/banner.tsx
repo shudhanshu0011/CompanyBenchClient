@@ -31,7 +31,7 @@ export const Banner = () => {
   };
 
   const selectStyleConfig = {
-    /* eslint-disable-next-line*/
+     
     control: ({isFocused, ...baseStyles }: ControlProps) => ({
       ...baseStyles,
       borderColor:isFocused ? "transparent" : "transparent",

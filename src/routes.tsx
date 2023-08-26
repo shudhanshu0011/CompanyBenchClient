@@ -18,7 +18,7 @@ const routes: RouteObject[] = [
     element: <Home />,
   },
   {
-    path: "/candidates",
+    path: "/c/candidates",
     element: <Candidates />,
   },
   {
@@ -26,7 +26,7 @@ const routes: RouteObject[] = [
     element: <AllCandidates />,
   },
   {
-    path: "/cdashboard",
+    path: "/c/dashboard",
     element: <Dashboard />,
   },
   {

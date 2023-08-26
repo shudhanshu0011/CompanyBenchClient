@@ -6,14 +6,14 @@ import { AppPagination } from "@common/app-pagination";
 import { CandidateCard } from "@components/candidate-card";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
-import { useGetCandidates } from "@hooks/useGetCandidates";
+// import { useGetCandidates } from "@hooks/useGetCandidates";
 import { Btn } from "@src/common/button";
 
 import "@styles/common/_pages.scss";
 import "./candidates.scss";
 
 export const Candidates = (): JSX.Element => {
-  const { data: candidateData } = useGetCandidates();
+  // const { data: candidateData } = useGetCandidates();
   const [showDetail, setShowDetail] = useState(false);
 
   const options = [
