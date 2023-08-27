@@ -29,11 +29,13 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
+    "react-indiana-drag-scroll": "^3.0.3-alpha",
     "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.15.0",
     "react-select": "^5.7.4",
     "sort-by": "^1.2.0",
+    "swiper": "^10.2.0",
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {

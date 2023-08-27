@@ -101,7 +101,7 @@ export const NewJobForm = (): JSX.Element => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormData(defaultFormData);
-    // console.log(formData);
+    console.log(formData);
   };
   const defaultLocation = [
     {value:1, label: "Anywhere in India"}

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import { SelectDropdown } from "@common/select";
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 
 export const Banner = () => {
@@ -79,13 +80,15 @@ export const Banner = () => {
                     />
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-default btn-find font-sm"
-                >
-                  <FontAwesomeIcon icon={["fas", "magnifying-glass"]} />
-                  Search
-                </button>
+                <Link to="/allcandidates">
+                  <button
+                    type="submit"
+                    className="btn btn-default btn-find font-sm"
+                  >
+                    <FontAwesomeIcon icon={["fas", "magnifying-glass"]} />
+                    Search
+                  </button>
+                </Link>
               </form>
             </div>
           </div>
