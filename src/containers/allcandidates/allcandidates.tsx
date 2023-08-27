@@ -43,70 +43,70 @@ export const AllCandidates = (): JSX.Element => {
   };
   return (
     <PageWrapperUser>
-        <div className="body-items">
-          <Sidebar activeLink="/allcandidates"/>
-          {showDetail ? (
-            <CandidateDetails handleShowDetails={handleShowDetails} />
-          ) : (
-            <Col xs={12} md={10}>
-              <div className="box-content pt-40 pl-30">
-                <h3 className="mb-35">Candidates</h3>
-                <Paper title="Advance Filter" titleRight="Search Result : 5">
-                  <div className="filter-dropdown-container">
-                    <Row>
-                      <Col xs={3}>
-                        <SelectDropdown
-                          options={options}
-                          placeholder="Select Technology"
-                          isClearable
-                          size="lg"
-                        />
-                      </Col>
-                      <Col xs={3}>
-                        <SelectDropdown
-                          options={options}
-                          placeholder="Select Location"
-                          size="lg"
-                          isClearable
-                        />
-                      </Col>
-                    </Row>
+      <div className="body-items">
+        <Sidebar activeLink="/allcandidates" />
+        {showDetail ? (
+          <CandidateDetails handleShowDetails={handleShowDetails} />
+        ) : (
+          <Col xs={12} md={10}>
+            <div className="box-content pt-40 pl-30">
+              <h3 className="mb-35">All Candidates</h3>
+              <Paper title="Advance Filter" titleRight="Search Result : 5">
+                <div className="filter-dropdown-container">
+                  <Row>
+                    <Col xs={3}>
+                      <SelectDropdown
+                        options={options}
+                        placeholder="Select Technology"
+                        isClearable
+                        size="lg"
+                      />
+                    </Col>
+                    <Col xs={3}>
+                      <SelectDropdown
+                        options={options}
+                        placeholder="Select Location"
+                        size="lg"
+                        isClearable
+                      />
+                    </Col>
+                  </Row>
+                </div>
+              </Paper>
+              <Paper
+                title={candidatePagination()}
+                titleRight={pageViewDropdown()}
+              >
+                <div className="flex-box candidate-card-wrapper">
+                  <div className="candidate-card-item">
+                    <CandidateCard handleShowDetails={handleShowDetails} />
                   </div>
-                </Paper>
-                <Paper
-                  title={candidatePagination()}
-                  titleRight={pageViewDropdown()}
-                >
-                  <div className="flex-box candidate-card-wrapper">
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
 
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
+                  <div className="candidate-card-item">
+                    <CandidateCard handleShowDetails={handleShowDetails} />
                   </div>
-                  <Btn
-                    title="Login to see more"
-                    className="btn btn-default btn-apply font-sm"
-                  />
-                </Paper>
-              </div>
-            </Col>
-          )}
-        </div>
+                  <div className="candidate-card-item">
+                    <CandidateCard handleShowDetails={handleShowDetails} />
+                  </div>
+                  <div className="candidate-card-item">
+                    <CandidateCard handleShowDetails={handleShowDetails} />
+                  </div>
+                  <div className="candidate-card-item">
+                    <CandidateCard handleShowDetails={handleShowDetails} />
+                  </div>
+                  <div className="candidate-card-item">
+                    <CandidateCard handleShowDetails={handleShowDetails} />
+                  </div>
+                </div>
+                <Btn
+                  title="Login to see more"
+                  className="btn btn-default btn-apply font-sm"
+                />
+              </Paper>
+            </div>
+          </Col>
+        )}
+      </div>
     </PageWrapperUser>
   );
 };
