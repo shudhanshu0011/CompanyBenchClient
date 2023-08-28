@@ -1,0 +1,11 @@
+@import "@styles/common/variables.scss";
+
+.choose-us-container{
+  width: 100%;
+  height: 100vh;
+  background-color: aqua;
+  .main-container{
+    width: 90%;
+    height: 100%;
+  }
+}

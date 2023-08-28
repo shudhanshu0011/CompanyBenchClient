@@ -15,8 +15,6 @@ export const BoxTrust = () => {
               <Swiper
                 spaceBetween={50}
                 slidesPerView={6}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
                 loop={true}
               >
                 <SwiperSlide>
@@ -83,8 +81,20 @@ export const BoxTrust = () => {
             </div>
           </div>
         </div>
-        <div className='row'>
-
+        <div className='row-intro'>
+          <div className='youtube-intro'>
+            <div className='ytb-frame'>
+              <iframe width="651" height="300" src="https://www.youtube.com/embed/pRQQteW5I4I" title="Companybench.com hire Remote Developers within 24 hours #hire #hiring #softwaredeveloper @ 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div className='text-intro'>
+            <div className='intro-text-heading'>
+              <h2>Have dedicated developers as per your demand</h2>
+            </div>
+            <div className='intro-text-detail'>
+              <p>Given the explicit surge in demand of experienced and qualified resource , We at company bench have developed the bridge to fulfill this immediate gap of resource hire across relevant technologies in circulation</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

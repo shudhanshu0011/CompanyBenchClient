@@ -188,7 +188,7 @@ export const MyJobs = (): JSX.Element => {
                             <div className="card-grid-2-image-left">
                               <div className="card-profile pt-10">
                                 <a href="candidate-details.html">
-                                  <h5>{job.company}</h5>
+                                  <h5>{job.jobHeading}</h5>
                                 </a>
                                 <p className="font-xs color-text-mutted">
                                   <PlaceOutlinedIcon />

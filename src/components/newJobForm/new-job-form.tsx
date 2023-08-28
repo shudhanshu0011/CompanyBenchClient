@@ -4,11 +4,12 @@ import "@styles/common/_pages.scss";
 import "./new-job-form.scss";
 import Select from 'react-select';
 import { useGetJobLocations } from "../../hooks/useGetJobLocations";
+import axios from "axios";
 
 const defaultFormData = {
     duration: 0,
     skill: [],
-    JobHeading: "",
+    jobHeading: "",
     location: [],
     openpositions: "",
     experienceLevel: "",
@@ -82,7 +83,7 @@ export const NewJobForm = (): JSX.Element => {
   const [formData, setFormData] = useState(defaultFormData);
   const {duration,
          skill,
-         JobHeading,
+         jobHeading,
          location,
          openpositions,
          experienceLevel,
@@ -101,7 +102,13 @@ export const NewJobForm = (): JSX.Element => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormData(defaultFormData);
-    console.log(formData);
+    // console.log(formData);
+    axios.post('http://localhost:3001/v1/job', formData)
+    .then((response) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
   };
   const defaultLocation = [
     {value:1, label: "Anywhere in India"}
@@ -123,7 +130,7 @@ export const NewJobForm = (): JSX.Element => {
                         <div className="container">
                           <Row>
                             <label>Job Title*</label>
-                            <input type="text" id="JobHeading" value={JobHeading} placeholder="Enter Title" onChange={onChange} />
+                            <input type="text" id="jobHeading" value={jobHeading} placeholder="Enter Title" onChange={onChange} />
                           </Row>
                           <Row>
                             <label>Locations</label>
