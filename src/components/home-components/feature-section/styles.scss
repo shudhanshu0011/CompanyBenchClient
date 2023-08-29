@@ -1,0 +1,53 @@
+@import "@styles/common/variables.scss";
+
+.feature-section-container{
+  margin: 0px 0px 30px;
+  padding: 100px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-border-3;
+  width: 100%;
+  .feature-grid-container{
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 1000px){
+      .feature-grid-container{
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    .feature-first-grid{
+      padding: 20px;
+      p{
+        font-size: $font-lg;
+        padding-top: 20px;
+        line-height: 1.5;
+      }
+      button{
+        margin-top: 20px;
+      }
+    }
+    .feature-second-grid{
+      padding: 20px;
+    }
+  }
+  .feature-text-detail{
+    background: url(https://companybench.com/assets/cb-new-style/Frontend/imgs/page/homepage3/check-box.svg);
+    background-repeat:no-repeat;
+    background-position: 0px 25px;
+    p{
+      color: $color-text-paragraph-2;
+      padding-left: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      line-height: 27px;
+      font-size: $font-md;
+    }          
+  }
+}
+@media (max-width: 1000px){
+  .feature-grid-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
