@@ -1,0 +1,116 @@
+@import "@styles/common/variables.scss";
+
+.choose-us-container{
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-text;
+  .main-container{
+    position: relative;
+    width: 1400px;
+    height: 100%;
+    padding: 20px;
+    .choose-us-header-area{
+      text-align: center;
+      padding: 20px;
+      h2{
+        padding: 10px;
+      }
+      p{
+        padding: 10px;
+        font-size: $font-lg;
+        line-height: 1.5;
+        color: $color-text-paragraph-2;
+      }
+    }
+    .step-guide{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @media (max-width: 1300px){
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .steps{
+        flex: 33.33%;
+        text-align: center;
+        .step-img-container1{
+          width: 65%;
+          height: 40%;
+          display: flex;
+          justify-content: right;
+          align-items: right;
+          .guide-logo{
+            background-color: $color-border-3;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+          }
+        }
+        .step-img-container2{
+          width: 65%;
+          height: 40%;
+          display: flex;
+          justify-content: right;
+          align-items: right;
+          .steps-link{
+            margin-top: 30px;
+            min-width: 320px;
+          }
+          .guide-logo{
+            background-color: $color-border-3;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+          }
+        }
+        .step-img-container3{
+          width: 65%;
+          height: 40%;
+          display: flex;
+          justify-content: right;
+          align-items: right;
+          .steps-link{
+            margin-top: 30px;
+            min-width: 320px;
+          }
+          .guide-logo{
+            background-color: $color-border-3;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+          }
+        }
+        h4{
+          padding: 20px;
+        }
+        p{
+          padding: 10px;
+          line-height: 1.7;
+          font-size: $font-sm;
+        }
+      }
+    }
+    .contact-us-btn{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button{
+        margin: 50px;
+      }
+    }
+  }
+}
+@media (max-width: 1300px){
+  .step-guide{
+    grid-template-columns: repeat(1, 1fr);
+    padding: 20px;
+  }
+  .choose-us-container{
+    height: 150vh;
+  }
+  .steps-link{
+    visibility: hidden;
+  }
+}
