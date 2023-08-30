@@ -1,0 +1,11 @@
+@import "../../styles/common/variables.scss";
+
+.copyright-footer{
+  border-top: 0.25px solid $color-border-2;
+  padding: 35px;
+  span{
+    padding-left: 50px;
+    font-size: $font-xs;
+    font-weight: 500;
+  }
+}

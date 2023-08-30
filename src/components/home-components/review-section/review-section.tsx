@@ -62,6 +62,28 @@ export const ReviewSection = () => {
                 <span>Businessmen</span>
               </div>
             </SwiperSlide>
+            <SwiperSlide>
+              <div className="review-card">
+                <div className="talk-bubble tri-right btm-left-in">
+                  <div className="talktext">
+                    <p>I always get top-quality Salesforce.com and FullStack developers from Company Bench instantly. Will highly recommend them.</p>
+                  </div>
+                </div>
+                <h6>Sandra Bomar</h6>
+                <span>Businessmen</span>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="review-card">
+                <div className="talk-bubble tri-right btm-left-in">
+                  <div className="talktext">
+                    <p>We are able to deliver and win more projects with the immense help that we got by Company Bench resources available within 2 days.</p>
+                  </div>
+                </div>
+                <h6>Ann Doughtie</h6>
+                <span>Businessmen</span>
+              </div>
+            </SwiperSlide>
           </Swiper>
         </div>
       </div>
