@@ -1,3 +1,4 @@
+import { CopyrightFooter } from "@components/copyright-footer";
 import { Header } from "../header";
 
 interface Props {
@@ -9,6 +10,7 @@ export const PageWrapper = ({ children }: Props) => {
       <div className="page-wrapper">
         <Header />
         {children}
+        <CopyrightFooter/>
       </div>
     </main>
   );
