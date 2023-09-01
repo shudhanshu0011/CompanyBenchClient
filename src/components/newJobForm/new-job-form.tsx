@@ -3,8 +3,9 @@ import { Row, Col } from "react-bootstrap";
 import "@styles/common/_pages.scss";
 import "./new-job-form.scss";
 import Select from 'react-select';
-import { useGetJobLocations } from "../../hooks/useGetJobLocations";
+import { useGetJobLocations } from "@hooks/useGetJobLocations";
 import axios from "axios";
+import { useGetStatusCodes } from "@hooks/useGetStatusCodes";
 
 const defaultFormData = {
     duration: 0,
@@ -51,7 +52,9 @@ interface StatusOption {
 export const NewJobForm = (): JSX.Element => {
   const [locationLists, setLocationLists] = useState<LocationOption[]>([]);
   const [statusList, setStatusList] = useState<StatusOption[]>([]);
+  
   const {data: jobLocationData} = useGetJobLocations();
+  const {data: statusListData} = useGetStatusCodes();
 
   useEffect(() => {
     if (jobLocationData) {
@@ -64,21 +67,14 @@ export const NewJobForm = (): JSX.Element => {
   }, [jobLocationData]);
 
   useEffect(() => {
-    const getStatus = async () =>{
-      const statusData = await fetch("http://localhost:3001/v1/jobstatus/codes", {
-        method: 'GET',
-        headers: { "service_ref": 123456 },
-      });
-      const resData = await statusData.json();
-      const options = []
-      resData.data.jobs.map(tmp => {
-        options.push({value: tmp.statusId, label: tmp.statusName})
-      })
-      // console.log(options);
+    if (statusListData) {
+      const options: StatusOption[] = statusListData.map((tmp: any) => ({
+        value: tmp.statusId,
+        label: tmp.statusName
+      }));
       setStatusList(options);
     }
-    getStatus();
-  }, []);
+  }, [statusListData]);
 
   const [formData, setFormData] = useState(defaultFormData);
   const {duration,
@@ -110,6 +106,7 @@ export const NewJobForm = (): JSX.Element => {
       console.log(error);
     });
   };
+  
   const defaultLocation = [
     {value:1, label: "Anywhere in India"}
   ]
@@ -120,7 +117,7 @@ export const NewJobForm = (): JSX.Element => {
 
   return (
         <>
-            <Col xs={12} md={10}>
+            <Col>
               <div className="box-content pt-40 pl-30">
                 <h3 className="mb-35">Post a New Job</h3>
                 <div className="form-card">

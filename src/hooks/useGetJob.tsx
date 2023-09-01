@@ -1,19 +1,19 @@
 import { http } from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 
-const getCandidatesList = async () => {
-  return await http.post<unknown>("http://localhost:3001/v1/job", {
+const getJobList = async () => {
+  return await http.get<unknown>("http://localhost:3001/v1/job", {
     headers: { "service_ref": 123456 },
   });
 };
-export const useGetCandidates = (
+export const useGetJob = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<unknown, Error> => {
-  return useQuery(["QUERY_ID"], async () => getCandidatesList(), {
+  return useQuery(["Get_Job"], async () => getJobList(), {
     onSuccess,
     onError,
-    select: (data: unknown) => data.data,
+    select: (data: unknown) => data.data.data.jobs,
     staleTime: 0
   });
 };

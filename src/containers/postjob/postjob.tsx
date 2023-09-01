@@ -1,4 +1,4 @@
-import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper";
+import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper-user";
 import { Sidebar } from "../../components/sidebar/sidebar";
 import "@styles/common/_pages.scss";
 import { NewJobForm } from "../../components/newJobForm/new-job-form";

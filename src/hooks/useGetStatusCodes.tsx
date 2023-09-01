@@ -10,10 +10,10 @@ export const useGetStatusCodes = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<unknown, Error> => {
-  return useQuery(["QUERY_ID"], async () => getStatusCodes(), {
+  return useQuery(["Get_Job_Status"], async () => getStatusCodes(), {
     onSuccess,
     onError,
-    select: (data: unknown) => data.data.jobs,
+    select: (data: unknown) => data.data.data.jobs,
     staleTime: 0
   });
 };

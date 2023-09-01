@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
-import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper";
+import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper-user";
 import "@styles/common/_pages.scss";
 import "./myjobs.scss";
 import { Sidebar } from "../../components/sidebar/sidebar";
@@ -15,6 +15,10 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import BusinessCenterSharpIcon from "@mui/icons-material/BusinessCenterSharp";
 import AccessTimeSharpIcon from "@mui/icons-material/AccessTimeSharp";
 import "./myjobs-card.scss";
+import { useGetJobLocations } from "@hooks/useGetJobLocations";
+import { useGetStatusCodes } from "@hooks/useGetStatusCodes";
+import { useGetJob } from "@hooks/useGetJob";
+import { useGetTechnology } from "@hooks/useGetTechnology";
 
 
 interface LocationOption {
@@ -34,7 +38,7 @@ interface StatusOption {
 
 interface Job {
   company: string;
-  location: string;
+  location: string[];
   jobStatus: string;
   startdate: string;
   skill: string[];
@@ -51,67 +55,53 @@ export const MyJobs = (): JSX.Element => {
   const [jobList, setJobList] = useState<Job[]>([]);
   const [statusList, setStatusList] = useState<StatusOption[]>([]);
 
+  const {data: jobLocationData} = useGetJobLocations();
+  const {data: statusListData} = useGetStatusCodes();
+  const {data: jobData} = useGetJob();
+  const {data: technologyData} = useGetTechnology();
 
   useEffect(() => {
-    const getJobList = async () => {
-      const reqData = await fetch("http://localhost:3001/v1/job", {
-        method: "GET",
-        headers: { "service_ref": "123456" },
-      });
-      const resData = await reqData.json();
-      console.log(resData.data.jobs);
-      setJobList(resData.data.jobs);
-    };
-    getJobList();
-  }, []);
-
-  useEffect(() => {
-    const getLocationList = async () => {
-      const reqData = await fetch("http://localhost:3001/v1/joblocation", {
-        method: "GET",
-        headers: { "service_ref": "123456" },
-      });
-      const resData = await reqData.json();
-      const options: LocationOption[] = resData.data.joblocations.map(tmp => ({
+    if (jobLocationData) {
+      const options: LocationOption[] = jobLocationData.map((tmp: any) => ({
         value: tmp.cityId,
-        label: tmp.cityName,
+        label: tmp.cityName
       }));
       setLocationLists(options);
-    };
-    getLocationList();
-  }, []);
+    }
+  }, [jobLocationData]);
 
   useEffect(() => {
-    const getTechnologyList = async () => {
-      const reqData = await fetch("http://localhost:3001/v1/technology", {
-        method: "GET",
-        headers: { "service_ref": "123456" },
-      });
-      const resData = await reqData.json();
-      const options: TechnologyOption[] = resData.data.technologys.map(tmp => ({
-        value: tmp.technologyId,
-        label: tmp.technologyName,
-      }));
-      setTechnologyLists(options);
-    };
-    getTechnologyList();
-  }, []);
-
-  useEffect(() => {
-    const getStatus = async () => {
-      const statusData = await fetch("http://localhost:3001/v1/jobstatus/codes", {
-        method: "GET",
-        headers: { "service_ref": "123456" },
-      });
-      const resData = await statusData.json();
-      const options: StatusOption[] = resData.data.jobs.map(tmp => ({
+    if (statusListData) {
+      const options: StatusOption[] = statusListData.map((tmp: any) => ({
         value: tmp.statusId,
-        label: tmp.statusName,
+        label: tmp.statusName
       }));
       setStatusList(options);
-    };
-    getStatus();
-  }, []);
+    }
+  }, [statusListData]);
+
+  useEffect(() => {
+    if (jobData) {
+      const options: Job[] = jobData.map((tmp: any) => ({
+        company: tmp.jobHeading,
+        location: tmp.location,
+        jobStatus: tmp.jobStatus,
+        startdate: tmp.startdate,
+        skill: tmp.skill
+      }));
+      setJobList(options);
+    }
+  }, [jobData]);
+
+  useEffect(() => {
+    if (technologyData) {
+      const options: TechnologyOption[] = technologyData.map((tmp: any) => ({
+        value: tmp.tecnologyId,
+        label: tmp.technologyName
+      }));
+      setTechnologyLists(options);
+    }
+  }, [technologyData]);
 
   const candidatePagination = () => {
     return <AppPagination />;
@@ -150,7 +140,7 @@ export const MyJobs = (): JSX.Element => {
           {showDetail ? (
             <CandidateDetails handleShowDetails={handleShowDetails} />
           ) : (
-            <Col xs={12} md={10}>
+            <Col>
               <div className="box-content pt-40 pl-30">
                 <h3 className="mb-35">My Jobs</h3>
                 <Paper title="Advance Filter" titleRight="Search Result : 5">
@@ -182,13 +172,11 @@ export const MyJobs = (): JSX.Element => {
                   <div className="job-container">
                       {
                         jobList.map(job => (
-
-
                           <div className="job-card-grid-2 hover-up">
                             <div className="card-grid-2-image-left">
                               <div className="card-profile pt-10">
                                 <a href="candidate-details.html">
-                                  <h5>{job.jobHeading}</h5>
+                                  <h5>{job.company}</h5>
                                 </a>
                                 <p className="font-xs color-text-mutted">
                                   <PlaceOutlinedIcon />
@@ -220,12 +208,8 @@ export const MyJobs = (): JSX.Element => {
                               </div>
                             </div>
                           </div>
-
-
-
                         ))
-                      }
-                      
+                      }                      
                   </div>
                   <Btn
                     title="Login to see more"

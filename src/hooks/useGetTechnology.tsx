@@ -1,19 +1,19 @@
 import { http } from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 
-const getJobLocationList = async () => {
-  return await http.get<unknown>("http://localhost:3001/v1/joblocation", {
+const getJobTechnologyList = async () => {
+  return await http.get<unknown>("http://localhost:3001/v1/technology", {
     headers: { "service_ref": 123456 },
   });
 };
-export const useGetJobLocations = (
+export const useGetTechnology = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<unknown, Error> => {
-  return useQuery(["Get_Job_Location"], async () => getJobLocationList(), {
+  return useQuery(["Get_Technology"], async () => getJobTechnologyList(), {
     onSuccess,
     onError,
-    select: (data: unknown) => data.data.data.joblocations,
+    select: (data: unknown) => data.data.data.technologys,
     staleTime: 0
   });
 };

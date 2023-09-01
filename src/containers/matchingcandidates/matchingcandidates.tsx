@@ -1,5 +1,5 @@
 
-import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper";
+import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper-user";
 import "@styles/common/_pages.scss";
 import "./matchingcandidates.scss";
 import { Sidebar } from "../../components/sidebar/sidebar";
@@ -50,7 +50,7 @@ export const MatchingCandidates = (): JSX.Element => {
         {showDetail ? (
           <CandidateDetails handleShowDetails={handleShowDetails} />
         ) : (
-          <Col xs={12} md={10}>
+          <Col>
             <div className="box-content pt-40 pl-30">
               <h3 className="mb-35">Matching Candidates</h3>
               <Paper title="Advance Filter" titleRight="Search Result : 5">

@@ -1,5 +1,5 @@
 
-import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper";
+import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper-user";
 import "@styles/common/_pages.scss";
 import "./interview.scss";
 import { Sidebar } from "../../components/sidebar/sidebar";
