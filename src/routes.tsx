@@ -10,6 +10,7 @@ import { MyJobs } from "./containers/myjobs/myjobs";
 import { PostJob } from "./containers/postjob/postjob";
 import { Shortlisted } from "./containers/shortlisted/shortlisted";
 import { Sidebar } from "./components/sidebar/sidebar";
+import { Jobs } from "./containers/jobs";
 
 
 const routes: RouteObject[] = [
@@ -56,6 +57,10 @@ const routes: RouteObject[] = [
   {
     path: "/",
     element: <Sidebar activeLink="/" />,
+  },
+  {
+    path: "/jobs",
+    element: <Jobs/>,
   },
 ];
 

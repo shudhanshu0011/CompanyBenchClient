@@ -1,10 +1,11 @@
 @import "../../styles/common/variables.scss";
 
 .box-content {
-  background-color: #05264e;
   background: $color-page-background;
   display: inline-block;
+  width: 100%;
   padding: 30px;
+  overflow: auto;
   .title-icon {
     display: inline-flex;
     margin-top: 8px;
@@ -95,3 +96,13 @@
   display: flex;
   padding-top: 8px;
 }
+
+
+.body-items{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+
+

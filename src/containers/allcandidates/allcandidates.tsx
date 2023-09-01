@@ -21,36 +21,34 @@ export const AllCandidates = (): JSX.Element => {
     <PageWrapperUser>
       <div className="body-items">
         <Sidebar activeLink="/allcandidates" />
-        <div className="child-component">
-            <Col>
-              <div className="box-content pt-40 pl-30">
-                <h3 className="mb-35">All Candidates</h3>
-                <Paper title="Advance Filter" titleRight="Search Result : 5">
-                  <div className="filter-dropdown-container">
-                    <Row>
-                      <Col xs={3}>
-                        <SelectDropdown
-                          options={options}
-                          placeholder="Select Technology"
-                          isClearable
-                          size="lg"
-                        />
-                      </Col>
-                      <Col xs={3}>
-                        <SelectDropdown
-                          options={options}
-                          placeholder="Select Location"
-                          size="lg"
-                          isClearable
-                        />
-                      </Col>
-                    </Row>
-                  </div>
-                </Paper>
-                <CandidatePagination/>
+        <Col>
+          <div className="box-content pt-40 pl-30">
+            <h3 className="mb-35">All Candidates</h3>
+            <Paper title="Advance Filter" titleRight="Search Result : 5">
+              <div className="filter-dropdown-container">
+                <Row>
+                  <Col xs={3}>
+                    <SelectDropdown
+                      options={options}
+                      placeholder="Select Technology"
+                      isClearable
+                      size="lg"
+                    />
+                  </Col>
+                  <Col xs={3}>
+                    <SelectDropdown
+                      options={options}
+                      placeholder="Select Location"
+                      size="lg"
+                      isClearable
+                    />
+                  </Col>
+                </Row>
               </div>
-            </Col>
-        </div>
+            </Paper>
+            <CandidatePagination/>
+          </div>
+        </Col>
       </div>
     </PageWrapperUser>
   );

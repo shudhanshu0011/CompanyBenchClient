@@ -77,7 +77,7 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
               key={link}
               className={isExpanded ? "menu-item" : "menu-item menu-item-NX"}
               href={link}
-              style={activeLink === link ? { backgroundColor: '#adadad'} : {}}
+              style={activeLink === link ? { backgroundColor: 'rgb(201, 201, 201)'} : {}}
             >
               <img className="menu-item-icon" src={icon} alt="" />
               {isExpanded && <p>{text}</p>}

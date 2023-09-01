@@ -23,6 +23,7 @@ import { ReactComponent as LocationIcon } from "../../assets/icons/location.svg"
 import { ReactComponent as ExperienceIcon } from "../../assets/icons/experience.svg";
 import { ReactComponent as SalaryIcon } from "../../assets/icons/salary.svg";
 import { ReactComponent as UpdatedIcon } from "../../assets/icons/updated.svg";
+import { ReactComponent as PeopleIcon } from "../../assets/icons/icon-people.svg";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 
 interface LocationOption {
@@ -203,24 +204,25 @@ export default function CandidatePagination() {
             ).map((row) => (
               <TableRow key={row.candidateId}>
                 <TableCell component="th" scope="row">
-                  <h6>{row.firstName} {row.lastName}</h6>
+                  <h6 style={{fontSize:'13px', paddingLeft:'15px'}}>{<PeopleIcon style={{marginRight:'10px'}}/>}{row.firstName} {row.lastName}</h6>
                 </TableCell>
                 <TableCell style={{ width: 160 }} align="right">
                   {
                     (candidateTableStyle=="candidate-table") ? 
-                    <h6>
+                    <h6 style={{fontSize:'13px'}}>
                       {/* {row.skill[0]} */}
+                      {<ExperienceIcon style={{marginRight:'10px'}} />}
                       Java, React
                     </h6>
                     : <p></p>
                   }
                 </TableCell>
                 <TableCell style={{ width: 200 }} align="right">
-                  <h6>{row.designation}</h6>
+                  <h6 style={{fontSize:'13px'}}>{<AboutIcon style={{marginRight:'10px'}} />}{row.designation}</h6>
                 </TableCell>
                 <TableCell style={{ width: 160 }} align="right">
-                  <h6>
-                    {findLocById(row.location)}
+                  <h6 style={{fontSize:'13px'}}>
+                    {<LocationIcon style={{marginRight:'10px'}} />}{findLocById(row.location)}
                   </h6>
                 </TableCell>
                 <TableCell style={{ width: 160 }} align="right">

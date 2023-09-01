@@ -11,13 +11,13 @@ const defaultFormData = {
     duration: 0,
     skill: [],
     jobHeading: "",
-    location: [],
+    location: ["1"],
     openpositions: "",
     experienceLevel: "",
     startDate: "",
     hourlyPrice: "",
     description: "",
-    jobStatus: "",
+    jobStatus: "1",
 };
 
 const skillList = [

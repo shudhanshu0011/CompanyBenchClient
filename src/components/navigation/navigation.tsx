@@ -12,7 +12,7 @@ export const Navigation = (): JSX.Element => {
             <a href="jobs-grid.html">Hire Developer</a>
           </li>
           <li>
-            <a href="companies-grid.html">Find a Job</a>
+            <a href="/jobs">Find a Job</a>
           </li>
           <li>
             <a href="/candidates">Find Candidates</a>

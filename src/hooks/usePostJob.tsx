@@ -1,19 +1,22 @@
 import { http } from "@config/request";
-import { UseQueryResult, useQuery } from "react-query";
+import { useMutation } from "react-query";
 
-const getJobList = async () => {
-  return await http.get<unknown>("http://localhost:3001/v1/job", {
-    headers: { "service_ref": 123456 },
-  });
+interface defaultFormData {
+  duration: number,
+  skill: string[],
+  jobHeading: string,
+  location: string[],
+  openpositions: string,
+  experienceLevel: string,
+  startDate: string,
+  hourlyPrice: string,
+  description: string,
+  jobStatus: string,
 };
-export const useGetJob = (
-  onSuccess?: () => void,
-  onError?: () => void
-): UseQueryResult<unknown, Error> => {
-  return useQuery(["Get_Job"], async () => getJobList(), {
-    onSuccess,
-    onError,
-    select: (data: unknown) => data.data.data.jobs,
-    staleTime: 0
-  });
+
+const postJob = async (data: defaultFormData) => {
+  return await http.post<unknown>("http://localhost:3001/v1/job", data);
+};
+export const usePostJob = () => {
+  return useMutation(postJob);
 };

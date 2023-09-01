@@ -25,6 +25,10 @@
 
 .nav-menu {
   grid-template-rows: repeat(7, 1fr);
+  :hover{
+    background-color: rgb(201, 201, 201);
+    color: $color-white;
+  }
 }
 
 .menu-item {
@@ -39,24 +43,15 @@
   margin-bottom: 5px;
 
   &:hover {
-    background-color: #d1d1d1;
-    color: $color-white;
-    text-decoration: $color-white;
     cursor: pointer;
   }
 
   img {
     width: 25px;
-    &:hover {
-      filter: invert(100%);
-    }
   }
 
   p {
     margin-left: 5px;
-    &:hover {
-      color: $color-white;
-    }
   }
 }
 
@@ -92,14 +87,14 @@
   padding: 5px;
 
   &.hamburger-in {
-    background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/142053.png?raw=true);
+    background-image: url(https://companybench.com/icon-arrow-left.30ade3f52972d1898496.svg);
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: 6px;
   }
 
   &.hamburger-out {
-    background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/rright.png?raw=true);
+    background-image: url(https://companybench.com/icon-arrow-right.59e1848f9cbc18d7327a.svg);
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: 8px;
