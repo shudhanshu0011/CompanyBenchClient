@@ -9,7 +9,7 @@ export const MyJobs = (): JSX.Element => {
   return (
     <PageWrapper>
       <div className="body-items">
-        <Sidebar activeLink="/cmyjobs"/>
+        <Sidebar activeLink="/c/myjobs"/>
         <div className="box-content pt-40 pl-30">
           My Jobs
         </div>

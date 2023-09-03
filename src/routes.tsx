@@ -38,11 +38,11 @@ const routes: RouteObject[] = [
     element: <InterviewList />,
   },
   {
-    path: "/cmatchingcandidate",
+    path: "/c/matchingcandidate",
     element: <MatchingCandidates />,
   },
   {
-    path: "/cmyjobs",
+    path: "/c/myjobs",
     element: <MyJobs />,
   },
   {

@@ -1,5 +1,16 @@
-import "./sidebar.scss";
 import { useState } from "react";
+import classNames from "classnames";
+import { ReactComponent as DashboardIcon } from "../../assets/page/dashboard/dashboard.svg";
+import { ReactComponent as JobsIcon } from "../../assets/page/dashboard/jobs.svg";
+import { ReactComponent as TasksIcon } from "../../assets/page/dashboard/tasks.svg";
+import { ReactComponent as SettingsIcon } from "../../assets/page/dashboard/settings.svg";
+import { ReactComponent as CandidatesIcon } from "../../assets/page/dashboard/candidates.svg";
+
+import { ReactComponent as ProfilesIcon } from "../../assets/page/dashboard/profiles.svg";
+import { ReactComponent as RecruitersIcon } from "../../assets/page/dashboard/recruiters.svg";
+import { ReactComponent as CvManageIcon } from "../../assets/page/dashboard/cv-manage.svg";
+import { ReactComponent as LogoutIcon } from "../../assets/page/dashboard/logout.svg";
+import "./sidebar.scss";
 
 interface Props {
   activeLink: string;
@@ -9,50 +20,60 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
   const menuItems = [
     {
       text: "Dashboard",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/dashboard.svg",
-      link: "/cdashboard",
+      link: "/c/dashboard",
+      icon: <DashboardIcon />,
     },
     {
       text: "My Jobs",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/jobs.svg",
-      link: "/cmyjobs",
+      icon: <JobsIcon />,
+      link: "/c/myjobs",
     },
     {
       text: "Post Job",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/tasks.svg",
+      icon: <TasksIcon />,
       link: "/newjob",
     },
     {
       text: "Shortlisted",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/settings.svg",
+      icon: <SettingsIcon />,
       link: "/shortlistedcandidates",
     },
     {
       text: "All Candidates",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/candidates.svg",
+      icon: <CandidatesIcon />,
       link: "/allcandidates",
     },
     {
       text: "Matching Candidates",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/profiles.svg",
-      link: "/cmatchingcandidate",
+      icon: <ProfilesIcon />,
+      link: "/c/matchingcandidate",
     },
     {
       text: "Applied Candidates",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/recruiters.svg",
+      icon: <RecruitersIcon />,
       link: "/interestedcandidate",
     },
     {
       text: "Interview",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/cv-manage.svg",
+      icon: <CvManageIcon />,
       link: "/jobinterviewlist",
     },
     {
       text: "Logout",
-      icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/logout.svg",
+      icon: <LogoutIcon />,
       link: "/",
     },
   ];
+
+  const getClassname = (link: string) => {
+    return classNames(
+      {
+        "menu-item-icon-only": !isExpanded,
+        active: activeLink === link,
+      },
+      "menu-item"
+    );
+  };
   return (
     <div
       className={
@@ -70,18 +91,17 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
             onClick={() => setExpandState(!isExpanded)}
           ></button>
         </div>
-        <div className="nav-menu">
+        <ul className="nav-menu">
           {menuItems.map(({ text, icon, link }) => (
-            <a
-              className={isExpanded ? "menu-item" : "menu-item menu-item-NX"}
-              href={link}
-              style={activeLink == link ? { backgroundColor: "#d1d1d1" } : {}}
-            >
-              <img className="menu-item-icon" src={icon} alt="" srcSet="" />
-              {isExpanded && <p>{text}</p>}
-            </a>
+            <li>
+              <a className={getClassname(link)} href={link}>
+                {/* <img className="menu-item-icon" src={icon} alt="" srcSet="" /> */}
+                <span>{icon}</span>
+                {isExpanded && <span>{text}</span>}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );

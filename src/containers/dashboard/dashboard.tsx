@@ -9,7 +9,7 @@ export const Dashboard = (): JSX.Element => {
   return (
     <PageWrapper>
       <div className="body-items">
-        <Sidebar activeLink="/cdashboard"/>
+        <Sidebar activeLink="/c/dashboard"/>
         <div className="box-content pt-40 pl-30">
           Dashboard
         </div>
