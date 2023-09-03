@@ -1,15 +1,13 @@
-
 import { Tab, Tabs } from "react-bootstrap";
-import { ClearIndicatorProps, ControlProps, GroupBase, components } from "react-select";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Select from "react-select";
+import { ClearIndicatorProps, GroupBase, components } from "react-select";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
-import { SelectDropdown } from "@common/select";
+import SearchIcon from '@mui/icons-material/Search';
+import { DropdownOption } from "@srctypes/common";
 import "./styles.scss";
-import { Link } from "react-router-dom";
-
 
 export const Banner = () => {
-  const options = [
+  const options: Array<DropdownOption> = [
     { value: ".NET", label: ".NET" },
     { value: "Android", label: "Android" },
     { value: "Angular", label: "Angular" },
@@ -31,17 +29,6 @@ export const Banner = () => {
     );
   };
 
-  const selectStyleConfig = {
-    /* eslint-disable-next-line*/
-    control: ({isFocused, ...baseStyles }: ControlProps) => ({
-      ...baseStyles,
-      borderColor:isFocused ? "transparent" : "transparent",
-      "&:hover, &:focus": {
-        borderColor: "transparent",
-      },
-    }),
-  };
-
   const contractorTabContent = () => {
     return (
       <>
@@ -61,13 +48,24 @@ export const Banner = () => {
               <form className="ng-untouched ng-pristine ng-valid ng-invalid">
                 <div className="autocomplete-container">
                   <div className="input-container">
-                    <SelectDropdown
+                    <Select
                       options={options}
                       isClearable={true}
                       placeholder="Search Candidates by Technology..."
-                      styles={selectStyleConfig}
+                      styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          borderColor: state.isFocused
+                            ? "transparent"
+                            : "transparent",
+                          "&:hover, &:focus": {
+                            borderColor: "transparent",
+                          },
+                        }),
+                      }}
                       components={{
                         DropdownIndicator: () => null,
+                        IndicatorSeparator: () => null,
                         ClearIndicator: (
                           props: React.JSX.IntrinsicAttributes &
                             ClearIndicatorProps<
@@ -80,15 +78,13 @@ export const Banner = () => {
                     />
                   </div>
                 </div>
-                <Link to="/allcandidates">
-                  <button
-                    type="submit"
-                    className="btn btn-default btn-find font-sm"
-                  >
-                    <FontAwesomeIcon icon={["fas", "magnifying-glass"]} />
-                    Search
-                  </button>
-                </Link>
+                <button
+                  type="submit"
+                  className="btn btn-default btn-find font-sm"
+                >
+                  <SearchIcon />
+                  Search
+                </button>
               </form>
             </div>
           </div>

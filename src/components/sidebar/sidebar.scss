@@ -34,18 +34,16 @@
   justify-content: left;
   align-items: center;
   margin-bottom: 5px;
-  &.active {
+  &.active, &:hover {
     background: $color-brand-2;
     color: $color-white;
+    path{
+      stroke:  $color-white;
+    }
   }
 }
 
-.menu-item:hover {
-  background-color: #d1d1d1;
-  color: white;
-  text-decoration: white;
-  cursor: pointer;
-}
+
 
 .menu-item img {
   width: 25px;
