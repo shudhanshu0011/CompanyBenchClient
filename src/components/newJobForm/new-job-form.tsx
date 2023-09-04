@@ -4,8 +4,8 @@ import "@styles/common/_pages.scss";
 import "./new-job-form.scss";
 import Select from 'react-select';
 import { useGetJobLocations } from "@hooks/useGetJobLocations";
-import axios from "axios";
 import { useGetStatusCodes } from "@hooks/useGetStatusCodes";
+import { usePostJob } from "@hooks/usePostJob";
 
 const defaultFormData = {
     duration: 0,
@@ -95,16 +95,12 @@ export const NewJobForm = (): JSX.Element => {
     }));
   };
 
+  const { mutate } = usePostJob()
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormData(defaultFormData);
-    // console.log(formData);
-    axios.post('http://localhost:3001/v1/job', formData)
-    .then((response) => {
-      console.log(response);
-    }, (error) => {
-      console.log(error);
-    });
+    mutate(formData);
   };
   
   const defaultLocation = [

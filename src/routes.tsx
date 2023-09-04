@@ -11,6 +11,9 @@ import { PostJob } from "./containers/postjob/postjob";
 import { Shortlisted } from "./containers/shortlisted/shortlisted";
 import { Sidebar } from "./components/sidebar/sidebar";
 import { Jobs } from "./containers/jobs";
+import { ApplyForJob } from "./containers/apply-for-job";
+import { ContactUs } from "./containers/contact-us";
+import { Blogs } from "./containers/blog";
 
 
 const routes: RouteObject[] = [
@@ -61,6 +64,18 @@ const routes: RouteObject[] = [
   {
     path: "/jobs",
     element: <Jobs/>,
+  },
+  {
+    path: "/apply",
+    element: <ApplyForJob/>,
+  },
+  {
+    path: "/c/contact",
+    element: <ContactUs/>,
+  },
+  {
+    path: "/c/blogs",
+    element: <Blogs/>,
   },
 ];
 

@@ -4,7 +4,7 @@ export const Navigation = (): JSX.Element => {
       <nav className="nav-main-menu">
         <ul className="main-menu">
           <li className="dashboard">
-            <a className="" href="index.html">
+            <a className="" href="/apply">
               Apply for Job
             </a>
           </li>
@@ -18,10 +18,10 @@ export const Navigation = (): JSX.Element => {
             <a href="/candidates">Find Candidates</a>
           </li>
           <li>
-            <a href="blog-grid.html">Blog</a>
+            <a href="/c/blogs">Blog</a>
           </li>
           <li>
-            <a href="blog-grid.html">Contact Us</a>
+            <a href="/c/contact">Contact Us</a>
           </li>
         </ul>
       </nav>

@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
-import { PageWrapperUser } from "@components/page-wrapper-user/page-wrapper-user";
+import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
 import { Sidebar } from "../../components/sidebar/sidebar";
 import { useState, useEffect } from "react";
@@ -133,7 +133,7 @@ export const Jobs = (): JSX.Element => {
   };
 
   return (
-    <PageWrapperUser>
+    <PageWrapper>
         <div className="body-items">
           <Col xs={12} md={2}>
             <div className="nav pt-0">
@@ -226,6 +226,6 @@ export const Jobs = (): JSX.Element => {
             </Col>
           )}
         </div>
-    </PageWrapperUser>
+    </PageWrapper>
   );
 };
