@@ -14,6 +14,7 @@ import { Jobs } from "./containers/jobs";
 import { ApplyForJob } from "./containers/apply-for-job";
 import { ContactUs } from "./containers/contact-us";
 import { Blogs } from "./containers/blog";
+import { HireDeveloper } from "./containers/hire-developer";
 
 
 const routes: RouteObject[] = [
@@ -76,6 +77,10 @@ const routes: RouteObject[] = [
   {
     path: "/c/blogs",
     element: <Blogs/>,
+  },
+  {
+    path: "/c/hire-talent",
+    element: <HireDeveloper/>,
   },
 ];
 

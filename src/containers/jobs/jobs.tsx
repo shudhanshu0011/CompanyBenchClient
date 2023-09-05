@@ -149,7 +149,7 @@ export const Jobs = (): JSX.Element => {
             <Col>
               <div className="box-content pt-40 pl-30">
                 <h3 className="mb-35">Search Jobs</h3>
-                <Paper title="Advance Filter" titleRight="Search Result : 5">
+                <Paper title="Advance Filter" titleRight="Search Result : 3">
                   <div className="filter-dropdown-container">
                     <Row>
                       <Col xs={3}>
@@ -177,7 +177,7 @@ export const Jobs = (): JSX.Element => {
                 >
                   <div className="job-container">
                       {
-                        jobList.map(job => (
+                        jobList.slice(0,3).map(job => (
                           <div className="job-card-grid-2 hover-up">
                             <div className="card-grid-2-image-left">
                               <div className="card-profile pt-10">
