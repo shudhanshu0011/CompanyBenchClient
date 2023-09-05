@@ -5,11 +5,14 @@ import { Btn } from "../../common/button";
 import "./candidate-card.scss"; 
 
 interface Props {
-  handleShowDetails(isVisible: boolean): void;
+  handleShowDetails?(isVisible: boolean): void;
 }
 export const CandidateCard = ({ handleShowDetails }: Props): JSX.Element => {
   const handleBtnClick = () => {
-    handleShowDetails(true);
+    if(handleShowDetails !== undefined){
+      handleShowDetails(true);
+    }
+    
   }
   return (
     <div className="card-grid-2 hover-up">

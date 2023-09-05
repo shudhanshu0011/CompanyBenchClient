@@ -3,9 +3,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { StateManagerProps } from "node_modules/react-select/dist/declarations/src/stateManager";
 import "./select.scss";
 
+interface Props extends StateManagerProps {
+  size?: string;
+}
+
 export const SelectDropdown = (
-  { components, options, ...rest }: StateManagerProps,
-  size?: string
+  { components, options, size, ...rest }: Props,
 ) => {
   const dropdownIndicator = () => {
     return (

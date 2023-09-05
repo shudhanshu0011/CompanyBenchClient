@@ -63,7 +63,13 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
   ];
 
   return (
-    <div className={isExpanded ? "side-nav-container" : "side-nav-container side-nav-container-NX"}>
+    <div
+      className={
+        isExpanded
+          ? "side-nav-container"
+          : "side-nav-container side-nav-container-NX"
+      }
+    >
       <div className="nav-upper">
         <div className="nav-heading">
           <button

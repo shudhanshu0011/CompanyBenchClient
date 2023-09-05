@@ -1,4 +1,5 @@
 import { http } from "@config/request";
+import { AxiosResponse } from "axios";
 import { UseQueryResult, useQuery } from "react-query";
 
 const getCandidatesList = async () => {

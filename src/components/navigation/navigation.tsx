@@ -15,7 +15,7 @@ export const Navigation = (): JSX.Element => {
             <a href="/jobs">Find a Job</a>
           </li>
           <li>
-            <a href="/candidates">Find Candidates</a>
+            <a href="/c/candidates">Find Candidates</a>
           </li>
           <li>
             <a href="/c/blogs">Blog</a>
@@ -59,7 +59,7 @@ export const Navigation = (): JSX.Element => {
                       </a>
                     </li>
                     <li>
-                      <a href="/candidates" className="dashboard2">
+                      <a href="/c/candidates" className="dashboard2">
                         {/* <img
                           src="../../../../assets/cb-new-style/Dashboard/imgs/page/dashboard/profiles.svg"
                           alt="companybench"
@@ -95,7 +95,7 @@ export const Navigation = (): JSX.Element => {
                 </div>
                 <div className="mb-15 mt-15">
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="btn btn-default btn-shadow hover-up"
                   >
                     Sign in

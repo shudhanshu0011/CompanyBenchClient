@@ -19,7 +19,7 @@ export default defineConfig({
       '@hooks': `${path.resolve(__dirname, "./src/hooks/")}`,
     },
   },
-  server : {
+  server: {
     port: 8080
   }
 });
