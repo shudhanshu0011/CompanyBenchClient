@@ -1,12 +1,39 @@
-
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import BusinessCenterSharpIcon from "@mui/icons-material/BusinessCenterSharp";
 import AccessTimeSharpIcon from "@mui/icons-material/AccessTimeSharp";
 import { Btn } from "../button";
 import "./card.scss";
 
+interface Props {
+  type?: string;
+  avatar?: string;
+  title?: string | number;
+  subTitle?: string | number;
+  cardImg?: React.ReactNode
+}
 
-export const Card = (): JSX.Element => {
+export const Card = ({ type, avatar, title, subTitle, cardImg }: Props): JSX.Element => {
+  if (type === "sm") {
+    return (
+      <div className="card-grid-2 hover-up mh-105">
+        <div className="flex-box p-15"> 
+          <div className="pr-20">
+            <a href="candidate-details.html">
+              <figure>
+                {cardImg}
+              </figure>
+            </a>
+          </div>
+          <div className="card-profile pt-0">
+            <a href="candidate-details.html">
+              <h5>{title}</h5>
+            </a>
+            <p className="font-sm color-text-mutted">{subTitle}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="card-grid-2 hover-up">
       <div className="card-grid-2-image-left">
@@ -15,14 +42,17 @@ export const Card = (): JSX.Element => {
             <figure>
               <img
                 alt="jobBox"
-                src="https://testcompanybench.azurewebsites.net/assets/images/avtar.png"
+                src={
+                  avatar ||
+                  "https://testcompanybench.azurewebsites.net/assets/images/avtar.png"
+                }
               />
             </figure>
           </a>
         </div>
         <div className="card-profile pt-10">
           <a href="candidate-details.html">
-            <h5>Robert Fox</h5>
+            <h5>{title || "Robert Fox"}</h5>
           </a>
           <p className="font-xs color-text-mutted">
             <PlaceOutlinedIcon />

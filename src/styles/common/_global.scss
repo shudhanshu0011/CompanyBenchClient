@@ -515,6 +515,9 @@ h6 {
 .color-text-mutted {
   color: $color-text-mutted;
 }
+.color-text-mutted-lt {
+  color: $color-text-mutted;
+}
 .color-white {
   color: $color-white !important;
 }
@@ -695,12 +698,14 @@ iframe {
 }
 .flex-box {
   display: flex;
+  // flex-wrap: wrap;
   &.justify-content-space-between {
     justify-content: space-between;
   }
   &.align-items-center {
     align-items: center;
   }
+  
 }
 
 .btn {
@@ -715,4 +720,16 @@ iframe {
   font-weight: 500;
   padding-left: 45px;
   border-color: #EFF2FB;
+}
+
+.mh-105 {min-height: 105px;}
+
+.box-content {
+  overflow: auto;
+}
+
+.body-items{
+  display: flex;
+  height: 100%;
+  width: 100%;
 }

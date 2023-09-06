@@ -1,4 +1,6 @@
-.side-nav-container{
+@import "@styles/common/variables.scss";
+
+.side-nav-container {
   background-color: white;
   width: 340px;
   height: 100%;
@@ -7,7 +9,7 @@
   transition: 0.4s;
 }
 
-.side-nav-container-NX{
+.side-nav-container-NX {
   width: 78px;
 }
 
@@ -15,71 +17,71 @@
 .nav-heading,
 .nav-menu,
 .menu-item {
-	display: grid;
+  display: grid;
 }
 
 .nav-menu {
-	grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
 }
 
 .menu-item {
-	height: 57px;
-	display: flex;
-	text-decoration: none;
-	margin: auto 20px;
+  height: 57px;
+  display: flex;
+  text-decoration: none;
+  margin: auto 20px;
   padding: 15px;
-	border-radius: 10px;
+  border-radius: 10px;
   justify-content: left;
   align-items: center;
   margin-bottom: 5px;
+  &.active, &:hover {
+    background: $color-brand-2;
+    color: $color-white;
+    path{
+      stroke:  $color-white;
+    }
+  }
 }
 
-.menu-item:hover {
-	background-color: #d1d1d1;
-  color: white;
-  text-decoration: white;
-  cursor: pointer;
-}
 
-.menu-item img{
+
+.menu-item img {
   width: 25px;
 }
-.menu-item img:hover{
+.menu-item img:hover {
   filter: invert(100%);
 }
 
-.menu-item p{
+.menu-item p {
   margin-left: 5px;
 }
-.menu-item p:hover{
+.menu-item p:hover {
   color: white;
 }
 
-.menu-item-NX{
+.menu-item-icon-only {
   height: 47px;
   width: 47px;
   padding: 10px;
-	display: flex;
-	color: grey;
-	text-decoration: none;
-	border-radius: 10px;
+  display: flex;
+  color: grey;
+  text-decoration: none;
+  border-radius: 10px;
   justify-content: left;
   align-items: center;
 }
 
 .nav-heading {
-	grid-template-columns: 2fr 1fr;
-	grid-template-rows: 1fr;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
 }
 
-.hamburger{
+.hamburger {
   position: absolute;
   right: 0;
-
   background: none;
   border: none;
   cursor: pointer;
-
   margin: -13px -18px;
   background-color: white;
   border: 1px solid rgb(216, 216, 216);
@@ -88,13 +90,13 @@
   width: 31px;
   padding: 5px;
 }
-.hamburger-in{
+.hamburger-in {
   background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/142053.png?raw=true);
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: 6px;
 }
-.hamburger-out{
+.hamburger-out {
   background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/rright.png?raw=true);
   background-size: 50%;
   background-repeat: no-repeat;

@@ -1,12 +1,12 @@
 import { RouteObject } from "react-router-dom";
 import { Home } from "./containers/home";
 import { Candidates } from "./containers/candidates";
-import { AllCandidates } from "./containers/allcandidates/allcandidates";
+import { AllCandidates } from "./containers/all-candidates/all-candidates";
 import { Dashboard } from "./containers/dashboard/dashboard";
-import { AppliedCandidates } from "./containers/appliedcandidates/appliedcandidates";
+import { AppliedCandidates } from "./containers/applied-candidates/applied-candidates";
 import { InterviewList } from "./containers/interview/interview";
-import { MatchingCandidates } from "./containers/matchingcandidates/matchingcandidates";
-import { MyJobs } from "./containers/myjobs/myjobs";
+import { MatchingCandidates } from "./containers/matching-candidates/matching-candidates";
+import { MyJobs } from "./containers/my-jobs/my-jobs";
 import { PostJob } from "./containers/postjob/postjob";
 import { Shortlisted } from "./containers/shortlisted/shortlisted";
 import { Sidebar } from "./components/sidebar/sidebar";
@@ -38,11 +38,11 @@ const routes: RouteObject[] = [
     element: <InterviewList />,
   },
   {
-    path: "/cmatchingcandidate",
+    path: "/c/matchingcandidate",
     element: <MatchingCandidates />,
   },
   {
-    path: "/cmyjobs",
+    path: "/c/myjobs",
     element: <MyJobs />,
   },
   {
