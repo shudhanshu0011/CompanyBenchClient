@@ -15,7 +15,7 @@ import { ApplyForJob } from "./containers/apply-for-job";
 import { ContactUs } from "./containers/contact-us";
 import { Blogs } from "./containers/blog";
 import { HireDeveloper } from "./containers/hire-developer";
-
+import SkillDescPage from "./containers/skill-desc-page/skill-desc-page";
 
 const routes: RouteObject[] = [
   {
@@ -81,6 +81,146 @@ const routes: RouteObject[] = [
   {
     path: "/c/hire-talent",
     element: <HireDeveloper/>,
+  },
+  {
+    path: "/c/hire-aem-developer",
+    element: <SkillDescPage url="/c/hire-aem-developer"/>
+  },
+  {
+    path: "/c/hire-aws-developer",
+    element: <SkillDescPage url="/c/hire-aws-developer"/>
+  },
+  {
+    path: "/c/hire-blockchain-developer",
+    element: <SkillDescPage url="/c/hire-blockchain-developer"/>
+  },
+  {
+    path: "/c/hire-cloudcraze-developer",
+    element: <SkillDescPage url="/c/hire-cloudcraze-developer"/>
+  },
+  {
+    path: "/c/hire-demandware-developer",
+    element: <SkillDescPage url="/c/hire-demandware-developer"/>
+  },
+  {
+    path: "/c/hire-devops-developer",
+    element: <SkillDescPage url="/c/hire-devops-developer"/>
+  },
+  {
+    path: "/c/hire-dot-net-developer",
+    element: <SkillDescPage url="/c/hire-dot-net-developer"/>
+  },
+  {
+    path: "/c/hire-drupal-developer",
+    element: <SkillDescPage url="/c/hire-drupal-developer"/>
+  },
+  {
+    path: "/c/hire-software-developer",
+    element: <SkillDescPage url="/c/hire-software-developer"/>
+  },
+  {
+    path: "/c/hire-java-developer",
+    element: <SkillDescPage url="/c/hire-java-developer"/>
+  },
+  {
+    path: "/c/hire-magento-developer",
+    element: <SkillDescPage url="/c/hire-magento-developer"/>
+  },
+  {
+    path: "/c/hire-mean-stack-developer",
+    element: <SkillDescPage url="/c/hire-mean-stack-developer"/>
+  },
+  {
+    path: "/c/hire-full-stack-developer",
+    element: <SkillDescPage url="/c/hire-full-stack-developer"/>
+  },
+  {
+    path: "/c/hire-golang-developer",
+    element: <SkillDescPage url="/c/hire-golang-developer"/>
+  },
+  {
+    path: "/c/hire-hibernate-developer",
+    element: <SkillDescPage url="/c/hire-hibernate-developer"/>
+  },
+  {
+    path: "/c/hire-hubspot-developer",
+    element: <SkillDescPage url="/c/hire-hubspot-developer"/>
+  },
+  {
+    path: "/c/hire-mulesoft-developer",
+    element: <SkillDescPage url="/c/hire-mulesoft-developer"/>
+  },
+  {
+    path: "/c/hire-node-js-developer",
+    element: <SkillDescPage url="/c/hire-node-js-developer"/>
+  },
+  {
+    path: "/c/hire-react-js-developer",
+    element: <SkillDescPage url="/c/hire-react-js-developer"/>
+  },
+  {
+    path: "/c/hire-react-native-developer",
+    element: <SkillDescPage url="/c/hire-react-native-developer"/>
+  },
+  {
+    path: "/c/hire-salesforce-developer",
+    element: <SkillDescPage url="/c/hire-salesforce-developer"/>
+  },
+  {
+    path: "/c/hire-service-now-developer",
+    element: <SkillDescPage url="/c/hire-service-now-developer"/>
+  },
+  {
+    path: "/c/hire-developers-startup",
+    element: <SkillDescPage url="/c/hire-developers-startup"/>
+  },
+  {
+    path: "/c/hire-share-point-developer",
+    element: <SkillDescPage url="/c/hire-share-point-developer"/>
+  },
+  {
+    path: "/c/hire-shopify-developer",
+    element: <SkillDescPage url="/c/hire-shopify-developer"/>
+  },
+  {
+    path: "/c/hire-sitecore-developer",
+    element: <SkillDescPage url="/c/hire-sitecore-developer"/>
+  },
+  {
+    path: "/c/hire-snowflake-developer",
+    element: <SkillDescPage url="/c/hire-snowflake-developer"/>
+  },
+  {
+    path: "/c/hire-tableau-developer",
+    element: <SkillDescPage url="/c/hire-tableau-developer"/>
+  },
+  {
+    path: "/c/hire-talend-developer",
+    element: <SkillDescPage url="/c/hire-talend-developer"/>
+  },
+  {
+    path: "c/hire-uipath-developer",
+    element: <SkillDescPage url="c/hire-uipath-developer"/>
+  },
+  {
+    path: "/c/hire-vlocity-developer",
+    element: <SkillDescPage url="/c/hire-vlocity-developer"/>
+  },
+  {
+    path: "/c/hire-microsoft-dynamics-developer",
+    element: <SkillDescPage url="/c/hire-microsoft-dynamics-developer"/>
+  },
+  {
+    path: "/c/offshore-software-testing-company",
+    element: <SkillDescPage url="/c/offshore-software-testing-company"/>
+  },
+  {
+    path: "/c/hire-salesforce-cpq-developer",
+    element: <SkillDescPage url="/c/hire-salesforce-cpq-developer"/>
+  },
+  {
+    path: "/c/hire-workday-developer",
+    element: <SkillDescPage url="/c/hire-workday-developer"/>
   },
 ];
 

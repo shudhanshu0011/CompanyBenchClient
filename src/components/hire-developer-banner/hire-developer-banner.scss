@@ -1,0 +1,40 @@
+@import "../../styles/common/variables.scss";
+
+.banner-container{
+    background-color: $color-page-background;
+    padding: 40px 120px 40px  120px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: center;
+    .skill-container{
+        margin: 10px;
+        button{
+            padding: 10px 20px 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-white;
+            border: none;
+            border-radius: 5px;
+            &:hover{
+                color: $color-white;
+                background-color: $color-brand-2;
+            }
+            img{
+                height: 30px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+// .skill-container{
+//     background-color: aqua;
+//     display: grid;
+//     grid-template-columns: auto;
+//     .skill-link{
+//         margin: 10px;
+//         background-color: blueviolet;
+//     }
+// }
