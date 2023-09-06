@@ -10,12 +10,12 @@ import { MyJobs } from "./containers/myjobs/myjobs";
 import { PostJob } from "./containers/postjob/postjob";
 import { Shortlisted } from "./containers/shortlisted/shortlisted";
 import { Sidebar } from "./components/sidebar/sidebar";
-import { Jobs } from "./containers/jobs";
-import { ApplyForJob } from "./containers/apply-for-job";
-import { ContactUs } from "./containers/contact-us";
-import { Blogs } from "./containers/blog";
-import { HireDeveloper } from "./containers/hire-developer";
-import SkillDescPage from "./containers/skill-desc-page/skill-desc-page";
+import { Jobs } from "./containers/navigation-pages/jobs";
+import { ApplyForJob } from "./containers/navigation-pages/apply-for-job";
+import { ContactUs } from "./containers/navigation-pages/contact-us";
+import { Blogs } from "./containers/navigation-pages/blog";
+import { HireDeveloper } from "./containers/navigation-pages/hire-developer";
+import SkillDescPage from "./containers/navigation-pages/skill-desc-page/skill-desc-page";
 
 const routes: RouteObject[] = [
   {

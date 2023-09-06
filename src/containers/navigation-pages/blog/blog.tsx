@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import blogs from '../../assets/blog-data';
+import blogs from '../../../assets/blog-data';
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./blog.scss"
 import { Btn } from '@common/button';

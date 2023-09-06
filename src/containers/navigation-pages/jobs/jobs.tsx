@@ -5,7 +5,6 @@ import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
-import { Sidebar } from "../../components/sidebar/sidebar";
 import { useState, useEffect } from "react";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
 import { Btn } from "@src/common/button";

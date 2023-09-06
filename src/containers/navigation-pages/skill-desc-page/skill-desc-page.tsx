@@ -1,6 +1,6 @@
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./skill-desc-page.scss";
-import developers from '../../assets/developer-data';
+import developers from '../../../assets/developer-data';
 import { ReviewSection } from '@components/home-components/review-section';
 import { HireDeveloperBanner } from '@components/hire-developer-banner';
 import { ChooseUsSection } from '@components/home-components/choose-us-section';
@@ -18,7 +18,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
         <section>
           <div className='hire-cust-banner'>
             <div className='hire-cust-form'>
-              <img src={skillset?.logo}></img>
+              <img src={"https://companybench.com" + skillset?.logo}></img>
               <h1>Hire {<span>{skillset?.skill}</span>} Developer</h1>
               <div>
                 <p>Are you looking for immediate Hire {skillset?.skill} Developer</p>

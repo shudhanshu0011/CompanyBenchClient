@@ -12,7 +12,7 @@ export const HireDeveloperBanner: React.FC = (): JSX.Element => {
             <div className="skill-container">
               <a href={developer.url} className="skill-link">
                 <button>
-                  <img src={developer.logo}></img>
+                  <img src={"https://companybench.com/" + developer.logo}></img>
                   {developer.skill} Developer
                 </button>
               </a>
