@@ -5,13 +5,32 @@ import { ReviewSection } from '@components/home-components/review-section';
 import { HireDeveloperBanner } from '@components/hire-developer-banner';
 import { ChooseUsSection } from '@components/home-components/choose-us-section';
 import { Btn } from '@common/button';
+import { useForm, SubmitHandler } from "react-hook-form";
 
 interface SkillDescPageProps {
   url: string;
 }
 
+type Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  companyName: string;
+  contactNumber: number;
+  description: string;
+};
+
 const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
   const skillset = developers.find((developer) => developer.url===pageUrl)
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>()
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+
   return (
     <div>
       <PageWrapper>
@@ -113,7 +132,111 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
             </div>
           </div>
           <ChooseUsSection/>
+          <div className='hire-guide-container'>
+            <div className='hero-banner-img'>
+              <img src='https://companybench.com/assets/images/Hire%20AWS%20Developers-03-02.svg'></img>
+            </div>
+            <div className='guide-content'>
+              <h2>How to Hire Developers through Bench</h2>
+              <div>
+                <img src='https://companybench.com/assets/images/Icon-1.png'></img>
+                <h4>State your requirement for the position</h4>
+              </div>
+              <div>
+                <img src='https://companybench.com/assets/images/Icon-2.png'></img>
+                <h4>Obtain the required talent immediately</h4>
+              </div>
+              <div>
+                <img src='https://companybench.com/assets/images/Icon-3.png'></img>
+                <h4>Avail of their expertise</h4>
+              </div>
+            </div>
+          </div>
           <HireDeveloperBanner/>
+          <div className='hire-developer-faq'>
+              <h2>Frequently Asked Questions</h2>
+              <div className='faq-content'>
+                <div className='faq-card'>
+                  <h4>How Much Do {skillset?.skill} Developers Cost?</h4>
+                  <p>The cost of hiring an {skillset?.skill} developer would be determined by business requirements. 
+                    Experience and expertise, geography, as well as market circumstances are all variables 
+                    that influence rates. Furthermore, the budget of the project would be determined by the
+                     needed {skillset?.skill} developer expertise as well as the country. {skillset?.skill} Developers For Hire The cost
+                      of an {skillset?.skill} developer at the freelancing platform UpWork is approximately $20-$45 per hour.</p>
+                </div>
+
+                <div className='faq-card'>
+                  <h4>Who Is A Developer In {skillset?.skill}?</h4>
+                  <p>An {skillset?.skill} Developer is typically responsible for building and/or updating mobile hubs, as well 
+                    as overseeing functionality such as push notifications. However, Those looking to break into 
+                    the {skillset?.skill} Developer field will find this position to be challenging, rewarding, and unique.</p>
+                </div>
+
+                <div className='faq-card'>
+                  <h4>Does {skillset?.skill} Require Coding?</h4>
+                  <p>It is not necessary to know any coding to begin getting started with {skillset?.skill}, many basic 
+                    functions can be done without coding. Even though you need some programming skills, you 
+                    may still need to learn them depending on the job/skills you have (or need). Some jobs with 
+                    {skillset?.skill} don't require coding skills.</p>
+                </div>
+
+                <div className='faq-card'>
+                  <h4>How Difficult Is Being An {skillset?.skill} Developer?</h4>
+                  <p>While this profession may seem difficult, anyone with the proper training can learn it. {skillset?.skill} cloud 
+                    development skills, as well as familiarizing yourself with its features, are crucial. {skillset?.skill} recommends
+                     at least one year of experience prior to appearing for their exam. The exam can still be passed with
+                      intensive study, however, since most people need between one and two months to prepare.</p>
+                </div>
+
+                <div className='faq-card'>
+                  <h4>Is {skillset?.skill} Good For A Freelancing Career?</h4>
+                  <p>There is no doubt that {skillset?.skill} skills are in high demand among employers. The demand for cloud computing
+                     professionals like {skillset?.skill} certifications has increased. As an {skillset?.skill} freelancer, you will be responsible for
+                      the services like solutions in architect, consultant or developer? If you search at any of the freelancing
+                       marketplaces, you'll notice that {skillset?.skill} freelancers are charging between $10 and $130 per hr.</p>
+                </div>
+              </div>
+          </div>
+          <div className='hire-enquiry-container'>
+              <h2 style={{textAlign:'center', padding:'60px 0px 0px'}}>Send Us Enquiry</h2>
+              <div className='hire-developer-enquiry'>
+                <div className='hero-banner-img'>
+                  <img src='https://companybench.com/assets/images/Send%20Us%20Enquiry.svg'></img>
+                </div>
+                <div className='enquiry-content'>
+                  <div className='hire-enquiry-form'>
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <div>
+                          {errors.firstName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                          <input placeholder="First Name" {...register("firstName", { required: true })}></input>
+                        </div>
+                        <div>
+                          {errors.lastName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Last Name is required</span>}
+                          <input placeholder="Last Name" {...register("lastName", { required: true })}></input>
+                          
+                        </div>
+                        <div>
+                          {errors.email && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Email is required</span>}
+                          <input placeholder="Email" {...register("email", { required: true })}></input>                        
+                        </div>
+                        <div>
+                          {errors.companyName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Company Name is required</span>}
+                          <input placeholder="Company Name" {...register("companyName", { required: true })}></input>                        
+                        </div>
+                        <div>
+                          {errors.contactNumber && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Contact Number is required</span>}
+                          <input placeholder="Contact Number" {...register("contactNumber", { required: true })}></input>                        
+                        </div>
+                        <div>
+                          {errors.description && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Description is required</span>}
+                          <textarea rows={7} placeholder="Description" {...register("description", { required: true })}></textarea>
+                        </div>
+                        <input type="submit" className="query-contact-btn" style={{width:'100px', padding:'0px'}}/>
+                      </form>
+                  </div>
+                </div>
+              </div>
+          </div>
           <ReviewSection/>
         </section>
       </PageWrapper>

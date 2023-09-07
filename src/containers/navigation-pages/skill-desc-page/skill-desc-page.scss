@@ -108,6 +108,120 @@
     }
 }
 
+.hire-guide-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 80px 100px 80px 100px;
+    background-color: #F4F7FF;
+    .guide-content{
+        div{
+            background-color: $color-white;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            box-shadow: 0 0 3px 2px #e6e6e6;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            padding: 12px 14px;
+            img{
+                width: 55px;
+                padding: 10px;
+                background-color: #e8edff;
+                margin-right: 10px;
+            }
+        }
+        h4{
+            font-size: $font-xl;
+            font-weight: 600;
+        }
+    }
+    img{
+        width: 100%;
+        border-radius: 10px;
+    }
+    h2{
+        margin-bottom: 20px;
+    }
+    p{
+        line-height: 1.5;
+        font-size: $font-md;
+        color: $color-text-paragraph-2;
+    }
+}
+
+.hire-developer-faq{
+    background-color: #F4F7FF;
+    padding: 70px;
+    h2{
+        margin: 0px 0px 30px;
+        text-align: center;
+    }
+    .faq-content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @media (max-width: 1000px){
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .faq-card{
+            background-color: $color-white;
+            margin: 10px;
+            padding: 30px;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid $color-border-2;
+            h4{
+                margin: 0px 0px 15px;
+            }
+            p{
+                color: $color-text-paragraph;
+                font-size: $font-sm;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
+.hire-developer-enquiry{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 80px 100px 80px 100px;
+    @media (max-width: 1000px){
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .enquiry-content{
+        .hire-enquiry-form{
+            padding: 30px;
+            border: 1px solid $color-border-2;
+            margin-top: 30px;
+            border-radius: 10px;
+            background-color: #f4f7ff;
+            input{
+              width: 100%;
+              height: 53px;
+              border: 1px solid $border-color;
+              border-radius: 5px;
+              padding-left: 20px;
+              margin-bottom: 10px;
+            }
+            textarea{
+              width: 100%;
+              height: 53px;
+              border: 1px solid $border-color;
+              border-radius: 5px;
+              padding-left: 20px;
+              padding-top: 20px;
+              margin-bottom: 20px;
+            }
+            .query-contact-btn{
+              background-color: $color-brand-2;
+              color: $color-white;
+              border-radius: 10px;
+              margin-top: 3px;
+            }
+          }
+    }
+}
+
 @media (max-width: 1000px){
     .hero-banner-img{
         display: none;

@@ -110,10 +110,15 @@ export const Blogs: React.FC = (): JSX.Element => {
                         <input placeholder="Contact Number" {...register("contactNumber", { required: true })}></input>                        
                       </div>
                       <div>
+                        {errors.description && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Description is required</span>}
                         <textarea rows={7} placeholder="Description" {...register("description", { required: true })}></textarea>
                       </div>
                       <input type="submit" className="query-contact-btn" style={{width:'100px', padding:'0px'}}/>
                     </form>
+                </div>
+                <div className='we-hiring-banner'>
+                  <span style={{fontSize:'24px', color:'#B4C0E0'}}>WE ARE</span><br/>
+                  <span style={{fontSize:'36px', color:'#66789C'}}>HIRING</span>
                 </div>
               </div>
             </div>

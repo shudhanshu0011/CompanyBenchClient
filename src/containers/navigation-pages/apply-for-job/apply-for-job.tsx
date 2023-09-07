@@ -71,17 +71,17 @@ export const ApplyForJob = (): JSX.Element => {
                   <div>
                     <div><label>Last Name*</label></div>
                     <input placeholder="Last Name" {...register("lastName", { required: true })}></input>
-                    {errors.lastName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                    {errors.lastName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Last Name is required</span>}
                   </div>
                   <div className="email-apply-job">
                     <div><label>Email*</label></div>
                     <input placeholder="Email" {...register("email", { required: true })}></input>
-                    {errors.email && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                    {errors.email && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Email is required</span>}
                   </div>
                   <div>
                     <div><label>Contact Number*</label></div>
                     <input placeholder="Contact Number" {...register("mobile", { required: true })}></input>
-                    {errors.mobile && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                    {errors.mobile && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Contact Number is required</span>}
                   </div>
                 </div>
                 <div className="select-tech">
@@ -93,7 +93,7 @@ export const ApplyForJob = (): JSX.Element => {
                       ))
                     }
                   </select>
-                  {errors.technology && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                  {errors.technology && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Technology is required</span>}
                 </div>
                 <div className="availaiblity-option">
                   <div><label>Availability*</label></div>
@@ -104,7 +104,7 @@ export const ApplyForJob = (): JSX.Element => {
                     <label>Part Time</label>
                   </div>
                 </div>
-                <input type="submit" className="create-account-btn"/>
+                <input type="submit" className="create-account-btn" value="Create My Account" style={{width:'180px'}}/>
               </div>
             </form>
           </Col>

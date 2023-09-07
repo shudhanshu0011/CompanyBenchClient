@@ -143,6 +143,22 @@
           margin-top: 3px;
         }
       }
+      .we-hiring-banner{
+        margin-top: 30px;
+        background: url(https://companybench.com/assets/cb-new-style/Frontend/imgs/page/company/bg-hiring-right.svg);
+        padding: 40px;
+        background-position: 100px 120px;
+        background-repeat: no-repeat;
+        width: 100%;
+        object-fit: contain;
+        background-color: #F2F6FD;
+        border: 1px solid #E0E6F7;
+        height: 360px;
+        border-radius: 10px;
+        @media (max-width: 900px){
+          display: none;
+        }
+      }
     }
   }
 }

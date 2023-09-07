@@ -4,6 +4,7 @@ import { BoxTrust } from "@components/home-components/box-trust";
 import { ChooseUsSection } from "@components/home-components/choose-us-section";
 import { FeatureSection } from "@components/home-components/feature-section";
 import { ReviewSection } from "@components/home-components/review-section";
+import { HowToHireGuide } from "@components/home-components/how-to-hire-guide";
 
 export const Home = (): JSX.Element => {
   return (
@@ -13,6 +14,7 @@ export const Home = (): JSX.Element => {
         <BoxTrust/>
         <ChooseUsSection/>
         <FeatureSection/>
+        <HowToHireGuide/>
         <ReviewSection/>
       </section>
     </PageWrapper>

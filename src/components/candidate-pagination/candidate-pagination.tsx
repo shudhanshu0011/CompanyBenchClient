@@ -127,8 +127,8 @@ export default function CandidatePagination() {
   const { data: candidateData } = useGetCandidates();
 
   React.useEffect(() => {
-    if (candidateData && Array.isArray(candidateData)) {
-      const candidates: Candidate[] = candidateData.map((tmp: any) => ({
+    if (candidateData?.data.candidates && Array.isArray(candidateData.data.candidates)) {
+      const candidates: Candidate[] = candidateData.data.candidates.map((tmp: any) => ({
         candidateId: tmp.candidateId,
         vendorId: tmp.vendorId,
         firstName: tmp.firstName,

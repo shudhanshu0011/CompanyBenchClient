@@ -59,6 +59,7 @@ export const MyJobs = (): JSX.Element => {
   const {data: statusListData} = useGetStatusCodes();
   const {data: jobData} = useGetJob();
   const {data: technologyData} = useGetTechnology();
+  console.log(jobData);
 
   useEffect(() => {
     if (jobLocationData) {
@@ -81,8 +82,8 @@ export const MyJobs = (): JSX.Element => {
   }, [statusListData]);
 
   useEffect(() => {
-    if (jobData) {
-      const options: Job[] = jobData.map((tmp: any) => ({
+    if (jobData?.data.jobs && Array.isArray(jobData.data.jobs)) {
+      const options: Job[] = jobData.data.jobs.map((tmp: any) => ({
         company: tmp.jobHeading,
         location: tmp.location,
         jobStatus: tmp.jobStatus,
