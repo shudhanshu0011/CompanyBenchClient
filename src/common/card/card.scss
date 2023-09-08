@@ -69,7 +69,7 @@
     display: inline-block;
     width: 30%;
     min-width: 70px;
-    max-width: 70px;
+    max-width: 90px;
     figure {
       position: relative;
       display: inline-block;
@@ -141,7 +141,7 @@
   .card-block-info {
     display: inline-block;
     width: 100%;
-    padding: 5px 10px 20px 10px;
+    padding: 5px 20px 20px 20px;
     .card-2-img-text {
       display: inline-block;
       vertical-align: middle;
@@ -260,7 +260,7 @@
     // background: url(../imgs/template/icons/flash.svg) no-repeat 0px 0px;
   }
   .card-grid-2-image-left {
-    padding: 30px 20px 15px 20px;
+    padding: 20px;
     display: flex;
     position: relative;
     .image-box {

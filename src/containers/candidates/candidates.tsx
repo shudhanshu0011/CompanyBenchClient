@@ -6,8 +6,9 @@ import { AppPagination } from "@common/app-pagination";
 import { CandidateCard } from "@components/candidate-card";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
-// import { useGetCandidates } from "@hooks/useGetCandidates";
 import { Btn } from "@src/common/button";
+// import { useGetCandidates } from "@hooks/useGetCandidates";
+
 
 import "@styles/common/_pages.scss";
 import "./candidates.scss";
@@ -84,27 +85,57 @@ export const Candidates = (): JSX.Element => {
                   title={candidatePagination()}
                   titleRight={pageViewDropdown()}
                 >
-                  <div className="flex-box candidate-card-wrapper">
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
+                  <Row className="flex-box candidate-card-wrapper">
+                  <Col xs={12} md={6}>
+                    <CandidateCard
+                      handleShowDetails={handleShowDetails}
+                      showAvatar={true}
+                      title="Sjdbfjksf Sdfsdfdth"
+                
+                    />
+                  </Col>
 
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                    <div className="candidate-card-item">
-                      <CandidateCard handleShowDetails={handleShowDetails} />
-                    </div>
-                  </div>
+                  <Col xs={12} md={6}>
+                    <CandidateCard
+                      handleShowDetails={handleShowDetails}
+                      showAvatar={true}
+                      title="Test01 31082023"
+                
+                    />
+                  </Col>
+                  <Col xs={12} md={6}>
+                    <CandidateCard
+                      handleShowDetails={handleShowDetails}
+                      showAvatar={true}
+                      title="Mike-11 Rosso-11"
+                
+                    />
+                  </Col>
+                  <Col xs={12} md={6}>
+                    <CandidateCard
+                      handleShowDetails={handleShowDetails}
+                      showAvatar={true}
+                      title="Mike-10 Rosso-10"
+                
+                    />
+                  </Col>
+                  <Col xs={12} md={6}>
+                    <CandidateCard
+                      handleShowDetails={handleShowDetails}
+                      showAvatar={true}
+                      title="Trainer"
+                
+                    />
+                  </Col>
+                  <Col xs={12} md={6}>
+                    <CandidateCard
+                      handleShowDetails={handleShowDetails}
+                      showAvatar={true}
+                      title="Fgdg Dfgdg"
+                
+                    />
+                  </Col>
+                </Row>
                   <Btn
                     title="Login to see more"
                     className="btn btn-default btn-apply font-sm"

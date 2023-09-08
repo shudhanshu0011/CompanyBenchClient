@@ -1,5 +1,15 @@
-import "./sidebar.scss";
 import { useState } from "react";
+import classNames from "classnames";
+import { ReactComponent as DashboardIcon } from "@assets/page/dashboard/dashboard.svg";
+import { ReactComponent as JobsIcon } from "../../assets/page/dashboard/jobs.svg";
+import { ReactComponent as TasksIcon } from "../../assets/page/dashboard/tasks.svg";
+import { ReactComponent as SettingsIcon } from "../../assets/page/dashboard/settings.svg";
+import { ReactComponent as CandidatesIcon } from "../../assets/page/dashboard/candidates.svg";
+import { ReactComponent as ProfilesIcon } from "../../assets/page/dashboard/profiles.svg";
+import { ReactComponent as RecruitersIcon } from "../../assets/page/dashboard/recruiters.svg";
+import { ReactComponent as CvManageIcon } from "../../assets/page/dashboard/cv-manage.svg";
+import { ReactComponent as LogoutIcon } from "../../assets/page/dashboard/logout.svg";
+import "./sidebar.scss";
 
 interface MenuItem {
   text: string;
@@ -15,53 +25,62 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
   const [isExpanded, setExpandState] = useState<boolean>(true);
 
   const menuItems = [
-	{
-		text: "Dashboard",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/dashboard.svg",
-		  link: "/cdashboard",
-	},
-	{
-		text: "My Jobs",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/jobs.svg",
-		  link: "/cmyjobs",
-	},
-	{
-		text: "Post Job",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/tasks.svg",
-		  link: "/newjob",
-	},
-	{
-		text: "Shortlisted",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/settings.svg",
-		  link: "/shortlistedcandidates",
-	},
-	{
-		text: "All Candidates",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/candidates.svg",
-		  link: "/allcandidates",
-	},
-	{
-		text: "Matching Candidates",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/profiles.svg",
-		  link: "/cmatchingcandidate",
-	},
-	{
-		text: "Applied Candidates",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/recruiters.svg",
-		  link: "/interestedcandidate",
-	},
-	{
-		text: "Interview",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/cv-manage.svg",
-		  link: "/jobinterviewlist",
-	},
-	{
-		text: "Logout",
-		icon: "https://companybench.com/assets/cb-new-style/Dashboard/imgs/page/dashboard/logout.svg",
-		  link: "/",
-	},
+    {
+      text: "Dashboard",
+      link: "/c/dashboard",
+      icon: <DashboardIcon />,
+    },
+    {
+      text: "My Jobs",
+      icon: <JobsIcon />,
+      link: "/c/myjobs",
+    },
+    {
+      text: "Post Job",
+      icon: <TasksIcon />,
+      link: "/newjob",
+    },
+    {
+      text: "Shortlisted",
+      icon: <SettingsIcon />,
+      link: "/shortlistedcandidates",
+    },
+    {
+      text: "All Candidates",
+      icon: <CandidatesIcon />,
+      link: "/allcandidates",
+    },
+    {
+      text: "Matching Candidates",
+      icon: <ProfilesIcon />,
+      link: "/c/matchingcandidate",
+    },
+    {
+      text: "Applied Candidates",
+      icon: <RecruitersIcon />,
+      link: "/interestedcandidate",
+    },
+    {
+      text: "Interview",
+      icon: <CvManageIcon />,
+      link: "/jobinterviewlist",
+    },
+    {
+      text: "Logout",
+      icon: <LogoutIcon />,
+      link: "/",
+    },
   ];
 
+  const getClassname = (link: string) => {
+    return classNames(
+      {
+        "menu-item-icon-only": !isExpanded,
+        active: activeLink === link,
+      },
+      "menu-item"
+    );
+  };
   return (
     <div
       className={
@@ -77,19 +96,17 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
             onClick={() => setExpandState(!isExpanded)}
           />
         </div>
-        <div className="nav-menu">
-          {menuItems.map(({ text, icon, link }) => (
-            <a
-              key={link}
-              className={isExpanded ? "menu-item" : "menu-item menu-item-NX"}
-              href={link}
-              style={activeLink === link ? { backgroundColor: 'rgb(201, 201, 201)'} : {}}
-            >
-              <img className="menu-item-icon" src={icon} alt="" />
-              {isExpanded && <p>{text}</p>}
-            </a>
+        <ul className="nav-menu">
+          {menuItems.map(({ text, icon, link }, index: number) => (
+            <li key={index}>
+              <a className={getClassname(link)} href={link}>
+                {/* <img className="menu-item-icon" src={icon} alt="" srcSet="" /> */}
+                <span>{icon}</span>
+                {isExpanded && <span>{text}</span>}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );

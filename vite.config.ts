@@ -17,6 +17,7 @@ export default defineConfig({
       '@types': `${path.resolve(__dirname, "./src/types/")}`,
       '@config': `${path.resolve(__dirname, "./src/config/")}`,
       '@hooks': `${path.resolve(__dirname, "./src/hooks/")}`,
+      "@assets": path.resolve(__dirname, "./src/assets"),
     },
   },
   server: {
