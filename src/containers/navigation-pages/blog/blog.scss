@@ -6,6 +6,7 @@
   p{
     margin-top: 15px;
     color: $color-text-paragraph-2;
+    font-family: $font-text;
   }
 }
 
@@ -18,6 +19,10 @@
   }
   p{
     padding-left: 30px;
+    font-family: $font-text;
+  }
+  span{
+    font-family: $font-text;
   }
   .blog-body{
     padding: 20px 20px 20px 0px;

@@ -17,6 +17,7 @@
   p{
     margin-top: 10px;
     color: $color-white;
+    font-family: $font-text;
   }
 }
 
@@ -46,6 +47,7 @@
         margin-top: 10px;
         font-size: $font-xs;
         line-height: 1.4;
+        font-family: $font-text;
       }
     }
     .info-call{

@@ -14,6 +14,7 @@
         }
         p{
             margin: 0px 0px 30px 0px;
+            font-family: $font-text;
         }
         .input-name{
             height: 53px;
@@ -62,6 +63,15 @@
     }
 }
 
+.recent-candidate{
+    p{
+        font-family: $font-text;
+    }
+    span{
+        font-family: $font-text;
+    }
+}
+
 .skill-content-container{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -80,6 +90,7 @@
         line-height: 1.5;
         font-size: $font-md;
         color: $color-text-paragraph-2;
+        font-family: $font-text;
     }
 }
 
@@ -104,6 +115,7 @@
             line-height: 1.5;
             font-size: $font-md;
             color: $color-text-paragraph;
+            font-family: $font-text;
         }
     }
 }
@@ -146,6 +158,7 @@
         line-height: 1.5;
         font-size: $font-md;
         color: $color-text-paragraph-2;
+        font-family: $font-text;
     }
 }
 
@@ -176,6 +189,7 @@
                 color: $color-text-paragraph;
                 font-size: $font-sm;
                 line-height: 1.5;
+                font-family: $font-text;
             }
         }
     }

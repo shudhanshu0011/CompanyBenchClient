@@ -1,19 +1,32 @@
 import { http } from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 
-const getStatusCodes = async () => {
-  return await http.get<unknown>("http://localhost:3001/v1/jobstatus/codes", {
+interface Status {
+  statusId: string;
+  statusName: string;
+}
+
+interface GetStatusListResponse {
+  data: {
+    jobs: Status[];
+  };
+}
+
+const getJobStatus = async (): Promise<GetStatusListResponse> => {
+  const response = await http.get<GetStatusListResponse>("http://localhost:3001/v1/jobstatus/codes", {
     headers: { "service_ref": 123456 },
   });
+  return response.data;
 };
-export const useGetStatusCodes = (
+
+export const useGetJobStatus = (
   onSuccess?: () => void,
   onError?: () => void
-): UseQueryResult<unknown, Error> => {
-  return useQuery(["Get_Job_Status"], async () => getStatusCodes(), {
+): UseQueryResult<GetStatusListResponse, Error> => {
+  return useQuery(["Get_Job_Status"], async () => getJobStatus(), {
     onSuccess,
     onError,
-    select: (data: unknown) => data.data.data.jobs,
+    select: (data: GetStatusListResponse) => data,
     staleTime: 0
   });
 };

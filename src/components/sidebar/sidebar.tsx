@@ -11,12 +11,6 @@ import { ReactComponent as CvManageIcon } from "../../assets/page/dashboard/cv-m
 import { ReactComponent as LogoutIcon } from "../../assets/page/dashboard/logout.svg";
 import "./sidebar.scss";
 
-interface MenuItem {
-  text: string;
-  icon: string;
-  link: string;
-}
-
 interface Props {
   activeLink: string;
 }
@@ -102,7 +96,7 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
               <a className={getClassname(link)} href={link}>
                 {/* <img className="menu-item-icon" src={icon} alt="" srcSet="" /> */}
                 <span>{icon}</span>
-                {isExpanded && <span>{text}</span>}
+                {isExpanded && <span style={{marginLeft:'9px'}}>{text}</span>}
               </a>
             </li>
           ))}

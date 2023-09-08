@@ -28,14 +28,13 @@ export const ApplyForJob = (): JSX.Element => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
   useEffect(() => {
-    if (technologyData) {
-      const options: TechnologyOption[] = technologyData.map((tmp: any) => ({
+    if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
+      const options: TechnologyOption[] = technologyData.data.technologys.map((tmp: any) => ({
         value: tmp.tecnologyId,
         label: tmp.technologyName
       }));

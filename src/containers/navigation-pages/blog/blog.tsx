@@ -1,18 +1,8 @@
-import React, { useState } from 'react';
 import blogs from '../../../assets/blog-data';
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./blog.scss"
 import { Btn } from '@common/button';
 import { useForm, SubmitHandler } from "react-hook-form";
-
-type Blog = {
-  id: number;
-  category: string;
-  blogHeading: string;
-  content: string;
-  author: string;
-  date: string;
-};
 
 type Inputs = {
   firstName: string;
@@ -27,7 +17,6 @@ export const Blogs: React.FC = (): JSX.Element => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)

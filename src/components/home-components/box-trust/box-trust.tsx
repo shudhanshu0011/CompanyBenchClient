@@ -83,9 +83,9 @@ export const BoxTrust = () => {
         </div>
         <div className='row-intro'>
           <div className='youtube-intro'>
-            {/* <div className='ytb-frame'>
-              <iframe width="651" height="300" src="https://www.youtube.com/embed/pRQQteW5I4I" title="Companybench.com hire Remote Developers within 24 hours #hire #hiring #softwaredeveloper @ 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div> */}
+            <div className='ytb-frame'>
+              <iframe width="651" height="300" src="https://www.youtube.com/embed/pRQQteW5I4I" title="Companybench.com hire Remote Developers within 24 hours #hire #hiring #softwaredeveloper @ 2022" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+            </div>
           </div>
           <div className='text-intro'>
             <div className='intro-text-heading'>
