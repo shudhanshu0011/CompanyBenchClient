@@ -1,5 +1,6 @@
 import { http } from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
+import { GET_CANDIDATES_QUERY } from "@src/constants/query";
 
 interface Candidate {
   candidateId: number,
@@ -34,7 +35,7 @@ export const useGetCandidates = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<GetCandidatesResponse, Error> => {
-  return useQuery(["Get_Candidate"], async () => getCandidatesList(), {
+  return useQuery(GET_CANDIDATES_QUERY, async () => getCandidatesList(), {
     onSuccess,
     onError,
     select: (data: GetCandidatesResponse) => data,

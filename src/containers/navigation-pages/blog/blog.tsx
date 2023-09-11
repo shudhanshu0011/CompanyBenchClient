@@ -1,8 +1,11 @@
-import blogs from '../../../assets/blog-data';
+import blogs from '../../../assets/content/mock/blog-data';
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./blog.scss"
 import { Btn } from '@common/button';
 import { useForm, SubmitHandler } from "react-hook-form";
+import userIcon from "../../../assets/icons/user-icon.png";
+import blogDetailImg from "../../../assets/icons/blog_Detail.jpg"
+
 
 type Inputs = {
   firstName: string;
@@ -37,7 +40,7 @@ export const Blogs: React.FC = (): JSX.Element => {
                 {
                   blogs.map((temp_blog) => (
                     <div className='blog-card'>
-                      <img src='https://companybench.com/assets/images/blog_Detail.jpg'></img>
+                      <img src={blogDetailImg}></img>
                       <Btn className='btn-apply-now category-btn' title={temp_blog.category} />
                       <h5>{temp_blog.blogHeading}</h5>
                       <span>{temp_blog.content}</span>
@@ -45,7 +48,7 @@ export const Blogs: React.FC = (): JSX.Element => {
                         <Btn className='btn-read-more' title='Read More' />
                       </div>
                       <div className='author'>
-                        <img src='https://companybench.com/assets/images/user-icon.png'></img>
+                        <img src={userIcon}></img>
                         <div>
                           <p>{temp_blog.author}</p>
                           <p>{temp_blog.date}</p>

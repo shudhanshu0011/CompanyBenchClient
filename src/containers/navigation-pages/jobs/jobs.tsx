@@ -12,29 +12,19 @@ import "./jobs.scss";
 import { useGetJobLocList } from "@hooks/useGetJobLocations";
 import { useGetTechnology } from "@hooks/useGetTechnology";
 import { CandidateCard } from "@components/candidate-card";
-
-
-interface LocationOption {
-  value: string;
-  label: string;
-}
-
-interface TechnologyOption {
-  value: string;
-  label: string;
-}
+import { DropdownOption } from "@srctypes/common";
 
 export const Jobs = (): JSX.Element => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
-  const [locationLists, setLocationLists] = useState<LocationOption[]>([]);
-  const [technologyList, setTechnologyLists] = useState<TechnologyOption[]>([]);
+  const [locationLists, setLocationLists] = useState<DropdownOption[]>([]);
+  const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
 
   const {data: jobLocationData} = useGetJobLocList();
   const {data: technologyData} = useGetTechnology();
 
   useEffect(() => {
     if (jobLocationData?.data.joblocations && Array.isArray(jobLocationData.data.joblocations)) {
-      const options: LocationOption[] = jobLocationData.data.joblocations.map((tmp: any) => ({
+      const options: DropdownOption[] = jobLocationData.data.joblocations.map((tmp: any) => ({
         value: tmp.cityId,
         label: tmp.cityName
       }));
@@ -44,7 +34,7 @@ export const Jobs = (): JSX.Element => {
 
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
-      const options: TechnologyOption[] = technologyData.data.technologys.map((tmp: any) => ({
+      const options: DropdownOption[] = technologyData.data.technologys.map((tmp: any) => ({
         value: tmp.tecnologyId,
         label: tmp.technologyName
       }));

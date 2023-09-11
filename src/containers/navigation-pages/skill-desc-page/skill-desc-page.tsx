@@ -1,11 +1,21 @@
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./skill-desc-page.scss";
-import developers from '../../../assets/developer-data';
+import developers from '../../../assets/content/mock/developer-data';
 import { ReviewSection } from '@components/home-components/review-section';
 import { HireDeveloperBanner } from '@components/hire-developer-banner';
 import { ChooseUsSection } from '@components/home-components/choose-us-section';
 import { Btn } from '@common/button';
 import { useForm, SubmitHandler } from "react-hook-form";
+import bannerimg from "../../../assets/images/banner.png";
+import avataricon from "../../../assets/icons/avtar.png";
+import hire201 from "../../../assets/icons/Hire 1.png";
+import checkboxicon from "../../../assets/icons/check-box.svg";
+import hire204 from "../../../assets/icons/Hire 4.png";
+import awsdeveloperlogo from "../../../assets/images/Hire AWS Developers-03-02.svg";
+import icon1 from "../../../assets/icons/Icon-1.png";
+import icon2 from "../../../assets/icons/Icon-2.png";
+import icon3 from "../../../assets/icons/Icon-3.png";
+import sendusenquiryimg from "../../../assets/images/Send Us Enquiry.svg"
 
 interface SkillDescPageProps {
   url: string;
@@ -50,7 +60,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               </div>
             </div>
             <div className='banner-img'>
-              <img src='https://companybench.com/assets/cb-new-style/Frontend/imgs/page/homepage4/banner.png'></img>
+              <img src={bannerimg}></img>
             </div>
           </div>
           <div className='recent-candidate'>
@@ -59,7 +69,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               {/* First Candidate */}
               <div style={{margin:'20px', border:'1px solid #E0E6F7', padding:'20px', borderRadius:'10px', background:'#F8FAFF'}}>
                 <div style={{display:'flex', marginRight:'150px', marginBottom:'30px'}}>
-                  <img src='https://companybench.com/assets/images/avtar.png' style={{width:'85px', borderRadius:'50%'}}></img>
+                  <img src={avataricon} style={{width:'85px', borderRadius:'50%'}}></img>
                   <div style={{padding:'20px'}}>
                     <h5>Amit M***</h5>
                     <p style={{fontSize:'12px', color:'#A0ABB8'}}>6 years of experience</p>
@@ -74,7 +84,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               {/* Second Candidate */}
               <div style={{margin:'20px', border:'1px solid #E0E6F7', padding:'20px', borderRadius:'10px', background:'#F8FAFF'}}>
                 <div style={{display:'flex', marginRight:'150px', marginBottom:'30px'}}>
-                  <img src='https://companybench.com/assets/images/avtar.png' style={{width:'85px', borderRadius:'50%'}}></img>
+                  <img src={avataricon} style={{width:'85px', borderRadius:'50%'}}></img>
                   <div style={{padding:'20px'}}>
                     <h5>Amit M***</h5>
                     <p style={{fontSize:'12px', color:'#A0ABB8'}}>6 years of experience</p>
@@ -89,7 +99,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               {/* Third Candidate */}
               <div style={{margin:'20px', border:'1px solid #E0E6F7', padding:'20px', borderRadius:'10px', background:'#F8FAFF'}}>
                 <div style={{display:'flex', marginRight:'150px', marginBottom:'30px'}}>
-                  <img src='https://companybench.com/assets/images/avtar.png' style={{width:'85px', borderRadius:'50%'}}></img>
+                  <img src={avataricon} style={{width:'85px', borderRadius:'50%'}}></img>
                   <div style={{padding:'20px'}}>
                     <h5>Amit M***</h5>
                     <p style={{fontSize:'12px', color:'#A0ABB8'}}>6 years of experience</p>
@@ -108,7 +118,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
           </div>
           <div className='skill-content-container'>
             <div className='hero-banner-img'>
-              <img src='https://companybench.com/assets/images/Hire%201.png'></img>
+              <img src={hire201}></img>
             </div>
             <div className='hero-content'>
               <h2>Hire {skillset?.skill} Developer</h2>
@@ -120,33 +130,33 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               {
                 skillset?.bulletPoints.map((bullets) => (
                   <div className='bulletpoints'>
-                    <img src='https://companybench.com/assets/cb-new-style/Frontend/imgs/page/homepage3/check-box.svg'></img>
+                    <img src={checkboxicon}></img>
                     <p>{bullets}</p>
                   </div>
                 ))
               }
             </div>
             <div className='hero-banner-img'>
-              <img src='https://companybench.com/assets/images/Hire%204.png'></img>
+              <img src={hire204}></img>
             </div>
           </div>
           <ChooseUsSection/>
           <div className='hire-guide-container'>
             <div className='hero-banner-img'>
-              <img src='https://companybench.com/assets/images/Hire%20AWS%20Developers-03-02.svg'></img>
+              <img src={awsdeveloperlogo}></img>
             </div>
             <div className='guide-content'>
               <h2>How to Hire Developers through Bench</h2>
               <div>
-                <img src='https://companybench.com/assets/images/Icon-1.png'></img>
+                <img src={icon1}></img>
                 <h4>State your requirement for the position</h4>
               </div>
               <div>
-                <img src='https://companybench.com/assets/images/Icon-2.png'></img>
+                <img src={icon2}></img>
                 <h4>Obtain the required talent immediately</h4>
               </div>
               <div>
-                <img src='https://companybench.com/assets/images/Icon-3.png'></img>
+                <img src={icon3}></img>
                 <h4>Avail of their expertise</h4>
               </div>
             </div>
@@ -200,7 +210,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               <h2 style={{textAlign:'center', padding:'60px 0px 0px'}}>Send Us Enquiry</h2>
               <div className='hire-developer-enquiry'>
                 <div className='hero-banner-img'>
-                  <img src='https://companybench.com/assets/images/Send%20Us%20Enquiry.svg'></img>
+                  <img src={sendusenquiryimg}></img>
                 </div>
                 <div className='enquiry-content'>
                   <div className='hire-enquiry-form'>

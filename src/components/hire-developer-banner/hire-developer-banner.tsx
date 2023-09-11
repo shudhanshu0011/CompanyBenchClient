@@ -1,5 +1,11 @@
 import "./hire-developer-banner.scss";
-import developers from '../../assets/developer-data';
+import developers from '../../assets/content/mock/developer-data';
+
+type Developer = {
+  skill: string;
+  url: string;
+  logo: string;
+};
 
 export const HireDeveloperBanner: React.FC = (): JSX.Element => {
 
@@ -8,7 +14,7 @@ export const HireDeveloperBanner: React.FC = (): JSX.Element => {
       <h2>Hire Developers</h2>
       <section className="banner-container">
         {
-          developers.map((developer) => (
+          developers.map((developer: Developer) => (
             <div className="skill-container">
               <a href={developer.url} className="skill-link">
                 <button>

@@ -15,7 +15,6 @@
     &:hover {
       color: $color-white;
       background-color: $color-brand;
-      // transform: translateY(-2px);
       transition: 0.2s;
     }
   }
@@ -80,7 +79,6 @@
   }
 }
 .btn-apply-icon {
-  //   background-image: url(../imgs/template/icons/apply.svg);
   background-position: 15px 11px;
   background-repeat: no-repeat;
   padding-left: 40px;
@@ -101,7 +99,6 @@
   }
 }
 .btn-call-icon {
-  //   background-image: url(../imgs/template/icons/call.svg);
   background-position: 24px 17px;
   background-repeat: no-repeat;
   padding: 18px 30px 18px 65px;
@@ -110,7 +107,6 @@
   font-weight: 700;
 }
 .btn-download-icon {
-  //   background-image: url(../imgs/template/icons/icon-download.svg);
   background-position: 24px 17px;
   background-repeat: no-repeat;
   padding: 18px 30px 18px 65px;
@@ -119,7 +115,6 @@
   font-weight: 700;
 }
 .btn-preview-icon {
-  //   background-image: url(../imgs/page/candidates/preview.svg);
   background-position: 35px 14px;
   background-repeat: no-repeat;
   padding: 14px 30px 14px 55px;
@@ -175,13 +170,11 @@
   }
 }
 .btn-icon-load {
-  //   background-image: url(../imgs/template/icons/icon-load.svg);
   background-position: 18px center;
   background-repeat: no-repeat;
   padding-left: 42px;
 }
 .btn-icon-more {
-  //   background-image: url(../imgs/template/icons/icon-more.svg);
   background-position: right 16px center;
   background-repeat: no-repeat;
   padding-right: 50px;
@@ -202,8 +195,6 @@
   line-height: 24px;
   color: $color-white;
   padding: 15px 28px 15px 60px;
-  //   background: $color-brand-2 url(../imgs/page/company/icon-email.svg) no-repeat
-  //     25px 15px;
   border-radius: 4px;
   &:hover {
     background-color: $color-brand;
@@ -279,7 +270,6 @@
   }
 }
 .btn-arrow-right {
-  //   background: url(../imgs/page/homepage2/arrow-right.svg) no-repeat right 15px top 3px;
   color: $color-brand-2;
   padding: 0px 40px 0px 0px;
   font-size: $font-xs;

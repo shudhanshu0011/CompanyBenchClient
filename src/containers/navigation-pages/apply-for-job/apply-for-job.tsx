@@ -6,11 +6,7 @@ import "./apply-for-job.scss";
 import { useGetTechnology } from "@hooks/useGetTechnology";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
-
-interface TechnologyOption {
-  value: string;
-  label: string;
-}
+import { DropdownOption } from "@srctypes/common";
 
 type Inputs = {
   firstName: string
@@ -22,7 +18,7 @@ type Inputs = {
 }
 
 export const ApplyForJob = (): JSX.Element => {
-  const [technologyList, setTechnologyLists] = useState<TechnologyOption[]>([]);
+  const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const {data: technologyData} = useGetTechnology();
 
   const {
@@ -34,7 +30,7 @@ export const ApplyForJob = (): JSX.Element => {
 
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
-      const options: TechnologyOption[] = technologyData.data.technologys.map((tmp: any) => ({
+      const options: DropdownOption[] = technologyData.data.technologys.map((tmp: any) => ({
         value: tmp.tecnologyId,
         label: tmp.technologyName
       }));

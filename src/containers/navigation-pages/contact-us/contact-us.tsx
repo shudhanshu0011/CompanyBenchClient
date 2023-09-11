@@ -3,6 +3,8 @@ import "@styles/common/_pages.scss";
 import "./contact-us.scss";
 import logo from "../../../assets/logo.png";
 import { useForm, SubmitHandler } from "react-hook-form";
+import indialogo from "../../../assets/images/india.png";
+import uklogo from "../../../assets/images/uk.jpg";
 
 type Inputs = {
   firstName: string
@@ -41,13 +43,13 @@ export const ContactUs = (): JSX.Element => {
                 <h6>Call Us</h6>
                 <div>
                   <a href="tel:+91-8371010101">
-                    <img src="https://companybench.com/assets/images/india.png"></img>
+                    <img src={indialogo}></img>
                     +91-8371010101
                   </a>
                 </div>
                 <div>
                   <a href="tel:+1-830 444 4477">
-                    <img src="https://companybench.com/assets/images/uk.jpg"></img>
+                    <img src={uklogo}></img>
                     +1-830 444 4477
                   </a>
                 </div>

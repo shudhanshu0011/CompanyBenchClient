@@ -1,5 +1,6 @@
 import { http } from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
+import { GET_JOBS_QUERY } from "@src/constants/query";
 
 interface Job {
   company: string;
@@ -26,7 +27,7 @@ export const useGetJob = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<GetJobResponse, Error> => {
-  return useQuery(["Get_Job"], async () => getJobList(), {
+  return useQuery(GET_JOBS_QUERY, async () => getJobList(), {
     onSuccess,
     onError,
     select: (data: GetJobResponse) => data,

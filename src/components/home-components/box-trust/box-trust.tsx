@@ -1,6 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "./styles.scss";
 import "swiper/css/bundle";
+import urbanLadderlogo from "../../../assets/icons/urban ladder.png"
+import jungleelogo from "../../../assets/icons/junglee games (1).png"
+import landtlogo from "../../../assets/icons/l and t.png"
+import wnslogo from "../../../assets/icons/wns.png"
+import hdfclogo from "../../../assets/icons/HDFC-Bank-logo.png"
+import pineLabslogo from "../../../assets/icons/pine labs.png"
 
 export const BoxTrust = () => {
   return (
@@ -19,62 +25,62 @@ export const BoxTrust = () => {
               >
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/urban%20ladder.png'></img>
+                    <img src={urbanLadderlogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/junglee%20games.png'></img>
+                    <img src={jungleelogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/l%20and%20t.png'></img>
+                    <img src={landtlogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/wns.png'></img>
+                    <img src={wnslogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/HDFC-Bank-logo.png'></img>
+                    <img src={hdfclogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/pine%20labs.png'></img>
+                    <img src={pineLabslogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/urban%20ladder.png'></img>
+                    <img src={urbanLadderlogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/junglee%20games.png'></img>
+                    <img src={jungleelogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/l%20and%20t.png'></img>
+                    <img src={landtlogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/wns.png'></img>
+                    <img src={wnslogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/HDFC-Bank-logo.png'></img>
+                    <img src={hdfclogo}></img>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div>
-                    <img src='https://companybench.com/assets/images/pine%20labs.png'></img>
+                    <img src={pineLabslogo}></img>
                   </div>
                 </SwiperSlide>
               </Swiper>

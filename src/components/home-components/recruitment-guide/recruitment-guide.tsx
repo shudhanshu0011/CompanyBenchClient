@@ -1,7 +1,11 @@
-import "./how-to-hire-guide.scss";
+import "./recruitment-guide.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import firstimg from "../../../assets/images/first.png";
+import secondimg from "../../../assets/images/second.png";
+import thirdimg from "../../../assets/images/third.png";
+import stepspath from "../../../assets/images/step1.svg";
 
-export const HowToHireGuide = () => {
+export const RecruitmentGuide = () => {
   return (
     <section className='how-to-container'>
       <div className="main-container-guide">
@@ -11,21 +15,21 @@ export const HowToHireGuide = () => {
         <div className="step-hire-guide">
           <div className="steps-guide">
             <div className="step-img-container1-how-to">
-              <img className="guide-logo-how-to" src="https://companybench.com/assets/images/first.png"></img>
+              <img className="guide-logo-how-to" src={firstimg}></img>
             </div>
             <h4>Post Yours Job Requirements</h4>
           </div>
           <div className="steps-guide">
             <div className="step-img-container2-how-to">
-              <img className="steps-link-how-to" src="https://companybench.com/assets/cb-new-style/Frontend/imgs/page/homepage5/step1.svg"></img>
-              <img className="guide-logo-how-to" src="https://companybench.com/assets/images/second.png"></img>
+              <img className="steps-link-how-to" src={stepspath}></img>
+              <img className="guide-logo-how-to" src={secondimg}></img>
             </div>
             <h4>Check Our Available Bench</h4>
           </div>
           <div className="steps-guide">
             <div className="step-img-container3-how-to">
-              <img className="steps-link-how-to" src="https://companybench.com/assets/cb-new-style/Frontend/imgs/page/homepage5/step1.svg"></img>
-              <img className="guide-logo-how-to" src="https://companybench.com/assets/images/third.png"></img>
+              <img className="steps-link-how-to" src={stepspath}></img>
+              <img className="guide-logo-how-to" src={thirdimg}></img>
             </div>
             <h4>Hire A Contractor</h4>
           </div>

@@ -1,5 +1,8 @@
 import "./footer-section.scss";
 import logo from "../../../assets/logo.png";
+import facebooklogo from "../../../assets/icons/facebook.svg";
+import twitterlogo from "../../../assets/icons/twitter.svg";
+import linkedinlogo from "../../../assets/icons/linkedin.svg"
 
 export const FooterSection = () => {
   return (
@@ -10,9 +13,9 @@ export const FooterSection = () => {
         402, Summer Court, Magarpatta City,<br/>
         Pune, Maharashtra 411013.</p>
         <div className="footer-social">
-          <a><img src="https://companybench.com/assets/cb-new-style/Frontend/imgs/template/icons/facebook.svg"></img></a>
-          <a><img src="https://companybench.com/assets/cb-new-style/Frontend/imgs/template/icons/twitter.svg"></img></a>
-          <a><img src="https://companybench.com/assets/cb-new-style/Frontend/imgs/template/icons/linkedin.svg"></img></a>
+          <a><img src={facebooklogo}></img></a>
+          <a><img src={twitterlogo}></img></a>
+          <a><img src={linkedinlogo}></img></a>
         </div>
       </div>
       <div className="footer-nav-link">

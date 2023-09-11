@@ -9,7 +9,6 @@
   .main-header {
     display: flex;
     align-items: center;
-    // justify-content: space-between;
     .header-right {
       display: inline-block;
       min-width: 245px;
@@ -170,18 +169,6 @@
     &:hover {
       color: $color-brand-2;
     }
-    // &::before {
-    //     content: "";
-    //     background: $color-brand;
-    //     width: 6px;
-    //     height: 6px;
-    //     border-radius: 50%;
-    //     position: absolute;
-    //     left: 0;
-    //     top: 50%;
-    //     margin-top: -3px;
-    //     animation: shadow-pulse 1s infinite;
-    // }
   }
   .block-signin {
     .btn-shadow {
@@ -802,10 +789,4 @@
 .burger-icon.burger-icon-white > span::after {
   background-color: #4f5e64;
 }
-
-// @media screen and (min-width: 768px) and (max-width: 1440px) {
-//   .header-right {
-//     display: none;
-//   }
-// }
 
