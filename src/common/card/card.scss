@@ -48,6 +48,10 @@
   }
   .btn-apply-now {
     color: $color-brand-2;
+    &:hover {
+      color: $color-white;
+      background-color: $color-brand-2;
+    }
   }
   &:hover {
     border-color: $color-border-1;

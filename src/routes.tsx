@@ -7,7 +7,7 @@ import { AppliedCandidates } from "./containers/applied-candidates/applied-candi
 import { InterviewList } from "./containers/interview/interview";
 import { MatchingCandidates } from "./containers/matching-candidates/matching-candidates";
 import { MyJobs } from "./containers/my-jobs/my-jobs";
-import { PostJob } from "./containers/postjob/postjob";
+import { PostJob } from "./containers/post-job/post-job";
 import { Shortlisted } from "./containers/shortlisted/shortlisted";
 import { Sidebar } from "./components/sidebar/sidebar";
 

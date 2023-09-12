@@ -6,3 +6,13 @@ declare module '*.svg' {
   }
 
   declare module 'faker';
+
+  export declare function useMutation<
+  TData = unknown, 
+  TError = unknown, 
+  TVariables = void, 
+  TContext = unknown
+>(
+  mutationFn: MutationFunction<TData, TVariables>, 
+  options?: UseMutationOptions<TData, TError, TVariables, TContext>
+): UseMutationResult<TData, TError, TVariables, TContext>;
