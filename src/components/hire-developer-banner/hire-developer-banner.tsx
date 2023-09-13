@@ -10,7 +10,7 @@ type Developer = {
 export const HireDeveloperBanner: React.FC = (): JSX.Element => {
 
   return (
-    <div style={{textAlign:'center', backgroundColor:'#f0f0f0', padding: '40px 0px 0px 0px'}}>
+    <div className="main-hire-container">
       <h2>Hire Developers</h2>
       <section className="banner-container">
         {

@@ -64,56 +64,56 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
             </div>
           </div>
           <div className='recent-candidate'>
-            <h2 style={{textAlign:'center'}}>Recent Candidates</h2>
-            <div style={{display:'flex', flexWrap:'wrap', justifyContent:'center', alignItems:'center', marginTop:'40px'}}>
+            <h2>Recent Candidates</h2>
+            <div className='sample-candidate-container'>
               {/* First Candidate */}
-              <div style={{margin:'20px', border:'1px solid #E0E6F7', padding:'20px', borderRadius:'10px', background:'#F8FAFF'}}>
-                <div style={{display:'flex', marginRight:'150px', marginBottom:'30px'}}>
-                  <img src={avataricon} style={{width:'85px', borderRadius:'50%'}}></img>
-                  <div style={{padding:'20px'}}>
+              <div className='sample-candidate-card'>
+                <div className='card-user-detail'>
+                  <img src={avataricon}></img>
+                  <div>
                     <h5>Amit M***</h5>
-                    <p style={{fontSize:'12px', color:'#A0ABB8'}}>6 years of experience</p>
+                    <p>6 years of experience</p>
                   </div>
                 </div>
                 <Btn className='btn-apply-now' title={skillset?.skill || "Skills"}/>
-                <div style={{marginTop:'20px', padding:'15px', borderTop:'1px solid #E0E6F7'}}>
-                  <span style={{float:'left', fontSize:'14px', color:'#A0ABB8'}}>Anywhere in India</span>
-                  <span style={{float:'right', fontSize:'14px', color:'#A0ABB8'}}>Aug 1, 2023</span>
+                <div className='user-more-detail'>
+                  <span className='user-more-detail-left'>Anywhere in India</span>
+                  <span className='user-more-detail-right'>Aug 1, 2023</span>
                 </div>
               </div>
               {/* Second Candidate */}
-              <div style={{margin:'20px', border:'1px solid #E0E6F7', padding:'20px', borderRadius:'10px', background:'#F8FAFF'}}>
-                <div style={{display:'flex', marginRight:'150px', marginBottom:'30px'}}>
-                  <img src={avataricon} style={{width:'85px', borderRadius:'50%'}}></img>
-                  <div style={{padding:'20px'}}>
+              <div className='sample-candidate-card'>
+                <div className='card-user-detail'>
+                  <img src={avataricon}></img>
+                  <div>
                     <h5>Amit M***</h5>
-                    <p style={{fontSize:'12px', color:'#A0ABB8'}}>6 years of experience</p>
+                    <p>6 years of experience</p>
                   </div>
                 </div>
                 <Btn className='btn-apply-now' title={skillset?.skill || "Skills"}/>
-                <div style={{marginTop:'20px', padding:'15px', borderTop:'1px solid #E0E6F7'}}>
-                  <span style={{float:'left', fontSize:'14px', color:'#A0ABB8'}}>Anywhere in India</span>
-                  <span style={{float:'right', fontSize:'14px', color:'#A0ABB8'}}>Aug 1, 2023</span>
+                <div className='user-more-detail'>
+                  <span className='user-more-detail-left'>Anywhere in India</span>
+                  <span className='user-more-detail-right'>Aug 1, 2023</span>
                 </div>
               </div>
               {/* Third Candidate */}
-              <div style={{margin:'20px', border:'1px solid #E0E6F7', padding:'20px', borderRadius:'10px', background:'#F8FAFF'}}>
-                <div style={{display:'flex', marginRight:'150px', marginBottom:'30px'}}>
-                  <img src={avataricon} style={{width:'85px', borderRadius:'50%'}}></img>
-                  <div style={{padding:'20px'}}>
+              <div className='sample-candidate-card'>
+                <div className='card-user-detail'>
+                  <img src={avataricon}></img>
+                  <div>
                     <h5>Amit M***</h5>
-                    <p style={{fontSize:'12px', color:'#A0ABB8'}}>6 years of experience</p>
+                    <p>6 years of experience</p>
                   </div>
                 </div>
                 <Btn className='btn-apply-now' title={skillset?.skill || "Skills"}/>
-                <div style={{marginTop:'20px', padding:'15px', borderTop:'1px solid #E0E6F7'}}>
-                  <span style={{float:'left', fontSize:'14px', color:'#A0ABB8'}}>Anywhere in India</span>
-                  <span style={{float:'right', fontSize:'14px', color:'#A0ABB8'}}>Aug 1, 2023</span>
+                <div className='user-more-detail'>
+                  <span className='user-more-detail-left'>Anywhere in India</span>
+                  <span className='user-more-detail-right'>Aug 1, 2023</span>
                 </div>
               </div>
             </div>
-            <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-              <a href='/'><button style={{padding:'15px 25px 15px 25px', background:'#05264E', color:'white', border:'none', borderRadius:'5px', margin:'20px 0px 30px 0px'}}>View More</button></a>
+            <div className='view-more-btn-container'>
+              <a href='/'><button >View More</button></a>
             </div>
           </div>
           <div className='skill-content-container'>
@@ -207,7 +207,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               </div>
           </div>
           <div className='hire-enquiry-container'>
-              <h2 style={{textAlign:'center', padding:'60px 0px 0px'}}>Send Us Enquiry</h2>
+              <h2>Send Us Enquiry</h2>
               <div className='hire-developer-enquiry'>
                 <div className='hero-banner-img'>
                   <img src={sendusenquiryimg}></img>
@@ -216,31 +216,31 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
                   <div className='hire-enquiry-form'>
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
-                          {errors.firstName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                          {errors.firstName && <span>*First Name is required</span>}
                           <input placeholder="First Name" {...register("firstName", { required: true })}></input>
                         </div>
                         <div>
-                          {errors.lastName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Last Name is required</span>}
+                          {errors.lastName && <span>*Last Name is required</span>}
                           <input placeholder="Last Name" {...register("lastName", { required: true })}></input>
                           
                         </div>
                         <div>
-                          {errors.email && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Email is required</span>}
+                          {errors.email && <span>*Email is required</span>}
                           <input placeholder="Email" {...register("email", { required: true })}></input>                        
                         </div>
                         <div>
-                          {errors.companyName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Company Name is required</span>}
+                          {errors.companyName && <span>*Company Name is required</span>}
                           <input placeholder="Company Name" {...register("companyName", { required: true })}></input>                        
                         </div>
                         <div>
-                          {errors.contactNumber && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Contact Number is required</span>}
+                          {errors.contactNumber && <span>*Contact Number is required</span>}
                           <input placeholder="Contact Number" {...register("contactNumber", { required: true })}></input>                        
                         </div>
                         <div>
-                          {errors.description && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Description is required</span>}
+                          {errors.description && <span>*Description is required</span>}
                           <textarea rows={7} placeholder="Description" {...register("description", { required: true })}></textarea>
                         </div>
-                        <input type="submit" className="query-contact-btn" style={{width:'100px', padding:'0px'}}/>
+                        <input type="submit" className="query-contact-btn"/>
                       </form>
                   </div>
                 </div>

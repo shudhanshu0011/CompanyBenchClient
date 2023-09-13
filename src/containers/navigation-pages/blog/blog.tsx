@@ -81,36 +81,35 @@ export const Blogs: React.FC = (): JSX.Element => {
                   </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <div>
-                        {errors.firstName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                        {errors.firstName && <span>*First Name is required</span>}
                         <input placeholder="First Name" {...register("firstName", { required: true })}></input>
                       </div>
                       <div>
-                        {errors.lastName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Last Name is required</span>}
-                        <input placeholder="Last Name" {...register("lastName", { required: true })}></input>
-                        
+                        {errors.lastName && <span>*Last Name is required</span>}
+                        <input placeholder="Last Name" {...register("lastName", { required: true })}></input>                        
                       </div>
                       <div>
-                        {errors.email && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Email is required</span>}
+                        {errors.email && <span>*Email is required</span>}
                         <input placeholder="Email" {...register("email", { required: true })}></input>                        
                       </div>
                       <div>
-                        {errors.companyName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Company Name is required</span>}
+                        {errors.companyName && <span>*Company Name is required</span>}
                         <input placeholder="Company Name" {...register("companyName", { required: true })}></input>                        
                       </div>
                       <div>
-                        {errors.contactNumber && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Contact Number is required</span>}
+                        {errors.contactNumber && <span>*Contact Number is required</span>}
                         <input placeholder="Contact Number" {...register("contactNumber", { required: true })}></input>                        
                       </div>
                       <div>
-                        {errors.description && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Description is required</span>}
+                        {errors.description && <span>*Description is required</span>}
                         <textarea rows={7} placeholder="Description" {...register("description", { required: true })}></textarea>
                       </div>
-                      <input type="submit" className="query-contact-btn" style={{width:'100px', padding:'0px'}}/>
+                      <input type="submit" className="query-contact-btn" />
                     </form>
                 </div>
                 <div className='we-hiring-banner'>
-                  <span style={{fontSize:'24px', color:'#B4C0E0'}}>WE ARE</span><br/>
-                  <span style={{fontSize:'36px', color:'#66789C'}}>HIRING</span>
+                  <span className='we-hiring-banner-1' >WE ARE</span><br/>
+                  <span className='we-hiring-banner-2' >HIRING</span>
                 </div>
               </div>
             </div>

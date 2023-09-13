@@ -71,28 +71,28 @@ export const ContactUs = (): JSX.Element => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div>
                     <input placeholder="First Name" {...register("firstName", { required: true })}></input>
-                    {errors.firstName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*First Name is required</span>}
+                    {errors.firstName && <span>*First Name is required</span>}
                   </div>
                   <div>
                     <input placeholder="Last Name" {...register("lastName", { required: true })}></input>
-                    {errors.lastName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Last Name is required</span>}
+                    {errors.lastName && <span>*Last Name is required</span>}
                   </div>
                   <div>
                     <input placeholder="Email" {...register("email", { required: true })}></input>
-                    {errors.email && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Email is required</span>}
+                    {errors.email && <span>*Email is required</span>}
                   </div>
                   <div>
                     <input placeholder="Company Name" {...register("companyName", { required: true })}></input>
-                    {errors.companyName && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Company Name is required</span>}
+                    {errors.companyName && <span>*Company Name is required</span>}
                   </div>
                   <div>
                     <input placeholder="Contact Number" {...register("contactNumber", { required: true })}></input>
-                    {errors.contactNumber && <span style={{fontSize:'10px', paddingLeft:'15px', color:'red'}}>*Contact Number is required</span>}
+                    {errors.contactNumber && <span>*Contact Number is required</span>}
                   </div>
                   <div>
                     <textarea rows={7} placeholder="Description" {...register("description", { required: true })}></textarea>
                   </div>
-                  <input type="submit" className="query-contact-btn" style={{width:'100px', padding:'0px'}}/>
+                  <input type="submit" className="query-contact-btn" value="Contact Us"/>
                 </form>
               </div>
             </div>
