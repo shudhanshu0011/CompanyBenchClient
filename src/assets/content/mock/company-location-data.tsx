@@ -1,7 +1,7 @@
 const data = [
     {
         city: "India",
-        url: "",
+        url: "/c/top-10-It-companies-in-india",
         location: "Top 10 IT Companies In India",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -51,7 +51,7 @@ const data = [
     },
     {
         city: "Mumbai",
-        url: "",
+        url: "/c/software-development-company-in-mumbai",
         location: "Top Software Development Companies in Mumbai",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -101,7 +101,7 @@ const data = [
     },
     {
         city: "Pune",
-        url: "",
+        url: "/c/it-companies-pune",
         location: "IT Companies In Pune",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -151,7 +151,7 @@ const data = [
     },
     {
         city: "Banglore",
-        url: "",
+        url: "/c/list-software-companies-in-bangalore",
         location: "List of software companies in Banglore",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -201,7 +201,7 @@ const data = [
     },
     {
         city: "Delhi",
-        url: "",
+        url: "/c/software-development-company-in-delhi",
         location: "Software Development Company In Delhi",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -251,7 +251,7 @@ const data = [
     },
     {
         city: "Hyderabad",
-        url: "",
+        url: "/c/best-software-development-companies-in-hyderabad",
         location: "Software Companies in Hyderabad",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -301,7 +301,7 @@ const data = [
     },
     {
         city: "Chennai",
-        url: "",
+        url: "/c/best-software-companies-in-chennai",
         location: "Software Companies In Chennai",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -351,7 +351,7 @@ const data = [
     },
     {
         city: "Gurgaon",
-        url: "",
+        url: "/c/software-companies-in-gurgaon",
         location: "Software Companies In Gurgaon",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -401,7 +401,7 @@ const data = [
     },
     {
         city: "Jaipur",
-        url: "",
+        url: "/c/software-companies-in-jaipur",
         location: "Software Companies In Jaipur",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -451,7 +451,7 @@ const data = [
     },
     {
         city: "Ahmedabad",
-        url: "",
+        url: "/c/software-companies-in-ahmedabad",
         location: "Software Companies In Ahmedabad",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -501,7 +501,7 @@ const data = [
     },
     {
         city: "Indore",
-        url: "",
+        url: "/c/software-companies-in-indore",
         location: "Software Companies in Indore",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
@@ -551,7 +551,7 @@ const data = [
     },
     {
         city: "Noida",
-        url: "",
+        url: "/c/top-10-software-development-companies-in-noida",
         location: "Top 10 Software Development Companies In Noida",
         intro: "IT is the backbone of every business sector. It heads towards innovation, and innovation is paramount for businesses to run smoothly. With newly designed software, IT enables communication, helps in storing data, and puts forward the latest and best of technology. From a civil servant, teacher, farmer, everyone and every department use computers. If you and your business require exclusively talented and skillful software developers with ample experience then Company Bench is just the place for you. It is one of the top consulting firms in India.",
         companies: [
