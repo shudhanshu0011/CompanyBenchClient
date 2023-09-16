@@ -216,7 +216,7 @@ export const SignUp = (): JSX.Element => {
                   <Col sm={12}>
                     <Btn
                       className="full-w font-sm p-10"
-                      title="Login"
+                      title="Create My Account"
                       type="submit"
                     />
                   </Col>
