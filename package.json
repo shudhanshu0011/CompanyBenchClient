@@ -32,6 +32,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^4.17.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
     "react-indiana-drag-scroll": "^3.0.3-alpha",
@@ -45,10 +46,12 @@
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@tanstack/eslint-plugin-query": "^4.32.5",
     "@types/faker": "^6.6.9",
     "@types/node": "^20.4.10",
     "@types/react": "^18.2.15",
+    "@types/react-datepicker": "^4.15.0",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",

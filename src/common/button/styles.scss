@@ -28,6 +28,10 @@
       font-size: $font-xs;
       text-transform: capitalize;
       border-color:  $color-border-2;
+      &:hover {
+        color: $color-white;
+        background-color: $color-brand-2;
+      }
     }
     &.btn-grey {
       padding: 17px 20px;

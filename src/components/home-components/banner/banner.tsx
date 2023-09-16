@@ -3,7 +3,7 @@ import Select from "react-select";
 import { ClearIndicatorProps, GroupBase, components } from "react-select";
 import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import SearchIcon from '@mui/icons-material/Search';
-import { DropdownOption } from "@srctypes/common";
+import { DropdownOption } from "@src/types/common";
 import "./styles.scss";
 
 export const Banner = () => {
