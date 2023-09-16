@@ -6,7 +6,7 @@ import "./header.scss";
 
 export const Header = (): JSX.Element => {
   const location = useLocation();
-  const isLoginPage = location.pathname === "/signin";
+  const isLoginPage = location.pathname === "/signin" || location.pathname === "/signup";
 
   return (
     <header className="header sticky-bar">
@@ -25,7 +25,7 @@ export const Header = (): JSX.Element => {
               <div className="block-signin">
                 <a
                   className="text-link-bd-btom hover-up"
-                  href="page-register.html"
+                  href="/signup"
                 >
                   Register
                 </a>
