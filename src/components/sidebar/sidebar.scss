@@ -5,8 +5,12 @@
   width: 340px;
   height: 100%;
   position: relative;
-  color: white;
+  color: $color-white;
   transition: 0.4s;
+
+  &.side-nav-container-NX {
+    width: 78px;
+  }
 }
 
 .side-nav-container-NX {
@@ -89,6 +93,20 @@
   height: 30px;
   width: 31px;
   padding: 5px;
+
+  &.hamburger-in {
+    background-image: url(https://companybench.com/icon-arrow-left.30ade3f52972d1898496.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 6px;
+  }
+
+  &.hamburger-out {
+    background-image: url(https://companybench.com/icon-arrow-right.59e1848f9cbc18d7327a.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 8px;
+  }
 }
 .hamburger-in {
   background-image: url(https://github.com/shudhanshu0011/simplewebpage/blob/master/public/images/142053.png?raw=true);

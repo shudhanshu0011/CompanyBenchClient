@@ -10,7 +10,6 @@ import { PieChart } from "@components/charts/pie-chart";
 import { AreaChart } from "@components/charts/area-chart";
 import { BubbleChart } from "@components/charts/bubble-chart";
 import "@styles/common/_pages.scss";
-import "./dashboard.scss";
 
 export const Dashboard = (): JSX.Element => {
   const location = useLocation();

@@ -14,8 +14,10 @@ import "./sidebar.scss";
 interface Props {
   activeLink: string;
 }
+
 export const Sidebar = ({ activeLink }: Props): JSX.Element => {
-  const [isExpanded, setExpandState] = useState(true);
+  const [isExpanded, setExpandState] = useState<boolean>(true);
+
   const menuItems = [
     {
       text: "Dashboard",
@@ -84,11 +86,9 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
       <div className="nav-upper">
         <div className="nav-heading">
           <button
-            className={
-              isExpanded ? "hamburger hamburger-in" : "hamburger hamburger-out"
-            }
+            className={isExpanded ? "hamburger hamburger-in" : "hamburger hamburger-out"}
             onClick={() => setExpandState(!isExpanded)}
-          ></button>
+          />
         </div>
         <ul className="nav-menu">
           {menuItems.map(({ text, icon, link }, index: number) => (
@@ -96,7 +96,7 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
               <a className={getClassname(link)} href={link}>
                 {/* <img className="menu-item-icon" src={icon} alt="" srcSet="" /> */}
                 <span>{icon}</span>
-                {isExpanded && <span>{text}</span>}
+                {isExpanded && <span style={{marginLeft:'9px'}}>{text}</span>}
               </a>
             </li>
           ))}
