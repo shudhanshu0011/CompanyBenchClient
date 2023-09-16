@@ -16,6 +16,7 @@ import { ContactUs } from "./containers/navigation-pages/contact-us";
 import { Blogs } from "./containers/navigation-pages/blog";
 import { HireDeveloper } from "./containers/navigation-pages/hire-developer";
 import SkillDescPage from "./containers/navigation-pages/skill-desc-page/skill-desc-page";
+import BlogDescPage from "./containers/navigation-pages/blog-desc-page/blog-desc-page";
 
 const routes: RouteObject[] = [
   {
@@ -221,6 +222,30 @@ const routes: RouteObject[] = [
   {
     path: "/c/hire-workday-developer",
     element: <SkillDescPage url="/c/hire-workday-developer?ut=1"/>
+  },
+  {
+    path: "/c/why-should-you-hire-remote-developers",
+    element: <BlogDescPage url="/c/why-should-you-hire-remote-developers"/>
+  },
+  {
+    path: "/c/why-should-you-hire-contractors-instead-of-full-time-employees",
+    element: <BlogDescPage url="/c/why-should-you-hire-contractors-instead-of-full-time-employees"/>
+  },
+  {
+    path: "/c/11-disadvantages-of-hiring-dedicated-developers",
+    element: <BlogDescPage url="/c/11-disadvantages-of-hiring-dedicated-developers"/>
+  },
+  {
+    path: "/c/9-best-benefits-of-hiring-contractors",
+    element: <BlogDescPage url="/c/9-best-benefits-of-hiring-contractors"/>
+  },
+  {
+    path: "/c/direct-hire-vs-contract-employees:-which-one-is-better-for-your-company",
+    element: <BlogDescPage url="/c/direct-hire-vs-contract-employees:-which-one-is-better-for-your-company"/>
+  },
+  {
+    path: "/c/attracting-and-retaining-top-talent-in-the-it-industry",
+    element: <BlogDescPage url="/c/attracting-and-retaining-top-talent-in-the-it-industry"/>
   },
 ];
 

@@ -43,9 +43,11 @@ export const Blogs: React.FC = (): JSX.Element => {
                       <img src={blogDetailImg}></img>
                       <Btn className='btn-apply-now category-btn' title={temp_blog.category} />
                       <h5>{temp_blog.blogHeading}</h5>
-                      <span>{temp_blog.content}</span>
+                      <span>{temp_blog.content.slice(0,600)}</span>
                       <div>
-                        <Btn className='btn-read-more' title='Read More' />
+                        <a href={temp_blog.url}>
+                          <Btn className='btn-read-more' title='Read More' />
+                        </a>
                       </div>
                       <div className='author'>
                         <img src={userIcon}></img>
