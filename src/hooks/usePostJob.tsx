@@ -1,4 +1,3 @@
-// import { http } from "@config/request";
 import { QueryID } from "@src/constants/constants";
 import { SubmitPostJobParams } from "@src/types/components";
 import axios, { AxiosError } from "axios";
@@ -10,9 +9,6 @@ export const postJobs = async (
   return await axios.post(`https://testbenchapi.azurewebsites.net/api/PostJob/NewJobPost`, params, {
     headers: { service_ref: 123456 },
   });
-  // return await axios.post("https://cb-react-web-app-2d5k-8puxuo3xy-techforchange.vercel.app/v1/job", params, {
-  //   headers: { service_ref: 123456 },
-  // });
 };
 export const usePostJob = (
   onSuccess?: () => void,

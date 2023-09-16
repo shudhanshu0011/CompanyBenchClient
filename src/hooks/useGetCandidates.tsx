@@ -1,20 +1,44 @@
 import { http } from "@config/request";
-import { AxiosResponse } from "axios";
 import { UseQueryResult, useQuery } from "react-query";
+import { GET_CANDIDATES_QUERY } from "@src/constants/query";
 
-const getCandidatesList = async () => {
-  return await http.get<unknown>("localhost:3001/v1/candidate/vendor/4321", {
+interface Candidate {
+  candidateId: number,
+  vendorId: number,
+  firstName: string,
+  lastName: string,
+  email: string,
+  location: string,
+  skill: string[],
+  summary: string,
+  hourlyPrice: number,
+  certifications: string[],
+  projects: string[],
+  designation: string,
+  status: string,
+}
+
+interface GetCandidatesResponse {
+  data: {
+    candidates: Candidate[];
+  };
+}
+
+const getCandidatesList = async (): Promise<GetCandidatesResponse> => {
+  const response = await http.get<GetCandidatesResponse>("http://localhost:3001/v1/candidate", {
     headers: { "service_ref": 123456 },
   });
+  return response.data;
 };
+
 export const useGetCandidates = (
   onSuccess?: () => void,
   onError?: () => void
-): UseQueryResult<unknown, Error> => {
-  return useQuery(["QUERY_ID"], async () => getCandidatesList(), {
+): UseQueryResult<GetCandidatesResponse, Error> => {
+  return useQuery(GET_CANDIDATES_QUERY, async () => getCandidatesList(), {
     onSuccess,
     onError,
-    select: (data: AxiosResponse) => data.data,
+    select: (data: GetCandidatesResponse) => data,
     staleTime: 0
   });
 };
