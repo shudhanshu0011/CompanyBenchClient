@@ -1,27 +1,27 @@
+import { NavLink } from "react-router-dom";
+
 export const Navigation = (): JSX.Element => {
   return (
     <div className="header-nav">
       <nav className="nav-main-menu">
         <ul className="main-menu">
           <li className="dashboard">
-            <a className="" href="/apply">
-              Apply for Job
-            </a>
+            <NavLink to="/apply">Apply for Job</NavLink>
           </li>
           <li>
-            <a href="/c/hire-talent">Hire Developer</a>
+            <NavLink to="/c/hire-talent">Hire Developer</NavLink>
           </li>
           <li>
-            <a href="/jobs">Find a Job</a>
+            <NavLink to="/jobs">Find a Job</NavLink>
           </li>
           <li>
-            <a href="/c/candidates">Find Candidates</a>
+            <NavLink to="/c/candidates">Find Candidates</NavLink>
           </li>
           <li>
-            <a href="/c/blogs">Blog</a>
+            <NavLink to="/c/blogs">Blog</NavLink>
           </li>
           <li>
-            <a href="/c/contact">Contact Us</a>
+            <NavLink to="/c/contact">Contact Us</NavLink>
           </li>
         </ul>
       </nav>

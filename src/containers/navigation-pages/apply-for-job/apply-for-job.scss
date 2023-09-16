@@ -42,17 +42,23 @@
     border: 0.5px solid $color-border-2;
     padding: 30px;
     span{
-      font-size: 10px;
-      padding-left: 15px;
+      font-size: 12.25px;
       color: $color-red;
       font-family: $font-text;
     }
-    input{
+    .form-input-field{
       width: 100%;
       height: 50px;
       padding: 11px 15px 13px 20px;
       border-radius: 5px;
       border: 1px solid $color-border-2;
+    }
+    .error-input {
+      width: 100%;
+      height: 50px;
+      padding: 11px 15px 13px 20px;
+      border-radius: 5px;
+      border: 1px solid $color-red;
     }
     select{
       width: 100%;
@@ -92,6 +98,9 @@
       background-color: $color-brand-2;
       color: $color-white;
       padding: 0;
+      width: 100%;
+      height: 50px;
+      border-radius: 5px;
     }
     input::file-selector-button{
       width: 100px;
@@ -124,9 +133,11 @@
     .create-account-btn{
       background-color: $color-brand-2;
       width: 180px;
+      height: 40px;
       color: $color-white;
       border-radius: 10px;
       margin-top: 3px;
+      border: none;
     }
   }
 }

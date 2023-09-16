@@ -1,7 +1,7 @@
 const developers = [
     {
         skill: "AEM",
-        url: "/c/hire-aem-developer",
+        url: "/c/hire-aem-developer?ut=1",
         logo: "/assets/images/AEM.png",
         skillDescription: "Adobe Experience Manager (AEM) full form is a platform that can be used as a content management system (CMS), a cloud-based service, and a digital asset management (DAM) system. With integrations with the Adobe Experience Cloud, AEM Developer allows users to deal with the complexity of content management. An AEM developer Job helps you provide an omnichannel and personalized experience to the users by building a platform based on your needs aem developer skills. Company Bench allows you to hire AEM developers in your organization on an immediate basis. Here are some of the key roles and responsibilities of an AEM developer:",
         bulletPoints: [
@@ -18,7 +18,7 @@ const developers = [
     },
     {
         skill: "AWS",
-        url: "/c/hire-aws-developer",
+        url: "/c/hire-aws-developer?ut=1",
         logo: "/assets/images/hire_aws.png",
         skillDescription: "Amazon Web Services (AWS) are a comprehensive cloud-computing platform that provides users with an ideal mix of IaaS (Infrastructure as a Service), PaaS (Platform as a Service), and SaaS (Software as a Service). It allows organizations to facilitate seamless data computing, data storage, and content delivery. When you AWS Developers For Hire the professional help you set up, maintain, and evolve the cloud-based infrastructure of your applications. Company Bench puts at your disposal skilled AWS developers to hire with a thorough understanding of the core AWS services. The portal helps you look for ideal developers who are capable of applying the best AWS practices with respect to platform security, privacy, and scalability.",
         bulletPoints: [
@@ -32,7 +32,7 @@ const developers = [
     },
     {
         skill: "Blockchain ",
-        url: "/c/hire-blockchain-developer",
+        url: "/c/hire-blockchain-developer?ut=1",
         logo: "/assets/images/hire_sdev.png",
         skillDescription: "We live in an age where the prominence and relevance of blockchain Developer are increasing steadily. More and more businesses are willing to Hire blockchain Developer to enter the market and create their own niche. The shared and immutable ledger helps businesses in recording transactions and tracking assets in a streamlined manner. A Blockchain Developer Jobs In India facilitates secure digital transactions by developing systems for recording and storing blockchain data in a way that prevents changes or hacks. Company Bench allows you to hire blockchain developers based on your specific requirements and transactions carried out by your organization. Some of the key roles and responsibilities of a Blockchain Developer Jobs In India include: look for ideal developers who are capable of applying the best AWS practices with respect to platform security, privacy, and scalability.",
         bulletPoints: [
@@ -47,7 +47,7 @@ const developers = [
     },
     {
         skill: "CloudCraze ",
-        url: "/c/hire-cloudcraze-developer",
+        url: "/c/hire-cloudcraze-developer?ut=1",
         logo: "/assets/images/hire_cloudcraze.png",
         skillDescription: "Salesforce CloudCraze, also known as Salesforce B2B Commerce Cloud, is a platform that allows users to set up online storefronts and manage them from a centralized interface. The platform is designed to help businesses undertake seamless B2B transactions across multiple channels. A CloudCraze developer shoulders the responsibility of understanding the specific requirements of the clients and developing the automated platform based on Salesforce Commerce Cloud Consultant.",
         bulletPoints: [
@@ -66,7 +66,7 @@ const developers = [
     },
     {
         skill: "Demandware",
-        url: "/c/hire-demandware-developer",
+        url: "/c/hire-demandware-developer?ut=1",
         logo: "/assets/images/hire_demandware.png",
         skillDescription: "Demandware, also known as Salesforce B2C Commerce Cloud, is a platform that helps you set up one or more online storefronts and manage the same from a centralized system. It also allows businesses to sync online and offline stores to provide a consistent buying experience to their prospects and customers. Hiring a certified Demandware developer helps you build a robust platform that helps you manage a range of activities – right from getting your products listed to managing orders and payments. Company bench helps you hire Demandware developers based on the audience you target and the objectives you are willing to achieve. Here are some of the major roles and responsibilities of hiring a Demandware developer:",
         bulletPoints: [
@@ -85,7 +85,7 @@ const developers = [
     },
     {
         skill: "DevOps",
-        url: "/c/hire-devops-developer",
+        url: "/c/hire-devops-developer?ut=1",
         logo: "/assets/images/hire_Devop.png",
         skillDescription: "Over time, Hire DevOps Engineer has evolved significantly as a methodology when it comes to the design, development, and testing of software platforms throughout their life cycles. When you Hire DevOps Engineer, they help you in managing app development, tools, deployment, integrated app testing, and seamless post-development assistance. The role of a Hire DevOps Developer is essential for the success of a project. Company bench helps you Hire DevOps Developer according to the projects you are working on and the objectives you are willing to achieve. Some of the key roles and responsibilities of a DevOps engineer include:",
         bulletPoints: [
@@ -103,7 +103,7 @@ const developers = [
     },
     {
         skill: ".Net",
-        url: "/c/hire-dot-net-developer",
+        url: "/c/hire-dot-net-developer?ut=1",
         logo: "/assets/images/hire_dotnet.png",
         skillDescription: ".NET is one of the most popular and widely used development platforms across the world. It is a cross-platform and open-source platform that allows software developer to build and deploy responsive applications based on the needs of the clients. When you hire a .NET developer, the professional allows you to use multiple programming languages, editors, and libraries for building applications that are flexible, scalable, and responsive. Company bench helps you Hire .NET Developer based on the specific requirements of your projects. These professionals help you develop applications from scratch, configure existing systems, and provide seamless support regarding Dot NET Developer Jobs.",
         bulletPoints: [
@@ -120,7 +120,7 @@ const developers = [
     },
     {
         skill: "Drupal ",
-        url: "/c/hire-drupal-developer",
+        url: "/c/hire-drupal-developer?ut=1",
         logo: "/assets/images/hire_dru.png",
         skillDescription: "Drupal is a popular web content management system that is free and open-source in nature. It is written in PHP and distributed under the GNU public license. The system provides users with a back-end framework for a range of websites, ranging from personal blogs to political, corporate, and government websites. When you Hire Drupal developer, the professional helps you in building highly responsive websites and web applications based on your specific requirements. Company bench helps you Hire Drupal developer without facing any unnecessary delays commonly caused due to conventional recruitment. Here are some of the major skills, roles, and responsibilities of a Drupal Developer Jobs for hire before you make the hires:",
         bulletPoints: [
@@ -134,7 +134,7 @@ const developers = [
     },
     {
         skill: "Software",
-        url: "/c/hire-software-developer",
+        url: "/c/hire-software-developer?ut=1",
         logo: "/assets/images/hire_sdev.png",
         skillDescription: "You have come to the correct place if you are looking to hire a skillful developer for your project. Company bench is a leading offshore application development firm that offers great services in different domains. We create applications, mostly in mobile development, website development, CMS, and E-commerce. Our team of talented Hire Software Developer has great expertise in creating outstanding web applications. We use the current technology to provide solutions in less time to enhance productivity and save expenses. Hire software developers by contacting Company Bench.",
         bulletPoints: [
@@ -144,7 +144,7 @@ const developers = [
     },
     {
         skill: "Java",
-        url: "/c/hire-java-developer",
+        url: "/c/hire-java-developer?ut=1",
         logo: "/assets/images/hire_java.png",
         skillDescription: "Java is a high-class, object-oriented, and class-based programming language used by developers across the world as the server-side language for most back-end projects. The programming language is used for building web applications, big data platforms, video games, and undertaking numerical computing. When you Hire Dedicated Java Developer, you can build flexible, scalable, and responsible applications across multiple platforms. Company Bench allows you to have a look at some of the highly skilled professionals and Hire Java Developer for hire based on your requirements. Before you make your hire, have a look at some important roles and responsibilities of a Java developer:",
         bulletPoints: [
@@ -163,7 +163,7 @@ const developers = [
     },
     {
         skill: "MAGENTO",
-        url: "/c/hire-magento-developer",
+        url: "/c/hire-magento-developer?ut=1",
         logo: "/assets/images/hire_mulesoft.png",
         skillDescription: "Magento is a popular eCommerce platform built on open-source technology. It is designed to provide online sellers with a flexible cart system and greater control over the look, feel, and functionality of their online storefronts. Magento also provides you with robust marketing, SEO, and catalog-management tools to improve the buying experience of your prospects and customers. The flexibility and scalability offered by the eCommerce platform have prompted several businesses to Hire Dedicated Magento Developer to manage their eCommerce ventures. Company Bench allows you to hire MAGENTO developers in your organization on an immediate basis. Here are some of the key roles and responsibilities of an MAGENTO developer:",
         bulletPoints: [
@@ -179,7 +179,7 @@ const developers = [
     },
     {
         skill: "MEAN Stack",
-        url: "/c/hire-mean-stack-developer",
+        url: "/c/hire-mean-stack-developer?ut=1",
         logo: "/assets/images/hire_mulesoft.png",
         skillDescription: "MEAN stack is a widely used JavaScript-based framework for developing responsive applications. The acronym stands for the four technologies used within the framework, namely MongoDB, Express, Angular, and Node. The ability to build targeted and cross-platform applications have prompted companies around the world to hire MEAN stack developers on a full-time and contract basis. Company bench helps you hire MEAN stack developers for your organizations on an immediate basis, without the need for a long and tedious recruitment process. Here are some of the key roles and responsibilities of MEAN stack developer:",
         bulletPoints: [
@@ -198,7 +198,7 @@ const developers = [
     },
     {
         skill: "Full Stack",
-        url: "/c/hire-full-stack-developer",
+        url: "/c/hire-full-stack-developer?ut=1",
         logo: "/assets/images/hire_sdev.png",
         skillDescription: "A Full Stack Developer Jobs is a Jack of all trades. They help companies in multiple stages of developing responsive applications and possess the versatility to work on front-end and back-end development. When you hire full stack developer, you avail yourself of skills belonging to a wide variety of coding niches, right from databases to graphic design and seamless UI/UX management. Company bench shows you a range of Hire Full Stack Developer based on the specific needs of your organization. Here are some of the major roles and responsibilities of a full stack developer for hire:",
         bulletPoints: [
@@ -217,7 +217,7 @@ const developers = [
     },
     {
         skill: "GoLang",
-        url: "/c/hire-golang-developer",
+        url: "/c/hire-golang-developer?ut=1",
         logo: "/assets/images/hire_golangdev.png",
         skillDescription: "GoLang, also known as Go, is an open-source and statically typed programming language designed by Google. The language is specifically designed to be high-performing, simple, efficient, and readable to facilitate the seamless development of applications. The simplicity and flexibility associated with the programming language prompt small and medium businesses around the world to Hire GoLang Developer within their organizations. Company bench helps you Hire GoLang Developer on an immediate basis to help you undertake seamless app development in a simplified manner. Here are some of the major roles and responsibilities of a GoLang web developers for hire:",
         bulletPoints: [
@@ -236,7 +236,7 @@ const developers = [
     },
     {
         skill: "Hibernate",
-        url: "/c/hire-hibernate-developer",
+        url: "/c/hire-hibernate-developer?ut=1",
         logo: "/assets/images/hire_sdev.png",
         skillDescription: "Hibernate is a popular ORM (open-source object relational mapping) tool that provides you with a framework for mapping object-oriented domain models to relational databases for web applications. When you Hire Hibernate Developer, the professional allows you to have a consistent view of objects over time even if the sources delivering them change. Company bench Hibernate is a popular ORM (open-source object relational mapping) tool that provides you with a framework for mapping object-oriented domain models to relational databases for web applications. When you Hire Hibernate Developer, the professional allows you to have a consistent view of objects over time even if the sources delivering them change. Company Bench allows you to hire Hibernate developers based on your specific requirements and transactions carried out by your organization. Some of the key roles and responsibilities of a Hibernate Developer Jobs In India include: look for ideal developers who are capable of applying the best AWS practices with respect to platform security, privacy, and scalability.",
         bulletPoints: [
@@ -252,7 +252,7 @@ const developers = [
     },
     {
         skill: "HubSpot",
-        url: "/c/hire-hubspot-developer",
+        url: "/c/hire-hubspot-developer?ut=1",
         logo: "/assets/images/hire_hubspot.png",
         skillDescription: "HubSpot is a popular CRM platform that allows users to manage their databases and streamline marketing activities. It also allows organizations to manage their sales processes to cater to the specific needs of the customers from a single platform. Hire a Hire HubSpot Developer understands the specific requirements of your clients and helps you build a scalable CRM platform. Company bench helps you hire HubSpot developer, according to your requirements on an immediate basis. HubSpot Developer Jobs Before you go ahead with making hires, here are the major roles and responsibilities of a HubSpot developer: HubSpot is a popular CRM platform that allows users to manage their databases and streamline marketing activities. It also allows organizations to manage their sales processes to cater to the specific needs of the customers from a single platform. Hire a Hire HubSpot Developer understands the specific requirements of your clients and helps you build a scalable CRM platform. Company bench helps you hire HubSpot developer, according to your requirements on an immediate basis. HubSpot Developer Jobs Before you go ahead with making hires, here are the major roles and responsibilities of a HubSpot developer:",
         bulletPoints: [
@@ -268,7 +268,7 @@ const developers = [
     },
     {
         skill: "MuleSoft",
-        url: "/c/hire-mulesoft-developer",
+        url: "/c/hire-mulesoft-developer?ut=1",
         logo: "/assets/images/hire_mulesoft.png",
         skillDescription: "MuleSoft is a platform dedicated to facilitate seamless integration between multiple platforms, tools and applications. It allows users to integrate data sets to work on a single unified platform. Hire MuleSoft Developer facilitates integration across on-premise and cloud-based platforms. Mulesoft Developer Jobs helps you implementing the integration platform based on your needs and preferences. Here are some of the major skills, roles, and responsibilities to consider as you hire MuleSoft Developer for your organization:",
         bulletPoints: [
@@ -285,7 +285,7 @@ const developers = [
     },
     {
         skill: "Node JS ",
-        url: "/c/hire-node-js-developer",
+        url: "/c/hire-node-js-developer?ut=1",
         logo: "/assets/images/nodejs_hire.png",
         skillDescription: "NodeJS is a cross-platform and open-source runtime environment used for developing server-side and networking applications. It is built on the JavaScript Engine of Google Chrome and uses an event-driven and non-blocking I/O model that makes it lightweight and highly efficient. NodeJS is used by developers across the world for building data-intensive real-time applications running across distributed devices. Hire Node JS developer builds, deploys, and maintains network applications. They are responsible for managing the exchange of data between servers and users, developing back-end components, and connecting apps with suitable web services. Company bench helps you Hire Node JS developer India who are well-versed with the latest skills and technologies needed for building robust applications. Some of the major roles and responsibilities of a NodeJS developer include:",
         bulletPoints: [
@@ -299,7 +299,7 @@ const developers = [
     },
     {
         skill: "Python ",
-        url: "/c/hire-node-js-developer",
+        url: "/c/hire-node-js-developer?ut=1",
         logo: "/assets/images/python_hire.png",
         skillDescription: "Python is a widely popular programming language used by software developers across the world for building websites and web applications. It is also used for undertaking task automation and automated data analysis. When you Hire Python Developer, you can develop and deploy a range of different computer programs and applications, taking advantage of the versatility of the programming language. Company bench helps you Python Developer For Hire based on the projects you are working on and the platforms you are willing to build. Some of the key roles and responsibilities of a Python developer include:",
         bulletPoints: [
@@ -314,7 +314,7 @@ const developers = [
     },
     {
         skill: "React JS  ",
-        url: "/c/hire-react-js-developer",
+        url: "/c/hire-react-js-developer?ut=1",
         logo: "/assets/images/react_hire.png",
         skillDescription: "ReactJs is an open-source front-end JavaScript library used for building responsive user interfaces using UI components. Maintained by Meta and a community of developers and companies, ReactJS can be used for building powerful single-page and mobile applications. When you Hire React JS developer, you avail yourself of flexible and scalable development services for building robust applications. Company bench helps you hire dedicated React JS developer on an immediate basis. Here are some of the key roles and responsibilities of a ReactJS developer:",
         bulletPoints: [
@@ -333,7 +333,7 @@ const developers = [
     },
     {
         skill: "React Native ",
-        url: "/c/hire-react-native-developer",
+        url: "/c/hire-react-native-developer?ut=1",
         logo: "/assets/images/react_hire.png",
         skillDescription: "React Native is a popular JavaScript framework used for writing natively-rendering mobile applications.Software Developers across the world use the framework for building Android and iOS applications. React Native is built on Meta’s JavaScript library for building responsive user interfaces targeting mobile platforms instead of the web. The flexibility and scalability provided by the framework prompt companies around the world to Hire React Native Developer. Company bench provides you with a seamless platform to Hire React Native app developer according to your needs and preferences. Some of the major roles and responsibilities of a React Native developer include:",
         bulletPoints: [
@@ -352,7 +352,7 @@ const developers = [
     },
     {
         skill: "Salesforce",
-        url: "/c/hire-salesforce-developer",
+        url: "/c/hire-salesforce-developer?ut=1",
         logo: "/assets/images/Salesforce_hire.png",
         skillDescription: "Salesforce Developers help you develop Salesforce applications, undertake powerful third-party integrations, and troubleshoot issues associated with the CRM platform. If you are willing to Hire Salesforce Developer, we provide you with a team of experienced professionals capable of providing personalized services to your organization. Irrespective of the industry you belong to and the scale at which you operate, our Hire Salesforce Programmer is trained to understand your issues and design solutions that help you provide the best possible services to your customers.",
         bulletPoints: [
@@ -370,7 +370,7 @@ const developers = [
     },
     {
         skill: "ServiceNow",
-        url: "/c/hire-service-now-developer",
+        url: "/c/hire-service-now-developer?ut=1",
         logo: "/assets/images/hire_servicenow.png",
         skillDescription: "ServiceNow is an automated ticketing platform that allows organizations to manage service requests and handle customer cases to provide them with holistic support. The platform deals with the resolution of incidents, changes, issues, and other relevant matters to provide quick and efficient support to the customers. A ServiceNow developer helps you implement the SaaS platform to help you resolve the issues faced by your customers. Company bench allows you to hire ServiceNow developers based on the type of customers you are targeting and the objectives you are willing to achieve through customer support. Here are some of the major roles and responsibilities of a ServiceNow developer:",
         bulletPoints: [
@@ -387,7 +387,7 @@ const developers = [
     },
     {
         skill: "Developers For Startup ",
-        url: "/c/hire-developers-startup",
+        url: "/c/hire-developers-startup?ut=1",
         logo: "/assets/images/hire_sdev.png",
         skillDescription: "The sad truth is that it is very difficult to hire developers for startup companies, especially for the one which is in the early stage of starting out. Sometimes, a startup company or a firm is simply managed and run by a single person, without any team, and very behind in competition with other established companies in terms of salary and perks. Developers tend to choose companies that are renowned and well-acclaimed, where the benefits and work environment is more stable and there is a space for personal development. In recent years, various startups have turned towards other types of recruitment such as outsourcing. If you are a startup and constantly looking for skilled developers, well fret not, because Company Bench Services provides a varied range of capable and talented software developers in no time.",
         bulletPoints: [
@@ -401,7 +401,7 @@ const developers = [
     },
     {
         skill: "SharePoint",
-        url: "/c/hire-share-point-developer",
+        url: "/c/hire-share-point-developer?ut=1",
         logo: "/assets/images/hire_sharepointD.png",
         skillDescription: "SharePoint is an online collaborative platform integrated with Microsoft Office. The highly configurable platform can be used by professionals to communicate and collaborate with their peers and the management through a centralized platform. The security of the platform and the credibility of Microsoft make organizations around the world Hire SharePoint Developer to build a collaborative platform for their employees. Company bench helps you Hire SharePoint Developer on the basis of the objectives you want to achieve and the collaborative features you want to provide to the users. Here are some of the most important roles and responsibilities of a SharePoint Experts",
         bulletPoints: [
@@ -416,7 +416,7 @@ const developers = [
     },
     {
         skill: "Shopify",
-        url: "/c/hire-shopify-developer",
+        url: "/c/hire-shopify-developer?ut=1",
         logo: "/assets/images/hire_Shopify.png",
         skillDescription: "Shopify is used by brands and businesses around the world for setting up online storefronts and managing their eCommerce ventures. The platform can be used by online sellers for building sites and applications to list their offerings, manage orders, handle payments, and perform all relevant activities regarding running their online storefronts. When you hire Shopify developer, you can avail yourself of seamless development services that help you leverage the online presence of your brand. Company bench helps you hire dedicated Shopify developer on an immediate basis based on your specific needs and requirements. Here are some of the major roles and responsibilities of a Shopify developer:",
         bulletPoints: [
@@ -435,7 +435,7 @@ const developers = [
     },
     {
         skill: "SiteCore",
-        url: "/c/hire-sitecore-developer",
+        url: "/c/hire-sitecore-developer?ut=1",
         logo: "/assets/images/hire_sitecoreD.png",
         skillDescription: "Sitecore is a widely implemented enterprise-level content management system (CMS) built on the framework of ASP.NET. The platform allows marketers and web content editors to have greater control over their websites – from social integration to making blog posts to undertaking advanced personalization. When you hire Sitecore Developers, they help you build the CMS platform, according to the objectives you are willing to achieve. Company bench allows you to hire Sitecore Developer on an immediate basis based on your specific needs and preferences. Here are some of the major roles and responsibilities of a Sitecore developer:",
         bulletPoints: [
@@ -451,7 +451,7 @@ const developers = [
     },
     {
         skill: "SnowFlake ",
-        url: "/c/hire-snowflake-developer",
+        url: "/c/hire-snowflake-developer?ut=1",
         logo: "/assets/images/hire_snowflakeD.png",
         skillDescription: "Snowflake is a data warehouse platform built on the AWS, Microsoft Azure, and Google Cloud infrastructure. It simplifies the process of data migration and management by preventing users from selecting, installing, configuring, or managing dedicated hardware/software. The architecture of Snowflake allows users to store their data and compute to scale independently. When you hire a Snowflake developer, they help you in sharing governed and secure data in real-time. Company bench allows you to hire Snowflake developers according to your data storage and management needs. Here are some of the key roles and responsibilities of a Snowflake developer:",
         bulletPoints: [
@@ -470,8 +470,8 @@ const developers = [
     },
     {
         skill: "Tableau",
-        url: "/c/hire-tableau-developer",
-        logo: "/assets/images/hire_Tableau_Logo.png",
+        url: "/c/hire-tableau-developer?ut=1",
+        logo: "/assets/images/hi?ut=1re_Tableau_Logo.png",
         skillDescription: "Tableau is a popular data visualization platform that helps organizations optimize business intelligence and seamless data management. It allows users to simplify raw data to create robust reports and obtain valuable insights from the same. The platform ensures that the data visualizations are understood by professionals working at all levels within an organization. A Tableau Developer Jobs helps you develop the platform based on the objectives you want to achieve, facilitating streamlined data analysis. Company bench allows you to Hire Tableau Developer on an immediate basis according to your specific needs and preferences. Here are some of the major roles and responsibilities of a Tableau developer:",
         bulletPoints: [
             "Taking an active part in developing front-end website architecture",
@@ -489,7 +489,7 @@ const developers = [
     },
     {
         skill: "Talend",
-        url: "/c/hire-talend-developer",
+        url: "/c/hire-talend-developer?ut=1",
         logo: "/assets/images/hire_telend.png",
         skillDescription: "Talend is a widely used data integration platform that allows organizations across the world to streamline their data management practices. The open-source platform provides services that revolve around seamless data integration, data management, data quality, enterprise application integration, cloud storage, and big data. A skilled and dedicated Talend Developer helps you make real-time business decisions that are precise and data-driven. Company bench helps you Hire Talend Developer on an immediate basis according to processes you are willing to streamline and the data you want to be managed. Here are some of the major roles and responsibilities of a Talend developer:",
         bulletPoints: [
@@ -508,7 +508,7 @@ const developers = [
     },
     {
         skill: "UiPath",
-        url: "c/hire-uipath-developer",
+        url: "c/hire-uipath-developer?ut=1",
         logo: "/assets/images/hire_uipath.png",
         skillDescription: "UIPath is a widely used robotic process automation (RPA) platform for undertaking end-to-end high-scale automation of processes. It provides scalable solutions to organizations for automating a range of repetitive processes for seamless business transformation. When you Hire UiPath developer, you can avail yourself of services that revolve around designing, developing, and implementing the software platform. Based on your needs and preferences, a UiPath developer helps you optimize the RPA technology to obtain the desired goals. Company bench allows you to UiPath developers based on the processes you are willing to automate and the objectives you are willing to achieve. Some of the common skills, roles, and responsibilities of a UiPath developer include:",
         bulletPoints: [
@@ -522,7 +522,7 @@ const developers = [
     },
     {
         skill: "Vlocity",
-        url: "/c/hire-vlocity-developer",
+        url: "/c/hire-vlocity-developer?ut=1",
         logo: "/assets/images/hire_vlocity.png",
         skillDescription: "Vlocity is a Salesforce native platform that provides industry-specific CRM solutions with seamless mobile customizations. The platform is designed to cater to a range of industries, including Communications, Media and Entertainment, Insurance, Healthcare, Energy and Utilities, and Government. A Salesforce Vlocity developer helps you deliver digital and omnichannel processes with the help of a centralized platform. Company bench allows you to hire skilled Vlocity Developer to cater to the specific needs and preferences of your clients. Here are some of the most important skills, roles, and responsibilities to keep in mind as you Hire Vlocity Developer for your organization:",
         bulletPoints: [
@@ -537,7 +537,7 @@ const developers = [
     },
     {
         skill: "Microsoft Dynamics ",
-        url: "/c/hire-microsoft-dynamics-developer",
+        url: "/c/hire-microsoft-dynamics-developer?ut=1",
         logo: "/assets/images/hire_MicrosoftD.png",
         skillDescription: "Microsoft Dynamics is a popular CRM platform designed by Microsoft to help organizations build healthy relationships with their customers. The platform allows businesses to store their customer databases on a centralized platform and keep a track of the same to provide personalized services to the customers. When you hire a Microsoft Dynamics developer, the professional helps you build a CRM platform to drive marketing and sales productivity within your organization. Company bench allows you to hire Microsoft Dynamics Developer on an immediate basis based on your needs and preferences. Here are some of the major roles and responsibilities of an ideal Microsoft Dynamics CRM developer:",
         bulletPoints: [
@@ -556,7 +556,7 @@ const developers = [
     },
     {
         skill: "Offshore Software Testing ",
-        url: "/c/offshore-software-testing-company",
+        url: "/c/offshore-software-testing-company?ut=1",
         logo: "/assets/images/hire_offshore.png",
         skillDescription: "Company bench is a reliable and trustworthy software company. The first thing we believe in is to understand the requirements and vision of the business to frame the testing procedures. We are an Offshore Software Testing Company that uses high-grade techniques and cutting-edge technology. Manual Testing: Under our manual testing services, we include checking every aspect of the product at first hand. Our skillful and talented experts use their years of experience to identify any problems with the product and find effective solutions. At Company bench, we aim to help you create an exceptional product.",
         bulletPoints: [
@@ -575,7 +575,7 @@ const developers = [
     },
     {
         skill: "Salesforce CPQ ",
-        url: "/c/hire-salesforce-cpq-developer",
+        url: "/c/hire-salesforce-cpq-developer?ut=1",
         logo: "/assets/images/cpq_hire.png",
         skillDescription: "Salesforce CPQ (configure, price, quote) is a Salesforce offering that helps organizations price their products based on their configuration, generate personalized quotes, and share the same with their clients. The platform is designed to automate business processes to increase prices and quoting accuracy. When you hire a CPQ Salesforce Developer, the professional help you build the automated platform with suitable tools based on your specific requirements. The developer helps you throughout the process of identification, implementation, and modification of your pricing and quoting system by building the Salesforce CPQ Jobs application.",
         bulletPoints: [
@@ -593,7 +593,7 @@ const developers = [
     },
     {
         skill: "Workday",
-        url: "/c/hire-workday-developer",
+        url: "/c/hire-workday-developer?ut=1",
         logo: "/assets/images/hire_workday.png",
         skillDescription: "Workday is a cloud-based software vendor that provides extensive services to organizations in the domains of human capital management (HCM) enterprise resource management (ERM), and financial management. It delivers a package of comprehensive tools and features ideal for medium and large-scale enterprises. Workday Integration Developer helps you build a robust software platform to streamline your business processes and achieve the desired objectives. Company bench allows you to Workday Developer on an immediate basis based on your specific requirements. Some of the major roles and responsibilities of a Workday developer include:",
         bulletPoints: [

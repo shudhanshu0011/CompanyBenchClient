@@ -35,12 +35,14 @@ export const RecruitmentGuide = () => {
           </div>
         </div>
         <div className="contact-us-btn-guide">
-          <button
-            className="btn btn-default btn-find font-sm"
-          >
-            <FontAwesomeIcon icon={["fas", "magnifying-glass"]} />
-            Contact Us
-         </button>
+          <a href="/c/contact">
+            <button
+                className="btn btn-default btn-find font-sm"
+              >
+                <FontAwesomeIcon icon={["fas", "magnifying-glass"]} />
+                Contact Us
+            </button>
+          </a>
         </div>
       </div>
     </section>

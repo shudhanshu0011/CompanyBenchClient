@@ -70,27 +70,27 @@ export const ContactUs = (): JSX.Element => {
               <div className="query-form">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div>
-                    <input placeholder="First Name" {...register("firstName", { required: true })}></input>
-                    {errors.firstName && <span>*First Name is required</span>}
+                    <input placeholder="First Name" {...register("firstName", { required: true })} className={errors.firstName ? "error-input" : "form-input-field"}></input>
+                    {errors.firstName && <span>First Name is required</span>}
                   </div>
                   <div>
-                    <input placeholder="Last Name" {...register("lastName", { required: true })}></input>
-                    {errors.lastName && <span>*Last Name is required</span>}
+                    <input placeholder="Last Name" {...register("lastName", { required: true })} className={errors.lastName ? "error-input" : "form-input-field"}></input>
+                    {errors.lastName && <span>Last Name is required</span>}
                   </div>
                   <div>
-                    <input placeholder="Email" {...register("email", { required: true })}></input>
-                    {errors.email && <span>*Email is required</span>}
+                    <input placeholder="Email" {...register("email", { required: true })} className={errors.email ? "error-input" : "form-input-field"}></input>
+                    {errors.email && <span>Email is required</span>}
                   </div>
                   <div>
-                    <input placeholder="Company Name" {...register("companyName", { required: true })}></input>
-                    {errors.companyName && <span>*Company Name is required</span>}
+                    <input placeholder="Company Name" {...register("companyName", { required: true })} className={errors.companyName ? "error-input" : "form-input-field"}></input>
+                    {errors.companyName && <span>Company Name is required</span>}
                   </div>
                   <div>
-                    <input placeholder="Contact Number" {...register("contactNumber", { required: true })}></input>
-                    {errors.contactNumber && <span>*Contact Number is required</span>}
+                    <input placeholder="Contact Number" {...register("contactNumber", { required: true })} className={errors.contactNumber ? "error-input" : "form-input-field"}></input>
+                    {errors.contactNumber && <span>Contact Number is required</span>}
                   </div>
                   <div>
-                    <textarea rows={7} placeholder="Description" {...register("description", { required: true })}></textarea>
+                    <textarea rows={7} placeholder="Description" {...register("description", { required: false })} className={errors.description ? "error-input" : "form-input-field"}></textarea>
                   </div>
                   <input type="submit" className="query-contact-btn" value="Contact Us"/>
                 </form>
