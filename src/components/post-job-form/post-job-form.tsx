@@ -26,7 +26,7 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
     register,
     clearErrors,
   } = useForm<SubmitInputsTypes>();
-  const [startDate, setStartDate] = useState<Date | string>("");
+  const [startDate, setStartDate] = useState(new Date());
 
   const onSubmit: SubmitHandler<SubmitInputsTypes> = (
     data: SubmitInputsTypes
@@ -77,7 +77,6 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
               </Form.Label>
 
               <Controller
-                // name="location"
                 control={control}
                 render={({ field }) => (
                   <SelectDropdown
@@ -104,7 +103,6 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
               </Form.Label>
               <Controller
                 control={control}
-                // name="skill"
                 render={({ field }) => (
                   <SelectDropdown
                     {...field}
@@ -165,38 +163,20 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                     <Form.Label className="font-sm color-text-mutted mb-10">
                       Project Start Date *
                     </Form.Label>
+
                     <Controller
-                      name="startDate"
                       control={control}
                       render={({ field }) => (
                         <DatePicker
                           {...field}
-                          selected={startDate}
+                          value={field.value as string}
                           onChange={handleDate}
                           className="font-sm"
+                          selected={startDate}
                         />
                       )}
-                      //   {...register("startDate", { required: true })}
+                        {...register("startDate", { required: true })}
                     />
-
-                    {/* <Controller
-                      name="startDate"
-                      control={control}
-                      rules={{
-                        required: true,
-                      }}
-                      render={({ field }) => (
-                        <DatePicker
-                          selected={field.value as Date}
-                          onChange={(date) => field.onChange(date)}
-                          ref={(ref) => {
-                            field.ref({
-                              focus: ref.setFocus,
-                            });
-                          }}
-                        />
-                      )}
-                    /> */}
 
                     {errors.startDate && (
                       <span className="pt-10 font-xs error flex-box">
@@ -209,7 +189,6 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                       Status
                     </Form.Label>
                     <Controller
-                      //   name="jobStatus"
                       control={control}
                       render={({ field }) => (
                         <SelectDropdown
