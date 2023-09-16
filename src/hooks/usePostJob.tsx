@@ -1,22 +1,30 @@
-import { http } from "@config/request";
-import { useMutation } from "react-query";
+import { QueryID } from "@src/constants/constants";
+import { SubmitPostJobParams } from "@src/types/components";
+import axios, { AxiosError } from "axios";
+import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 
-interface defaultFormData {
-  duration: number,
-  skill: string[],
-  jobHeading: string,
-  location: string[],
-  openpositions: string,
-  experienceLevel: string,
-  startDate: string,
-  hourlyPrice: string,
-  description: string,
-  jobStatus: string,
+export const postJobs = async (
+  params: SubmitPostJobParams
+): Promise<SubmitPostJobParams> => {
+  return await axios.post(`https://testbenchapi.azurewebsites.net/api/PostJob/NewJobPost`, params, {
+    headers: { service_ref: 123456 },
+  });
 };
-
-const postJob = async (data: defaultFormData) => {
-  return await http.post<unknown>("http://localhost:3001/v1/job", data);
-};
-export const usePostJob = () => {
-  return useMutation(postJob);
+export const usePostJob = (
+  onSuccess?: () => void,
+  onError?: (error: AxiosError) => void
+): UseMutationResult<
+  SubmitPostJobParams,
+  Error,
+  SubmitPostJobParams,
+  SubmitPostJobParams
+> => {
+  const queryClient = useQueryClient();
+  const queryId = QueryID.postJob;
+  return useMutation({
+    mutationFn: async (params: SubmitPostJobParams) => postJobs(params),
+    onSettled: async () => queryClient.invalidateQueries(queryId),
+    onSuccess,
+    onError,
+  });
 };

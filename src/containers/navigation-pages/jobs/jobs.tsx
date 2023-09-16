@@ -4,15 +4,14 @@ import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
-import "@styles/common/_pages.scss";
 import { useState, useEffect } from "react";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
-import "@styles/common/_pages.scss";
-import "./jobs.scss";
 import { useGetJobLocList } from "@hooks/useGetJobLocations";
 import { useGetTechnology } from "@hooks/useGetTechnology";
 import { CandidateCard } from "@components/candidate-card";
-import { DropdownOption } from "@srctypes/common";
+import { DropdownOption } from "@src/types/common";
+import "@styles/common/_pages.scss";
+import "./jobs.scss";
 
 export const Jobs = (): JSX.Element => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
@@ -24,7 +23,7 @@ export const Jobs = (): JSX.Element => {
 
   useEffect(() => {
     if (jobLocationData?.data.joblocations && Array.isArray(jobLocationData.data.joblocations)) {
-      const options: DropdownOption[] = jobLocationData.data.joblocations.map((tmp: any) => ({
+      const options: DropdownOption[] = jobLocationData.data.joblocations.map((tmp) => ({
         value: tmp.cityId,
         label: tmp.cityName
       }));
@@ -34,7 +33,7 @@ export const Jobs = (): JSX.Element => {
 
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
-      const options: DropdownOption[] = technologyData.data.technologys.map((tmp: any) => ({
+      const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
         value: tmp.tecnologyId,
         label: tmp.technologyName
       }));
