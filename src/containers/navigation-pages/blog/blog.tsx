@@ -1,11 +1,20 @@
-import blogs from '../../../assets/content/mock/blog-data';
+import blogsData from '../../../assets/content/mock/blog-data';
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./blog.scss"
 import { Btn } from '@common/button';
 import { useForm, SubmitHandler } from "react-hook-form";
 import userIcon from "../../../assets/icons/user-icon.png";
 import blogDetailImg from "../../../assets/icons/blog_Detail.jpg"
+import { useEffect, useState } from 'react';
 
+type Blog = {
+  category: string;
+  blogHeading: string;
+  content: string;
+  url: string;
+  author: string;
+  date: string;
+};
 
 type Inputs = {
   firstName: string;
@@ -17,12 +26,18 @@ type Inputs = {
 };
 
 export const Blogs: React.FC = (): JSX.Element => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+
+  useEffect(() => {
+    setBlogs(blogsData);
+  }, []);
 
   return (
     <div>
