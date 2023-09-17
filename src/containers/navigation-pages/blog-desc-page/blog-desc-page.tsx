@@ -2,7 +2,7 @@ import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./blog-desc-page.scss";
 import blogs from '../../../assets/content/mock/blog-data';
 import backgroundImage from "../../../assets/images/img-single (1).png"
-import blogbackgroungimg from "../../../assets/icons/blog_Detail.jpg"
+import blogbackgroundimg from "../../../assets/icons/blog_Detail.jpg"
 
 interface BlogDescPageProps {
   url: string;
@@ -39,7 +39,7 @@ const BlogDescPage = ({ url: pageUrl }: BlogDescPageProps): JSX.Element => {
           </div>
           <div className='blog-other-content'>
             <div className='blog-img-content'>
-              <img src={blogbackgroungimg}></img>
+              <img src={blogbackgroundimg}></img>
               <div className='blog-content-detail'>
                 <h3>{blog?.blogHeading}</h3>
                 <div>

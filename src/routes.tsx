@@ -17,6 +17,7 @@ import { Blogs } from "./containers/navigation-pages/blog";
 import { HireDeveloper } from "./containers/navigation-pages/hire-developer";
 import SkillDescPage from "./containers/navigation-pages/skill-desc-page/skill-desc-page";
 import BlogDescPage from "./containers/navigation-pages/blog-desc-page/blog-desc-page";
+import TopCompanyByCity from "./containers/footer-pages/company/top-company-by-city";
 
 const routes: RouteObject[] = [
   {
@@ -247,6 +248,55 @@ const routes: RouteObject[] = [
     path: "/c/attracting-and-retaining-top-talent-in-the-it-industry",
     element: <BlogDescPage url="/c/attracting-and-retaining-top-talent-in-the-it-industry"/>
   },
+  {
+    path: "/c/top-10-It-companies-in-india",
+    element: <TopCompanyByCity url="/c/top-10-It-companies-in-india" />
+  },
+  {
+    path: "/c/software-development-company-in-mumbai",
+    element: <TopCompanyByCity url="/c/software-development-company-in-mumbai" />
+  },
+  {
+    path: "/c/it-companies-pune",
+    element: <TopCompanyByCity url="/c/it-companies-pune" />
+  },
+  {
+    path: "/c/list-software-companies-in-bangalore",
+    element: <TopCompanyByCity url="/c/list-software-companies-in-bangalore" />
+  },
+  {
+    path: "/c/software-development-company-in-delhi",
+    element: <TopCompanyByCity url="/c/software-development-company-in-delhi" />
+  },
+  {
+    path: "/c/best-software-development-companies-in-hyderabad",
+    element: <TopCompanyByCity url="/c/best-software-development-companies-in-hyderabad" />
+  },
+  {
+    path: "/c/best-software-companies-in-chennai",
+    element: <TopCompanyByCity url="/c/best-software-companies-in-chennai" />
+  },
+  {
+    path: "/c/software-companies-in-gurgaon",
+    element: <TopCompanyByCity url="/c/software-companies-in-gurgaon" />
+  },
+  {
+    path: "/c/software-companies-in-jaipur",
+    element: <TopCompanyByCity url="/c/software-companies-in-jaipur" />
+  },
+  {
+    path: "/c/software-companies-in-ahmedabad",
+    element: <TopCompanyByCity url="/c/software-companies-in-ahmedabad" />
+  },
+  {
+    path: "/c/software-companies-in-indore",
+    element: <TopCompanyByCity url="/c/software-companies-in-indore" />
+  },
+  {
+    path: "/c/top-10-software-development-companies-in-noida",
+    element: <TopCompanyByCity url="/c/top-10-software-development-companies-in-noida" />
+  },
+  
 ];
 
 export default routes;
