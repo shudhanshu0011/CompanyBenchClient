@@ -1,21 +1,24 @@
 import { RouteObject } from "react-router-dom";
-import { Home } from "./containers/home";
-import { Candidates } from "./containers/candidates";
-import { AllCandidates } from "./containers/all-candidates/all-candidates";
-import { Dashboard } from "./containers/dashboard/dashboard";
-import { AppliedCandidates } from "./containers/applied-candidates/applied-candidates";
-import { InterviewList } from "./containers/interview/interview";
-import { MatchingCandidates } from "./containers/matching-candidates/matching-candidates";
-import { MyJobs } from "./containers/my-jobs/my-jobs";
-import { PostJob } from "./containers/post-job/post-job";
-import { Shortlisted } from "./containers/shortlisted/shortlisted";
-import { Sidebar } from "./components/sidebar/sidebar";
-import { Jobs } from "./containers/navigation-pages/jobs";
-import { ApplyForJob } from "./containers/navigation-pages/apply-for-job";
-import { ContactUs } from "./containers/navigation-pages/contact-us";
-import { Blogs } from "./containers/navigation-pages/blog";
-import { HireDeveloper } from "./containers/navigation-pages/hire-developer";
-import SkillDescPage from "./containers/navigation-pages/skill-desc-page/skill-desc-page";
+import { Home } from "@containers/home";
+import { Candidates } from "@containers/candidates";
+import { AllCandidates } from "@containers/all-candidates/all-candidates";
+import { Dashboard } from "@containers/dashboard/dashboard";
+import { AppliedCandidates } from "@containers/applied-candidates/applied-candidates";
+import { InterviewList } from "@containers/interview/interview";
+import { MatchingCandidates } from "@containers/matching-candidates/matching-candidates";
+import { MyJobs } from "@containers/my-jobs/my-jobs";
+import { PostJob } from "@containers/post-job/post-job";
+import { Shortlisted } from "@containers/shortlisted/shortlisted";
+import { Sidebar } from "@components/sidebar/sidebar";
+import { Jobs } from "@containers/navigation-pages/jobs";
+import { ApplyForJob } from "@containers/navigation-pages/apply-for-job";
+import { ContactUs } from "@containers/navigation-pages/contact-us";
+import { Blogs } from "@containers/navigation-pages/blog";
+import { HireDeveloper } from "@containers/navigation-pages/hire-developer";
+import SkillDescPage from "@containers/navigation-pages/skill-desc-page/skill-desc-page";
+import { SignIn } from "@src/containers/signin";
+import { SignUp } from "@src/containers/signup";
+
 
 const routes: RouteObject[] = [
   {
@@ -222,6 +225,14 @@ const routes: RouteObject[] = [
     path: "/c/hire-workday-developer",
     element: <SkillDescPage url="/c/hire-workday-developer?ut=1"/>
   },
+  {
+    path: "/signin",
+    element: <SignIn />
+  },
+  {
+    path: "/signup",
+    element: <SignUp />
+  }
 ];
 
 export default routes;

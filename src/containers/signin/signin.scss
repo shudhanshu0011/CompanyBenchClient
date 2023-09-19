@@ -1,0 +1,16 @@
+@import "@styles/common/variables.scss";
+
+.social-login {
+    img{
+        width:20px;
+    }
+}
+.link {
+    color: $color-brand-2;
+}
+
+.baloon {
+    position: absolute;
+    right: 15%;
+    top: 30%;
+}

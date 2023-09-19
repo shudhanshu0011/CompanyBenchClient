@@ -68,7 +68,26 @@
       }
     }
   }
-  
+  &.social-login {
+    height: 53px;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    width: 100%;
+    line-height: 53px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    img {
+      margin-right: 4px;
+    }
+    &:hover {
+      color: $color-brand-2;
+      box-shadow: $box-shadow-2;
+      border: 1px solid $border-color;
+    }
+  }
   
 }
 
@@ -338,22 +357,4 @@ span.btn {
   cursor: unset;
 }
 
-.social-login {
-  height: 53px;
-  border-radius: 4px;
-  border: 1px solid $border-color;
-  width: 100%;
-  line-height: 53px;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  img {
-    margin-right: 4px;
-  }
-  &:hover {
-    color: $color-brand-2;
-    box-shadow: $box-shadow-2;
-  }
-}
+
