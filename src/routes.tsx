@@ -18,6 +18,11 @@ import { HireDeveloper } from "./containers/navigation-pages/hire-developer";
 import SkillDescPage from "./containers/navigation-pages/skill-desc-page/skill-desc-page";
 import BlogDescPage from "./containers/navigation-pages/blog-desc-page/blog-desc-page";
 import TopCompanyByCity from "./containers/footer-pages/company/top-company-by-city";
+import { RemoteDevelopersJob } from "./containers/footer-pages/hiring/remote-developer-jobs/hire-developer-banner";
+import { DevelopersResume } from "./containers/footer-pages/hiring/developers-resume";
+import { FreelancerJob } from "./containers/footer-pages/hiring/freelancers";
+import { InterviewQandA } from "./containers/footer-pages/hiring/interviewQandA";
+import Services from "./containers/footer-pages/services/services";
 
 const routes: RouteObject[] = [
   {
@@ -296,7 +301,38 @@ const routes: RouteObject[] = [
     path: "/c/top-10-software-development-companies-in-noida",
     element: <TopCompanyByCity url="/c/top-10-software-development-companies-in-noida" />
   },
-  
+  {
+    path: "/c/remote-developer-jobs",
+    element: <RemoteDevelopersJob />
+  },
+  {
+    path: "/c/developers-resume",
+    element: <DevelopersResume />
+  },
+  {
+    path: "/c/freelancers",
+    element: <FreelancerJob />
+  },
+  {
+    path: "/c/interview-qa",
+    element: <InterviewQandA />
+  },
+  {
+    path: "/c/staff-augmentation",
+    element: <Services url="/c/staff-augmentation" />
+  },
+  {
+    path: "/c/direct-hire",
+    element: <Services url="/c/direct-hire" />
+  },
+  {
+    path: "/c/hire-train-deploy",
+    element: <Services url="/c/hire-train-deploy" />
+  },
+  {
+    path: "/c/master-vendor",
+    element: <Services url="/c/master-vendor" />
+  },
 ];
 
 export default routes;

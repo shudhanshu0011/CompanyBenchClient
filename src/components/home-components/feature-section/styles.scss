@@ -10,16 +10,12 @@
   width: 100%;
   font-family: $font-text;
   .feature-grid-container{
-    display: grid;
+    display: flex;
     width: 90%;
-    grid-template-columns: repeat(2, 1fr);
-    @media (max-width: 1000px){
-      .feature-grid-container{
-        grid-template-columns: repeat(1, 1fr);
-      }
-    }
+    flex-wrap: wrap;
     .feature-first-grid{
       padding: 20px;
+      flex: 50%;
       p{
         font-size: $font-lg;
         padding-top: 20px;
@@ -31,6 +27,7 @@
     }
     .feature-second-grid{
       padding: 20px;
+      flex: 50%;
     }
   }
   .feature-text-detail{

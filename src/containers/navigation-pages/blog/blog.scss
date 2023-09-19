@@ -3,6 +3,9 @@
 .blog-header{
   padding: 50px 50px 50px 100px;
   background-color: #eff4ff;
+  @media(max-width: 700px){
+    padding: 30px 30px 30px 30px;
+  }
   p{
     margin-top: 15px;
     color: $color-text-paragraph-2;
@@ -13,6 +16,9 @@
 .blog-container{
   padding: 40px 70px 30px 70px;
   width: 100%;
+  @media(max-width: 700px){
+    padding: 10px;
+  }
   h2{
     padding-left: 30px;
     margin-bottom: 10px;

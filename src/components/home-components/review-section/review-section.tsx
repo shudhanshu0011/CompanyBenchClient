@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css/bundle";
 
 export const ReviewSection = () => {
+  const slidesPerView = window.innerWidth < 800 ? 1 : 3;
   return (
     <section className='review-container'>
       <div className="review-main-container">
@@ -15,7 +16,7 @@ export const ReviewSection = () => {
         <div className="review-lower-container">
           <Swiper
             spaceBetween={40}
-            slidesPerView={3}
+            slidesPerView={slidesPerView}
             loop={true}
           >
             <SwiperSlide>

@@ -35,10 +35,10 @@ export const FooterSection = () => {
         </div>
         <div className="footer-hiring">
           <h6>Hiring</h6>
-          <a href="/remote-developer-jobs">Remote Developer Jobs</a><br/>
+          <a href="/c/remote-developer-jobs">Remote Developer Jobs</a><br/>
           <a href="/c/developers-resume">Developers Resume</a><br/>
           <a href="/c/freelancers">Freelancers</a><br/>
-          <a>Interview Q&A</a><br/>
+          <a href="/c/interview-qa">Interview Q&A</a><br/>
         </div>
         <div className="footer-other-link">
           <h6>Other Link</h6>

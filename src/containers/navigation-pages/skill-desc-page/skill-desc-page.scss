@@ -2,12 +2,19 @@
 
 .hire-cust-banner{
     padding: 40px 150px 80px 150px;
+    @media(max-width: 700px){
+        padding: 40px 50px 80px 50px;
+    }
     display: grid;
     grid-template-columns: 60% 40%;
     background-color: $color-background;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 26%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%);
     .hire-cust-form{
+        .hire-cust-form-field{
+            display: flex;
+            flex-wrap: wrap;
+        }
         h1{
             margin: 20px 0px 20px 0px;
             font-size: 48px;
@@ -27,6 +34,9 @@
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
             border-right: 1px solid $color-brand-2;
+            @media(max-width: 700px){
+                border-radius: 5px;
+            }
         }
         .input-email{
             height: 53px;
@@ -35,6 +45,10 @@
             margin-bottom: 10px;
             border-top: 1px solid $color-brand-2;
             border-bottom: 1px solid $color-brand-2;
+            @media(max-width: 700px){
+                border-radius: 5px;
+                border: 1px solid $color-brand-2;
+            }
         }
         .hire-interest-btn{
             width: 100px;
@@ -44,6 +58,9 @@
             border: none;
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
+            @media(max-width: 700px){
+                border-radius: 5px;
+            }
         }
     }
     .banner-img{
@@ -132,6 +149,10 @@
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 30px 100px 30px 100px;
+    @media(max-width: 700px){
+        padding: 10px 10px 10px 10px;
+        grid-template-columns: 80%  20%;
+    }
     div{
         margin: 50px;
     }
@@ -155,6 +176,10 @@
     grid-template-columns: 50% 50%;
     padding: 30px 100px 30px 50px;
     background-color: $color-border-3;
+    @media(max-width: 700px){
+        padding: 30px 10px 30px 10px;
+        grid-template-columns: 80% 20%;
+    }
     .bulletpoints-container{
         margin: 50px;
     }
@@ -176,51 +201,12 @@
     }
 }
 
-.hire-guide-container{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding: 80px 100px 80px 100px;
-    background-color: #F4F7FF;
-    .guide-content{
-        div{
-            background-color: $color-white;
-            display: flex;
-            width: 100%;
-            align-items: center;
-            box-shadow: 0 0 3px 2px #e6e6e6;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            padding: 12px 14px;
-            img{
-                width: 55px;
-                padding: 10px;
-                background-color: #e8edff;
-                margin-right: 10px;
-            }
-        }
-        h4{
-            font-size: $font-xl;
-            font-weight: 600;
-        }
-    }
-    img{
-        width: 100%;
-        border-radius: 10px;
-    }
-    h2{
-        margin-bottom: 20px;
-    }
-    p{
-        line-height: 1.5;
-        font-size: $font-md;
-        color: $color-text-paragraph-2;
-        font-family: $font-text;
-    }
-}
-
 .hire-developer-faq{
     background-color: #F4F7FF;
     padding: 70px;
+    @media(max-width: 700px){
+        padding: 20px;
+    }
     h2{
         margin: 0px 0px 30px;
         text-align: center;

@@ -10,8 +10,7 @@ import pineLabslogo from "../../../assets/icons/pine labs.png"
 
 export const BoxTrust = () => {
   return (
-    <section className='section-container'>
-      <div className='main-container'>
+    <div className='box-trust-container'>
         <div className='box-trust'>
           <div className='left-trust'>
             <h4>Trusted By</h4>
@@ -94,15 +93,10 @@ export const BoxTrust = () => {
             </div>
           </div>
           <div className='text-intro'>
-            <div className='intro-text-heading'>
-              <h2>Have dedicated developers as per your demand</h2>
-            </div>
-            <div className='intro-text-detail'>
-              <p>Given the explicit surge in demand of experienced and qualified resource , We at company bench have developed the bridge to fulfill this immediate gap of resource hire across relevant technologies in circulation</p>
-            </div>
+            <h2>Have dedicated developers as per your demand</h2> 
+            <p>Given the explicit surge in demand of experienced and qualified resource , We at company bench have developed the bridge to fulfill this immediate gap of resource hire across relevant technologies in circulation</p>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
   );
 };

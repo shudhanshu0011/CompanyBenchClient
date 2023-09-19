@@ -7,7 +7,7 @@ import stepsPath from "../../../assets/images/step1.svg"
 
 export const ChooseUsSection = () => {
   return (
-    <section className='choose-us-container'>
+    <div className='choose-us-container'>
       <div className="main-container">
         <div className="choose-us-header-area">
           <h2>Why Choose Us?</h2>
@@ -51,6 +51,6 @@ export const ChooseUsSection = () => {
           </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

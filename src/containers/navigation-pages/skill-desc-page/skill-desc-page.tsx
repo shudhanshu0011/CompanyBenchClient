@@ -10,11 +10,8 @@ import avataricon from "../../../assets/icons/avtar.png";
 import hire201 from "../../../assets/icons/Hire 1.png";
 import checkboxicon from "../../../assets/icons/check-box.svg";
 import hire204 from "../../../assets/icons/Hire 4.png";
-import awsdeveloperlogo from "../../../assets/images/Hire AWS Developers-03-02.svg";
-import icon1 from "../../../assets/icons/Icon-1.png";
-import icon2 from "../../../assets/icons/Icon-2.png";
-import icon3 from "../../../assets/icons/Icon-3.png";
 import { SendUsEnquiry } from '@src/components/send-us-enquiry';
+import { HowToHireThrouhgBench } from '@src/components/how-to-hire-through-bench';
 
 interface SkillDescPageProps {
   url: string;
@@ -34,7 +31,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               <div>
                 <p>Are you looking for immediate Hire {skillset?.skill} Developer</p>
               </div>
-              <div>
+              <div className='hire-cust-form-field'>
                 <form>
                   <input placeholder='Name' className='input-name'></input>
                   <input placeholder='Email' className='input-email'></input>
@@ -124,26 +121,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
             </div>
           </div>
           <ChooseUsSection/>
-          <div className='hire-guide-container'>
-            <div className='hero-banner-img'>
-              <img src={awsdeveloperlogo}></img>
-            </div>
-            <div className='guide-content'>
-              <h2>How to Hire Developers through Bench</h2>
-              <div>
-                <img src={icon1}></img>
-                <h4>State your requirement for the position</h4>
-              </div>
-              <div>
-                <img src={icon2}></img>
-                <h4>Obtain the required talent immediately</h4>
-              </div>
-              <div>
-                <img src={icon3}></img>
-                <h4>Avail of their expertise</h4>
-              </div>
-            </div>
-          </div>
+          <HowToHireThrouhgBench/>
           <HireDeveloperBanner/>
           <div className='hire-developer-faq'>
               <h2>Frequently Asked Questions</h2>
