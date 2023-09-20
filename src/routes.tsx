@@ -25,6 +25,8 @@ import { InterviewQandA } from "./containers/footer-pages/hiring/interviewQandA"
 import Services from "./containers/footer-pages/services/services";
 import ClientFandQ from "./containers/clientfaq/clientfaq";
 import VendorFandQ from "./containers/vendorfaq/vendorfaq";
+import { SignIn } from "@src/containers/signin";
+import { SignUp } from "@src/containers/signup";
 
 const routes: RouteObject[] = [
   {
@@ -343,6 +345,14 @@ const routes: RouteObject[] = [
     path: "/c/vfaq",
     element: <VendorFandQ />
   },
+  {
+    path: "/signin",
+    element: <SignIn />
+  },
+  {
+    path: "/signup",
+    element: <SignUp />
+  }
 ];
 
 export default routes;

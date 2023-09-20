@@ -70,3 +70,14 @@ export const statusOptions = [
       value: "2",
     },
   ];
+
+  export const companyOptions = [
+    {
+      label: "New",
+      value: "1",
+    },
+    {
+      label: "Assigned",
+      value: "2",
+    },
+  ];

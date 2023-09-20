@@ -3,7 +3,7 @@ import "./freelancers.scss";
 import freelanceJobData from '@assets/content/mock/freelancers-data';
 import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
 
-type FreelanceJob = {
+interface FreelanceJob {
   skill: string;
   url: string;
   logo: string;

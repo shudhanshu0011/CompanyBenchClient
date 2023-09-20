@@ -1,18 +1,18 @@
-import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { useEffect, useState } from 'react';
 import "./top-company-by-city.scss";
+import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { ChooseUsSection } from '@src/components/home-components/choose-us-section';
+import { SendUsEnquiry } from '@src/components/send-us-enquiry';
 import cityData from "@assets/content/mock/company-location-data";
 import backgroundImage from "@assets/images/img-single (1).png";
 import hireImg from "@assets/images/Hire 1.png"
 import companyData from "@assets/content/mock/company-location-data"
-import { useEffect, useState } from 'react';
-import { ChooseUsSection } from '@src/components/home-components/choose-us-section';
-import { SendUsEnquiry } from '@src/components/send-us-enquiry';
 
 interface TopCompanyByCityProps {
   url: string;
 }
 
-type Company = {
+interface Company {
   location: string;
   url : string;
 };

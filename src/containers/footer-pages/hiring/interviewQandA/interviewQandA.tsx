@@ -3,7 +3,7 @@ import "./interviewQandA.scss";
 import interviewQandAdata from '@assets/content/mock/interviewQandA-data';
 import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
 
-type Interview = {
+interface Interview {
   skill: string;
   url: string;
   logo: string;

@@ -1,13 +1,13 @@
-import blogsData from '../../../assets/content/mock/blog-data';
+import blogsData from '@assets/content/mock/blog-data';
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
 import "./blog.scss"
 import { Btn } from '@common/button';
 import { useForm, SubmitHandler } from "react-hook-form";
-import userIcon from "../../../assets/icons/user-icon.png";
-import blogDetailImg from "../../../assets/icons/blog_Detail.jpg"
+import userIcon from "@assets/icons/user-icon.png";
+import blogDetailImg from "@assets/icons/blog_Detail.jpg"
 import { useEffect, useState } from 'react';
 
-type Blog = {
+interface Blog {
   category: string;
   blogHeading: string;
   content: string;
@@ -16,7 +16,7 @@ type Blog = {
   date: string;
 };
 
-type Inputs = {
+interface Inputs {
   firstName: string;
   lastName: string;
   email: string;

@@ -1,8 +1,8 @@
 import "./footer-section.scss";
-import logo from "../../../assets/logo.png";
-import facebooklogo from "../../../assets/icons/facebook.svg";
-import twitterlogo from "../../../assets/icons/twitter.svg";
-import linkedinlogo from "../../../assets/icons/linkedin.svg"
+import logo from "@assets/logo.png";
+import facebooklogo from "@assets/icons/facebook.svg";
+import twitterlogo from "@assets/icons/twitter.svg";
+import linkedinlogo from "@assets/icons/linkedin.svg"
 
 export const FooterSection = () => {
   return (

@@ -1,12 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "./styles.scss";
 import "swiper/css/bundle";
-import urbanLadderlogo from "../../../assets/icons/urban ladder.png"
-import jungleelogo from "../../../assets/icons/junglee games (1).png"
-import landtlogo from "../../../assets/icons/l and t.png"
-import wnslogo from "../../../assets/icons/wns.png"
-import hdfclogo from "../../../assets/icons/HDFC-Bank-logo.png"
-import pineLabslogo from "../../../assets/icons/pine labs.png"
+import urbanLadderlogo from "@assets/icons/urban ladder.png"
+import jungleelogo from "@assets/icons/junglee games (1).png"
+import landtlogo from "@assets/icons/l and t.png"
+import wnslogo from "@assets/icons/wns.png"
+import hdfclogo from "@assets/icons/HDFC-Bank-logo.png"
+import pineLabslogo from "@assets/icons/pine labs.png"
 
 export const BoxTrust = () => {
   return (

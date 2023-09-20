@@ -1,9 +1,9 @@
 import "./recruitment-guide.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import firstimg from "../../../assets/images/first.png";
-import secondimg from "../../../assets/images/second.png";
-import thirdimg from "../../../assets/images/third.png";
-import stepspath from "../../../assets/images/step1.svg";
+import firstimg from "@assets/images/first.png";
+import secondimg from "@assets/images/second.png";
+import thirdimg from "@assets/images/third.png";
+import stepspath from "@assets/images/step1.svg";
 
 export const RecruitmentGuide = () => {
   return (

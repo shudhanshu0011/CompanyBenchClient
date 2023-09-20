@@ -3,7 +3,7 @@ import "./developers-resume.scss";
 import developersResumeData from '@assets/content/mock/developers-resume-data';
 import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
 
-type DevelopersResume = {
+interface DevelopersResume {
   skill: string;
   url: string;
   logo: string;

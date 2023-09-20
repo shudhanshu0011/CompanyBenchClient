@@ -1,9 +1,9 @@
 import "./choose-us-section.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SaveOverheadIcon from "../../../assets/images/Save The Overhead cost Icon-02 (1).svg"
-import AvailabilityIcon from "../../../assets/images/Availability of Right Resources across the Globe Icon-01.svg"
-import EnsureHassleIcon from "../../../assets/images/Ensure Hassel free Hiring Icon-03.svg"
-import stepsPath from "../../../assets/images/step1.svg"
+import SaveOverheadIcon from "@assets/images/Save The Overhead cost Icon-02 (1).svg"
+import AvailabilityIcon from "@assets/images/Availability of Right Resources across the Globe Icon-01.svg"
+import EnsureHassleIcon from "@assets/images/Ensure Hassel free Hiring Icon-03.svg"
+import stepsPath from "@assets/images/step1.svg"
 
 export const ChooseUsSection = () => {
   return (

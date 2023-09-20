@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./hire-developer-banner.scss";
-import developersData from '../../assets/content/mock/developer-data';
+import developersData from '@assets/content/mock/developer-data';
 
 type Developer = {
   skill: string;

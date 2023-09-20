@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { DropdownOption } from "@src/types/common";
 
-type Inputs = {
+interface Inputs {
   firstName: string
   lastName: string
   email: string
