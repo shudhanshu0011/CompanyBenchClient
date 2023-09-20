@@ -23,6 +23,8 @@ import { DevelopersResume } from "./containers/footer-pages/hiring/developers-re
 import { FreelancerJob } from "./containers/footer-pages/hiring/freelancers";
 import { InterviewQandA } from "./containers/footer-pages/hiring/interviewQandA";
 import Services from "./containers/footer-pages/services/services";
+import ClientFandQ from "./containers/clientfaq/clientfaq";
+import VendorFandQ from "./containers/vendorfaq/vendorfaq";
 
 const routes: RouteObject[] = [
   {
@@ -332,6 +334,14 @@ const routes: RouteObject[] = [
   {
     path: "/c/master-vendor",
     element: <Services url="/c/master-vendor" />
+  },
+  {
+    path: "/c/cfaq",
+    element: <ClientFandQ />
+  },
+  {
+    path: "/c/vfaq",
+    element: <VendorFandQ />
   },
 ];
 
