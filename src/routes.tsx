@@ -27,6 +27,7 @@ import ClientFandQ from "./containers/clientfaq/clientfaq";
 import VendorFandQ from "./containers/vendorfaq/vendorfaq";
 import { SignIn } from "@src/containers/signin";
 import { SignUp } from "@src/containers/signup";
+import RemoteDevelopersJDPage from "./containers/footer-pages/hiring/remote-developer-jobs/remote-developers-jd-page/remote-developers-jd-page";
 
 const routes: RouteObject[] = [
   {
@@ -352,7 +353,48 @@ const routes: RouteObject[] = [
   {
     path: "/signup",
     element: <SignUp />
-  }
+  },
+  {
+    path: "/c/remote-angular-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-angular-developer-jobs" />
+  },
+  {
+    path: "/c/remote-salesforce-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-salesforce-developer-jobs" />
+  },
+  {
+    path: "/c/remote-java-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-java-developer-jobs" />
+  },
+  {
+    path: "/c/remote-nodejs-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-nodejs-developer-jobs" />
+  },
+  {
+    path: "/c/remote-react-native-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-react-native-developer-jobs" />
+  },
+  {
+    path: "/c/remote-fullstack-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-fullstack-developer-jobs" />
+  },
+  {
+    path: "/c/remote-dotnet-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-dotnet-developer-jobs" />
+  },
+  {
+    path: "/c/remote-servicenow-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-servicenow-developer-jobs" />
+  },
+  {
+    path: "/c/remote-python-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-python-developer-jobs" />
+  },
+  {
+    path: "/c/remote-reactjs-developer-jobs",
+    element: <RemoteDevelopersJDPage url="/c/remote-reactjs-developer-jobs" />
+  },
+  
 ];
 
 export default routes;

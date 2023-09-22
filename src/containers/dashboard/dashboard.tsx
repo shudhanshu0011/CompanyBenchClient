@@ -1,4 +1,4 @@
-import {  useLocation } from 'react-router-dom';
+import {  Link, useLocation } from 'react-router-dom';
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import { DashboardWrapper } from "@components/dashboard-wrapper/dashboard-wrapper";
 import { Card } from "@src/common/card";
@@ -26,45 +26,55 @@ export const Dashboard = (): JSX.Element => {
             <div className="section-box">
               <div className="row">
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
-                  <Card
-                    title={6}
-                    subTitle="My Jobs"
-                    type="sm"
-                    cardImg={<ManIcon />}
-                  />
+                  <Link to="/c/myjobs">
+                    <Card
+                      title={6}
+                      subTitle="My Jobs"
+                      type="sm"
+                      cardImg={<ManIcon />}
+                    />
+                  </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
-                  <Card
-                    title={480}
-                    subTitle="Matching Candidates"
-                    type="sm"
-                    cardImg={<ManIcon />}
-                  />
+                  <Link to="/c/matchingcandidate">
+                    <Card
+                      title={480}
+                      subTitle="Matching Candidates"
+                      type="sm"
+                      cardImg={<ManIcon />}
+                    />
+                  </Link>
                 </div>
 
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
-                  <Card
-                    title={65}
-                    subTitle="Applied Candidates"
-                    type="sm"
-                    cardImg={<ManIcon />}
-                  />
+                  <Link to="/interestedcandidate">
+                    <Card
+                      title={65}
+                      subTitle="Applied Candidates"
+                      type="sm"
+                      cardImg={<ManIcon />}
+                    />
+                  </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
-                  <Card
-                    title={80}
-                    subTitle="Shortlisted"
-                    type="sm"
-                    cardImg={<ManIcon />}
-                  />
+                  <Link to="/shortlistedcandidates">
+                    <Card
+                      title={80}
+                      subTitle="Shortlisted"
+                      type="sm"
+                      cardImg={<ManIcon />}
+                    />
+                  </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
-                  <Card
-                    title={15}
-                    subTitle="Interviews"
-                    type="sm"
-                    cardImg={<ManIcon />}
-                  />
+                  <Link to="/jobinterviewlist">
+                    <Card
+                      title={15}
+                      subTitle="Interviews"
+                      type="sm"
+                      cardImg={<ManIcon />}
+                    />
+                  </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
                   <Card
@@ -80,10 +90,12 @@ export const Dashboard = (): JSX.Element => {
               <Paper
                 title="Candidates by Technologies"
                 titleRight={
-                  <Btn
-                    title="View All"
-                    className="btn candidate-view-btn font-sm"
-                  />
+                  <Link to="/c/matchingcandidate">
+                    <Btn
+                      title="View All"
+                      className="btn candidate-view-btn font-sm"
+                    />  
+                  </Link>
                 }
               >
                 <div className="chart-container">
@@ -95,10 +107,12 @@ export const Dashboard = (): JSX.Element => {
               <Paper
                 title="My Jobs: 6"
                 titleRight={
-                  <Btn
-                    title="View All"
-                    className="btn candidate-view-btn font-sm"
-                  />
+                  <Link to="/c/myjobs">
+                    <Btn
+                      title="View All"
+                      className="btn candidate-view-btn font-sm"
+                    />
+                  </Link>
                 }
               >
                 <div className="chart-container">
@@ -112,10 +126,12 @@ export const Dashboard = (): JSX.Element => {
               <Paper
                 title="Shortlisted: 80"
                 titleRight={
-                  <Btn
-                    title="View All"
-                    className="btn candidate-view-btn font-sm"
-                  />
+                  <Link to="/shortlistedcandidates">
+                    <Btn
+                      title="View All"
+                      className="btn candidate-view-btn font-sm"
+                    />
+                  </Link>
                 }
               >
                 <div className="chart-container">
@@ -127,10 +143,12 @@ export const Dashboard = (): JSX.Element => {
               <Paper
                 title="Interviews: 15"
                 titleRight={
-                  <Btn
-                    title="View All"
-                    className="btn candidate-view-btn font-sm"
-                  />
+                  <Link to="/jobinterviewlist">
+                    <Btn
+                      title="View All"
+                      className="btn candidate-view-btn font-sm"
+                    />
+                  </Link>
                 }
               >
                 <div className="chart-container">
@@ -143,10 +161,12 @@ export const Dashboard = (): JSX.Element => {
               <Paper
                 title="Applied Candidates: 65"
                 titleRight={
-                  <Btn
-                    title="View All"
-                    className="btn candidate-view-btn font-sm"
-                  />
+                  <Link to="/interestedcandidate">
+                    <Btn
+                      title="View All"
+                      className="btn candidate-view-btn font-sm"
+                    />
+                  </Link>
                 }
               >
                 <div className="chart-container">
