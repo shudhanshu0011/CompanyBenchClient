@@ -1,31 +1,16 @@
-import  http  from "@config/request";
+import http from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
-import { GET_CANDIDATES_QUERY } from "@src/constants/query";
-
-interface Candidate {
-  candidateId: number,
-  vendorId: number,
-  firstName: string,
-  lastName: string,
-  email: string,
-  location: string,
-  skill: string[],
-  summary: string,
-  hourlyPrice: number,
-  certifications: string[],
-  projects: string[],
-  designation: string,
-  status: string,
-}
-
-interface GetCandidatesResponse {
-  data: {
-    candidates: Candidate[];
-  };
-}
+import { QueryID } from "@src/constants/query";
+import { VENDOR_ID } from "@src/constants/constants";
+import { GetCandidatesResponse } from "@src/types/components";
 
 const getCandidatesList = async (): Promise<GetCandidatesResponse> => {
-  const response = await http.get<GetCandidatesResponse>("/v1/candidate/vendor/4321");
+  const response = await http.get<GetCandidatesResponse>(
+    `/v1/candidate/vendor/${VENDOR_ID}`,
+    {
+      headers: { service_ref: 123456 },
+    }
+  );
   return response.data;
 };
 
@@ -33,10 +18,10 @@ export const useGetCandidates = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<GetCandidatesResponse, Error> => {
-  return useQuery(GET_CANDIDATES_QUERY, async () => getCandidatesList(), {
+  return useQuery(QueryID.candidateQuery, async () => getCandidatesList(), {
     onSuccess,
     onError,
     select: (data: GetCandidatesResponse) => data,
-    staleTime: 0
+    staleTime: 0,
   });
 };

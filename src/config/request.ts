@@ -1,12 +1,10 @@
 import axios from "axios";
-const BASE_URL = "https://agdu7orib7.execute-api.eu-central-1.amazonaws.com/dev/";
+const BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
 const http = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
-    "service_ref": 123456,
-    'Access-Control-Allow-Origin': 'http://localhost:8080'
   },
 });
 

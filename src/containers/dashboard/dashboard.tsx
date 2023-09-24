@@ -30,6 +30,7 @@ export const Dashboard = (): JSX.Element => {
                     title={6}
                     subTitle="My Jobs"
                     type="sm"
+                    link='/c/myjobs'
                     cardImg={<ManIcon />}
                   />
                 </div>
@@ -38,6 +39,7 @@ export const Dashboard = (): JSX.Element => {
                     title={480}
                     subTitle="Matching Candidates"
                     type="sm"
+                    link='/c/matchingcandidate'
                     cardImg={<ManIcon />}
                   />
                 </div>
@@ -47,6 +49,8 @@ export const Dashboard = (): JSX.Element => {
                     title={65}
                     subTitle="Applied Candidates"
                     type="sm"
+                    link='/interestedcandidate'
+                    
                     cardImg={<ManIcon />}
                   />
                 </div>
@@ -55,6 +59,8 @@ export const Dashboard = (): JSX.Element => {
                     title={80}
                     subTitle="Shortlisted"
                     type="sm"
+                    link='/shortlistedcandidates'
+                    
                     cardImg={<ManIcon />}
                   />
                 </div>
@@ -63,6 +69,7 @@ export const Dashboard = (): JSX.Element => {
                     title={15}
                     subTitle="Interviews"
                     type="sm"
+                    link='/jobinterviewlist'
                     cardImg={<ManIcon />}
                   />
                 </div>
@@ -71,6 +78,7 @@ export const Dashboard = (): JSX.Element => {
                     title="Coming Soon"
                     subTitle="contracts"
                     type="sm"
+                    link='/c/dashboard'
                     cardImg={<ManIcon />}
                   />
                 </div>

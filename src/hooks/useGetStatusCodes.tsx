@@ -1,6 +1,6 @@
-import { http } from "@config/request";
+import  http  from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
-import { GET_JOB_STATUSES_QUERY } from "@src/constants/query";
+import { QueryID } from "@src/constants/query";
 
 interface Status {
   statusId: string;
@@ -24,7 +24,7 @@ export const useGetJobStatus = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<GetStatusListResponse, Error> => {
-  return useQuery(GET_JOB_STATUSES_QUERY, async () => getJobStatus(), {
+  return useQuery(QueryID.jobStatusQuery, async () => getJobStatus(), {
     onSuccess,
     onError,
     select: (data: GetStatusListResponse) => data,

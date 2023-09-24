@@ -1,21 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { AgGridReact } from "ag-grid-react";
 import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
-import { CandidateCard } from "@components/candidate-card";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
 import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
-
-
 import "@styles/common/_pages.scss";
 import "./candidates.scss";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
+import { defaultColumns } from "./coloumn-types/coloumn-types";
+import { RowClickedEvent } from "ag-grid-community";
 
 export const Candidates = (): JSX.Element => {
   const { data: candidateData } = useGetCandidates();
+
   const [showDetail, setShowDetail] = useState(false);
+  const [rowData, setRowData] = useState();
+  const [selectedCandidate, setSelectedCandidate] = useState();
+
+  useEffect(() => {
+    setRowData(candidateData?.data.candidate);
+  }, [candidateData]);
 
   const options = [
     { value: ".NET", label: ".NET" },
@@ -41,7 +50,11 @@ export const Candidates = (): JSX.Element => {
     setShowDetail(isVisible);
   };
 
-  console.log({candidateData});
+  const handleRowClicked = (event: RowClickedEvent) => {
+    setSelectedCandidate(event.data);
+    setShowDetail(true);
+  };
+
 
   return (
     <PageWrapper>
@@ -55,8 +68,12 @@ export const Candidates = (): JSX.Element => {
               </div>
             </div>
           </Col>
+
           {showDetail ? (
-            <CandidateDetails handleShowDetails={handleShowDetails} />
+            <CandidateDetails
+              handleShowDetails={handleShowDetails}
+              selectedCandidate={selectedCandidate}
+            />
           ) : (
             <Col xs={12} md={10}>
               <div className="box-content pt-40 pl-30">
@@ -87,60 +104,16 @@ export const Candidates = (): JSX.Element => {
                   title={candidatePagination()}
                   titleRight={pageViewDropdown()}
                 >
-                  <Row className="flex-box candidate-card-wrapper">
-                  <Col xs={12} md={6}>
-                    <CandidateCard
-                      handleShowDetails={handleShowDetails}
-                      showAvatar={true}
-                      title="Sjdbfjksf Sdfsdfdth"
-                
+                  <div className="ag-theme-alpine react-table">
+                    <AgGridReact
+                      rowData={rowData}
+                      columnDefs={defaultColumns()}
+                      onRowClicked={(event) => handleRowClicked(event)}
                     />
-                  </Col>
-
-                  <Col xs={12} md={6}>
-                    <CandidateCard
-                      handleShowDetails={handleShowDetails}
-                      showAvatar={true}
-                      title="Test01 31082023"
-                
-                    />
-                  </Col>
-                  <Col xs={12} md={6}>
-                    <CandidateCard
-                      handleShowDetails={handleShowDetails}
-                      showAvatar={true}
-                      title="Mike-11 Rosso-11"
-                
-                    />
-                  </Col>
-                  <Col xs={12} md={6}>
-                    <CandidateCard
-                      handleShowDetails={handleShowDetails}
-                      showAvatar={true}
-                      title="Mike-10 Rosso-10"
-                
-                    />
-                  </Col>
-                  <Col xs={12} md={6}>
-                    <CandidateCard
-                      handleShowDetails={handleShowDetails}
-                      showAvatar={true}
-                      title="Trainer"
-                
-                    />
-                  </Col>
-                  <Col xs={12} md={6}>
-                    <CandidateCard
-                      handleShowDetails={handleShowDetails}
-                      showAvatar={true}
-                      title="Fgdg Dfgdg"
-                
-                    />
-                  </Col>
-                </Row>
+                  </div>
                   <Btn
                     title="Login to see more"
-                    className="btn btn-default btn-apply font-sm"
+                    className="btn btn-default btn-apply font-sm mt-4"
                   />
                 </Paper>
               </div>

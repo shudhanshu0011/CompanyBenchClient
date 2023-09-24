@@ -9,23 +9,24 @@ interface Props {
   avatar?: string;
   title?: string | number;
   subTitle?: string | number;
-  cardImg?: React.ReactNode
+  cardImg?: React.ReactNode;
+  link: string ;
 }
 
-export const Card = ({ type, avatar, title, subTitle, cardImg }: Props): JSX.Element => {
+export const Card = ({ type, avatar, title, subTitle, cardImg, link }: Props): JSX.Element => {
   if (type === "sm") {
     return (
       <div className="card-grid-2 hover-up mh-105">
         <div className="flex-box p-15"> 
           <div className="pr-20">
-            <a href="candidate-details.html">
+            <a href={link}>
               <figure>
                 {cardImg}
               </figure>
             </a>
           </div>
           <div className="card-profile pt-0">
-            <a href="candidate-details.html">
+            <a href={link}>
               <h5>{title}</h5>
             </a>
             <p className="font-sm color-text-mutted">{subTitle}</p>
@@ -38,7 +39,7 @@ export const Card = ({ type, avatar, title, subTitle, cardImg }: Props): JSX.Ele
     <div className="card-grid-2 hover-up">
       <div className="card-grid-2-image-left">
         <div className="card-grid-2-image-rd online">
-          <a href="candidate-details.html">
+          <a href={link}>
             <figure>
               <img
                 alt="jobBox"
@@ -51,7 +52,7 @@ export const Card = ({ type, avatar, title, subTitle, cardImg }: Props): JSX.Ele
           </a>
         </div>
         <div className="card-profile pt-10">
-          <a href="candidate-details.html">
+          <a href={link}>
             <h5>{title || "Robert Fox"}</h5>
           </a>
           <p className="font-xs color-text-mutted">

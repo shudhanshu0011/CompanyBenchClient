@@ -1,6 +1,6 @@
 import  http  from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
-import { GET_JOB_LOCATIONS_QUERY } from "@src/constants/query";
+import { QueryID } from "@src/constants/query";
 
 interface JobLocList {
   cityId: string;
@@ -22,7 +22,7 @@ export const useGetJobLocList = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<GetJobLocListResponse, Error> => {
-  return useQuery(GET_JOB_LOCATIONS_QUERY, async () => getJobLocationList(), {
+  return useQuery(QueryID.locationQuery, async () => getJobLocationList(), {
     onSuccess,
     onError,
     select: (data: GetJobLocListResponse) => data,
