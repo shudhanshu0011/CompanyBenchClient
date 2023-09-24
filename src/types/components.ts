@@ -39,3 +39,8 @@ export interface CreateUserParams {
   mobile: number;
   company: string;
 }
+
+export interface SignInParams {
+  email: string;
+  password: string;
+}
