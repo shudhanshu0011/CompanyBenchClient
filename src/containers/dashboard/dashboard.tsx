@@ -31,8 +31,7 @@ export const Dashboard = (): JSX.Element => {
                       title={6}
                       subTitle="My Jobs"
                       type="sm"
-                      cardImg={<ManIcon />}
-                    />
+                      cardImg={<ManIcon />} link={''}                    />
                   </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
@@ -41,8 +40,7 @@ export const Dashboard = (): JSX.Element => {
                       title={480}
                       subTitle="Matching Candidates"
                       type="sm"
-                      cardImg={<ManIcon />}
-                    />
+                      cardImg={<ManIcon />} link={''}                    />
                   </Link>
                 </div>
 
@@ -52,8 +50,7 @@ export const Dashboard = (): JSX.Element => {
                       title={65}
                       subTitle="Applied Candidates"
                       type="sm"
-                      cardImg={<ManIcon />}
-                    />
+                      cardImg={<ManIcon />} link={''}                    />
                   </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
@@ -62,8 +59,7 @@ export const Dashboard = (): JSX.Element => {
                       title={80}
                       subTitle="Shortlisted"
                       type="sm"
-                      cardImg={<ManIcon />}
-                    />
+                      cardImg={<ManIcon />} link={''}                    />
                   </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
@@ -72,8 +68,7 @@ export const Dashboard = (): JSX.Element => {
                       title={15}
                       subTitle="Interviews"
                       type="sm"
-                      cardImg={<ManIcon />}
-                    />
+                      cardImg={<ManIcon />} link={''}                    />
                   </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
@@ -81,6 +76,7 @@ export const Dashboard = (): JSX.Element => {
                     title="Coming Soon"
                     subTitle="contracts"
                     type="sm"
+                    link='/c/dashboard'
                     cardImg={<ManIcon />}
                   />
                 </div>

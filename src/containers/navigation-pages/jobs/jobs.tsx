@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
 import { useGetJobLocList } from "@hooks/useGetJobLocations";
 import { useGetTechnology } from "@hooks/useGetTechnology";
-import { CandidateCard } from "@components/candidate-card";
+import { CandidateCard } from "@src/components/candidate-card";
 import { DropdownOption } from "@src/types/common";
 import "@styles/common/_pages.scss";
 import "./jobs.scss";

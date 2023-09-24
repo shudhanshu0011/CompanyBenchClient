@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { AppPagination } from "@common/app-pagination";
-import { CandidateCard } from "@components/candidate-card";
+import { CandidateCard } from "@src/components/candidate-card";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
 import "@styles/common/_pages.scss";
 

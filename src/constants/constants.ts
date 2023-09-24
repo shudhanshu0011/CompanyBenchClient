@@ -3,3 +3,4 @@ export const QueryID = {
     createUser: 'CreateUser',
     postLogin: 'PostLogin'
 }
+export const VENDOR_ID = 4321;
