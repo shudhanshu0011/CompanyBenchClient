@@ -15,7 +15,7 @@ export const Navigation = (): JSX.Element => {
             <NavLink to="/jobs">Find a Job</NavLink>
           </li>
           <li>
-            <NavLink to="/c/candidates">Find Candidates</NavLink>
+            <NavLink to="/candidates">Find Candidates</NavLink>
           </li>
           <li>
             <NavLink to="/c/blogs">Blog</NavLink>
@@ -42,46 +42,26 @@ export const Navigation = (): JSX.Element => {
                     </li>
                     <li>
                       <a href="/c/hire-talent" className="dashboard2">
-                        {/* <img
-                          src="../../../../assets/cb-new-style/Dashboard/imgs/page/dashboard/candidates.svg"
-                          alt="companybench"
-                        /> */}
                         <span className="name">Hire Developer</span>
                       </a>
                     </li>
                     <li>
                       <a href="/jobs" className="dashboard2">
-                        {/* <img
-                          src="../../../../assets/cb-new-style/Dashboard/imgs/page/dashboard/jobs.svg"
-                          alt="companybench"
-                        /> */}
                         <span className="name">Find a Job</span>
                       </a>
                     </li>
                     <li>
-                      <a href="/c/candidates" className="dashboard2">
-                        {/* <img
-                          src="../../../../assets/cb-new-style/Dashboard/imgs/page/dashboard/profiles.svg"
-                          alt="companybench"
-                        /> */}
+                      <a href="/candidates" className="dashboard2">
                         <span className="name">Find Candidates</span>
                       </a>
                     </li>
                     <li>
                       <a href="/c/blogs" className="dashboard2">
-                        {/* <img
-                          src="../../../../assets/cb-new-style/Dashboard/imgs/page/dashboard/tasks.svg"
-                          alt="companybench"
-                        /> */}
                         <span className="name">Blogs</span>
                       </a>
                     </li>
                     <li>
                       <a href="/c/contact" className="dashboard2">
-                        {/* <img
-                          src="../../../../assets/cb-new-style/Dashboard/imgs/page/dashboard/candidates.svg"
-                          alt="companybench"
-                        /> */}
                         <span className="name">Contact Us</span>
                       </a>
                     </li>
@@ -94,10 +74,7 @@ export const Navigation = (): JSX.Element => {
                   <a href="/signup">Register</a>
                 </div>
                 <div className="mb-15 mt-15">
-                  <a
-                    href="#"
-                    className="btn btn-default btn-shadow hover-up"
-                  >
+                  <a href="#" className="btn btn-default btn-shadow hover-up">
                     Sign in
                   </a>
                 </div>

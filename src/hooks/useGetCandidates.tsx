@@ -1,4 +1,4 @@
-import { http } from "@config/request";
+import  http  from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 import { GET_CANDIDATES_QUERY } from "@src/constants/query";
 
@@ -25,9 +25,7 @@ interface GetCandidatesResponse {
 }
 
 const getCandidatesList = async (): Promise<GetCandidatesResponse> => {
-  const response = await http.get<GetCandidatesResponse>("http://localhost:3001/v1/candidate", {
-    headers: { "service_ref": 123456 },
-  });
+  const response = await http.get<GetCandidatesResponse>("/v1/candidate/vendor/4321");
   return response.data;
 };
 
