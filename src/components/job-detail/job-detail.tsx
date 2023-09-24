@@ -1,4 +1,3 @@
-import { Col } from "react-bootstrap";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import { ReactComponent as PeopleIcon } from "@assets/icons/icon-people.svg";
 import { Btn } from "@common/button";

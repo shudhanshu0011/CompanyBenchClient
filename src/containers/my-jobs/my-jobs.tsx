@@ -50,9 +50,6 @@ export const MyJobs = (): JSX.Element => {
     setSelectedJob(selectedJob);
     setShowDetail(true);
   };
-
-  console.log(myJobs?.data.jobs);
-
   return (
     <PageWrapper>
       <DashboardWrapper activeLink={location.pathname}>
