@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://agdu7orib7.execute-api.eu-central-1.amazonaws.com/dev/v1";
+const BASE_URL = "https://agdu7orib7.execute-api.eu-central-1.amazonaws.com/dev/";
 const http = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
