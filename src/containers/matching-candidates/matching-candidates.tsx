@@ -85,7 +85,7 @@ export const MatchingCandidates = (): JSX.Element => {
             />
           ) : (
             <Col xs={12} md={12}>
-              <div className="box-content pt-40 pl-30">
+              <div className="box-content">
                 <h3 className="mb-35">Matching Candidates</h3>
                 <Paper title="Advance Filter" titleRight="Search Result : 5">
                   <div className="filter-dropdown-container">
