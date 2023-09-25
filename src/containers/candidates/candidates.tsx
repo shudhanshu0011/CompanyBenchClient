@@ -14,8 +14,15 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import { defaultColumns } from "./coloumn-types/coloumn-types";
 import { RowClickedEvent } from "ag-grid-community";
+import { DropdownOption } from "@src/types/common";
+import { useGetTechnology } from "@src/hooks/useGetTechnology";
+import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
 
 export const Candidates = (): JSX.Element => {
+  const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
+  const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
+  const {data: technologyData} = useGetTechnology();
+  const {data: locationData} = useGetJobLocList();
   const { data: candidateData } = useGetCandidates();
 
   const [showDetail, setShowDetail] = useState(false);
@@ -24,16 +31,28 @@ export const Candidates = (): JSX.Element => {
 
   useEffect(() => {
     setRowData(candidateData?.data.candidate);
-  }, [candidateData]);
+  }, [candidateData?.data.candidate]);
 
-  const options = [
-    { value: ".NET", label: ".NET" },
-    { value: "Android", label: "Android" },
-    { value: "Angular", label: "Angular" },
-    { value: "Apttus CPQ", label: "Apttus CPQ" },
-    { value: "Artificial Intelligence", label: "Artificial Intelligence" },
-    { value: "Automation Anywhere", label: "Automation Anywhere" },
-  ];
+  useEffect(() => {
+    if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
+      const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
+        value: tmp.tecnologyId,
+        label: tmp.technologyName
+      }));
+      setTechnologyLists(options);
+    }
+  }, [technologyData]);
+
+  useEffect(() => {
+    if (locationData?.data.jobs && Array.isArray(locationData.data.jobs)) {
+      const options: DropdownOption[] = locationData.data.jobs.map((tmp) => ({
+        value: tmp.cityId,
+        label: tmp.cityName
+      }));
+      setLocationLists(options);
+    }
+  }, [locationData]);
+
   const candidatePagination = () => {
     return <AppPagination />;
   };
@@ -83,7 +102,7 @@ export const Candidates = (): JSX.Element => {
                     <Row>
                       <Col xs={3}>
                         <SelectDropdown
-                          options={options}
+                          options={technologyList}
                           placeholder="Select Technology"
                           isClearable
                           size="lg"
@@ -91,7 +110,7 @@ export const Candidates = (): JSX.Element => {
                       </Col>
                       <Col xs={3}>
                         <SelectDropdown
-                          options={options}
+                          options={locationList}
                           placeholder="Select Location"
                           size="lg"
                           isClearable

@@ -9,12 +9,12 @@ interface JobLocList {
 
 interface GetJobLocListResponse {
   data: {
-    joblocations: JobLocList[];
+    jobs: JobLocList[];
   };
 }
 
 const getJobLocationList = async (): Promise<GetJobLocListResponse> => {
-  const response = await http.get<GetJobLocListResponse>("v1/joblocation");
+  const response = await http.get<GetJobLocListResponse>("http://localhost:3001/v1/joblocation");
   return response.data;
 };
 

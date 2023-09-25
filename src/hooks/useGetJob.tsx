@@ -4,7 +4,7 @@ import { QueryID } from "@src/constants/query";
 import { GetJobResponse } from "@src/types/components";
 
 const getJobList = async (): Promise<GetJobResponse> => {
-  const response = await http.get<GetJobResponse>("/v1/job", {
+  const response = await http.get<GetJobResponse>("http://localhost:3001/v1/job", {
     headers: { "service_ref": 123456 },
   });
   return response.data;

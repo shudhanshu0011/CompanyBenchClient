@@ -86,3 +86,21 @@ export interface GetJobResponse {
     jobs: Job[];
   };
 }
+
+export type SubmitPostContactParams = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  company: string;
+  phone: string;
+  description: string;
+}
+
+export interface SubmitPostContactTypes {
+  firstName: string,
+  lastName: string,
+  email: string,
+  company: string,
+  phone: string,
+  description: string,
+}

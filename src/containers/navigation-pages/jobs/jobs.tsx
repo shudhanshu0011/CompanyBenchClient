@@ -22,8 +22,8 @@ export const Jobs = (): JSX.Element => {
   const {data: technologyData} = useGetTechnology();
 
   useEffect(() => {
-    if (jobLocationData?.data.joblocations && Array.isArray(jobLocationData.data.joblocations)) {
-      const options: DropdownOption[] = jobLocationData.data.joblocations.map((tmp) => ({
+    if (jobLocationData?.data.jobs && Array.isArray(jobLocationData.data.jobs)) {
+      const options: DropdownOption[] = jobLocationData.data.jobs.map((tmp) => ({
         value: tmp.cityId,
         label: tmp.cityName
       }));

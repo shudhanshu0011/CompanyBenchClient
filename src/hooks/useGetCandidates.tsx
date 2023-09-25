@@ -6,7 +6,7 @@ import { GetCandidatesResponse } from "@src/types/components";
 
 const getCandidatesList = async (): Promise<GetCandidatesResponse> => {
   const response = await http.get<GetCandidatesResponse>(
-    `/v1/candidate/vendor/${VENDOR_ID}`,
+    `http://localhost:3001/v1/candidate/vendor/${VENDOR_ID}`,
     {
       headers: { service_ref: 123456 },
     }

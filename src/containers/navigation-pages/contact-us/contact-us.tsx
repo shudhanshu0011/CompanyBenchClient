@@ -5,6 +5,7 @@ import logo from "@assets/logo.png";
 import { useForm, SubmitHandler } from "react-hook-form";
 import indialogo from "@assets/images/india.png";
 import uklogo from "@assets/images/uk.jpg";
+import { ContactUsForm } from "@src/components/contact-us-form";
 
 type Inputs = {
   firstName: string
@@ -68,32 +69,7 @@ export const ContactUs = (): JSX.Element => {
                 <iframe _ngcontent-mox-c69="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d236.45131693440462!2d73.9292424795926!3d18.518909423774325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c19ead72c829%3A0x4c18c61bbc9c5f07!2sCompany%20Bench!5e0!3m2!1sen!2sin!4v1650446756860!5m2!1sen!2sin" width="100%" height="564" loading="lazy"></iframe>
               </div>
               <div className="query-form">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <div>
-                    <input placeholder="First Name" {...register("firstName", { required: true })} className={errors.firstName ? "error-input" : "form-input-field"}></input>
-                    {errors.firstName && <span>First Name is required</span>}
-                  </div>
-                  <div>
-                    <input placeholder="Last Name" {...register("lastName", { required: true })} className={errors.lastName ? "error-input" : "form-input-field"}></input>
-                    {errors.lastName && <span>Last Name is required</span>}
-                  </div>
-                  <div>
-                    <input placeholder="Email" {...register("email", { required: true })} className={errors.email ? "error-input" : "form-input-field"}></input>
-                    {errors.email && <span>Email is required</span>}
-                  </div>
-                  <div>
-                    <input placeholder="Company Name" {...register("companyName", { required: true })} className={errors.companyName ? "error-input" : "form-input-field"}></input>
-                    {errors.companyName && <span>Company Name is required</span>}
-                  </div>
-                  <div>
-                    <input placeholder="Contact Number" {...register("contactNumber", { required: true })} className={errors.contactNumber ? "error-input" : "form-input-field"}></input>
-                    {errors.contactNumber && <span>Contact Number is required</span>}
-                  </div>
-                  <div>
-                    <textarea rows={7} placeholder="Description" {...register("description", { required: false })} className={errors.description ? "error-input" : "form-input-field"}></textarea>
-                  </div>
-                  <input type="submit" className="query-contact-btn" value="Contact Us"/>
-                </form>
+                <ContactUsForm/>
               </div>
             </div>
           </div>
