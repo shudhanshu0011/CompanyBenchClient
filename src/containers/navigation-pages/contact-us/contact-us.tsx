@@ -1,11 +1,11 @@
+import { useForm, SubmitHandler } from "react-hook-form";
+import { ContactUsForm } from "@src/components/contact-us-form";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
 import "./contact-us.scss";
 import logo from "@assets/logo.png";
-import { useForm, SubmitHandler } from "react-hook-form";
 import indialogo from "@assets/images/india.png";
 import uklogo from "@assets/images/uk.jpg";
-import { ContactUsForm } from "@src/components/contact-us-form";
 
 type Inputs = {
   firstName: string

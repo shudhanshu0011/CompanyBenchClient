@@ -1,8 +1,8 @@
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
-import "./blog-desc-page.scss";
 import blogs from '@assets/content/mock/blog-data';
-import backgroundImage from "@assets/images/img-single (1).png"
-import blogbackgroundimg from "@assets/icons/blog_Detail.jpg"
+import backgroundImage from "@assets/images/img-single (1).png";
+import blogbackgroundimg from "@assets/icons/blog_Detail.jpg";
+import "./blog-desc-page.scss";
 
 interface BlogDescPageProps {
   url: string;

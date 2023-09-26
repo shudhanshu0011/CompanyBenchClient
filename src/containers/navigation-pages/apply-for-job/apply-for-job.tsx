@@ -1,12 +1,11 @@
-
-import { Col } from "react-bootstrap";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
-import "@styles/common/_pages.scss";
-import "./apply-for-job.scss";
-import { useGetTechnology } from "@hooks/useGetTechnology";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
+import { Col } from "react-bootstrap";
 import { DropdownOption } from "@src/types/common";
+import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { useGetTechnology } from "@hooks/useGetTechnology";
+import "@styles/common/_pages.scss";
+import "./apply-for-job.scss";
 
 interface Inputs {
   firstName: string

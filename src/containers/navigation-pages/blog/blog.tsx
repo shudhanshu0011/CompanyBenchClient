@@ -1,11 +1,11 @@
-import blogsData from '@assets/content/mock/blog-data';
+import { useEffect, useState } from 'react';
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
-import "./blog.scss"
+import { ContactUsForm } from '@src/components/contact-us-form';
+import blogsData from '@assets/content/mock/blog-data';
 import { Btn } from '@common/button';
 import userIcon from "@assets/icons/user-icon.png";
-import blogDetailImg from "@assets/icons/blog_Detail.jpg"
-import { useEffect, useState } from 'react';
-import { ContactUsForm } from '@src/components/contact-us-form';
+import blogDetailImg from "@assets/icons/blog_Detail.jpg";
+import "./blog.scss";
 
 interface Blog {
   category: string;

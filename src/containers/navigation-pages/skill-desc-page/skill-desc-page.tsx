@@ -1,17 +1,17 @@
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
-import "./skill-desc-page.scss";
 import developers from '@assets/content/mock/developer-data';
 import { ReviewSection } from '@components/home-components/review-section';
 import { HireDeveloperBanner } from '@components/hire-developer-banner';
 import { ChooseUsSection } from '@components/home-components/choose-us-section';
+import { SendUsEnquiry } from '@src/components/send-us-enquiry';
+import { HowToHireThrouhgBench } from '@src/components/how-to-hire-through-bench';
 import { Btn } from '@common/button';
 import bannerimg from "@assets/images/banner.png";
 import avataricon from "@assets/icons/avtar.png";
 import hire201 from "@assets/icons/Hire 1.png";
 import checkboxicon from "@assets/icons/check-box.svg";
 import hire204 from "@assets/icons/Hire 4.png";
-import { SendUsEnquiry } from '@src/components/send-us-enquiry';
-import { HowToHireThrouhgBench } from '@src/components/how-to-hire-through-bench';
+import "./skill-desc-page.scss";
 
 interface SkillDescPageProps {
   url: string;
