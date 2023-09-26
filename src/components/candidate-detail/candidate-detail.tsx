@@ -1,21 +1,54 @@
+import { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import { Paper } from "@common/Paper";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
-import { ReactComponent as PeopleIcon } from "../../assets/icons/icon-people.svg";
-import { ReactComponent as AboutIcon } from "../../assets/icons/icon-about.svg";
-import { ReactComponent as LocationIcon } from "../../assets/icons/location.svg";
-import { ReactComponent as ExperienceIcon } from "../../assets/icons/experience.svg";
-import { ReactComponent as SalaryIcon } from "../../assets/icons/salary.svg";
-import { ReactComponent as UpdatedIcon } from "../../assets/icons/updated.svg";
+import { ReactComponent as PeopleIcon } from "@assets/icons/icon-people.svg";
+import { ReactComponent as AboutIcon } from "@assets/icons/icon-about.svg";
+import { ReactComponent as LocationIcon } from "@assets/icons/location.svg";
+import { ReactComponent as ExperienceIcon } from "@assets/icons/experience.svg";
+import { ReactComponent as SalaryIcon } from "@assets/icons/salary.svg";
+import { ReactComponent as UpdatedIcon } from "@assets/icons/updated.svg";
 import { Btn } from "@common/button";
+import { Candidate } from "@src/types/components";
+import { useGetTechnology } from "@src/hooks/useGetTechnology";
 
 interface Props {
   handleShowDetails(isVisible: boolean): void;
+  selectedCandidate?: Candidate;
 }
 
-export const CandidateDetails = ({ handleShowDetails }: Props) => {
+export const CandidateDetails = ({
+  handleShowDetails,
+  selectedCandidate,
+}: Props) => {
+  const { data: allTechnologiesData } = useGetTechnology();
+  const [allTechnologies, setAllTechnologies] = useState();
+
+  const {
+    firstName,
+    hourlyPrice,
+    lastName,
+    location,
+    skill,
+    summary,
+    totalExp,
+  } = selectedCandidate as Candidate;
   const handleBtnClick = () => {
     handleShowDetails(false);
+  };
+
+  useEffect(() => {
+    setAllTechnologies(allTechnologiesData);
+  }, [allTechnologiesData]);
+
+  const getTechnology = (id: string) => {
+    const technology = allTechnologies?.data?.technologys?.find(
+      (item: { technologyId: number }) => {
+        return item.technologyId === parseInt(id);
+      }
+    );
+
+    return technology?.technologyName;
   };
 
   return (
@@ -23,15 +56,19 @@ export const CandidateDetails = ({ handleShowDetails }: Props) => {
       <div className="box-content pt-40 pl-30">
         <div className="flex-box justify-content-space-between mb-35 ">
           <h3 className="flex-box align-items-center">
-            Test09 16082023{" "}
+            {firstName} {lastName}
             <span className=" title-icon">
               <span className="font-xs color-text-mutted">
                 <PlaceOutlinedIcon />
               </span>{" "}
-              <span className="font-sm color-text-mutted"> Bangalore </span>
+              <span className="font-sm color-text-mutted"> {location} </span>
             </span>
           </h3>
-          <Btn title="Back" className="btn" handleOnClick={handleBtnClick}></Btn>
+          <Btn
+            title="Back"
+            className="btn"
+            handleOnClick={handleBtnClick}
+          ></Btn>
         </div>
 
         <div className="box-nav-tabs mt-40 mb-5">
@@ -73,10 +110,14 @@ export const CandidateDetails = ({ handleShowDetails }: Props) => {
                 <span className="text-description industry-icon mb-10">
                   Skills
                 </span>
-                <Btn
-                  className="btn btn-grey-small mr-5 mb-5"
-                  title=" Automation Anywhere"
-                />
+                {skill.map((item: string) => {
+                  return (
+                    <Btn
+                      className="btn btn-grey-small mr-5 mb-5"
+                      title={getTechnology(item)}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -91,7 +132,7 @@ export const CandidateDetails = ({ handleShowDetails }: Props) => {
                   <strong>
                     <span className="card-location font-sm mr-5 ml-0 pl-0">
                       <PlaceOutlinedIcon />
-                      Bangalore
+                      {location}
                     </span>
                   </strong>
                 </span>
@@ -108,7 +149,9 @@ export const CandidateDetails = ({ handleShowDetails }: Props) => {
                   {" "}
                   Experience
                 </span>
-                <strong className="small-heading">3 years of experience</strong>
+                <strong className="small-heading">
+                  {totalExp} years of experience
+                </strong>
               </div>
             </div>
           </div>
@@ -122,7 +165,7 @@ export const CandidateDetails = ({ handleShowDetails }: Props) => {
                   Budget (₹)
                 </span>
                 <strong className="small-heading">
-                  More than ₹ 34537/ Month
+                  More than ₹ {hourlyPrice}/ Hours
                 </strong>
               </div>
             </div>
@@ -136,7 +179,7 @@ export const CandidateDetails = ({ handleShowDetails }: Props) => {
                 <span className="text-description jobtype-icon mb-10">
                   Summary
                 </span>
-                <p>dsfsdfds</p>
+                <p>{summary}</p>
               </div>
             </div>
           </div>

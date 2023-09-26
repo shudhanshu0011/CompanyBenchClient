@@ -1,4 +1,4 @@
-import { QueryID } from "@src/constants/constants";
+import { QueryID } from "@src/constants/query";
 import { SubmitPostJobParams } from "@src/types/components";
 import axios, { AxiosError } from "axios";
 import { UseMutationResult, useMutation, useQueryClient } from "react-query";

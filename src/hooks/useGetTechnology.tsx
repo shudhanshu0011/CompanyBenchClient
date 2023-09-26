@@ -1,6 +1,6 @@
-import { http } from "@config/request";
+import  http  from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
-import { GET_TECHNOLOGIES_QUERY } from "@src/constants/query";
+import { QueryID } from "@src/constants/query";
 
 interface Technology {
   tecnologyId: string;
@@ -14,9 +14,7 @@ interface GetJobTechnologyResponse {
 }
 
 const getJobTechnologyList = async (): Promise<GetJobTechnologyResponse> => {
-  const response = await http.get<GetJobTechnologyResponse>("http://localhost:3001/v1/technology", {
-    headers: { "service_ref": 123456 },
-  });
+  const response = await http.get<GetJobTechnologyResponse>("v1/technology");
   return response.data;
 };
 
@@ -24,7 +22,7 @@ export const useGetTechnology = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<GetJobTechnologyResponse, Error> => {
-  return useQuery(GET_TECHNOLOGIES_QUERY, async () => getJobTechnologyList(), {
+  return useQuery(QueryID.technologyQuery, async () => getJobTechnologyList(), {
     onSuccess,
     onError,
     select: (data: GetJobTechnologyResponse) => data,

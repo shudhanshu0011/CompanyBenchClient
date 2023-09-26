@@ -40,6 +40,48 @@ export interface CreateUserParams {
   company: string;
 }
 
+export interface Candidate {
+  createdAt: string;
+  guid: string;
+  updatedAt: string;
+  userSfId: 99999;
+  candidateId: number;
+  vendorId: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  location: string;
+  skill: string[];
+  summary: string;
+  hourlyPrice: number;
+  certifications: string[];
+  projects: string[];
+  designation: string;
+  status: string;
+  totalExp: number;
+}
+export interface GetCandidatesResponse {
+  data: {
+    candidate: Candidate[];
+  };
+}
+
+export interface Job {
+  company: string;
+  location: string[];
+  jobStatus: string;
+  startdate: string;
+  skill: string[];
+  jobHeading: string;
+  clientGuid: string;
+}
+
+export interface GetJobResponse {
+  data: {
+    jobs: Job[];
+  };
+}
+
 export interface SignInParams {
   email: string;
   password: string;
