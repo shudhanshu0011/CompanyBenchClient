@@ -4,21 +4,25 @@ import { Col, Form, Row } from "react-bootstrap";
 import { Btn } from "@src/common/button";
 import "@styles/common/_pages.scss";
 import "./signin.scss";
+import { SignInParams } from "@src/types/components";
+import { usePostLogin } from "@src/hooks/usePostLogin";
+import { useNavigate } from "react-router-dom";
 
-interface InputTypes {
-  username: string;
-  password: string;
-}
 export const SignIn = (): JSX.Element => {
   const {
     handleSubmit,
     formState: { errors },
     register,
-  } = useForm<InputTypes>();
+  } = useForm<SignInParams>();
 
-  const onSubmit: SubmitHandler<InputTypes> = (data) => {
-    console.log({ data });
+  const onSubmit: SubmitHandler<SignInParams> = (data) => {
+    handlePostJobs(data);
   };
+  const navigate = useNavigate();
+  const {mutate: postLogin} = usePostLogin(async () => navigate("/"));
+  const handlePostJobs = (formdata: SignInParams) => {
+    postLogin(formdata);
+  }
 
   return (
     <PageWrapper>
@@ -53,9 +57,9 @@ export const SignIn = (): JSX.Element => {
                     type="text"
                     className="font-md"
                     placeholder="Steven Job"
-                    {...register("username", { required: true })}
+                    {...register("email", { required: true })}
                   />
-                  {errors.username && (
+                  {errors.email && (
                     <span className="pt-10 font-xs error flex-box">
                       This field is required
                     </span>

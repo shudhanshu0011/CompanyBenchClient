@@ -40,7 +40,6 @@ export interface CreateUserParams {
   company: string;
 }
 
-
 export interface Candidate {
   createdAt: string;
   guid: string;
@@ -81,4 +80,9 @@ export interface GetJobResponse {
   data: {
     jobs: Job[];
   };
+}
+
+export interface SignInParams {
+  email: string;
+  password: string;
 }
