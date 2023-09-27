@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "./remote-developer-jobs.scss";
 import remoteDevelopersData from '@assets/content/mock/remote-developers-job-data';
 import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
 

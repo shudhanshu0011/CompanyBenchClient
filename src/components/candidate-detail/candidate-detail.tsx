@@ -11,6 +11,7 @@ import { ReactComponent as UpdatedIcon } from "@assets/icons/updated.svg";
 import { Btn } from "@common/button";
 import { Candidate } from "@src/types/components";
 import { useGetTechnology } from "@src/hooks/useGetTechnology";
+import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
 
 interface Props {
   handleShowDetails(isVisible: boolean): void;
@@ -22,7 +23,9 @@ export const CandidateDetails = ({
   selectedCandidate,
 }: Props) => {
   const { data: allTechnologiesData } = useGetTechnology();
+  const { data: allLocationData } = useGetJobLocList();
   const [allTechnologies, setAllTechnologies] = useState();
+  const [allLocations, setAllLocations] = useState();
 
   const {
     firstName,
@@ -41,6 +44,10 @@ export const CandidateDetails = ({
     setAllTechnologies(allTechnologiesData);
   }, [allTechnologiesData]);
 
+  useEffect(() => {
+    setAllLocations(allLocationData);
+  }, [allLocationData]);
+
   const getTechnology = (id: string) => {
     const technology = allTechnologies?.data?.technologys?.find(
       (item: { technologyId: number }) => {
@@ -51,8 +58,18 @@ export const CandidateDetails = ({
     return technology?.technologyName;
   };
 
+  const getLocation = (id: string) => {
+    const location = allLocations?.data?.jobs?.find(
+      (item: { cityId: number }) => {
+        return item.cityId === parseInt(id);
+      }
+    );
+
+    return location?.cityName;
+  };
+
   return (
-    <Col xs={12} md={10}>
+    <Col>
       <div className="box-content pt-40 pl-30">
         <div className="flex-box justify-content-space-between mb-35 ">
           <h3 className="flex-box align-items-center">
@@ -61,7 +78,7 @@ export const CandidateDetails = ({
               <span className="font-xs color-text-mutted">
                 <PlaceOutlinedIcon />
               </span>{" "}
-              <span className="font-sm color-text-mutted"> {location} </span>
+              <span className="font-sm color-text-mutted"> {getLocation(location)} </span>
             </span>
           </h3>
           <Btn
@@ -132,7 +149,7 @@ export const CandidateDetails = ({
                   <strong>
                     <span className="card-location font-sm mr-5 ml-0 pl-0">
                       <PlaceOutlinedIcon />
-                      {location}
+                      {getLocation(location)}
                     </span>
                   </strong>
                 </span>

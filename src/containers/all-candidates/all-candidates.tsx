@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { AppPagination } from "@common/app-pagination";
-import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
+import { CandidateDetails } from "./candidate-details";
 import "@styles/common/_pages.scss";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";

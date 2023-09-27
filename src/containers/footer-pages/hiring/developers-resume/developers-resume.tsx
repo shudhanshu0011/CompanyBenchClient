@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import developersResumeData from '@assets/content/mock/developers-resume-data';
 import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
-import "./developers-resume.scss";
 
 interface DevelopersResume {
   skill: string;

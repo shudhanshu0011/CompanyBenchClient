@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import "./freelancers.scss";
 import freelanceJobData from '@assets/content/mock/freelancers-data';
 import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
 

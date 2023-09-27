@@ -31,6 +31,10 @@ import RemoteDevelopersJDPage from "./containers/footer-pages/hiring/remote-deve
 
 const routes: RouteObject[] = [
   {
+    path: "/",
+    element: <Home />,
+  },
+  {
     path: "/c/home",
     element: <Home />,
   },

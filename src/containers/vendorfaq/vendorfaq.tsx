@@ -1,5 +1,4 @@
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
-import "./vendorfaq.scss";
 import iconTopBanner from "@assets/images/icon-top-banner.png";
 import bannerimg from "@assets/images/banner2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
