@@ -95,7 +95,7 @@ export const Candidates = (): JSX.Element => {
             />
           ) : (
             <Col xs={12} md={10}>
-              <div className="box-content">
+              <div className="box-contents">
                 <h3 className="mb-35">Candidates</h3>
                 <Paper title="Advance Filter" titleRight="Search Result : 5">
                   <div className="filter-dropdown-container">
@@ -128,6 +128,7 @@ export const Candidates = (): JSX.Element => {
                       rowData={rowData}
                       columnDefs={defaultColumns()}
                       onRowClicked={(event) => handleRowClicked(event)}
+                      className="candidate-data-table"
                     />
                   </div>
                   <Btn

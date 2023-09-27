@@ -13,7 +13,59 @@
     .hire-cust-form{
         .hire-cust-form-field{
             display: flex;
-            flex-wrap: wrap;
+            @media(max-width: 700px){
+                display: block;
+            }
+            .input-name{
+                width: 200px;
+                height: 53px;
+                border: 1px solid $border-color;
+                padding-left: 20px;
+                margin-bottom: 10px;
+                border-top: 1px solid $color-brand-2;
+                border-bottom: 1px solid $color-brand-2;
+                border-left: 1px solid $color-brand-2;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 0px;
+                border-top-right-radius: 0px;
+                border-right: 1px solid $color-brand-2;
+                @media(max-width: 700px){
+                    border-radius: 5px;
+                }
+            }
+            .input-email{
+                width: 200px;
+                height: 53px;
+                border: 1px solid $border-color;
+                padding-left: 20px;
+                margin-bottom: 10px;
+                border-top: 1px solid $color-brand-2;
+                border-bottom: 1px solid $color-brand-2;
+                border-radius: 0px;
+                @media(max-width: 700px){
+                    border-radius: 5px;
+                    border: 1px solid $color-brand-2;
+                }
+            }
+            .hire-interest-btn{
+                width: 120px;
+                text-align: center;
+                height: 53px;
+                background-color: $color-brand-2;
+                color: $color-white;
+                border: none;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                @media(max-width: 700px){
+                    border-radius: 5px;
+                }
+            }
         }
         h1{
             margin: 20px 0px 20px 0px;
@@ -22,45 +74,6 @@
         p{
             margin: 0px 0px 30px 0px;
             font-family: $font-text;
-        }
-        .input-name{
-            height: 53px;
-            border: 1px solid $border-color;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            border-top: 1px solid $color-brand-2;
-            border-bottom: 1px solid $color-brand-2;
-            border-left: 1px solid $color-brand-2;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            border-right: 1px solid $color-brand-2;
-            @media(max-width: 700px){
-                border-radius: 5px;
-            }
-        }
-        .input-email{
-            height: 53px;
-            border: 1px solid $border-color;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            border-top: 1px solid $color-brand-2;
-            border-bottom: 1px solid $color-brand-2;
-            @media(max-width: 700px){
-                border-radius: 5px;
-                border: 1px solid $color-brand-2;
-            }
-        }
-        .hire-interest-btn{
-            width: 100px;
-            height: 53px;
-            background-color: $color-brand-2;
-            color: $color-white;
-            border: none;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            @media(max-width: 700px){
-                border-radius: 5px;
-            }
         }
     }
     .banner-img{

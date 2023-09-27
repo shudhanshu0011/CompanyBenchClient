@@ -7,7 +7,6 @@ import { SelectDropdown } from "@common/select";
 import { AppPagination } from "@common/app-pagination";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
 import "@styles/common/_pages.scss";
-import "./applied-candidates.scss";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import { defaultColumns } from "./coloumn-types/coloumn-types";

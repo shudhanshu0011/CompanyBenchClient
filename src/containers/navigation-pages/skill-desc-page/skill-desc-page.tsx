@@ -31,8 +31,8 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               <div>
                 <p>Are you looking for immediate Hire {skillset?.skill} Developer</p>
               </div>
-              <div className='hire-cust-form-field'>
-                <form>
+              <div>
+                <form className='hire-cust-form-field'>
                   <input placeholder='Name' className='input-name'></input>
                   <input placeholder='Email' className='input-email'></input>
                   <input type='Submit' className='hire-interest-btn'></input>
