@@ -1,5 +1,5 @@
 import "./how-to-hire-through-bench.scss";
-import awsdeveloperlogo from "@assets/images/Hire AWS Developers-03-02.svg";
+import awsdeveloperlogo from "@assets/images/Hire_AWS_Developers-03-02.svg";
 import icon1 from "@assets/icons/Icon-1.png";
 import icon2 from "@assets/icons/Icon-2.png";
 import icon3 from "@assets/icons/Icon-3.png";
