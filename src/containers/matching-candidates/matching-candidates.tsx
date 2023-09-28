@@ -119,10 +119,6 @@ export const MatchingCandidates = (): JSX.Element => {
                       onRowClicked={(event) => handleRowClicked(event)}
                     />
                   </div>
-                  <Btn
-                    title="Login to see more"
-                    className="btn btn-default btn-apply font-sm mt-4"
-                  />
                 </Paper>
               </div>
             </Col>
