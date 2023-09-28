@@ -6,7 +6,7 @@ import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 export const createUser = async (
   params: CreateUserParams
 ): Promise<CreateUserParams> => {
-  return await axios.post(`https://testbenchapi.azurewebsites.net/v1/user`, params, {
+  return await axios.post(`/v1/user`, params, {
     headers: { service_ref: 123456 },
   });
 };

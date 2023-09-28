@@ -6,7 +6,7 @@ import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 export const postJobs = async (
   params: SubmitPostJobParams
 ): Promise<SubmitPostJobParams> => {
-  return await axios.post(`https://testbenchapi.azurewebsites.net/api/PostJob/NewJobPost`, params, {
+  return await axios.post(`/v1/job`, params, {
     headers: { service_ref: 123456 },
   });
 };

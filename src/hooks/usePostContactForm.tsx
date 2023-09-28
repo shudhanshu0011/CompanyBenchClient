@@ -6,7 +6,7 @@ import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 export const postContact = async (
   params: SubmitPostContactParams
 ): Promise<SubmitPostContactParams> => {
-  return await axios.post("http://localhost:3001/v1/contact", params, {
+  return await axios.post('/v1/contact', params, {
     headers: { service_ref: 123456 },
   });
 };
