@@ -72,13 +72,22 @@ export interface GetCandidatesResponse {
 }
 
 export interface Job {
-  company: string;
-  location: string[];
-  jobStatus: string;
-  startdate: string;
-  skill: string[];
-  jobHeading: string;
   clientGuid: string;
+  clientId: number;
+  company: string;
+  createdAt: string;
+  description: string;
+  duration: number;
+  experienceLevel: number;
+  guid: string;
+  hourlyPrice: number;
+  jobHeading: string;
+  jobStatus: string;
+  location: string[];
+  skill: string[];
+  startdate: string;
+  updatedAt: string;
+  userSfId: string;
 }
 
 export interface GetJobResponse {
