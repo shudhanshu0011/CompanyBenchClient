@@ -1,0 +1,47 @@
+@import "@styles/common/variables.scss";
+
+.hire-guide-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 80px 100px 80px 100px;
+    @media(max-width: 900px){
+        padding: 40px 40px 40px 40px;
+        grid-template-columns: 90% 10%;
+    }
+    background-color: #F4F7FF;
+    .guide-content{
+        div{
+            background-color: $color-white;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            box-shadow: 0 0 3px 2px #e6e6e6;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            padding: 12px 14px;
+            img{
+                width: 55px;
+                padding: 10px;
+                background-color: #e8edff;
+                margin-right: 10px;
+            }
+        }
+        h4{
+            font-size: $font-xl;
+            font-weight: 600;
+        }
+    }
+    img{
+        width: 100%;
+        border-radius: 10px;
+    }
+    h2{
+        margin-bottom: 20px;
+    }
+    p{
+        line-height: 1.5;
+        font-size: $font-md;
+        color: $color-text-paragraph-2;
+        font-family: $font-text;
+    }
+}

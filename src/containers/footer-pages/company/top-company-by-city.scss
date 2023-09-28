@@ -1,0 +1,83 @@
+@import "@styles/common/variables.scss";
+
+.intro-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    @media (max-width: 720px){
+        margin-top: 250px;
+    }
+    div{
+        text-align: center;
+        background-color: $color-background;
+        width: 88%;
+        h2{
+            margin: 30px;
+        }
+        p{
+            margin: 20px 18% 30px 18%;
+            color: $color-text-paragraph;
+            font-size: $font-md;
+            line-height: 1.7;
+            font-family: $font-text;
+        }
+    }
+}
+
+.company-list-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    p{
+        color: $color-text-paragraph-2;
+        font-family: $font-text;
+        line-height: 1.6;
+        margin: 12px 0px 12px;
+    }
+    .company-list{  
+        width: 88%;
+        img{
+            float: right;
+            border-radius: 10%;
+            padding: 40px;
+        }
+    }
+}
+
+.main-company-container{
+    text-align: center;
+    padding: 40px 0px 0px 0px;
+    h2{
+        margin-bottom: 20px;
+    }
+    .company-banner-container{
+        padding: 40px 120px 40px  120px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction:row;
+        justify-content: center;
+        .location-container{
+            margin: 10px;
+            button{
+                padding: 10px 20px 10px 16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $color-background-3;
+                border: 1px solid $color-border-4;
+                border-radius: 3px;
+                box-shadow: 2px 2px 4px 0px $color-background-4;
+                &:hover{
+                    color: $color-white;
+                    background-color: $color-brand-2;
+                }
+                img{
+                    height: 30px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

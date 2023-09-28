@@ -12,9 +12,13 @@
     padding: 20px;
     .how-to-header-area{
       text-align: center;
-      padding: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       h2{
-        padding: 10px;
+        margin: 10px;
+        width: 60%;
       }
     }
     .step-hire-guide{
@@ -39,7 +43,6 @@
             padding: 15px;
             width: 110px;
             height: 110px;
-            margin-right: 20px;
           }
         }
         .step-img-container2-how-to{
@@ -58,7 +61,6 @@
             padding: 15px;
             width: 110px;
             height: 110px;
-            margin-right: 15px;
           }
         }
         .step-img-container3-how-to{
@@ -99,10 +101,7 @@
     grid-template-columns: repeat(1, 1fr);
     padding: 20px;
   }
-  .hire-guide-container{
-    height: 150vh;
-  }
-  .steps-link{
+  .steps-link-how-to{
     visibility: hidden;
   }
 }

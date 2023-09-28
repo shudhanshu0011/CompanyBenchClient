@@ -1,44 +1,24 @@
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
-import "./skill-desc-page.scss";
-import developers from '../../../assets/content/mock/developer-data';
+import developers from '@assets/content/mock/developer-data';
 import { ReviewSection } from '@components/home-components/review-section';
 import { HireDeveloperBanner } from '@components/hire-developer-banner';
 import { ChooseUsSection } from '@components/home-components/choose-us-section';
+import { SendUsEnquiry } from '@src/components/send-us-enquiry';
+import { HowToHireThrouhgBench } from '@src/components/how-to-hire-through-bench';
 import { Btn } from '@common/button';
-import { useForm, SubmitHandler } from "react-hook-form";
-import bannerimg from "../../../assets/images/banner.png";
-import avataricon from "../../../assets/icons/avtar.png";
-import hire201 from "../../../assets/icons/Hire 1.png";
-import checkboxicon from "../../../assets/icons/check-box.svg";
-import hire204 from "../../../assets/icons/Hire 4.png";
-import awsdeveloperlogo from "../../../assets/images/Hire AWS Developers-03-02.svg";
-import icon1 from "../../../assets/icons/Icon-1.png";
-import icon2 from "../../../assets/icons/Icon-2.png";
-import icon3 from "../../../assets/icons/Icon-3.png";
-import sendusenquiryimg from "../../../assets/images/Send Us Enquiry.svg"
+import bannerimg from "@assets/images/banner.png";
+import avataricon from "@assets/icons/avtar.png";
+import hire201 from "@assets/icons/Hire 1.png";
+import checkboxicon from "@assets/icons/check-box.svg";
+import hire204 from "@assets/icons/Hire 4.png";
+import "./skill-desc-page.scss";
 
 interface SkillDescPageProps {
   url: string;
 }
 
-type Inputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  companyName: string;
-  contactNumber: number;
-  description: string;
-};
-
 const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
   const skillset = developers.find((developer) => developer.url===pageUrl)
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
   return (
     <div>
@@ -52,7 +32,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
                 <p>Are you looking for immediate Hire {skillset?.skill} Developer</p>
               </div>
               <div>
-                <form>
+                <form className='hire-cust-form-field'>
                   <input placeholder='Name' className='input-name'></input>
                   <input placeholder='Email' className='input-email'></input>
                   <input type='Submit' className='hire-interest-btn'></input>
@@ -141,26 +121,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
             </div>
           </div>
           <ChooseUsSection/>
-          <div className='hire-guide-container'>
-            <div className='hero-banner-img'>
-              <img src={awsdeveloperlogo}></img>
-            </div>
-            <div className='guide-content'>
-              <h2>How to Hire Developers through Bench</h2>
-              <div>
-                <img src={icon1}></img>
-                <h4>State your requirement for the position</h4>
-              </div>
-              <div>
-                <img src={icon2}></img>
-                <h4>Obtain the required talent immediately</h4>
-              </div>
-              <div>
-                <img src={icon3}></img>
-                <h4>Avail of their expertise</h4>
-              </div>
-            </div>
-          </div>
+          <HowToHireThrouhgBench/>
           <HireDeveloperBanner/>
           <div className='hire-developer-faq'>
               <h2>Frequently Asked Questions</h2>
@@ -206,46 +167,7 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
                 </div>
               </div>
           </div>
-          <div className='hire-enquiry-container'>
-              <h2>Send Us Enquiry</h2>
-              <div className='hire-developer-enquiry'>
-                <div className='hero-banner-img'>
-                  <img src={sendusenquiryimg}></img>
-                </div>
-                <div className='enquiry-content'>
-                  <div className='hire-enquiry-form'>
-                      <form onSubmit={handleSubmit(onSubmit)}>
-                        <div>
-                          {errors.firstName && <span>First Name is required</span>}
-                          <input placeholder="First Name" {...register("firstName", { required: true })} className={errors.firstName ? "error-input" : "form-input-field"}></input>
-                        </div>
-                        <div>
-                          {errors.lastName && <span>Last Name is required</span>}
-                          <input placeholder="Last Name" {...register("lastName", { required: true })} className={errors.lastName ? "error-input" : "form-input-field"}></input>
-                          
-                        </div>
-                        <div>
-                          {errors.email && <span>Email is required</span>}
-                          <input placeholder="Email" {...register("email", { required: true })} className={errors.email ? "error-input" : "form-input-field"}></input>                        
-                        </div>
-                        <div>
-                          {errors.companyName && <span>Company Name is required</span>}
-                          <input placeholder="Company Name" {...register("companyName", { required: true })} className={errors.companyName ? "error-input" : "form-input-field"}></input>                        
-                        </div>
-                        <div>
-                          {errors.contactNumber && <span>Contact Number is required</span>}
-                          <input placeholder="Contact Number" {...register("contactNumber", { required: true })} className={errors.contactNumber ? "error-input" : "form-input-field"}></input>                        
-                        </div>
-                        <div>
-                          {errors.description && <span>Description is required</span>}
-                          <textarea rows={7} placeholder="Description" {...register("description", { required: false })} className={errors.description ? "error-input" : "form-input-field"}></textarea>
-                        </div>
-                        <input type="submit" className="query-contact-btn"/>
-                      </form>
-                  </div>
-                </div>
-              </div>
-          </div>
+          <SendUsEnquiry/>
           <ReviewSection/>
         </section>
       </PageWrapper>

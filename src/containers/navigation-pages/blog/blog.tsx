@@ -1,28 +1,27 @@
-import blogs from '../../../assets/content/mock/blog-data';
+import { useEffect, useState } from 'react';
 import { PageWrapper } from '@components/page-wrapper/page-wrapper';
-import "./blog.scss"
+import { ContactUsForm } from '@src/components/contact-us-form';
+import blogsData from '@assets/content/mock/blog-data';
 import { Btn } from '@common/button';
-import { useForm, SubmitHandler } from "react-hook-form";
-import userIcon from "../../../assets/icons/user-icon.png";
-import blogDetailImg from "../../../assets/icons/blog_Detail.jpg"
+import userIcon from "@assets/icons/user-icon.png";
+import blogDetailImg from "@assets/icons/blog_Detail.jpg";
+import "./blog.scss";
 
-
-type Inputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  companyName: string;
-  contactNumber: number;
-  description: string;
+interface Blog {
+  category: string;
+  blogHeading: string;
+  content: string;
+  url: string;
+  author: string;
+  date: string;
 };
 
 export const Blogs: React.FC = (): JSX.Element => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    setBlogs(blogsData);
+  }, []);
 
   return (
     <div>
@@ -43,9 +42,11 @@ export const Blogs: React.FC = (): JSX.Element => {
                       <img src={blogDetailImg}></img>
                       <Btn className='btn-apply-now category-btn' title={temp_blog.category} />
                       <h5>{temp_blog.blogHeading}</h5>
-                      <span>{temp_blog.content}</span>
+                      <span>{temp_blog.content.slice(0,600)}</span>
                       <div>
-                        <Btn className='btn-read-more' title='Read More' />
+                        <a href={temp_blog.url}>
+                          <Btn className='btn-read-more' title='Read More' />
+                        </a>
                       </div>
                       <div className='author'>
                         <img src={userIcon}></img>
@@ -79,33 +80,7 @@ export const Blogs: React.FC = (): JSX.Element => {
                   <div className='send-enquiry-header'>
                     <h5>Send Us Inquiry</h5>
                   </div>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                      <div>
-                        {errors.firstName && <span>First Name is required</span>}
-                        <input placeholder="First Name" {...register("firstName", { required: true })} className={errors.firstName ? "error-input" : "form-input-field"}></input>
-                      </div>
-                      <div>
-                        {errors.lastName && <span>Last Name is required</span>}
-                        <input placeholder="Last Name" {...register("lastName", { required: true })} className={errors.lastName ? "error-input" : "form-input-field"}></input>                        
-                      </div>
-                      <div>
-                        {errors.email && <span>Email is required</span>}
-                        <input placeholder="Email" {...register("email", { required: true })} className={errors.email ? "error-input" : "form-input-field"}></input>                        
-                      </div>
-                      <div>
-                        {errors.companyName && <span>Company Name is required</span>}
-                        <input placeholder="Company Name" {...register("companyName", { required: true })} className={errors.companyName ? "error-input" : "form-input-field"}></input>                        
-                      </div>
-                      <div>
-                        {errors.contactNumber && <span>Contact Number is required</span>}
-                        <input placeholder="Contact Number" {...register("contactNumber", { required: true })} className={errors.contactNumber ? "error-input" : "form-input-field"}></input>                        
-                      </div>
-                      <div>
-                        {errors.description && <span>Description is required</span>}
-                        <textarea rows={7} placeholder="Description" {...register("description", { required: false })} className={errors.description ? "error-input" : "form-input-field"}></textarea>
-                      </div>
-                      <input type="submit" className="query-contact-btn" />
-                    </form>
+                  <ContactUsForm/>
                 </div>
                 <div className='we-hiring-banner'>
                   <span className='we-hiring-banner-1' >WE ARE</span><br/>

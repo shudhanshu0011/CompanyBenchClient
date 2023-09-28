@@ -5,6 +5,7 @@ import CloseSharpIcon from "@mui/icons-material/CloseSharp";
 import SearchIcon from '@mui/icons-material/Search';
 import { DropdownOption } from "@src/types/common";
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 export const Banner = () => {
   const options: Array<DropdownOption> = [
@@ -78,13 +79,15 @@ export const Banner = () => {
                     />
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-default btn-find font-sm"
-                >
-                  <SearchIcon />
-                  Search
-                </button>
+                <Link to="/allcandidates">
+                  <button
+                    type="submit"
+                    className="btn btn-default btn-find font-sm"
+                  >
+                    <SearchIcon />
+                    Search
+                  </button>
+                </Link>
               </form>
             </div>
           </div>

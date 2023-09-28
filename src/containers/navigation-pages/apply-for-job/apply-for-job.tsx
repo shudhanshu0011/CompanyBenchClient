@@ -1,14 +1,13 @@
-
-import { Col } from "react-bootstrap";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
-import "@styles/common/_pages.scss";
-import "./apply-for-job.scss";
-import { useGetTechnology } from "@hooks/useGetTechnology";
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
+import { Col } from "react-bootstrap";
 import { DropdownOption } from "@src/types/common";
+import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { useGetTechnology } from "@hooks/useGetTechnology";
+import "@styles/common/_pages.scss";
+import "./apply-for-job.scss";
 
-type Inputs = {
+interface Inputs {
   firstName: string
   lastName: string
   email: string
@@ -42,7 +41,7 @@ export const ApplyForJob = (): JSX.Element => {
   return (
     <PageWrapper>
         <div className="body-items">
-          <Col xs={12} md={2}>
+          <Col xs={12} md={2} className="we-hiring-banner">
             <div className="nav pt-0">
               <div className="sidebar-border-bg">
                 <span className="text-grey">WE ARE</span>

@@ -22,8 +22,8 @@ export const Jobs = (): JSX.Element => {
   const {data: technologyData} = useGetTechnology();
 
   useEffect(() => {
-    if (jobLocationData?.data.joblocations && Array.isArray(jobLocationData.data.joblocations)) {
-      const options: DropdownOption[] = jobLocationData.data.joblocations.map((tmp) => ({
+    if (jobLocationData?.data.jobs && Array.isArray(jobLocationData.data.jobs)) {
+      const options: DropdownOption[] = jobLocationData.data.jobs.map((tmp) => ({
         value: tmp.cityId,
         label: tmp.cityName
       }));
@@ -60,7 +60,7 @@ export const Jobs = (): JSX.Element => {
   return (
     <PageWrapper>
         <div className="body-items">
-          <Col xs={12} md={2}>
+          <Col xs={12} md={2} className="we-hiring-banner">
             <div className="nav pt-0">
               <div className="sidebar-border-bg">
                 <span className="text-grey">WE ARE</span>

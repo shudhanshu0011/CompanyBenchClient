@@ -6,4 +6,5 @@ export const QueryID = {
   locationQuery: "Get_Job_Loc_List",
   jobStatusQuery: "Get_Job_Status",
   technologyQuery: "Get_Technology",
+  postContactEnquiry: "PostContactEnquiry",
 };

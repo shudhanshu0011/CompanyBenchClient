@@ -14,7 +14,7 @@ export const Header = (): JSX.Element => {
         <div className="main-header">
           <div className="header-left">
             <div className="header-logo">
-              <a className="d-flex" href="/">
+              <a className="d-flex" href="/c/home">
                 <img alt="company-bench" src={logo} />
               </a>
             </div>

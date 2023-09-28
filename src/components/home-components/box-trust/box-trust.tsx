@@ -1,17 +1,16 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "./styles.scss";
 import "swiper/css/bundle";
-import urbanLadderlogo from "../../../assets/icons/urban ladder.png"
-import jungleelogo from "../../../assets/icons/junglee games (1).png"
-import landtlogo from "../../../assets/icons/l and t.png"
-import wnslogo from "../../../assets/icons/wns.png"
-import hdfclogo from "../../../assets/icons/HDFC-Bank-logo.png"
-import pineLabslogo from "../../../assets/icons/pine labs.png"
+import urbanLadderlogo from "@assets/icons/urban ladder.png"
+import jungleelogo from "@assets/icons/junglee games (1).png"
+import landtlogo from "@assets/icons/l and t.png"
+import wnslogo from "@assets/icons/wns.png"
+import hdfclogo from "@assets/icons/HDFC-Bank-logo.png"
+import pineLabslogo from "@assets/icons/pine labs.png"
 
 export const BoxTrust = () => {
   return (
-    <section className='section-container'>
-      <div className='main-container'>
+    <div className='box-trust-container'>
         <div className='box-trust'>
           <div className='left-trust'>
             <h4>Trusted By</h4>
@@ -94,15 +93,10 @@ export const BoxTrust = () => {
             </div>
           </div>
           <div className='text-intro'>
-            <div className='intro-text-heading'>
-              <h2>Have dedicated developers as per your demand</h2>
-            </div>
-            <div className='intro-text-detail'>
-              <p>Given the explicit surge in demand of experienced and qualified resource , We at company bench have developed the bridge to fulfill this immediate gap of resource hire across relevant technologies in circulation</p>
-            </div>
+            <h2>Have dedicated developers as per your demand</h2> 
+            <p>Given the explicit surge in demand of experienced and qualified resource , We at company bench have developed the bridge to fulfill this immediate gap of resource hire across relevant technologies in circulation</p>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
   );
 };

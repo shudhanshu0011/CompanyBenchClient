@@ -2,7 +2,6 @@
 
 .choose-us-container{
   width: 100%;
-  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +9,6 @@
   .main-container{
     position: relative;
     width: 1400px;
-    height: 100%;
     padding: 20px;
     .choose-us-header-area{
       text-align: center;
@@ -62,6 +60,9 @@
             border-radius: 50%;
             width: 110px;
             height: 110px;
+            @media(max-width: 800px){
+              margin-top: 40px;
+            }
           }
         }
         .step-img-container3{
@@ -79,6 +80,9 @@
             border-radius: 50%;
             width: 110px;
             height: 110px;
+            @media(max-width: 800px){
+              margin-top: 40px;
+            }
           }
         }
         h4{
@@ -97,7 +101,7 @@
       align-items: center;
       justify-content: center;
       button{
-        margin: 50px;
+        margin: 40px;
       }
     }
   }
@@ -106,9 +110,6 @@
   .step-guide{
     grid-template-columns: repeat(1, 1fr);
     padding: 20px;
-  }
-  .choose-us-container{
-    height: 150vh;
   }
   .steps-link{
     visibility: hidden;

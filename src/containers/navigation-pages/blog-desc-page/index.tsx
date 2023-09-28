@@ -1,0 +1,1 @@
+export * from './blog-desc-page'

@@ -94,7 +94,6 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
           {menuItems.map(({ text, icon, link }, index: number) => (
             <li key={index}>
               <a className={getClassname(link)} href={link}>
-                {/* <img className="menu-item-icon" src={icon} alt="" srcSet="" /> */}
                 <span>{icon}</span>
                 {isExpanded && <span style={{marginLeft:'9px'}}>{text}</span>}
               </a>

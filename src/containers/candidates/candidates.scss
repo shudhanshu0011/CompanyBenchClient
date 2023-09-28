@@ -1,11 +1,12 @@
 @import "@styles/common/variables.scss";
 
-.box-content {
+.box-contents {
   background: $color-page-background;
   display: inline-block;
   width: 100%;
-  padding: 30px;
+  padding-right: 10px;
   overflow: auto;
+  padding: 30px;
   .title-icon {
     display: inline-flex;
     margin-top: 8px;
@@ -30,6 +31,10 @@
     height: 80px;
     width: 80px;
   }
+}
+
+.candidate-data-table{
+  font-family: $font-text;
 }
 
 .sidebar-border-bg {
