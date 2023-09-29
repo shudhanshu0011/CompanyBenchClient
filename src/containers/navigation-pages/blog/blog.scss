@@ -24,7 +24,6 @@
     margin-bottom: 10px;
   }
   p{
-    padding-left: 30px;
     font-family: $font-text;
   }
   span{
@@ -37,12 +36,53 @@
     @media (max-width: 900px){
       grid-template-columns: repeat(1, 1fr);
     }
+    .pagination-navigation{
+      margin: 20px;
+      display: flex;
+      div{
+        background-color: $color-border-2;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 48px;
+        width: 48px;
+      }
+      p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 20px 0px 20px;
+      }
+    }
+    .no-blog-contents{
+      padding: 0px 10px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      @media (max-width: 900px){
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .no-blog-content{
+        background-color: $color-border-2;
+        font-family: $font-text;
+        font-size: $font-xl;
+        color: $color-brand;
+        border-radius: 10px;
+        padding: 20px 20px 20px 40px;
+        height: 64px;
+      }
+    }
     .blog-content{
       padding: 0px 10px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       @media (max-width: 900px){
         grid-template-columns: repeat(1, 1fr);
+      }
+      .no-blog-content{
+        background-color: aqua;
+        height: 64px;
+        width: 100%;
       }
       .blog-card{
         margin: 10px;
@@ -79,6 +119,9 @@
         .author{
           margin-top: 10px;
           display: flex;
+          div{
+            flex: 40%;
+          }
           img{
             width: 35px;
             margin-right: 10px;
@@ -86,6 +129,11 @@
           p{
             font-size: $font-sm;
             margin-bottom: 5px;
+          }
+          .author-email{
+            font-size: $font-xs;
+            color: $color-text-paragraph-2;
+            font-weight: 500;
           }
         }
       }
@@ -111,7 +159,7 @@
           button{
             background: none;
             border: none;
-            color: $color-brand;
+            color: $color-brand-2;
             :hover{
               cursor: pointer;
             }
@@ -129,6 +177,30 @@
           h5{
             margin-bottom: 10px;
           }
+        }
+      }
+      .we-hiring-banner{
+        margin-top: 30px;
+        background: url(https://companybench.com/assets/cb-new-style/Frontend/imgs/page/company/bg-hiring-right.svg);
+        padding: 40px;
+        background-position: 100px 120px;
+        background-repeat: no-repeat;
+        width: 100%;
+        object-fit: contain;
+        background-color: #F2F6FD;
+        border: 1px solid #E0E6F7;
+        height: 360px;
+        border-radius: 10px;
+        @media (max-width: 900px){
+          display: none;
+        }
+        .we-hiring-banner-1{
+          font-size: 24px;
+          color: $color-border-1;
+        }
+        .we-hiring-banner-2{
+          font-size: 36px;
+          color: $color-text-paragraph-2;
         }
       }
     }
