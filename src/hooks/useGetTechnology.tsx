@@ -1,4 +1,4 @@
-import  http  from "@config/request";
+import http from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 import { QueryID } from "@src/constants/query";
 
@@ -14,7 +14,7 @@ interface GetJobTechnologyResponse {
 }
 
 const getJobTechnologyList = async (): Promise<GetJobTechnologyResponse> => {
-  const response = await http.get<GetJobTechnologyResponse>("http://localhost:3001/v1/technology");
+  const response = await http.get<GetJobTechnologyResponse>('/v1/technology');
   return response.data;
 };
 

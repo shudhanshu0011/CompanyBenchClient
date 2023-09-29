@@ -6,7 +6,7 @@ import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 export const postLogin = async (
   params: SignInParams
 ): Promise<SignInParams> => {
-  return await axios.post(`http://localhost:3001/v1/user/login`, params, {
+  return await axios.post('/v1/user/login', params, {
     headers: { service_ref: 123456 },
   });
 };
