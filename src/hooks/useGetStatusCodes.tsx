@@ -1,4 +1,4 @@
-import  http  from "@config/request";
+import http from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 import { QueryID } from "@src/constants/query";
 
@@ -14,7 +14,7 @@ interface GetStatusListResponse {
 }
 
 const getJobStatus = async (): Promise<GetStatusListResponse> => {
-  const response = await http.get<GetStatusListResponse>("http://localhost:3001/v1/jobstatus/codes", {
+  const response = await http.get<GetStatusListResponse>('/v1/jobstatus/codes', {
     headers: { "service_ref": 123456 },
   });
   return response.data;
