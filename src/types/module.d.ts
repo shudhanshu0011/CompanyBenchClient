@@ -17,3 +17,4 @@ export declare function useMutation<
   mutationFn: MutationFunction<TData, TVariables>,
   options?: UseMutationOptions<TData, TError, TVariables, TContext>
 ): UseMutationResult<TData, TError, TVariables, TContext>;
+

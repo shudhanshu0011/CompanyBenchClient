@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 import "./remote-developers-jd-page.scss";
 import remoteDevelopersJD from '@assets/content/mock/remote-developers-job-data';
 import iconTopBanner from "@assets/images/icon-top-banner.png";

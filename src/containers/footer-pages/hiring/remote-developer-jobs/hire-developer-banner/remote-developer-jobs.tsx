@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import remoteDevelopersData from '@assets/content/mock/remote-developers-job-data';
-import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 
 interface RemoteDeveloper {
   skill: string;

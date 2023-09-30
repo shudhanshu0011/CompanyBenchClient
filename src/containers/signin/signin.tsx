@@ -1,4 +1,4 @@
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Col, Form, Row } from "react-bootstrap";
 import { Btn } from "@src/common/button";
