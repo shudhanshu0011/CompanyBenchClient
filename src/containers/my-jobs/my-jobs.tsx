@@ -25,7 +25,6 @@ export const MyJobs = (): JSX.Element => {
   const {data: technologyData} = useGetTechnology();
   const {data: locationData} = useGetJobLocList();
   const { data: jobData } = useGetJob();
-  console.log(jobData);
 
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState();
@@ -33,8 +32,7 @@ export const MyJobs = (): JSX.Element => {
 
   useEffect(() => {
     setRowData(jobData?.data.jobs);
-    console.log(rowData);
-  }, [jobData?.data.candidate]);
+  }, [jobData?.data.jobs]);
 
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
