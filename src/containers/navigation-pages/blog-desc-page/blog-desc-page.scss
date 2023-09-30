@@ -38,14 +38,24 @@
 
 .blog-other-content{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     margin-top: 100px;
+    .blog-back-btn{
+        @media (max-width: 720px){
+            margin-top: 160px;
+        }
+        margin-bottom: 20px;
+        .back-button{
+            padding: 10px 15px 10px 15px;
+            border-radius: 3px;
+        }
+    }
     .blog-img-content{
         width: 880px;
         overflow: hidden;
         border-radius: 8px;
-        margin: 60px 30px 30px 30px;
+        margin: 0px 30px 30px 30px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         img{
             filter: brightness(50%);

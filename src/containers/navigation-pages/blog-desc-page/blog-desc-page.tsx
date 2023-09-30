@@ -3,6 +3,8 @@ import blogs from '@assets/content/mock/blog-data';
 import backgroundImage from "@assets/images/img-single (1).png";
 import blogbackgroundimg from "@assets/icons/blog_Detail.jpg";
 import "./blog-desc-page.scss";
+import { Btn } from '@src/common/button';
+import { Link } from 'react-router-dom';
 
 interface BlogDescPageProps {
   url: string;
@@ -38,6 +40,14 @@ const BlogDescPage = ({ url: pageUrl }: BlogDescPageProps): JSX.Element => {
             </div>
           </div>
           <div className='blog-other-content'>
+            <div className='blog-back-btn'>
+              <Link to='/c/blogs'>
+                <Btn
+                  className="back-button"
+                  title="Back"
+                />
+              </Link>
+            </div>
             <div className='blog-img-content'>
               <img src={blogbackgroundimg}></img>
               <div className='blog-content-detail'>
