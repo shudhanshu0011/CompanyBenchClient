@@ -19,7 +19,7 @@ export const SignIn = (): JSX.Element => {
     handlePostJobs(data);
   };
   const navigate = useNavigate();
-  const {mutate: postLogin} = usePostLogin(async () => navigate("/"));
+  const { mutate: postLogin } = usePostLogin(async () => navigate("/"));
   const handlePostJobs = (formdata: SignInParams) => {
     postLogin(formdata);
   }
