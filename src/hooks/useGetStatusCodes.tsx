@@ -15,6 +15,7 @@ interface GetStatusListResponse {
 
 const getJobStatus = async (): Promise<GetStatusListResponse> => {
   const response = await http.get<GetStatusListResponse>('/v1/jobstatus/codes', {
+    headers: { "service_ref": 123456 },
   });
   return response.data;
 };

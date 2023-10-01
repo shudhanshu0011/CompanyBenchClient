@@ -7,6 +7,7 @@ export const createUser = async (
   params: CreateUserParams
 ): Promise<CreateUserParams> => {
   return await axios.post(`/v1/user`, params, {
+    headers: { service_ref: 123456 },
   });
 };
 export const useCreateUser = (
