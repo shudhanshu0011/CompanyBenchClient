@@ -29,9 +29,9 @@ export interface SubmitInputsTypes {
 export interface CreateUserParams {
   email: string;
   password: string;
-  userType:string;
+  userType: string;
   firstName: string;
-  lastName:string;
+  lastName: string;
   isEmailVerified: boolean;
   isActive: boolean;
   userSource: string;
@@ -103,13 +103,26 @@ export type SubmitPostContactParams = {
   company: string;
   phone: string;
   description: string;
-}
+};
 
 export interface SubmitPostContactTypes {
-  firstName: string,
-  lastName: string,
-  email: string,
-  company: string,
-  phone: string,
-  description: string,
+  firstName: string;
+  lastName: string;
+  email: string;
+  company: string;
+  phone: string;
+  description: string;
+}
+
+export interface Technology {
+  tecnologyId: string;
+  technologyName: string;
+}
+
+export interface GetJobTechnologyResponse {
+  data: GetJobTechnologyResponseData;
+}
+
+export interface GetJobTechnologyResponseData {
+  technologys: Technology[];
 }

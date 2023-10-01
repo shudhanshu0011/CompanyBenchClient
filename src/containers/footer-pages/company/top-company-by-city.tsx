@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 import { ChooseUsSection } from '@src/components/home-components/choose-us-section';
 import { SendUsEnquiry } from '@src/components/send-us-enquiry';
 import cityData from "@assets/content/mock/company-location-data";

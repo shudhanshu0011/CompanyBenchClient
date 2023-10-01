@@ -1,5 +1,5 @@
 import { ContactUsForm } from "@src/components/contact-us-form";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
 import "./contact-us.scss";
 import logo from "@assets/logo.png";

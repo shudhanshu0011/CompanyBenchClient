@@ -1,12 +1,16 @@
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
-const http = axios.create({
+
+const defaultOptions = {
   baseURL: BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
+    service_ref: 123456,
   },
-});
+};
+
+const http = axios.create(defaultOptions);
 
 http.interceptors.request.use(
   (config) => {

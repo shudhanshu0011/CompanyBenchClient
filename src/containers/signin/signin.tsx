@@ -1,4 +1,4 @@
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Col, Form, Row } from "react-bootstrap";
 import { Btn } from "@src/common/button";
@@ -19,7 +19,7 @@ export const SignIn = (): JSX.Element => {
     handlePostJobs(data);
   };
   const navigate = useNavigate();
-  const {mutate: postLogin} = usePostLogin(async () => navigate("/"));
+  const { mutate: postLogin } = usePostLogin(async () => navigate("/"));
   const handlePostJobs = (formdata: SignInParams) => {
     postLogin(formdata);
   }

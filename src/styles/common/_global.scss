@@ -678,6 +678,7 @@ iframe {
 .divider-text-center {
   position: relative;
   text-align: center;
+  z-index: 0;
 }
 .divider-text-center::after {
   content: "";

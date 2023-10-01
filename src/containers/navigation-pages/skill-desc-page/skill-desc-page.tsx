@@ -1,4 +1,4 @@
-import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 import developers from '@assets/content/mock/developer-data';
 import { ReviewSection } from '@components/home-components/review-section';
 import { HireDeveloperBanner } from '@components/hire-developer-banner';

@@ -1,5 +1,5 @@
 
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
 import { PostJobForm } from "@components/post-job-form";
 import { Sidebar } from "@components/sidebar/sidebar";

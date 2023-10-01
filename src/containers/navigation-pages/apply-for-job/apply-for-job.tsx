@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
 import { Col } from "react-bootstrap";
 import { DropdownOption } from "@src/types/common";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
-import { useGetTechnology } from "@hooks/useGetTechnology";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
+import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import "@styles/common/_pages.scss";
 import "./apply-for-job.scss";
 
@@ -19,7 +19,7 @@ interface Inputs {
 
 export const ApplyForJob = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
-  const {data: technologyData} = useGetTechnology();
+  const {data: technologyData} = useGetTechnologies();
 
   const {
     register,

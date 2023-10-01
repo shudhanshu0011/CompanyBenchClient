@@ -10,7 +10,7 @@ import { ReactComponent as SalaryIcon } from "@assets/icons/salary.svg";
 import { ReactComponent as UpdatedIcon } from "@assets/icons/updated.svg";
 import { Btn } from "@common/button";
 import { Candidate } from "@src/types/components";
-import { useGetTechnology } from "@src/hooks/useGetTechnology";
+import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
 
 interface Props {
@@ -22,7 +22,7 @@ export const CandidateDetails = ({
   handleShowDetails,
   selectedCandidate,
 }: Props) => {
-  const { data: allTechnologiesData } = useGetTechnology();
+  const { data: allTechnologiesData } = useGetTechnologies();
   const { data: allLocationData } = useGetJobLocList();
   const [allTechnologies, setAllTechnologies] = useState();
   const [allLocations, setAllLocations] = useState();

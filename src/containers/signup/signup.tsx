@@ -1,9 +1,10 @@
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { Col, Form, Row } from "react-bootstrap";
 import { Btn } from "@src/common/button";
 import { SelectDropdown } from "@src/common/select";
-import { companyOptions } from "@src/assets/__mock__/content";
+//import { companyOptions } from "@src/assets/__mock__/content";
+import { useGetCompanyList } from "@src/hooks/useGetCompany";
 import { useCreateUser } from "@src/hooks/useCreateUser";
 import "@styles/common/_pages.scss";
 import "./signup.scss";
@@ -17,6 +18,7 @@ interface InputTypes {
   isTermsAndCondition: boolean;
   userType: string;
 }
+
 export const SignUp = (): JSX.Element => {
   const {
     handleSubmit,
@@ -26,6 +28,10 @@ export const SignUp = (): JSX.Element => {
   } = useForm<InputTypes>();
 
   const { mutate: createUser } = useCreateUser();
+
+  const { data: companyList } = useGetCompanyList();
+
+  console.log("data data ", companyList)
 
   const onSubmit: SubmitHandler<InputTypes> = (data) => {
     const formData = {
@@ -129,7 +135,7 @@ export const SignUp = (): JSX.Element => {
                     render={({ field }) => (
                       <SelectDropdown
                         {...field}
-                        options={companyOptions}
+                        options={companyList}
                         placeholder="Select Company or Add New"
                         isClearable
                         size="lg"
