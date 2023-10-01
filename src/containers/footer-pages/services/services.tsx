@@ -1,4 +1,4 @@
-import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 import "./services.scss";
 import serviceData from '@assets/content/mock/services-data';
 import iconTopBanner from "@assets/images/icon-top-banner.png";

@@ -1,4 +1,4 @@
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { DashboardWrapper } from "@components/dashboard-wrapper/dashboard-wrapper";
 import { Paper } from "@src/common/Paper";
 import { useState, useEffect } from "react";
@@ -15,13 +15,13 @@ import { AgGridReact } from "ag-grid-react";
 import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
-import { useGetTechnology } from "@src/hooks/useGetTechnology";
+import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
 
 export const MatchingCandidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
-  const {data: technologyData} = useGetTechnology();
+  const {data: technologyData} = useGetTechnologies();
   const {data: locationData} = useGetJobLocList();
   const { data: candidateData } = useGetCandidates();
 

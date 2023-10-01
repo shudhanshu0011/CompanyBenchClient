@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 import { ContactUsForm } from '@src/components/contact-us-form';
 import blogsData from '@assets/content/mock/blog-data';
 import { Btn } from '@common/button';

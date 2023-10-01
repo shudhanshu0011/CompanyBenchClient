@@ -1,28 +1,33 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import type { RootState } from "../../store";
+import { useSelector } from "react-redux";
 import { AgGridReact } from "ag-grid-react";
+import { RowClickedEvent } from "ag-grid-community";
 import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
 import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
-import "@styles/common/_pages.scss";
-import "./candidates.scss";
+import { DropdownOption } from "@src/types/common";
+import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { defaultColumns } from "./coloumn-types/coloumn-types";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-import { defaultColumns } from "./coloumn-types/coloumn-types";
-import { RowClickedEvent } from "ag-grid-community";
-import { DropdownOption } from "@src/types/common";
-import { useGetTechnology } from "@src/hooks/useGetTechnology";
-import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import "@styles/common/_pages.scss";
+import "./candidates.scss";
 
 export const Candidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
-  const {data: technologyData} = useGetTechnology();
-  const {data: locationData} = useGetJobLocList();
+
+  const technologiesData = useSelector(
+    (state: RootState) => state.appData.technologies
+  );
+
+  const { data: locationData } = useGetJobLocList();
   const { data: candidateData } = useGetCandidates();
 
   const [showDetail, setShowDetail] = useState(false);
@@ -30,24 +35,29 @@ export const Candidates = (): JSX.Element => {
   const [selectedCandidate, setSelectedCandidate] = useState();
 
   useEffect(() => {
-    setRowData(candidateData?.data.candidate);
+    setRowData(candidateData?.data?.candidate);
   }, [candidateData?.data.candidate]);
 
   useEffect(() => {
-    if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
-      const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
-        value: tmp.tecnologyId,
-        label: tmp.technologyName
-      }));
+    if (
+      technologiesData?.technologys &&
+      Array.isArray(technologiesData?.technologys)
+    ) {
+      const options: DropdownOption[] = technologiesData.technologys.map(
+        (tmp) => ({
+          value: tmp.tecnologyId,
+          label: tmp.technologyName,
+        })
+      );
       setTechnologyLists(options);
     }
-  }, [technologyData]);
+  }, [technologiesData]);
 
   useEffect(() => {
     if (locationData?.data.jobs && Array.isArray(locationData.data.jobs)) {
       const options: DropdownOption[] = locationData.data.jobs.map((tmp) => ({
         value: tmp.cityId,
-        label: tmp.cityName
+        label: tmp.cityName,
       }));
       setLocationLists(options);
     }
@@ -73,7 +83,6 @@ export const Candidates = (): JSX.Element => {
     setSelectedCandidate(event.data);
     setShowDetail(true);
   };
-
 
   return (
     <PageWrapper>

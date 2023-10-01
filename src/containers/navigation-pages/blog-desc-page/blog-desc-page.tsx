@@ -1,4 +1,4 @@
-import { PageWrapper } from '@components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 import blogs from '@assets/content/mock/blog-data';
 import backgroundImage from "@assets/images/img-single (1).png";
 import blogbackgroundimg from "@assets/icons/blog_Detail.jpg";

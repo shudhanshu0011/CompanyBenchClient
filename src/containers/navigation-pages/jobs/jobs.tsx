@@ -3,11 +3,11 @@ import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { Paper } from "@common/Paper";
 import { AppPagination } from "@common/app-pagination";
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { useState, useEffect } from "react";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
 import { useGetJobLocList } from "@hooks/useGetJobLocations";
-import { useGetTechnology } from "@hooks/useGetTechnology";
+import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { CandidateCard } from "@src/components/candidate-card";
 import { DropdownOption } from "@src/types/common";
 import "@styles/common/_pages.scss";
@@ -19,7 +19,7 @@ export const Jobs = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
 
   const {data: jobLocationData} = useGetJobLocList();
-  const {data: technologyData} = useGetTechnology();
+  const {data: technologyData} = useGetTechnologies();
 
   useEffect(() => {
     if (jobLocationData?.data.jobs && Array.isArray(jobLocationData.data.jobs)) {

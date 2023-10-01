@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import freelanceJobData from '@assets/content/mock/freelancers-data';
-import { PageWrapper } from '@src/components/page-wrapper/page-wrapper';
+import { PageWrapper } from '@src/containers/page-wrapper/page-wrapper';
 
 interface FreelanceJob {
   skill: string;

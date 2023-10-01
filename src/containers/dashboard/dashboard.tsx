@@ -1,5 +1,5 @@
 import {  Link, useLocation } from 'react-router-dom';
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { DashboardWrapper } from "@components/dashboard-wrapper/dashboard-wrapper";
 import { Card } from "@src/common/card";
 import { ReactComponent as ManIcon } from "@assets/page/dashboard/man.svg";

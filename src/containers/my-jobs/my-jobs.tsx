@@ -1,4 +1,4 @@
-import { PageWrapper } from "@components/page-wrapper/page-wrapper";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { DashboardWrapper } from "@components/dashboard-wrapper/dashboard-wrapper";
 import { Paper } from "@src/common/Paper";
 import { useState, useEffect } from "react";
@@ -13,16 +13,15 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import { defaultColumns } from "./coloumn-types/coloumn-types";
 import { RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import { Btn } from "@src/common/button";
 import { DropdownOption } from "@src/types/common";
-import { useGetTechnology } from "@src/hooks/useGetTechnology";
+import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
 import { useGetJob } from "@src/hooks/useGetJob";
 
 export const MyJobs = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
-  const {data: technologyData} = useGetTechnology();
+  const {data: technologyData} = useGetTechnologies();
   const {data: locationData} = useGetJobLocList();
   const { data: jobData } = useGetJob();
 
