@@ -19,6 +19,7 @@ export const ContactUsForm = () => {
   );
 
   const onSubmit: SubmitHandler<SubmitPostContactParams> = (data: SubmitPostContactParams) => {
+    console.log(data)
     mutation.mutate(data);
   }
 

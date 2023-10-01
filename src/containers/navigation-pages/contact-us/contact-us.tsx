@@ -1,4 +1,3 @@
-import { useForm, SubmitHandler } from "react-hook-form";
 import { ContactUsForm } from "@src/components/contact-us-form";
 import { PageWrapper } from "@components/page-wrapper/page-wrapper";
 import "@styles/common/_pages.scss";
@@ -7,23 +6,7 @@ import logo from "@assets/logo.png";
 import indialogo from "@assets/images/india.png";
 import uklogo from "@assets/images/uk.jpg";
 
-type Inputs = {
-  firstName: string
-  lastName: string
-  email: string
-  companyName: string
-  contactNumber: number
-  description: string
-}
-
 export const ContactUs = (): JSX.Element => {
-  
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
   return (
     <PageWrapper>
