@@ -7,7 +7,6 @@ export const postContact = async (
   params: SubmitPostContactParams
 ): Promise<SubmitPostContactParams> => {
   return await axios.post('/v1/contact', params, {
-    headers: { service_ref: 123456 },
   });
 };
 export const usePostContactUs = (

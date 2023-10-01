@@ -1,27 +1,26 @@
-import { QueryID } from "@src/constants/constants";
+import http from "@config/request";
+import { UseQueryResult, useQuery } from "react-query";
+import { QueryID } from "@src/constants/query";
 import { SignInParams } from "@src/types/components";
-import axios, { AxiosError } from "axios";
-import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 
-export const postLogin = async (
-  params: SignInParams
-): Promise<SignInParams> => {
-  return await axios.post('/v1/user/login', params, {
-    headers: { service_ref: 123456 },
+
+
+export const postSignIn = async (): Promise<SignInParams> => {
+  console.log("param aaasas",)
+  const response = await http.post<SignInParams>('/v1/user/login', {
   });
+  console.log("sign in data ", response.data)
+  return response.data;
 };
+
 export const usePostLogin = (
   onSuccess?: () => void,
-  onError?: (error: AxiosError) => void
-): UseMutationResult<SignInParams, Error, SignInParams, SignInParams> => {
-  const queryClient = useQueryClient();
-  const queryId = QueryID.postLogin;
-  return useMutation({
-    mutationFn: async (params: SignInParams) => postLogin(params),
-    onSettled: async () => queryClient.invalidateQueries(queryId),
+  onError?: () => void
+): UseQueryResult<SignInParams, Error> => {
+  return useQuery(QueryID.jobsQuery, async () => postSignIn(), {
     onSuccess,
     onError,
+    select: (data: SignInParams) => data,
+    staleTime: 0
   });
-
-
 };

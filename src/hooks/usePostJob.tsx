@@ -7,7 +7,6 @@ export const postJobs = async (
   params: SubmitPostJobParams
 ): Promise<SubmitPostJobParams> => {
   return await axios.post(`/v1/job`, params, {
-    headers: { service_ref: 123456 },
   });
 };
 export const usePostJob = (
