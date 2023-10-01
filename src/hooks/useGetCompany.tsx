@@ -1,31 +1,27 @@
 import http from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 import { QueryID } from "@src/constants/query";
-
-interface CompanyList {
-    id: Number;
-    name: string;
-}
+import { TypeGeneralObj } from "@src/types/common";
 
 interface GetCompanyNameResponse {
-    data: {
-        companies: CompanyList[];
-    };
+  data: {
+    companylists: TypeGeneralObj[];
+  };
 }
 
 const getCompanyList = async (): Promise<GetCompanyNameResponse> => {
-    const response = await http.get<GetCompanyNameResponse>('/v1/companies');
-    return response.data;
+  const response = await http.get<GetCompanyNameResponse>("/v1/companies");
+  return response.data;
 };
 
 export const useGetCompanyList = (
-    onSuccess?: () => void,
-    onError?: () => void
+  onSuccess?: () => void,
+  onError?: () => void
 ): UseQueryResult<GetCompanyNameResponse, Error> => {
-    return useQuery(QueryID.locationQuery, async () => getCompanyList(), {
-        onSuccess,
-        onError,
-        select: (data: GetCompanyNameResponse) => data,
-        staleTime: 0
-    });
+  return useQuery(QueryID.locationQuery, async () => getCompanyList(), {
+    onSuccess,
+    onError,
+    select: (data: GetCompanyNameResponse) => data,
+    staleTime: 0,
+  });
 };
