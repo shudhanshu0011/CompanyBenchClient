@@ -8,6 +8,7 @@ import { useGetCompanyList } from "@src/hooks/useGetCompany";
 import { useCreateUser } from "@src/hooks/useCreateUser";
 import "@styles/common/_pages.scss";
 import "./signup.scss";
+import { dropDownMapper } from "@src/utils/helpers";
 
 interface InputTypes {
   firstName: string;
@@ -30,8 +31,6 @@ export const SignUp = (): JSX.Element => {
   const { mutate: createUser } = useCreateUser();
 
   const { data: companyList } = useGetCompanyList();
-
-  console.log("data data ", companyList)
 
   const onSubmit: SubmitHandler<InputTypes> = (data) => {
     const formData = {
@@ -135,7 +134,9 @@ export const SignUp = (): JSX.Element => {
                     render={({ field }) => (
                       <SelectDropdown
                         {...field}
-                        options={companyList}
+                        options={dropDownMapper(
+                          companyList?.data?.companylists
+                        )}
                         placeholder="Select Company or Add New"
                         isClearable
                         size="lg"

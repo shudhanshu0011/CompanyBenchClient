@@ -47,7 +47,7 @@ export const SignIn = (): JSX.Element => {
             </Col>
           </Row>
           <Row className="justify-content-md-center">
-            <Col sm={12} md={6} lg={4} classname="mx-auto">
+            <Col sm={12} md={6} lg={4} className="mx-auto">
               <Form onSubmit={handleSubmit(onSubmit)} className="mt-20">
                 <Form.Group className="mb-3" controlId="">
                   <Form.Label className="font-sm mb-10">
