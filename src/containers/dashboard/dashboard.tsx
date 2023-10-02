@@ -35,7 +35,7 @@ export const Dashboard = (): JSX.Element => {
                   </Link>
                 </div>
                 <div className="col-xxl-4 col-xl-6 col-lg-6 col-md-4 col-sm-6">
-                  <Link to="/c/matchingcandidate">
+                  <Link to="/cmatchingcandidate">
                     <Card
                       title={480}
                       subTitle="Matching Candidates"
@@ -86,7 +86,7 @@ export const Dashboard = (): JSX.Element => {
               <Paper
                 title="Candidates by Technologies"
                 titleRight={
-                  <Link to="/c/matchingcandidate">
+                  <Link to="/cmatchingcandidate">
                     <Btn
                       title="View All"
                       className="btn candidate-view-btn font-sm"

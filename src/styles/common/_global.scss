@@ -744,5 +744,9 @@ iframe {
 }
 
 .react-table {
-  height: 200px;
+  height: 500px
+}
+
+.ag-body-viewport {
+  height: auto !important;
 }

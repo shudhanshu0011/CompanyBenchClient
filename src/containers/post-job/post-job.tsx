@@ -8,6 +8,7 @@ import { SubmitPostJobParams } from "@src/types/components";
 
 export const PostJob = (): JSX.Element => {
   const {mutate: postJobs} = usePostJob();
+  
   const handlePostJobs = (formdata: SubmitPostJobParams) => {
     postJobs(formdata)
   }

@@ -12,17 +12,16 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import { defaultColumns } from "./coloumn-types/coloumn-types";
 import { RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
-import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
 
 export const AllCandidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
   const {data: technologyData} = useGetTechnologies();
-  const {data: locationData} = useGetJobLocList();
+  const {data: locationData} = useGetJobLocationsList();
   const { data: candidateData } = useGetCandidates();
 
   const [showDetail, setShowDetail] = useState(false);

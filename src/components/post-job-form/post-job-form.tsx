@@ -1,32 +1,98 @@
-import { useState } from "react";
-import DatePicker from "react-datepicker";
-import { Col, Form, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 import { Paper } from "@src/common/Paper";
 import { Btn } from "@src/common/button";
 import { SelectDropdown } from "@src/common/select";
+import { DropdownOption } from "@src/types/common";
+import DatePicker from "react-datepicker";
+import {
+  Job,
+  SubmitInputsTypes,
+  SubmitPostJobParams,
+} from "@src/types/components";
+import { useSelector } from "react-redux";
+import { RootState } from "@src/store";
+import {
+  dropDownMapperLocations,
+  getMappedLocations,
+  dropdownMapperTechnologies,
+  getMappedTechnologies,
+  dropdownMapperJobStatus,
+  getMappedJobStatus,
+  getDate,
+} from "@src/utils/helpers";
 import "react-datepicker/dist/react-datepicker.css";
 import "./post-job-form.scss";
-import {
-  cityOptions,
-  skillOptions,
-  statusOptions,
-} from "@src/assets/__mock__/content";
-import { DropdownOption } from "@src/types/common";
-import { SubmitInputsTypes, SubmitPostJobParams } from "@src/types/components";
 
 interface Props {
   handlePostJobs(formData: SubmitPostJobParams): void;
+  isFormDisabled?: boolean;
+  job?: Job;
+  handleFormDisabled?(): void;
+  showAction?: boolean;
 }
-export const PostJobForm = ({ handlePostJobs }: Props) => {
+export const PostJobForm = ({
+  handlePostJobs,
+  isFormDisabled,
+  job,
+  handleFormDisabled,
+  showAction,
+}: Props) => {
   const {
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
     control,
     register,
     clearErrors,
+    reset,
+    setValue,
   } = useForm<SubmitInputsTypes>();
-  const [startDate, setStartDate] = useState(new Date());
+  const [jobDetail, setJobDetail] = useState<Job>();
+  const [jobLocation, setJobLocation] = useState<DropdownOption[]>([]);
+  const [jobSkill, setJobSkill] = useState<DropdownOption[]>([]);
+  const [statusJob, setStatusJob] = useState<DropdownOption>();
+
+  // useEffect(() => {
+
+  //   let defaultValues = {} as Job;
+  //   defaultValues.jobHeading =job?.jobHeading as string;
+  //   defaultValues.description =job?.description as string;
+  //   defaultValues.monthlyBudget =job?.monthlyBudget as string;
+  //   defaultValues.experienceLevel =job?.experienceLevel as number;
+  //   defaultValues.duration =job?.duration as number;
+  //   defaultValues.openpositions =job?.openpositions as string;
+  //   defaultValues.location =job?.location as string[];
+  //   defaultValues.skill =job?.skill as string[];
+  //   defaultValues.jobStatus =job?.jobStatus as string;
+  //   reset({ ...defaultValues });
+  // }, [job, reset]);
+
+  const {
+    jobHeading,
+    description,
+    monthlyBudget,
+    experienceLevel,
+    duration,
+    openpositions,
+    startdate,
+  } = (jobDetail || {}) as Job;
+
+  const [startDate, setStartDate] = useState<string>();
+
+  const allLocationsList = useSelector(
+    (state: RootState) => state.appData.location
+  );
+
+  const technologiesData = useSelector(
+    (state: RootState) => state.appData.technologies
+  );
+
+  const jobStatusList = useSelector(
+    (state: RootState) => state.appData.jobStatus
+  );
 
   const onSubmit: SubmitHandler<SubmitInputsTypes> = (
     data: SubmitInputsTypes
@@ -37,22 +103,95 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
     (data.skill as Array<DropdownOption>).forEach((item: DropdownOption) => {
       skillsArray.push(item.value as string);
     });
-    formData.location = (data?.location as Array<DropdownOption>)[0]
-      .value as string;
+    formData.location = (
+      data?.location as Array<DropdownOption>
+    )[0].value?.toString() as string;
     formData.jobStatus = (data?.jobStatus as DropdownOption).value as string;
     formData.skill = skillsArray;
-    formData.startDate = (startDate as Date).toISOString().split("T")[0];
+    formData.startdate = formData?.startdate;
+    formData.company = "ABC";
+    formData.hourlyPrice = 2000;
+    formData.clientId = 17739;
+    formData.userSfId = "0013C00000pi60aQAA";
     handlePostJobs(formData);
   };
 
-  const handleDate = (date: Date) => {
-    setStartDate(date as Date);
-    clearErrors("startDate");
+  const getFormEdit = () => {
+    return (
+      <div className="flex-box form-btn-right">
+        <Button
+          className={`btn  mb-10 ml-5 mr-5 ${
+            isFormDisabled ? "edit-form-button" : "close-form-button"
+          }`}
+          onClick={handleFormDisabled}
+        >
+          {isFormDisabled ? <EditOutlinedIcon /> : <CloseIcon />}
+        </Button>
+        <Btn className="btn" title="Save" type="submit" disabled={!isDirty} />
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    setTimeout(() => setJobDetail(job), 1000);
+  }, [job]);
+
+  useEffect(() => {
+    reset(job);
+  }, [job, reset]);
+
+  useEffect(() => {
+    const location = getMappedLocations(
+      (jobDetail as Job)?.location,
+      allLocationsList?.jobs
+    );
+
+    const skill = getMappedTechnologies(
+      (jobDetail as Job)?.skill,
+      technologiesData?.technologys
+    );
+
+    const jobStatus = getMappedJobStatus(
+      (jobDetail as Job)?.jobStatus,
+      jobStatusList?.jobs
+    );
+
+    setJobLocation(location);
+    setJobSkill(skill);
+    setStatusJob(jobStatus);
+    setStartDate(startdate);
+  }, [
+    allLocationsList?.jobs,
+    jobDetail,
+    jobStatusList?.jobs,
+    startdate,
+    technologiesData?.technologys,
+  ]);
+
+  const handleLocationChange = (data: DropdownOption[]) => {
+    setJobLocation(data);
+    setValue("location", data);
+    clearErrors("location");
+  };
+  const handleSkillChange = (data: DropdownOption[]) => {
+    setJobSkill(data);
+    setValue("skill", data);
+    clearErrors("skill");
+  };
+  const handleStatusChange = (data: DropdownOption) => {
+    setStatusJob(data);
+    setValue("jobStatus", data);
+    clearErrors("jobStatus");
+  };
+  const handleDate = (date: string) => {
+    setStartDate(date);
+    setValue("startdate", date);
+    clearErrors("startdate");
   };
 
   return (
-    <Paper>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <Paper titleRight={showAction ? getFormEdit() : null}>
         <Row>
           <Col xs={12} lg={6}>
             <Form.Group className="mb-3" controlId="">
@@ -64,6 +203,8 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                 className="font-sm"
                 placeholder="Enter Title"
                 {...register("jobHeading", { required: true })}
+                disabled={isFormDisabled}
+                defaultValue={jobHeading}
               />
               {errors.jobHeading && (
                 <span className="pt-10 font-xs error flex-box">
@@ -81,12 +222,15 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                 render={({ field }) => (
                   <SelectDropdown
                     {...field}
-                    options={cityOptions}
+                    options={dropDownMapperLocations(allLocationsList?.jobs)}
+                    value={jobLocation}
                     placeholder="Select City"
                     isClearable
+                    isDisabled={isFormDisabled}
                     size="lg"
                     className="font-sm"
                     isMulti
+                    onChange={handleLocationChange}
                   />
                 )}
                 {...register("location", { required: true })}
@@ -106,12 +250,17 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                 render={({ field }) => (
                   <SelectDropdown
                     {...field}
-                    options={skillOptions}
+                    options={dropdownMapperTechnologies(
+                      technologiesData?.technologys
+                    )}
+                    value={jobSkill}
                     placeholder="You can add upto 10 skills"
                     isClearable
                     size="lg"
                     className="font-sm"
                     isMulti
+                    isDisabled={isFormDisabled}
+                    onChange={handleSkillChange}
                   />
                 )}
                 {...register("skill", { required: true })}
@@ -130,6 +279,8 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                 as="textarea"
                 className="font-sm"
                 placeholder="Description"
+                disabled={isFormDisabled}
+                defaultValue={description}
                 {...register("description", { required: true })}
               />
             </Form.Group>
@@ -151,6 +302,8 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                       type="number"
                       placeholder="Enter Monthly Budget"
                       className="font-sm"
+                      disabled={isFormDisabled}
+                      defaultValue={monthlyBudget}
                       {...register("monthlyBudget", { required: true })}
                     />
                     {errors.monthlyBudget && (
@@ -164,21 +317,17 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                       Project Start Date *
                     </Form.Label>
 
-                    <Controller
-                      control={control}
-                      render={({ field }) => (
-                        <DatePicker
-                          {...field}
-                          value={field.value as string}
-                          onChange={handleDate}
-                          className="font-sm"
-                          selected={startDate}
-                        />
-                      )}
-                        {...register("startDate", { required: true })}
+                    <Form.Control
+                      type="date"
+                      placeholder="Enter Date"
+                      className="font-sm"
+                      defaultValue={getDate(startDate as string)}
+                      disabled={isFormDisabled}
+                      onChange={handleDate}
+                      {...register("startdate", { required: true })}
                     />
 
-                    {errors.startDate && (
+                    {errors.startdate && (
                       <span className="pt-10 font-xs error flex-box">
                         This field is required
                       </span>
@@ -193,11 +342,14 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                       render={({ field }) => (
                         <SelectDropdown
                           {...field}
-                          options={statusOptions}
+                          options={dropdownMapperJobStatus(jobStatusList?.jobs)}
+                          value={statusJob}
                           placeholder="Status"
                           isClearable
                           size="lg"
                           className="font-sm"
+                          isDisabled={isFormDisabled}
+                          onChange={handleStatusChange}
                         />
                       )}
                       {...register("jobStatus", { required: true })}
@@ -218,6 +370,8 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                       type="number"
                       placeholder="Minimum Experience (in Years)"
                       className="font-sm"
+                      disabled={isFormDisabled}
+                      defaultValue={experienceLevel}
                       {...register("experienceLevel", { required: true })}
                     />
                     {errors.experienceLevel && (
@@ -234,6 +388,8 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                       type="number"
                       placeholder="Project Duration in Months"
                       className="font-sm"
+                      disabled={isFormDisabled}
+                      defaultValue={duration}
                       {...register("duration", { required: true })}
                     />
                     {errors.duration && (
@@ -250,6 +406,8 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                       type="number"
                       placeholder="Enter No. Position"
                       className="font-sm"
+                      disabled={isFormDisabled}
+                      defaultValue={openpositions}
                       {...register("openpositions", { required: true })}
                     />
                     {errors.openpositions && (
@@ -263,13 +421,15 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
             </div>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <div className="divider-text-center mt-20 mb-40"></div>
-            <Btn className="btn-apply-now" title="Submit" type="submit" />
-          </Col>
-        </Row>
-      </Form>
-    </Paper>
+        {!showAction && (
+          <Row>
+            <Col>
+              <div className="divider-text-center mt-20 mb-40"></div>
+              <Btn className="btn-apply-now" title="Submit" type="submit" />
+            </Col>
+          </Row>
+        )}
+      </Paper>
+    </Form>
   );
 };
