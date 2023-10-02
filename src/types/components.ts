@@ -126,3 +126,27 @@ export interface GetJobTechnologyResponse {
 export interface GetJobTechnologyResponseData {
   technologys: Technology[];
 }
+
+export interface User {
+  _id: string,
+  userId: number,
+  email: string,
+  userType: string,
+  firstName: string,
+  lastName: string,
+  isEmailVerified: boolean,
+  isActive: boolean,
+  createdAt: string | Date,
+  mobile: number,
+  company: string,
+  guid: string,
+  updatedAt: string | Date,
+}
+
+export interface UserResponse {
+  user: User;
+}
+
+export interface LoginUserResponseData {
+  data: UserResponse
+}

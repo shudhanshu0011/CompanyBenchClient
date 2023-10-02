@@ -1,14 +1,24 @@
-import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { Col, Form, Row } from "react-bootstrap";
 import { Btn } from "@src/common/button";
-import "@styles/common/_pages.scss";
-import "./signin.scss";
-import { SignInParams } from "@src/types/components";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { usePostLogin } from "@src/hooks/usePostLogin";
-import { useNavigate } from "react-router-dom";
+import { user } from "@src/store/reducer/userDataReducer";
+import { SignInParams, UserResponse } from "@src/types/components";
+import "@styles/common/_pages.scss";
+import { useEffect, useState } from "react";
+import { Col, Form, Row } from "react-bootstrap";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import "./signin.scss";
 
 export const SignIn = (): JSX.Element => {
+  const [userData, setUserData] = useState<UserResponse>();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("userData changed", userData);
+    dispatch(user(userData));
+  }, [userData]);
+
   const {
     handleSubmit,
     formState: { errors },
@@ -18,11 +28,14 @@ export const SignIn = (): JSX.Element => {
   const onSubmit: SubmitHandler<SignInParams> = (data) => {
     handlePostJobs(data);
   };
-  const navigate = useNavigate();
-  const { mutate: postLogin } = usePostLogin(async () => navigate("/"));
+
+  const { mutate: postLogin, data } = usePostLogin();
+
   const handlePostJobs = (formdata: SignInParams) => {
     postLogin(formdata);
-  }
+    console.log(data);
+    setUserData(data?.data.data);
+  };
 
   return (
     <PageWrapper>
