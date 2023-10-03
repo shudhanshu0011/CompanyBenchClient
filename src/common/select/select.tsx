@@ -8,7 +8,7 @@ interface Props extends StateManagerProps {
 }
 
 export const SelectDropdown = (
-  { components, options, size, ...rest }: Props,
+  { components, options, defaultValue, size, ...rest }: Props,
 ) => {
   const dropdownIndicator = () => {
     return (
@@ -30,6 +30,7 @@ export const SelectDropdown = (
       <Select
         {...rest}
         options={options}
+        defaultValue={defaultValue}
         components={{
           ...defaultComponents,
           ...components,

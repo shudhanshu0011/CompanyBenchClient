@@ -37,7 +37,7 @@ export const paths = [
   {
     text: "Matching Candidates",
     icon: <ProfilesIcon />,
-    link: "/c/matchingcandidate",
+    link: "/cmatchingcandidate",
   },
   {
     text: "Applied Candidates",

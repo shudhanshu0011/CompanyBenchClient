@@ -1,28 +1,44 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { GetJobTechnologyResponseData } from "@src/types/components";
+import { GetJobLocationListResponseData, GetJobStatusListResponseData, GetJobTechnologyResponseData } from "@src/types/components";
 
 export interface DefaultState {
   technologies: GetJobTechnologyResponseData;
+  location: GetJobLocationListResponseData;
+  jobStatus: GetJobStatusListResponseData;
 }
 
 const initialState: DefaultState = {
   technologies: { technologys: [] },
+  location:{jobs: []},
+  jobStatus: { jobs: []}
 };
 
-export const counterSlice = createSlice({
+export const refDataSlice = createSlice({
   name: "appData",
   initialState,
   reducers: {
-    technologies: (
+    setTechnologies: (
       state,
       action: PayloadAction<GetJobTechnologyResponseData>
     ) => {
       state.technologies = action.payload;
     },
+    setLocations: (
+      state,
+      action: PayloadAction<GetJobLocationListResponseData>
+    ) => {
+      state.location = action.payload;
+    },
+    setJobStatus: (
+      state,
+      action: PayloadAction<GetJobStatusListResponseData>
+    ) => {
+      state.jobStatus = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { technologies } = counterSlice.actions;
+export const { setTechnologies, setLocations, setJobStatus } = refDataSlice.actions;
 
-export default counterSlice.reducer;
+export default refDataSlice.reducer;

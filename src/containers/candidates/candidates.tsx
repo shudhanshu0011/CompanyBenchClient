@@ -12,12 +12,14 @@ import { CandidateDetails } from "@components/candidate-detail/candidate-detail"
 import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
-import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
+import { Candidate } from "@src/types/components";
 import { defaultColumns } from "./coloumn-types/coloumn-types";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import "@styles/common/_pages.scss";
 import "./candidates.scss";
+
 
 export const Candidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
@@ -27,11 +29,11 @@ export const Candidates = (): JSX.Element => {
     (state: RootState) => state.appData.technologies
   );
 
-  const { data: locationData } = useGetJobLocList();
+  const { data: locationData } = useGetJobLocationsList();
   const { data: candidateData } = useGetCandidates();
 
   const [showDetail, setShowDetail] = useState(false);
-  const [rowData, setRowData] = useState();
+  const [rowData, setRowData] = useState<Array<Candidate>>();
   const [selectedCandidate, setSelectedCandidate] = useState();
 
   useEffect(() => {
@@ -45,7 +47,7 @@ export const Candidates = (): JSX.Element => {
     ) {
       const options: DropdownOption[] = technologiesData.technologys.map(
         (tmp) => ({
-          value: tmp.tecnologyId,
+          value: tmp.technologyId,
           label: tmp.technologyName,
         })
       );
