@@ -35,8 +35,29 @@ form{
   .query-contact-btn{
     background-color: $color-brand-2;
     color: $color-white;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 3px;
+    padding: 20px;
+    border: none;
+  }
+  .success-sent-btn{
+    background-color: $color-green;
+    color: $color-white;
+    border-radius: 5px;
+    margin-top: 3px;
+    padding: 20px;
+    border: none;
+  }
+  .try-again-btn{
+    background-color: $color-red;
+    color: $color-white;
+    border-radius: 5px;
+    margin-top: 3px;
+    padding: 20px;
+    border: none;
+  }
+  .error-message{
+    margin-left: 10px;
   }
   span{
       font-size: 12.25px;
@@ -44,9 +65,4 @@ form{
       font-family: $font-text;
       margin-bottom: 10px;
   }
-  .query-contact-btn{
-      width: 120px;
-      padding: 0px;
-      margin-left: 10px;
-  }    
 }

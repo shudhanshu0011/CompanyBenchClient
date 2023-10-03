@@ -16,6 +16,7 @@ import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { Candidate } from "@src/types/components";
 
 export const AllCandidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
@@ -27,7 +28,7 @@ export const AllCandidates = (): JSX.Element => {
   const { data: candidateData, refetch: refetchCandidates } = useGetCandidates(offset, limit);
 
   const [showDetail, setShowDetail] = useState(false);
-  const [rowData, setRowData] = useState();
+  const [rowData, setRowData] = useState<Candidate>();
   const [selectedCandidate, setSelectedCandidate] = useState();
 
   useEffect(() => {

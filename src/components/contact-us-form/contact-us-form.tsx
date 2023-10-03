@@ -1,6 +1,7 @@
 import "./contact-us-form.scss";
 import { usePostContactUs } from "@src/hooks/usePostContactForm";
 import { SubmitPostContactParams } from "@src/types/components";
+import { useState } from "react";
 import { Form, Row } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -12,14 +13,21 @@ export const ContactUsForm = () => {
     formState: { errors },
   } = useForm<SubmitPostContactParams>()
 
+  const [buttonText, setButtonText] = useState("Submit");
+
   const mutation = usePostContactUs(
     () => {
       reset();
+      setButtonText("Successfully Sent");
+      setTimeout(() => {
+        setButtonText("Submit");
+      }, 3000);
     }
   );
 
   const onSubmit: SubmitHandler<SubmitPostContactParams> = (data: SubmitPostContactParams) => {
-    console.log(data)
+    console.log(data);
+    setButtonText("Try Again");
     mutation.mutate(data);
   }
 
@@ -87,7 +95,24 @@ export const ContactUsForm = () => {
           />
         </Form.Group>
 
-        <input type="submit" className="query-contact-btn"/>
+        <div>
+          <button
+            type="submit"
+            className={
+              mutation.isError
+                ? "try-again-btn"
+                : buttonText === "Successfully Sent"
+                ? "success-sent-btn"
+                : "query-contact-btn"
+            }
+            disabled={mutation.isLoading}
+          >
+            {mutation.isLoading ? "Submitting" : buttonText}
+          </button>
+          {mutation.isError && (
+            <span className="error-message">Error occurred. Please try again.</span>
+          )}
+        </div>
       </Row>
     </Form>
   );
