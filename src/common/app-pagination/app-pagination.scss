@@ -3,9 +3,6 @@
 .pagination {
   .page-item {
     .page-link {
-      border-color: $color-brand-2;
-      background: $color-brand-2;
-      color: $color-white;
       border-radius: 100%;
       width: 32px;
       height: 32px;
@@ -14,6 +11,10 @@
       text-align: center;
       font-weight: 400;
       margin: 0 1px;
+      &:hover{
+        background-color: $color-brand-2;
+        color: $color-white;
+      }
     }
 
     &.disabled  .page-link{
@@ -21,6 +22,21 @@
       color: $color-disable-text;
       border-color: $color-page-background;
       
+    }
+  }
+
+  &.active{
+    &.page-link{
+      background-color: $color-brand-2;
+      color: $color-white;
+      border-radius: 100%;
+      width: 32px;
+      height: 32px;
+      line-height: 16px;
+      font-size: 12px;
+      text-align: center;
+      font-weight: 400;
+      margin: 0 1px; 
     }
   }
 

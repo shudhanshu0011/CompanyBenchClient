@@ -12,7 +12,6 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import { defaultColumns } from "./coloumn-types/coloumn-types";
 import { RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
@@ -21,9 +20,11 @@ import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
 export const AllCandidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(10);
   const {data: technologyData} = useGetTechnologies();
   const {data: locationData} = useGetJobLocList();
-  const { data: candidateData } = useGetCandidates();
+  const { data: candidateData, refetch: refetchCandidates } = useGetCandidates(offset, limit);
 
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState();
@@ -31,7 +32,7 @@ export const AllCandidates = (): JSX.Element => {
 
   useEffect(() => {
     setRowData(candidateData?.data.candidate);
-  }, [candidateData?.data.candidate]);
+  }, [candidateData]);
 
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
@@ -53,16 +54,17 @@ export const AllCandidates = (): JSX.Element => {
     }
   }, [locationData]);
 
-  const candidatePagination = () => {
-    return <AppPagination />;
+  const changeLimit = (newLimit: number) => {
+    setLimit(newLimit);
   };
+
   const pageViewDropdown = () => {
     const options = [
       { value: "10", label: "10" },
-      { value: "15", label: "15" },
       { value: "20", label: "20" },
+      { value: "30", label: "30" },
     ];
-    return <SelectDropdown options={options} size="sm" />;
+    return <SelectDropdown options={options} size="sm" onChange={(newLimit) => {changeLimit(Number(newLimit?.value));}} />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {
@@ -73,6 +75,14 @@ export const AllCandidates = (): JSX.Element => {
     setSelectedCandidate(event.data);
     setShowDetail(true);
   };
+
+  const changeOffset = (newOffset: number) => {
+    setOffset(newOffset);
+  };
+
+  useEffect(() => {
+    refetchCandidates();
+  }, [limit, offset]);
 
   return (
     <PageWrapper>
@@ -86,7 +96,7 @@ export const AllCandidates = (): JSX.Element => {
             <Col xs={12} md={12}>
               <div className="box-content">
                 <h3 className="mb-35">All Candidates</h3>
-                <Paper title="Advance Filter" titleRight="Search Result : 5">
+                <Paper title="Advance Filter" titleRight={`Search Result : ${candidateData?.total}`}>
                   <div className="filter-dropdown-container">
                     <Row>
                       <Col xs={3}>
@@ -109,7 +119,11 @@ export const AllCandidates = (): JSX.Element => {
                   </div>
                 </Paper>
                 <Paper
-                  title={candidatePagination()}
+                  title={<AppPagination
+                    setOffset={changeOffset}
+                    currentOffset={offset}
+                    total={candidateData?.total}
+                    limit={candidateData?.limit} />}
                   titleRight={pageViewDropdown()}
                 >
                   <div className="ag-theme-alpine react-table">

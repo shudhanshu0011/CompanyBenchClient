@@ -18,6 +18,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import "@styles/common/_pages.scss";
 import "./candidates.scss";
+import { Link } from "react-router-dom";
 
 export const Candidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
@@ -140,10 +141,12 @@ export const Candidates = (): JSX.Element => {
                       className="candidate-data-table"
                     />
                   </div>
-                  <Btn
-                    title="Login to see more"
-                    className="btn btn-default btn-apply font-sm mt-4"
-                  />
+                  <Link to="/signin">
+                    <Btn
+                      title="Login to see more"
+                      className="btn btn-default btn-apply font-sm mt-4"
+                    />
+                  </Link>
                 </Paper>
               </div>
             </Col>

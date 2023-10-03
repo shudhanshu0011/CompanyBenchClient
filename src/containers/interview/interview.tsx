@@ -23,8 +23,10 @@ export const InterviewList = (): JSX.Element => {
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
   const {data: technologyData} = useGetTechnologies();
   const {data: locationData} = useGetJobLocList();
-  const { data: jobData } = useGetJob();
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(10);
 
+  const { data: jobData, refetch } = useGetJob(offset, limit);
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState();
   const [selectedJob, setSelectedJob] = useState();
@@ -54,16 +56,17 @@ export const InterviewList = (): JSX.Element => {
     }
   }, [locationData]);
 
-  const candidatePagination = () => {
-    return <AppPagination />;
+  const changeLimit = (newLimit: number) => {
+    setLimit(newLimit);
   };
+
   const pageViewDropdown = () => {
     const options = [
       { value: "10", label: "10" },
-      { value: "15", label: "15" },
       { value: "20", label: "20" },
+      { value: "30", label: "30" },
     ];
-    return <SelectDropdown options={options} size="sm" />;
+    return <SelectDropdown options={options} size="sm" onChange={(newLimit) => {changeLimit(Number(newLimit?.value));}} />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {
@@ -75,6 +78,14 @@ export const InterviewList = (): JSX.Element => {
     setShowDetail(true);
   };
 
+  const changeOffset = (newOffset: number) => {
+    setOffset(newOffset);
+  };
+
+  useEffect(() => {
+    refetch();
+  }, [limit, offset]);
+
   return (
     <PageWrapper>
       <DashboardWrapper activeLink={location.pathname}>
@@ -84,7 +95,7 @@ export const InterviewList = (): JSX.Element => {
             <Col xs={12} md={12}>
               <div className="box-content">
                 <h3 className="mb-35">Interview</h3>
-                <Paper title="Advance Filter" titleRight="Search Result : 5">
+                <Paper title="Advance Filter" titleRight={`Search Result : ${jobData?.total}`}>
                   <div className="filter-dropdown-container">
                     <Row>
                       <Col xs={3}>
@@ -107,7 +118,11 @@ export const InterviewList = (): JSX.Element => {
                   </div>
                 </Paper>
                 <Paper
-                  title={candidatePagination()}
+                  title={<AppPagination
+                    setOffset={changeOffset}
+                    currentOffset={offset}
+                    total={jobData?.total}
+                    limit={jobData?.limit} />}
                   titleRight={pageViewDropdown()}
                 >
                   <div className="ag-theme-alpine react-table">

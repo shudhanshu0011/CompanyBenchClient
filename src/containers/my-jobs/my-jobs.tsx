@@ -24,6 +24,8 @@ export const MyJobs = (): JSX.Element => {
   const {data: technologyData} = useGetTechnologies();
   const {data: locationData} = useGetJobLocList();
   const { data: jobData } = useGetJob();
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(10);
 
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState();
