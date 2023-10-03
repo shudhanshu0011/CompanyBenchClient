@@ -173,6 +173,7 @@ export const PostJobForm = ({ handlePostJobs }: Props) => {
                           onChange={handleDate}
                           className="font-sm"
                           selected={startDate}
+                          minDate={new Date()}
                         />
                       )}
                         {...register("startDate", { required: true })}
