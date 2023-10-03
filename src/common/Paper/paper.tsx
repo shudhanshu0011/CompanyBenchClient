@@ -1,4 +1,3 @@
-
 import "./paper.scss";
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 export const Paper = ({ title, titleRight, children, className }: Props) => {
   return (
     <div className={`panel-white ${className}`}>
-      {title && (
+      {(title || titleRight) && (
         <div className="mb-15">
           <div className="panel_header flex-box justify-content-space-between">
             <h5 className="pb-15">{title}</h5>

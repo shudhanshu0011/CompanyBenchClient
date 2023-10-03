@@ -1,28 +1,39 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UserResponse } from "@src/types/components";
+import { User } from "@src/types/components";
 
 export interface DefaultState {
-    user: UserResponse;
+  user: User;
 }
 
 const initialState: DefaultState = {
-    user: {},
+  user: {
+    _id: "",
+    userId: 1,
+    email: "",
+    userType: "",
+    firstName: "",
+    lastName: "",
+    isEmailVerified: false,
+    isActive: false,
+    createdAt: "",
+    mobile: 1,
+    company: "",
+    guid: "",
+    updatedAt: "",
+  },
 };
 
-export const userSlice = createSlice({
-    name: "userData",
-    initialState,
-    reducers: {
-        user: (
-            state,
-            action: PayloadAction<UserResponse>
-        ) => {
-            state.user = action.payload;
-        },
+export const userDataReducer = createSlice({
+  name: "userData",
+  initialState,
+  reducers: {
+    setUser: (state, action: PayloadAction<User>) => {
+      state.user = action.payload;
     },
+  },
 });
 
 // Action creators are generated for each case reducer function
-export const { user } = userSlice.actions;
+export const { setUser } = userDataReducer.actions;
 
-export default userSlice.reducer;
+export default userDataReducer.reducer;

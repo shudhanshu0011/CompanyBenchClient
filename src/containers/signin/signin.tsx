@@ -1,23 +1,28 @@
-import { Btn } from "@src/common/button";
-import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
-import { usePostLogin } from "@src/hooks/usePostLogin";
-import { user } from "@src/store/reducer/userDataReducer";
-import { SignInParams, UserResponse } from "@src/types/components";
-import "@styles/common/_pages.scss";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { Btn } from "@src/common/button";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
+import { usePostLogin } from "@src/hooks/usePostLogin";
+import { setUser } from "@src/store/reducer/userDataReducer";
+import { SignInParams } from "@src/types/components";
+import "@styles/common/_pages.scss";
 import "./signin.scss";
 
 export const SignIn = (): JSX.Element => {
-  const [userData, setUserData] = useState<UserResponse>();
+  const navigate = useNavigate()
+  // const [userData, setUserData] = useState<UserResponse>();
+
+
+  const { mutate: postLogin, data: userDetails } = usePostLogin();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("userData changed", userData);
-    dispatch(user(userData));
-  }, [userData]);
+    dispatch(setUser(userDetails?.data?.data?.user));
+    // navigate('/c/dashboard');
+  }, [dispatch, navigate, userDetails]);
 
   const {
     handleSubmit,
@@ -29,12 +34,8 @@ export const SignIn = (): JSX.Element => {
     handlePostJobs(data);
   };
 
-  const { mutate: postLogin, data } = usePostLogin();
-
   const handlePostJobs = (formdata: SignInParams) => {
     postLogin(formdata);
-    console.log(data);
-    setUserData(data?.data.data);
   };
 
   return (

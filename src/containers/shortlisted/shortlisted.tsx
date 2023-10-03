@@ -16,13 +16,13 @@ import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
-import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
 
 export const Shortlisted = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
   const {data: technologyData} = useGetTechnologies();
-  const {data: locationData} = useGetJobLocList();
+  const {data: locationData} = useGetJobLocationsList();
   const { data: candidateData } = useGetCandidates();
 
   const [showDetail, setShowDetail] = useState(false);

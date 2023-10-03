@@ -1,9 +1,9 @@
 export interface DropdownOption {
     label: string;
-    value: string;
+    value: string | number;
 }
 
 export interface TypeGeneralObj {
-    id: string;
+    id: string | number;
     name: string;
 }

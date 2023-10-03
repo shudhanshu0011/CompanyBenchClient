@@ -6,7 +6,7 @@ import { AppPagination } from "@common/app-pagination";
 import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { useState, useEffect } from "react";
 import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
-import { useGetJobLocList } from "@hooks/useGetJobLocations";
+import { useGetJobLocationsList } from "@hooks/useGetJobLocations";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { CandidateCard } from "@src/components/candidate-card";
 import { DropdownOption } from "@src/types/common";
@@ -18,7 +18,7 @@ export const Jobs = (): JSX.Element => {
   const [locationLists, setLocationLists] = useState<DropdownOption[]>([]);
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
 
-  const {data: jobLocationData} = useGetJobLocList();
+  const {data: jobLocationData} = useGetJobLocationsList();
   const {data: technologyData} = useGetTechnologies();
 
   useEffect(() => {

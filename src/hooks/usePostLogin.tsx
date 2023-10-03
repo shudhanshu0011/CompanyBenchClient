@@ -7,9 +7,7 @@ import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 export const postLogin = async (
   params: SignInParams
 ): Promise<LoginUserResponseData> => {
-  return await http.post("/v1/user/login", params, {
-    headers: { service_ref: 123456 },
-  });
+  return await http.post("/v1/user/login", params);
 };
 
 export const usePostLogin = (

@@ -59,7 +59,7 @@ const routes: RouteObject[] = [
     element: <InterviewList />,
   },
   {
-    path: "/c/matchingcandidate",
+    path: "/cmatchingcandidate",
     element: <MatchingCandidates />,
   },
   {
