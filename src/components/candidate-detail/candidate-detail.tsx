@@ -11,7 +11,7 @@ import { ReactComponent as UpdatedIcon } from "@assets/icons/updated.svg";
 import { Btn } from "@common/button";
 import { Candidate } from "@src/types/components";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
-import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
 
 interface Props {
   handleShowDetails(isVisible: boolean): void;
@@ -23,7 +23,7 @@ export const CandidateDetails = ({
   selectedCandidate,
 }: Props) => {
   const { data: allTechnologiesData } = useGetTechnologies();
-  const { data: allLocationData } = useGetJobLocList();
+  const { data: allLocationData } = useGetJobLocationsList();
   const [allTechnologies, setAllTechnologies] = useState();
   const [allLocations, setAllLocations] = useState();
 

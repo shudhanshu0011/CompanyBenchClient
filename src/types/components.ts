@@ -6,7 +6,7 @@ export interface SubmitPostJobParams {
   skill: Array<string>;
   description: string;
   monthlyBudget: string;
-  startDate: Date | string;
+  startdate: Date | string;
   experienceLevel: number;
   duration: number;
   openpositions: number;
@@ -19,7 +19,7 @@ export interface SubmitInputsTypes {
   skill: Array<DropdownOption> | Array<string>;
   description: string;
   monthlyBudget: string;
-  startDate: Date | string;
+  startdate: Date | string;
   experienceLevel: number;
   duration: number;
   openpositions: number;
@@ -91,6 +91,8 @@ export interface Job {
   startdate: string;
   updatedAt: string;
   userSfId: string;
+  monthlyBudget: string;
+  openpositions: string;
 }
 
 export interface GetJobResponse {
@@ -121,7 +123,7 @@ export interface SubmitPostContactTypes {
 }
 
 export interface Technology {
-  tecnologyId: string;
+  technologyId: string;
   technologyName: string;
 }
 
@@ -131,4 +133,34 @@ export interface GetJobTechnologyResponse {
 
 export interface GetJobTechnologyResponseData {
   technologys: Technology[];
+}
+
+export interface JobLocList {
+  cityId: number;
+  cityName: string;
+  countryName: string;
+  currencyCode: string;
+  language: string;
+  stateName: string;
+}
+
+export interface GetJobLocationListResponse {
+  data: GetJobLocationListResponseData;
+}
+
+export interface GetJobLocationListResponseData {
+  jobs: JobLocList[];
+}
+
+export interface JobStatus {
+  statusId: string;
+  statusName: string;
+}
+
+export interface GetJobStatusListResponse {
+  data: GetJobStatusListResponseData;
+}
+
+export interface GetJobStatusListResponseData {
+  jobs: JobStatus[];
 }

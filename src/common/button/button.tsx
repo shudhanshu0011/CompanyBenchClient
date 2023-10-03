@@ -7,8 +7,9 @@ interface Props {
   href?: string;
   handleOnClick?(): void;
   type?: "button" | "reset" | "submit" | undefined;
+  disabled?: boolean;
 }
-export const Btn = ({ className, title, href, handleOnClick, type }: Props) => {
+export const Btn = ({ className, title, href, handleOnClick, type, disabled }: Props) => {
   if (href) {
     return (
       <a className={className} href={href}>
@@ -22,6 +23,7 @@ export const Btn = ({ className, title, href, handleOnClick, type }: Props) => {
       className={className}
       onClick={handleOnClick}
       type={type || "button"}
+      disabled={disabled}
     >
       {title}
     </Button>

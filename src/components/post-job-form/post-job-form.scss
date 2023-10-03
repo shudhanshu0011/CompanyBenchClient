@@ -1,11 +1,42 @@
-.react-datepicker-wrapper{
-    width:100%;
-    input {
-        border: 1px solid #E0E6F7;
-        border-radius: 4px;
-        background-color: #ffffff;
-        padding: 11px 15px 13px 15px;
-        width: 100%;
-        color: #A0ABB8;
+.react-datepicker-wrapper {
+  width: 100%;
+  input {
+    border: 1px solid #e0e6f7;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding: 11px 15px 13px 15px;
+    width: 100%;
+    color: #a0abb8;
+    margin-bottom: 0;
+  }
+}
+
+.form-btn-right {
+  align-items: flex-start;
+  .btn.edit-form-button {
+    padding: 6px 6px;
+    background: #ff8608;
+    border-color: #ff8608;
+    &:hover,
+    &:focus,
+    &:active {
+      background: #ff8608;
+      border-color: #ff8608;
     }
-} 
+  }
+  .btn.close-form-button {
+    padding: 6px 6px;
+    background: #e43434;
+    border-color: #e43434;
+    &:hover,
+    &:focus,
+    &:active {
+      background: #e43434;
+      border-color: #e43434;
+    }
+  }
+  .btn.btn-apply-now {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}

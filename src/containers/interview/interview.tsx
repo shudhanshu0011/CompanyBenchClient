@@ -15,16 +15,16 @@ import { RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
-import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
 import { useGetJob } from "@src/hooks/useGetJob";
 
 export const InterviewList = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
   const {data: technologyData} = useGetTechnologies();
-  const {data: locationData} = useGetJobLocList();
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(10);
+  const {data: locationData} = useGetJobLocationsList();
 
   const { data: jobData, refetch } = useGetJob(offset, limit);
   const [showDetail, setShowDetail] = useState(false);

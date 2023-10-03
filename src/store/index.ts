@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './reducer/refDataReducer'
+import refDataReducer from './reducer/refDataReducer'
 
 export const store = configureStore({
   reducer: {
-    appData: counterReducer,
+    appData: refDataReducer,
   },
 })
 

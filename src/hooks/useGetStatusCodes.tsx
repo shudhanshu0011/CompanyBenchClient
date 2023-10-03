@@ -1,33 +1,23 @@
 import http from "@config/request";
 import { UseQueryResult, useQuery } from "react-query";
 import { QueryID } from "@src/constants/query";
+import { GetJobStatusListResponse } from "@src/types/components";
 
-interface Status {
-  statusId: string;
-  statusName: string;
-}
-
-interface GetStatusListResponse {
-  data: {
-    jobs: Status[];
-  };
-}
-
-const getJobStatus = async (): Promise<GetStatusListResponse> => {
-  const response = await http.get<GetStatusListResponse>('/v1/jobstatus/codes', {
-    headers: { "service_ref": 123456 },
-  });
+const getJobStatus = async (): Promise<GetJobStatusListResponse> => {
+  const response = await http.get<GetJobStatusListResponse>(
+    "/v1/jobstatus/codes"
+  );
   return response.data;
 };
 
 export const useGetJobStatus = (
   onSuccess?: () => void,
   onError?: () => void
-): UseQueryResult<GetStatusListResponse, Error> => {
+): UseQueryResult<GetJobStatusListResponse, Error> => {
   return useQuery(QueryID.jobStatusQuery, async () => getJobStatus(), {
     onSuccess,
     onError,
-    select: (data: GetStatusListResponse) => data,
-    staleTime: 0
+    select: (data: GetJobStatusListResponse) => data,
+    staleTime: 0,
   });
 };

@@ -15,7 +15,8 @@ import { AgGridReact } from "ag-grid-react";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
-import { useGetJobLocList } from "@src/hooks/useGetJobLocations";
+import { Candidate } from "@src/types/components";
+import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
 
 export const MatchingCandidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
@@ -23,11 +24,11 @@ export const MatchingCandidates = (): JSX.Element => {
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(10);
   const {data: technologyData} = useGetTechnologies();
-  const {data: locationData} = useGetJobLocList();
   const { data: candidateData, refetch: refetchCandidates } = useGetCandidates(offset, limit);
+  const {data: locationData} = useGetJobLocationsList();
 
   const [showDetail, setShowDetail] = useState(false);
-  const [rowData, setRowData] = useState();
+  const [rowData, setRowData] = useState<Candidate>();
   const [selectedCandidate, setSelectedCandidate] = useState();
 
   useEffect(() => {
