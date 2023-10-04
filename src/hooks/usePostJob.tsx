@@ -1,12 +1,13 @@
+import http from "@src/config/request";
 import { QueryID } from "@src/constants/query";
 import { SubmitPostJobParams } from "@src/types/components";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 
 export const postJobs = async (
   params: SubmitPostJobParams
 ): Promise<SubmitPostJobParams> => {
-  return await axios.post(`/v1/job`, params);
+  return await http.post(`/v1/job`, params);
 };
 export const usePostJob = (
   onSuccess?: () => void,
