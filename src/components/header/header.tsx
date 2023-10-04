@@ -3,10 +3,16 @@ import logo from "@assets/logo.png";
 import { Btn } from "@common/button";
 import { Navigation } from "../navigation";
 import "./header.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "@src/store";
+import { UserHeader } from "../user-header";
 
 export const Header = (): JSX.Element => {
   const location = useLocation();
-  const isLoginPage = location.pathname === "/signin" || location.pathname === "/signup";
+  const isLoginPage =
+    location.pathname === "/signin" || location.pathname === "/signup";
+  const user = useSelector((state: RootState) => state.userData.user);
+  const isUserLoggedIn = !(user === undefined) && (user.guid !== "");
 
   return (
     <header className="header sticky-bar">
@@ -20,13 +26,10 @@ export const Header = (): JSX.Element => {
             </div>
           </div>
           {!isLoginPage && <Navigation />}
-          {!isLoginPage && (
+          {!isLoginPage && !isUserLoggedIn && (
             <div className="header-right">
               <div className="block-signin">
-                <a
-                  className="text-link-bd-btom hover-up"
-                  href="/signup"
-                >
+                <a className="text-link-bd-btom hover-up" href="/signup">
                   Register
                 </a>
                 <Btn
@@ -36,6 +39,9 @@ export const Header = (): JSX.Element => {
                 />
               </div>
             </div>
+          )}
+          {!isLoginPage && isUserLoggedIn && (
+            <UserHeader user={user}></UserHeader>
           )}
         </div>
       </div>

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Btn } from "@src/common/button";
 import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { usePostLogin } from "@src/hooks/usePostLogin";
@@ -10,18 +10,25 @@ import { setUser } from "@src/store/reducer/userDataReducer";
 import { SignInParams } from "@src/types/components";
 import "@styles/common/_pages.scss";
 import "./signin.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "@src/store";
 
 export const SignIn = (): JSX.Element => {
-  const navigate = useNavigate()
-  // const [userData, setUserData] = useState<UserResponse>();
-
+  const navigate = useNavigate();
+  const user = useSelector((state: RootState) => state.userData.user);
 
   const { mutate: postLogin, data: userDetails } = usePostLogin();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setUser(userDetails?.data?.data?.user));
-    // navigate('/c/dashboard');
+    const isUserLoggedIn = !(user === undefined) && (user.guid !== "");
+    if (isUserLoggedIn) {
+      navigate("/c/dashboard");
+    }
+    if (userDetails?.data?.data?.user !== undefined) {
+      dispatch(setUser(userDetails?.data?.data?.user));
+      navigate("/c/dashboard");
+    }
   }, [dispatch, navigate, userDetails]);
 
   const {
@@ -82,7 +89,7 @@ export const SignIn = (): JSX.Element => {
                 <Form.Group className="mb-3" controlId="">
                   <Form.Label className="font-sm mb-10">Password *</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="password"
                     className="font-md"
                     placeholder="************"
                     {...register("password", { required: true })}
