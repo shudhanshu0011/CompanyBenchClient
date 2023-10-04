@@ -39,7 +39,7 @@ export const InterviewList = (): JSX.Element => {
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
       const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
-        value: tmp.tecnologyId,
+        value: tmp.technologyId,
         label: tmp.technologyName
       }));
       setTechnologyLists(options);
@@ -60,13 +60,17 @@ export const InterviewList = (): JSX.Element => {
     setLimit(newLimit);
   };
 
+  const onChange = (newLimit: number) => {
+    changeLimit(Number(newLimit?.value))
+  }
+
   const pageViewDropdown = () => {
     const options = [
       { value: "10", label: "10" },
       { value: "20", label: "20" },
       { value: "30", label: "30" },
     ];
-    return <SelectDropdown options={options} size="sm" onChange={(newLimit) => {changeLimit(Number(newLimit?.value));}} />;
+    return <SelectDropdown options={options} size="sm" onChange={onChange} />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {

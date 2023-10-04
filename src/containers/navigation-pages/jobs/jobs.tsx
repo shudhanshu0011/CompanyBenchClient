@@ -36,7 +36,7 @@ export const Jobs = (): JSX.Element => {
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
       const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
-        value: tmp.tecnologyId,
+        value: tmp.technologyId,
         label: tmp.technologyName
       }));
       setTechnologyLists(options);

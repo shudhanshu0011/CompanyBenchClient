@@ -28,7 +28,7 @@ export const AppliedCandidates = (): JSX.Element => {
   const {data: locationData} = useGetJobLocationsList();
 
   const [showDetail, setShowDetail] = useState(false);
-  const [rowData, setRowData] = useState<Candidate>();
+  const [rowData, setRowData] = useState<Array<Candidate>>();
   const [selectedCandidate, setSelectedCandidate] = useState();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export const AppliedCandidates = (): JSX.Element => {
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
       const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
-        value: tmp.tecnologyId,
+        value: tmp.technologyId,
         label: tmp.technologyName
       }));
       setTechnologyLists(options);
@@ -59,13 +59,17 @@ export const AppliedCandidates = (): JSX.Element => {
     setLimit(newLimit);
   };
 
+  const onChanges = (newLimit: number) => {
+    changeLimit(Number(newLimit?.value))
+  }
+
   const pageViewDropdown = () => {
     const options = [
       { value: "10", label: "10" },
       { value: "20", label: "20" },
       { value: "30", label: "30" },
     ];
-    return <SelectDropdown options={options} size="sm" onChange={(newLimit) => {changeLimit(Number(newLimit?.value));}} />;
+    return <SelectDropdown options={options} size="sm" onChange={onChanges} />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {

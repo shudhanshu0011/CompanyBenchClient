@@ -95,6 +95,10 @@ export const MyJobs = (): JSX.Element => {
     setShowDetail(true);
   };
 
+  const handleFormDisabled = () => {
+    setIsFormDisabled(!isFormDisabled);
+  }
+
   const changeOffset = (newOffset: number) => {
     setOffset(newOffset);
   };

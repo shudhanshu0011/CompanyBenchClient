@@ -11,7 +11,7 @@
   padding: 60px;
   width: 100%;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.232) , rgba(0, 0, 0, 0.79)),
-    url(https://testcompanybench.azurewebsites.net//assets/cb-new-style/Frontend/imgs/page/about/img-about.png);
+    url("../../../assets/images/img-about.png");
   h2{
     color: $color-white;
   }
