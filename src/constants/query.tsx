@@ -7,4 +7,5 @@ export const QueryID = {
   jobStatusQuery: "Get_Job_Status",
   technologyQuery: "Get_Technology",
   postContactEnquiry: "PostContactEnquiry",
+  getUserQuery: "GetUser"
 };

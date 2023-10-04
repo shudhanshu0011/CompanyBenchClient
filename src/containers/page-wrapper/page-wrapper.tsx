@@ -13,8 +13,11 @@ import {
   GetJobLocationListResponseData,
   GetJobStatusListResponseData,
   GetJobTechnologyResponseData,
+  User,
 } from "@src/types/components";
 import { useGetJobStatus } from "@src/hooks/useGetStatusCodes";
+import { useGetUser } from "@src/hooks/useGetUser";
+import { setUser } from "@src/store/reducer/userDataReducer";
 
 interface Props {
   children: React.ReactElement;
@@ -24,6 +27,7 @@ export const PageWrapper = ({ children }: Props) => {
   const { data: allTechnologiesData } = useGetTechnologies();
   const { data: allLocationsData } = useGetJobLocationsList();
   const { data: jobStatusList } = useGetJobStatus();
+  const { data: userData } = useGetUser();
 
   dispatch(
     setTechnologies(allTechnologiesData?.data as GetJobTechnologyResponseData)
@@ -34,6 +38,10 @@ export const PageWrapper = ({ children }: Props) => {
 
   dispatch(
     setJobStatus(jobStatusList?.data as GetJobStatusListResponseData)
+  );
+
+  dispatch(
+    setUser(userData?.data.user as User)
   );
 
   return (

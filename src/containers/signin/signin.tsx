@@ -12,12 +12,14 @@ import "@styles/common/_pages.scss";
 import "./signin.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "@src/store";
+import { useGetUser } from "@src/hooks/useGetUser";
 
 export const SignIn = (): JSX.Element => {
   const navigate = useNavigate();
   const user = useSelector((state: RootState) => state.userData.user);
 
-  const { mutate: postLogin, data: userDetails } = usePostLogin();
+  const { mutate: postLogin} = usePostLogin();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,11 +28,13 @@ export const SignIn = (): JSX.Element => {
     if (isUserLoggedIn) {
       navigate("/c/dashboard");
     }
-    if (userDetails?.data?.data?.user !== undefined) {
-      dispatch(setUser(userDetails?.data?.data?.user));
-      navigate("/c/dashboard");
-    }
-  }, [dispatch, navigate, user, userDetails]);
+    // if (userDetails?.data?.data?.user !== undefined) {
+    //   dispatch(setUser(userDetails?.data?.data?.user));
+    //   navigate("/c/dashboard");
+    // }
+  }, [dispatch, navigate, user,
+    //  userDetails
+    ]);
 
   const {
     handleSubmit,

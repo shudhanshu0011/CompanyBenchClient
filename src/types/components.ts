@@ -149,9 +149,10 @@ export interface UserResponse {
   user: User;
 }
 
-export interface LoginUserResponseData {
+export interface GetUserResponseData {
   data: UserResponse
 }
+
 export interface JobLocList {
   cityId: number;
   cityName: string;
