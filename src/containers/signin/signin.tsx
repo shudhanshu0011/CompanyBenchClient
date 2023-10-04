@@ -21,6 +21,7 @@ export const SignIn = (): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("Dispatch");
     const isUserLoggedIn = !(user === undefined) && (user.guid !== "");
     if (isUserLoggedIn) {
       navigate("/c/dashboard");
@@ -29,7 +30,7 @@ export const SignIn = (): JSX.Element => {
       dispatch(setUser(userDetails?.data?.data?.user));
       navigate("/c/dashboard");
     }
-  }, [dispatch, navigate, userDetails]);
+  }, [dispatch, navigate, user, userDetails]);
 
   const {
     handleSubmit,
