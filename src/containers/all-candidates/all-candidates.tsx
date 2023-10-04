@@ -23,9 +23,12 @@ export const AllCandidates = (): JSX.Element => {
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(10);
-  const {data: technologyData} = useGetTechnologies();
-  const { data: candidateData, refetch: refetchCandidates } = useGetCandidates(offset, limit);
-  const {data: locationData} = useGetJobLocationsList();
+  const { data: technologyData } = useGetTechnologies();
+  const { data: candidateData, refetch: refetchCandidates } = useGetCandidates(
+    offset,
+    limit
+  );
+  const { data: locationData } = useGetJobLocationsList();
 
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState<Array<Candidate>>();
@@ -36,11 +39,16 @@ export const AllCandidates = (): JSX.Element => {
   }, [candidateData]);
 
   useEffect(() => {
-    if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
-      const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
-        value: tmp.technologyId,
-        label: tmp.technologyName
-      }));
+    if (
+      technologyData?.data.technologys &&
+      Array.isArray(technologyData.data.technologys)
+    ) {
+      const options: DropdownOption[] = technologyData.data.technologys.map(
+        (tmp) => ({
+          value: tmp.technologyId,
+          label: tmp.technologyName,
+        })
+      );
       setTechnologyLists(options);
     }
   }, [technologyData]);
@@ -49,7 +57,7 @@ export const AllCandidates = (): JSX.Element => {
     if (locationData?.data.jobs && Array.isArray(locationData.data.jobs)) {
       const options: DropdownOption[] = locationData.data.jobs.map((tmp) => ({
         value: tmp.cityId,
-        label: tmp.cityName
+        label: tmp.cityName,
       }));
       setLocationLists(options);
     }
@@ -60,8 +68,8 @@ export const AllCandidates = (): JSX.Element => {
   };
 
   const onChange = (newLimit: number) => {
-    changeLimit(Number(newLimit?.value))
-  }
+    changeLimit(Number(newLimit?.value));
+  };
 
   const pageViewDropdown = () => {
     const options = [
@@ -85,63 +93,65 @@ export const AllCandidates = (): JSX.Element => {
     setOffset(newOffset);
   };
 
-  useEffect(() => {
-    refetchCandidates();
-  }, [offset, limit])
-
   return (
     <PageWrapper>
       <DashboardWrapper activeLink={location.pathname}>
-          {showDetail ? (
-            <CandidateDetails
-              handleShowDetails={handleShowDetails}
-              selectedCandidate={selectedCandidate}
-            />
-          ) : (
-            <Col xs={12} md={12}>
-              <div className="box-content">
-                <h3 className="mb-35">All Candidates</h3>
-                <Paper title="Advance Filter" titleRight={`Search Result : ${candidateData?.total}`}>
-                  <div className="filter-dropdown-container">
-                    <Row>
-                      <Col xs={3}>
-                        <SelectDropdown
-                          options={technologyList}
-                          placeholder="Select Technology"
-                          isClearable
-                          size="lg"
-                        />
-                      </Col>
-                      <Col xs={3}>
-                        <SelectDropdown
-                          options={locationList}
-                          placeholder="Select Location"
-                          size="lg"
-                          isClearable
-                        />
-                      </Col>
-                    </Row>
-                  </div>
-                </Paper>
-                <Paper
-                  title={<AppPagination
+        {showDetail ? (
+          <CandidateDetails
+            handleShowDetails={handleShowDetails}
+            selectedCandidate={selectedCandidate}
+          />
+        ) : (
+          <Col xs={12} md={12}>
+            <div className="box-content">
+              <h3 className="mb-35">All Candidates</h3>
+              <Paper
+                title="Advance Filter"
+                titleRight={`Search Result : ${candidateData?.total}`}
+              >
+                <div className="filter-dropdown-container">
+                  <Row>
+                    <Col xs={3}>
+                      <SelectDropdown
+                        options={technologyList}
+                        placeholder="Select Technology"
+                        isClearable
+                        size="lg"
+                      />
+                    </Col>
+                    <Col xs={3}>
+                      <SelectDropdown
+                        options={locationList}
+                        placeholder="Select Location"
+                        size="lg"
+                        isClearable
+                      />
+                    </Col>
+                  </Row>
+                </div>
+              </Paper>
+              <Paper
+                title={
+                  <AppPagination
                     setOffset={changeOffset}
                     currentOffset={offset}
                     total={candidateData?.total}
-                    limit={candidateData?.limit} />}
-                  titleRight={pageViewDropdown()}
-                >
-                  <div className="ag-theme-alpine react-table">
-                    <AgGridReact
-                      rowData={rowData}
-                      columnDefs={defaultColumns()}
-                      onRowClicked={(event) => handleRowClicked(event)}
-                    />
-                  </div>
-                </Paper>
-              </div>
-            </Col>
-          )}
+                    limit={candidateData?.limit}
+                  />
+                }
+                titleRight={pageViewDropdown()}
+              >
+                <div className="ag-theme-alpine react-table">
+                  <AgGridReact
+                    rowData={rowData}
+                    columnDefs={defaultColumns()}
+                    onRowClicked={(event) => handleRowClicked(event)}
+                  />
+                </div>
+              </Paper>
+            </div>
+          </Col>
+        )}
       </DashboardWrapper>
     </PageWrapper>
   );
