@@ -31,7 +31,7 @@ export const userDataReducer = createSlice({
       state.user = action.payload;
     },
     resetUser: (state) => {
-      state = initialState
+      state.user = {} as DefaultState;
     }
   },
 });

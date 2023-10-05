@@ -19,13 +19,23 @@ export const postLogin = async (
 
 export const usePostLogin = (
   onSuccess?: () => GetUserResponseData,
-  onError?: (error: AxiosError) => void
-): UseMutationResult<GetUserResponseData, Error, SignInParams, SignInParams> => {
+  onError?: (error: AxiosError) => void,
+  onSettled?: () => void
+): UseMutationResult<
+  GetUserResponseData,
+  Error,
+  SignInParams,
+  SignInParams
+> => {
   const queryClient = useQueryClient();
   const queryId = QueryID.postLogin;
   return useMutation({
     mutationFn: async (params: SignInParams) => postLogin(params),
-    onSettled: async () => queryClient.invalidateQueries(queryId),
+    onSettled: async () => {
+      return queryClient.invalidateQueries(queryId).then(() => {
+        onSettled && onSettled();
+      });
+    },
     onSuccess: (userData) =>
       queryClient.setQueryData(
         ["userData", userData.data.users[0]._id],

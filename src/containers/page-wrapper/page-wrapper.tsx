@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import {
   setLocations,
   setTechnologies,
-  setJobStatus
+  setJobStatus,
 } from "@src/store/reducer/refDataReducer";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
@@ -13,11 +13,8 @@ import {
   GetJobLocationListResponseData,
   GetJobStatusListResponseData,
   GetJobTechnologyResponseData,
-  User,
 } from "@src/types/components";
 import { useGetJobStatus } from "@src/hooks/useGetStatusCodes";
-import { useGetUser } from "@src/hooks/useGetUser";
-import { setUser } from "@src/store/reducer/userDataReducer";
 
 interface Props {
   children: React.ReactElement;
@@ -27,7 +24,10 @@ export const PageWrapper = ({ children }: Props) => {
   const { data: allTechnologiesData } = useGetTechnologies();
   const { data: allLocationsData } = useGetJobLocationsList();
   const { data: jobStatusList } = useGetJobStatus();
-  const { data: userData } = useGetUser();
+  // const onError = () => {
+  //   dispatch(resetUser());
+  // };
+  // const { data: userData } = useGetUser(() => {}, onError);
 
   dispatch(
     setTechnologies(allTechnologiesData?.data as GetJobTechnologyResponseData)
@@ -36,13 +36,9 @@ export const PageWrapper = ({ children }: Props) => {
     setLocations(allLocationsData?.data as GetJobLocationListResponseData)
   );
 
-  dispatch(
-    setJobStatus(jobStatusList?.data as GetJobStatusListResponseData)
-  );
+  dispatch(setJobStatus(jobStatusList?.data as GetJobStatusListResponseData));
 
-  dispatch(
-    setUser(userData?.data.users[0] as User)
-  );
+  // dispatch(setUser(userData?.data.users[0] as User));
 
   return (
     <main className="main">

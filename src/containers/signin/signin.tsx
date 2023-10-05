@@ -1,37 +1,49 @@
 import { Btn } from "@src/common/button";
 import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { usePostLogin } from "@src/hooks/usePostLogin";
-import { RootState } from "@src/store";
-import { setUser } from "@src/store/reducer/userDataReducer";
+// import { RootState } from "@src/store";
+import { resetUser, setUser } from "@src/store/reducer/userDataReducer";
 import { SignInParams } from "@src/types/components";
 import "@styles/common/_pages.scss";
 import { useEffect } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./signin.scss";
+import { useGetUser } from "@src/hooks/useGetUser";
 
 export const SignIn = (): JSX.Element => {
   const navigate = useNavigate();
-  const user = useSelector((state: RootState) => state?.userData?.user);
+  // const user = useSelector((state: RootState) => state?.userData?.user);
   const dispatch = useDispatch();
+  const onError = () => {
+    dispatch(resetUser());
+  };
+  const onSettled = () => {
+    refetch();
+  };
+  const { mutate: postLogin } = usePostLogin(
+    () => {},
+    () => {},
+    onSettled
+  );
+  const { data: userNewData, refetch } = useGetUser(() => {}, onError);
 
-  const { mutate: postLogin, data: userData } = usePostLogin();
+  // useEffect(() => {
+  //   const isUserLoggedIn =
+  //     user !== undefined && Object.keys(user).length > 0 && user.guid !== "";
+  //   if (isUserLoggedIn) {
+  //     // navigate("/c/dashboard");
+  //   }
+  // }, [user]);
 
   useEffect(() => {
-    const isUserLoggedIn = (user !== undefined) && (user.guid !== "");
-    if (isUserLoggedIn) {
+    if (userNewData !== undefined) {
+      dispatch(setUser(userNewData?.data.users[0]));
       navigate("/c/dashboard");
     }
-  }, [user]);
-
-  useEffect(() => {
-    if (userData !== undefined) {
-      dispatch(setUser(userData?.data.users[0]));
-      navigate("/c/dashboard");
-    }
-  }, [postLogin, dispatch, userData]);
+  }, [dispatch, navigate, userNewData]);
 
   const {
     handleSubmit,
@@ -46,7 +58,6 @@ export const SignIn = (): JSX.Element => {
   const handlePostJobs = (formdata: SignInParams) => {
     postLogin(formdata);
   };
-
   return (
     <PageWrapper>
       <div className="container">
