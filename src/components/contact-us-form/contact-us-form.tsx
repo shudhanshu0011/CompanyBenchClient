@@ -15,7 +15,7 @@ export const ContactUsForm = () => {
 
   const [buttonText, setButtonText] = useState("Submit");
 
-  const mutation = usePostContactUs(
+  const { mutate: createContact, isLoading, isError } = usePostContactUs(
     () => {
       reset();
       setButtonText("Successfully Sent");
@@ -26,9 +26,8 @@ export const ContactUsForm = () => {
   );
 
   const onSubmit: SubmitHandler<SubmitPostContactParams> = (data: SubmitPostContactParams) => {
-    console.log(data);
     setButtonText("Try Again");
-    mutation.mutate(data);
+    createContact(data);
   }
 
   return (
@@ -99,17 +98,17 @@ export const ContactUsForm = () => {
           <button
             type="submit"
             className={
-              mutation.isError
+              isError
                 ? "try-again-btn"
                 : buttonText === "Successfully Sent"
                 ? "success-sent-btn"
                 : "query-contact-btn"
             }
-            disabled={mutation.isLoading}
+            disabled={isLoading}
           >
-            {mutation.isLoading ? "Submitting" : buttonText}
+            {isLoading ? "Submitting" : buttonText}
           </button>
-          {mutation.isError && (
+          {isError && (
             <span className="error-message">Error occurred. Please try again.</span>
           )}
         </div>
