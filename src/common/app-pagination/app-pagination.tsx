@@ -15,7 +15,7 @@ export const AppPagination = ({ setOffset, currentOffset, total, limit }: AppPag
 
   for (let number = 1; number <= totalPages; number++) {
     items.push(
-      <Pagination.Item onClick={() => {setOffset(number-1);}} className={`${currentOffset+1==number ? "active" : "page-item"}`}>{number}</Pagination.Item>
+      <Pagination.Item onClick={() => handleOnClick(number)} className={`${currentOffset+1==number ? "active" : "page-item"}`}>{number}</Pagination.Item>
     );
   }
 
@@ -30,6 +30,10 @@ export const AppPagination = ({ setOffset, currentOffset, total, limit }: AppPag
       setOffset(currentOffset + 1);
     }
   };
+
+  const handleOnClick = (pageNumber: number) => {
+    setOffset(pageNumber-1);
+  }
 
   return (
     <Pagination>

@@ -17,6 +17,7 @@ import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
 import { Candidate } from "@src/types/components";
 import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
+import { options } from "@src/types/common";
 
 export const Shortlisted = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
@@ -64,12 +65,12 @@ export const Shortlisted = (): JSX.Element => {
   }
 
   const pageViewDropdown = () => {
-    const options = [
-      { value: "10", label: "10" },
-      { value: "20", label: "20" },
-      { value: "30", label: "30" },
-    ];
-    return <SelectDropdown options={options} size="sm" onChange={onChange} />;
+    return <SelectDropdown
+      options={options}
+      size="sm"
+      onChange={onChange} 
+      defaultValue={options[0]}
+    />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {

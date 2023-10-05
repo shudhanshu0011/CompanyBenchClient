@@ -20,6 +20,7 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import "@styles/common/_pages.scss";
 import "./candidates.scss";
 import { Link } from "react-router-dom";
+import { options } from "@src/types/common";
 
 
 export const Candidates = (): JSX.Element => {
@@ -77,12 +78,12 @@ export const Candidates = (): JSX.Element => {
   }
 
   const pageViewDropdown = () => {
-    const options = [
-      { value: "10", label: "10" },
-      { value: "20", label: "20" },
-      { value: "30", label: "30" },
-    ];
-    return <SelectDropdown options={options} size="sm" onChange={onChange} />;
+    return <SelectDropdown
+      options={options}
+      size="sm"
+      onChange={onChange} 
+      defaultValue={options[0]}
+    />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {

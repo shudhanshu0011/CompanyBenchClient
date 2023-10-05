@@ -1,6 +1,9 @@
 import logo from "@assets/logo.png";
 import userIcon from "@assets/images/user-icon.png"
 import "./user-header.scss";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 
 export const UserHeader = (): JSX.Element => {
@@ -21,7 +24,17 @@ export const UserHeader = (): JSX.Element => {
               <div>
                 <strong>User Name</strong>
               </div>
-              <a>Client</a>
+              <DropdownButton
+                as={ButtonGroup}
+                key={"Info"}
+                title={"Client"}
+                className="client-btn"
+              >
+                <Dropdown.Item eventKey="1">Account ID - 17819</Dropdown.Item>
+                <Dropdown.Item eventKey="2">Company - 123</Dropdown.Item>
+                <Dropdown.Item eventKey="3">Email - tajejo5180@gronasu.com</Dropdown.Item>
+                <Dropdown.Item eventKey="4">Logout</Dropdown.Item>
+              </DropdownButton>
             </div>
           </div>
         </div>

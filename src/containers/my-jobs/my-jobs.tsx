@@ -6,7 +6,6 @@ import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { AppPagination } from "@common/app-pagination";
 import { JobDetails } from "@src/components/job-detail";
-
 import { RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { DropdownOption } from "@src/types/common";
@@ -20,8 +19,7 @@ import { defaultColumns } from "./coloumn-types/coloumn-types";
 import "@styles/common/_pages.scss";
 import "./my-jobs.scss";
 import { SubmitPostJobParams } from "@src/types/components";
-
-
+import { options } from "@src/types/common";
 
 export const MyJobs = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
@@ -77,13 +75,17 @@ export const MyJobs = (): JSX.Element => {
     setLimit(newLimit);
   };
 
+  const onChange = (newLimit: number) => {
+    changeLimit(Number(newLimit?.value));
+  };
+
   const pageViewDropdown = () => {
-    const options = [
-      { value: "10", label: "10" },
-      { value: "20", label: "20" },
-      { value: "30", label: "30" },
-    ];
-    return <SelectDropdown options={options} size="sm" onChange={(newLimit) => {changeLimit(Number(newLimit?.value));}} />;
+    return <SelectDropdown
+      options={options}
+      size="sm"
+      onChange={onChange} 
+      defaultValue={options[0]}
+    />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {

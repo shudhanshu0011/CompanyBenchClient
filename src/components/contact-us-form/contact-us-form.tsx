@@ -15,7 +15,7 @@ export const ContactUsForm = () => {
 
   const [buttonText, setButtonText] = useState("Submit");
 
-  const {mutation: createContact, isLoading, isError} = usePostContactUs(
+  const mutation = usePostContactUs(
     () => {
       reset();
       setButtonText("Successfully Sent");
