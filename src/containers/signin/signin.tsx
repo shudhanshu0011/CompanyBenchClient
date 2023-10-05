@@ -1,27 +1,26 @@
 import { Btn } from "@src/common/button";
 import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
-import { useGetUser } from "@src/hooks/useGetUser";
 import { usePostLogin } from "@src/hooks/usePostLogin";
 import { RootState } from "@src/store";
+import { setUser } from "@src/store/reducer/userDataReducer";
 import { SignInParams } from "@src/types/components";
 import "@styles/common/_pages.scss";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./signin.scss";
-import { setUser } from "@src/store/reducer/userDataReducer";
 
 export const SignIn = (): JSX.Element => {
   const navigate = useNavigate();
-  const user = useSelector((state: RootState) => state.userData.user);
+  const user = useSelector((state: RootState) => state?.userData?.user);
   const dispatch = useDispatch();
 
   const { mutate: postLogin, data: userData } = usePostLogin();
 
   useEffect(() => {
-    const isUserLoggedIn = !(user === undefined) && user.guid !== "";
+    const isUserLoggedIn = (user !== undefined) && (user.guid !== "");
     if (isUserLoggedIn) {
       navigate("/c/dashboard");
     }
@@ -29,7 +28,6 @@ export const SignIn = (): JSX.Element => {
 
   useEffect(() => {
     if (userData !== undefined) {
-      console.log(userData?.data.users[0])
       dispatch(setUser(userData?.data.users[0]));
       navigate("/c/dashboard");
     }

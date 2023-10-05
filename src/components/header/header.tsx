@@ -24,7 +24,7 @@ export const Header = (): JSX.Element => {
               </a>
             </div>
           </div>
-          {!isLoginPage && <Navigation />}
+          {!isLoginPage && !isUserLoggedIn && <Navigation />}
           {!isLoginPage && !isUserLoggedIn && (
             <div className="header-right">
               <div className="block-signin">
