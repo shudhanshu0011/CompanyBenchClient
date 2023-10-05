@@ -1,6 +1,7 @@
 import http from "@config/request";
 import { QueryID } from "@src/constants/query";
-import { UseQueryResult, useQuery } from "react-query";
+import { AxiosError } from "axios";
+import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 
 const logoutUser = async (): Promise<void> => {
   return await http.get<void>("/v1/user/logout", {
@@ -8,13 +9,16 @@ const logoutUser = async (): Promise<void> => {
   });
 };
 
-export const useGetUser = (
+export const useLogout = (
   onSuccess?: () => void,
-  onError?: () => void
-): UseQueryResult<void, Error> => {
-  return useQuery(QueryID.logoutUser, async () => logoutUser(), {
+  onError?: (error: AxiosError) => void
+): UseMutationResult<void, Error, void, void> => {
+  const queryClient = useQueryClient();
+  const queryId = QueryID.logoutUser;
+  return useMutation({
+    mutationFn: async () => logoutUser(),
+    onSettled: async () => queryClient.invalidateQueries(queryId),
     onSuccess,
     onError,
-    staleTime: 0,
   });
 };

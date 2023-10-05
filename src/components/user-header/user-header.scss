@@ -23,10 +23,21 @@
         font-family: $font-text;
         color: $color-brand;
       }
-      a{
+      button{
         font-family: $font-text;
         color: $color-text-paragraph-2;
         font-size: $font-xs;
+        background: none;
+        border: none;
+        text-align: left;
+        padding: 0;
+        display: flex;
+        justify-content: left;
+      }
+      .client-btn{
+        ::after{
+          display: none;
+        }
       }
     }
     .header-nav {
