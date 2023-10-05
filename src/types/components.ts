@@ -146,7 +146,7 @@ export interface User {
 }
 
 export interface UserResponse {
-  user: User;
+  users: Array<User>;
 }
 
 export interface GetUserResponseData {

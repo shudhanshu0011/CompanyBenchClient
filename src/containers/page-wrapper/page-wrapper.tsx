@@ -41,7 +41,7 @@ export const PageWrapper = ({ children }: Props) => {
   );
 
   dispatch(
-    setUser(userData?.data.user as User)
+    setUser(userData?.data.users[0] as User)
   );
 
   return (

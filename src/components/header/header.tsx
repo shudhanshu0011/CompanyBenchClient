@@ -1,18 +1,17 @@
-import { useLocation } from "react-router-dom";
 import logo from "@assets/logo.png";
-import { Btn } from "@common/button";
-import { Navigation } from "../navigation";
-import "./header.scss";
-import { useSelector } from "react-redux";
 import { RootState } from "@src/store";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { Navigation } from "../navigation";
 import { UserHeader } from "../user-header";
+import "./header.scss";
 
 export const Header = (): JSX.Element => {
   const location = useLocation();
   const isLoginPage =
     location.pathname === "/signin" || location.pathname === "/signup";
   const user = useSelector((state: RootState) => state.userData.user);
-  const isUserLoggedIn = !(user === undefined) && (user.guid !== "");
+  const isUserLoggedIn = !(user === undefined) && user.guid !== "";
 
   return (
     <header className="header sticky-bar">
@@ -29,14 +28,15 @@ export const Header = (): JSX.Element => {
           {!isLoginPage && !isUserLoggedIn && (
             <div className="header-right">
               <div className="block-signin">
-                <a className="text-link-bd-btom hover-up" href="/signup">
+                <Link className="text-link-bd-btom hover-up" to="/signup">
                   Register
-                </a>
-                <Btn
+                </Link>
+                <Link
                   className="btn btn-default btn-shadow ml-40 hover-up"
-                  title=" Sign in"
-                  href="/signin"
-                />
+                  to="/signin"
+                >
+                  Sign in
+                </Link>
               </div>
             </div>
           )}

@@ -12,12 +12,12 @@ const getUser = async (): Promise<GetUserResponseData> => {
 
 export const useGetUser = (
   onSuccess?: () => void,
-  onError?: () => void
+  onError?: () => void,
 ): UseQueryResult<GetUserResponseData, Error> => {
   return useQuery(QueryID.getUserQuery, async () => getUser(), {
     onSuccess,
     onError,
     select: (data: GetUserResponseData) => data,
-    staleTime: 0,
+    staleTime: 0
   });
 };
