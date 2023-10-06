@@ -726,7 +726,7 @@ iframe {
 .mh-105 {min-height: 105px;}
 
 .box-content {
-  overflow: auto;
+  overflow: hidden;
 }
 
 .body-items{
@@ -744,9 +744,6 @@ iframe {
 }
 
 .react-table {
-  height: 500px
+  height: 350px;
 }
 
-.ag-body-viewport {
-  height: auto !important;
-}

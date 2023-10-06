@@ -12,6 +12,7 @@ import hire201 from "@assets/icons/Hire 1.png";
 import checkboxicon from "@assets/icons/check-box.svg";
 import hire204 from "@assets/icons/Hire 4.png";
 import "./skill-desc-page.scss";
+import { Link } from 'react-router-dom';
 
 interface SkillDescPageProps {
   url: string;
@@ -93,7 +94,9 @@ const SkillDescPage = ({ url: pageUrl }: SkillDescPageProps): JSX.Element => {
               </div>
             </div>
             <div className='view-more-btn-container'>
-              <a href='/'><button >View More</button></a>
+              <Link to="/signin">
+                <a href='/'><button >View More</button></a>
+              </Link>
             </div>
           </div>
           <div className='skill-content-container'>

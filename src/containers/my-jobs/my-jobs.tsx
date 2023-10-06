@@ -6,7 +6,6 @@ import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { AppPagination } from "@common/app-pagination";
 import { JobDetails } from "@src/components/job-detail";
-
 import { RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { DropdownOption } from "@src/types/common";
@@ -20,8 +19,7 @@ import { defaultColumns } from "./coloumn-types/coloumn-types";
 import "@styles/common/_pages.scss";
 import "./my-jobs.scss";
 import { SubmitPostJobParams } from "@src/types/components";
-
-
+import { options } from "@src/types/common";
 
 export const MyJobs = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
@@ -29,9 +27,12 @@ export const MyJobs = (): JSX.Element => {
   const [isFormDisabled, setIsFormDisabled] = useState<boolean>(true);
   const { data: technologyData } = useGetTechnologies();
   const { data: locationData } = useGetJobLocationsList();
-  const { data: jobData } = useGetJob();
-  const {mutate: postJobs} = usePostJob();
-  
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(10);
+  const { data: jobData, refetch } = useGetJob(offset, limit);
+
+  const { mutate: postJobs } = usePostJob();
+
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState();
   const [selectedJob, setSelectedJob] = useState();
@@ -70,16 +71,21 @@ export const MyJobs = (): JSX.Element => {
     }
   }, [locationData]);
 
-  const candidatePagination = () => {
-    return <AppPagination />;
+  const changeLimit = (newLimit: number) => {
+    setLimit(newLimit);
   };
+
+  const onChange = (newLimit: number) => {
+    changeLimit(Number(newLimit?.value));
+  };
+
   const pageViewDropdown = () => {
-    const options = [
-      { value: "10", label: "10" },
-      { value: "15", label: "15" },
-      { value: "20", label: "20" },
-    ];
-    return <SelectDropdown options={options} size="sm" />;
+    return <SelectDropdown
+      options={options}
+      size="sm"
+      onChange={onChange}
+      defaultValue={options[0]}
+    />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {
@@ -94,6 +100,14 @@ export const MyJobs = (): JSX.Element => {
   const handleFormDisabled = () => {
     setIsFormDisabled(!isFormDisabled);
   }
+
+  const changeOffset = (newOffset: number) => {
+    setOffset(newOffset);
+  };
+
+  useEffect(() => {
+    refetch();
+  }, [limit, offset]);
 
   return (
     <PageWrapper>
@@ -111,7 +125,7 @@ export const MyJobs = (): JSX.Element => {
           <Col xs={12} md={12}>
             <div className="box-content">
               <h3 className="mb-35">My Jobs</h3>
-              <Paper title="Advance Filter" titleRight="Search Result : 5">
+              <Paper title="Advance Filter" titleRight={`Search Result : ${jobData?.total}`}>
                 <div className="filter-dropdown-container">
                   <Row>
                     <Col xs={3}>
@@ -134,7 +148,11 @@ export const MyJobs = (): JSX.Element => {
                 </div>
               </Paper>
               <Paper
-                title={candidatePagination()}
+                title={<AppPagination
+                  setOffset={changeOffset}
+                  currentOffset={offset}
+                  total={jobData?.total}
+                  limit={jobData?.limit} />}
                 titleRight={pageViewDropdown()}
               >
                 <div className="ag-theme-alpine react-table">

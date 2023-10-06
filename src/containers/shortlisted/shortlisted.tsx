@@ -5,38 +5,41 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { SelectDropdown } from "@common/select";
 import { AppPagination } from "@common/app-pagination";
-import { CandidateDetails } from "@components/candidate-detail/candidate-detail";
+import { CandidateDetails } from "./candidate-details";
 import "@styles/common/_pages.scss";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import { defaultColumns } from "./coloumn-types/coloumn-types";
 import { RowClickedEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
-import { Btn } from "@src/common/button";
 import { useGetCandidates } from "@hooks/useGetCandidates";
 import { DropdownOption } from "@src/types/common";
 import { useGetTechnologies } from "@src/hooks/useGetTechnologies";
+import { Candidate } from "@src/types/components";
 import { useGetJobLocationsList } from "@src/hooks/useGetJobLocations";
+import { options } from "@src/types/common";
 
 export const Shortlisted = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(10);
   const {data: technologyData} = useGetTechnologies();
+  const { data: candidateData, refetch: refetchCandidates } = useGetCandidates(offset, limit);
   const {data: locationData} = useGetJobLocationsList();
-  const { data: candidateData } = useGetCandidates();
 
   const [showDetail, setShowDetail] = useState(false);
-  const [rowData, setRowData] = useState();
+  const [rowData, setRowData] = useState<Array<Candidate>>();
   const [selectedCandidate, setSelectedCandidate] = useState();
 
   useEffect(() => {
     setRowData(candidateData?.data.candidate);
-  }, [candidateData?.data.candidate]);
+  }, [candidateData]);
 
   useEffect(() => {
     if (technologyData?.data.technologys && Array.isArray(technologyData.data.technologys)) {
       const options: DropdownOption[] = technologyData.data.technologys.map((tmp) => ({
-        value: tmp.tecnologyId,
+        value: tmp.technologyId,
         label: tmp.technologyName
       }));
       setTechnologyLists(options);
@@ -53,16 +56,21 @@ export const Shortlisted = (): JSX.Element => {
     }
   }, [locationData]);
 
-  const candidatePagination = () => {
-    return <AppPagination />;
+  const changeLimit = (newLimit: number) => {
+    setLimit(newLimit);
   };
+
+  const onChange = (newLimit: number) => {
+    changeLimit(Number(newLimit?.value))
+  }
+
   const pageViewDropdown = () => {
-    const options = [
-      { value: "10", label: "10" },
-      { value: "15", label: "15" },
-      { value: "20", label: "20" },
-    ];
-    return <SelectDropdown options={options} size="sm" />;
+    return <SelectDropdown
+      options={options}
+      size="sm"
+      onChange={onChange} 
+      defaultValue={options[0]}
+    />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {
@@ -73,6 +81,14 @@ export const Shortlisted = (): JSX.Element => {
     setSelectedCandidate(event.data);
     setShowDetail(true);
   };
+
+  const changeOffset = (newOffset: number) => {
+    setOffset(newOffset);
+  };
+
+  useEffect(() => {
+    refetchCandidates();
+  }, [limit, offset]);
 
   return (
     <PageWrapper>
@@ -86,7 +102,7 @@ export const Shortlisted = (): JSX.Element => {
             <Col xs={12} md={12}>
               <div className="box-content">
                 <h3 className="mb-35">Shortlisted</h3>
-                <Paper title="Advance Filter" titleRight="Search Result : 5">
+                <Paper title="Advance Filter" titleRight={`Search Result : ${candidateData?.total}`}>
                   <div className="filter-dropdown-container">
                     <Row>
                       <Col xs={3}>
@@ -109,7 +125,11 @@ export const Shortlisted = (): JSX.Element => {
                   </div>
                 </Paper>
                 <Paper
-                  title={candidatePagination()}
+                  title={<AppPagination
+                    setOffset={changeOffset}
+                    currentOffset={offset}
+                    total={candidateData?.total}
+                    limit={candidateData?.limit} />}
                   titleRight={pageViewDropdown()}
                 >
                   <div className="ag-theme-alpine react-table">
@@ -127,4 +147,3 @@ export const Shortlisted = (): JSX.Element => {
     </PageWrapper>
   );
 };
-

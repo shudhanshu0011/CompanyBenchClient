@@ -1,16 +1,18 @@
+import http from "@config/request";
 import { QueryID } from "@src/constants/query";
 import { SubmitPostContactParams } from "@src/types/components";
-import axios, { AxiosError } from "axios";
 import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 
-export const postContact = async (
+const postContact = async (
   params: SubmitPostContactParams
 ): Promise<SubmitPostContactParams> => {
-  return await axios.post('/v1/contact', params);
+  const response = await http.post<SubmitPostContactParams>("/v1/contact", params);
+  return response.data;
 };
+
 export const usePostContactUs = (
   onSuccess?: () => void,
-  onError?: (error: AxiosError) => void
+  onError?: () => void
 ): UseMutationResult<
   SubmitPostContactParams,
   Error,

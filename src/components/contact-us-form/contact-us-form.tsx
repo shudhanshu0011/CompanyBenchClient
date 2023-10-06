@@ -1,6 +1,7 @@
 import "./contact-us-form.scss";
 import { usePostContactUs } from "@src/hooks/usePostContactForm";
 import { SubmitPostContactParams } from "@src/types/components";
+import { useState } from "react";
 import { Form, Row } from "react-bootstrap";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -12,30 +13,38 @@ export const ContactUsForm = () => {
     formState: { errors },
   } = useForm<SubmitPostContactParams>()
 
-  const mutation = usePostContactUs(
+  const [buttonText, setButtonText] = useState("Submit");
+
+  const { mutate: createContact, isLoading, isError } = usePostContactUs(
     () => {
       reset();
+      setButtonText("Successfully Sent");
+      setTimeout(() => {
+        setButtonText("Submit");
+      }, 3000);
     }
   );
 
   const onSubmit: SubmitHandler<SubmitPostContactParams> = (data: SubmitPostContactParams) => {
-    mutation.mutate(data);
+    setButtonText("Try Again");
+    createContact(data);
   }
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Row>
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.firstName && <span>First Name is required</span>}
           <Form.Control
             className={errors.firstName ? "error-input" : "form-input-field"}
+            aria-invalid={errors.firstName ? "true" : "false"}
             type="text"
             placeholder="First Name"
             {...register("firstName", { required: true })}
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.lastName && <span>Last Name is required</span>}
           <Form.Control
             type="text"
@@ -45,17 +54,24 @@ export const ContactUsForm = () => {
           />
         </Form.Group>
 
-        <Form.Group>
-          {errors.email && <span>Email is required</span>}
+        <Form.Group className="form-input-group">
           <Form.Control
             type="text"
             className={errors.email ? "error-input" : "form-input-field"}
             placeholder="Email"
-            {...register("email", { required: true })}
+            {...register("email", { 
+              required: true,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "invalid email address"
+              }
+            })}
           />
+          {errors.email && !errors.email.message && <span>Email is required</span>}
+          {errors.email?.message && <span>Enter valid email id</span>}
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.company && <span>Company Name is required</span>}
           <Form.Control
             type="text"
@@ -65,17 +81,24 @@ export const ContactUsForm = () => {
           />
         </Form.Group>
 
-        <Form.Group>
-          {errors.phone && <span>Contact Number is required</span>}
+        <Form.Group className="form-input-group">
+          {errors.phone && !errors.phone.message && <span>Contact Number is required</span>}
+          {errors.phone?.message && <span>Enter valid phone number</span>}
           <Form.Control
             type="text"
             className={errors.phone ? "error-input" : "form-input-field"}
             placeholder="Contact Number"
-            {...register("phone", { required: true })}
+            {...register("phone", {
+              required: true,
+              pattern: {
+                value: /^[0-9]$/i,
+                message: "invalid phone number"
+              }
+            })}
           />
         </Form.Group>   
 
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.description && <span>Description is required</span>}
           <Form.Control
             as="textarea"
@@ -86,7 +109,24 @@ export const ContactUsForm = () => {
           />
         </Form.Group>
 
-        <input type="submit" className="query-contact-btn"/>
+        <div>
+          <button
+            type="submit"
+            className={
+              isError
+                ? "try-again-btn"
+                : buttonText === "Successfully Sent"
+                ? "success-sent-btn"
+                : "query-contact-btn"
+            }
+            disabled={isLoading}
+          >
+            {isLoading ? "Submitting" : buttonText}
+          </button>
+          {isError && (
+            <span className="error-message">Error occurred. Please try again.</span>
+          )}
+        </div>
       </Row>
     </Form>
   );

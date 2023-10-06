@@ -19,18 +19,22 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import "@styles/common/_pages.scss";
 import "./candidates.scss";
+import { Link } from "react-router-dom";
+import { options } from "@src/types/common";
 
 
 export const Candidates = (): JSX.Element => {
   const [technologyList, setTechnologyLists] = useState<DropdownOption[]>([]);
   const [locationList, setLocationLists] = useState<DropdownOption[]>([]);
+  const [offset, setOffset] = useState(0);
+  const [limit, setLimit] = useState(10);
 
   const technologiesData = useSelector(
     (state: RootState) => state.appData.technologies
   );
 
   const { data: locationData } = useGetJobLocationsList();
-  const { data: candidateData } = useGetCandidates();
+  const { data: candidateData, refetch: refetchCandidates } = useGetCandidates(offset, limit);
 
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState<Array<Candidate>>();
@@ -65,16 +69,21 @@ export const Candidates = (): JSX.Element => {
     }
   }, [locationData]);
 
-  const candidatePagination = () => {
-    return <AppPagination />;
+  const changeLimit = (newLimit: number) => {
+    setLimit(newLimit);
   };
+
+  const onChange = (newLimit: number) => {
+    changeLimit(Number(newLimit?.value))
+  }
+
   const pageViewDropdown = () => {
-    const options = [
-      { value: "10", label: "10" },
-      { value: "15", label: "15" },
-      { value: "20", label: "20" },
-    ];
-    return <SelectDropdown options={options} size="sm" />;
+    return <SelectDropdown
+      options={options}
+      size="sm"
+      onChange={onChange} 
+      defaultValue={options[0]}
+    />;
   };
 
   const handleShowDetails = (isVisible: boolean) => {
@@ -85,6 +94,14 @@ export const Candidates = (): JSX.Element => {
     setSelectedCandidate(event.data);
     setShowDetail(true);
   };
+
+  const changeOffset = (newOffset: number) => {
+    setOffset(newOffset);
+  };
+
+  useEffect(() => {
+    refetchCandidates();
+  }, [limit, offset]);
 
   return (
     <PageWrapper>
@@ -108,7 +125,7 @@ export const Candidates = (): JSX.Element => {
             <Col xs={12} md={10}>
               <div className="box-contents">
                 <h3 className="mb-35">Candidates</h3>
-                <Paper title="Advance Filter" titleRight="Search Result : 5">
+                <Paper title="Advance Filter" titleRight={`Search Result : ${candidateData?.total}`}>
                   <div className="filter-dropdown-container">
                     <Row>
                       <Col xs={3}>
@@ -131,7 +148,11 @@ export const Candidates = (): JSX.Element => {
                   </div>
                 </Paper>
                 <Paper
-                  title={candidatePagination()}
+                  title={<AppPagination
+                    setOffset={changeOffset}
+                    currentOffset={offset}
+                    total={candidateData?.total}
+                    limit={candidateData?.limit} />}
                   titleRight={pageViewDropdown()}
                 >
                   <div className="ag-theme-alpine react-table">
@@ -142,10 +163,12 @@ export const Candidates = (): JSX.Element => {
                       className="candidate-data-table"
                     />
                   </div>
-                  <Btn
-                    title="Login to see more"
-                    className="btn btn-default btn-apply font-sm mt-4"
-                  />
+                  <Link to="/signin">
+                    <Btn
+                      title="Login to see more"
+                      className="btn btn-default btn-apply font-sm mt-4"
+                    />
+                  </Link>
                 </Paper>
               </div>
             </Col>

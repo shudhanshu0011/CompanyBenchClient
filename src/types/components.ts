@@ -69,6 +69,9 @@ export interface GetCandidatesResponse {
   data: {
     candidate: Candidate[];
   };
+  total: number;
+  limit: number;
+  page: number;
 }
 
 export interface Job {
@@ -96,6 +99,9 @@ export interface GetJobResponse {
   data: {
     jobs: Job[];
   };
+  total: number;
+  limit: number;
+  page: number;
 }
 
 export type SubmitPostContactParams = {
