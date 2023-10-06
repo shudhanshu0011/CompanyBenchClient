@@ -31,8 +31,8 @@ export const MyJobs = (): JSX.Element => {
   const [limit, setLimit] = useState(10);
   const { data: jobData, refetch } = useGetJob(offset, limit);
 
-  const {mutate: postJobs} = usePostJob();
-  
+  const { mutate: postJobs } = usePostJob();
+
   const [showDetail, setShowDetail] = useState(false);
   const [rowData, setRowData] = useState();
   const [selectedJob, setSelectedJob] = useState();
@@ -83,7 +83,7 @@ export const MyJobs = (): JSX.Element => {
     return <SelectDropdown
       options={options}
       size="sm"
-      onChange={onChange} 
+      onChange={onChange}
       defaultValue={options[0]}
     />;
   };
@@ -125,7 +125,7 @@ export const MyJobs = (): JSX.Element => {
           <Col xs={12} md={12}>
             <div className="box-content">
               <h3 className="mb-35">My Jobs</h3>
-              <Paper title="Advance Filter" titleRight="Search Result : 5">
+              <Paper title="Advance Filter" titleRight={`Search Result : ${jobData?.total}`}>
                 <div className="filter-dropdown-container">
                   <Row>
                     <Col xs={3}>
@@ -148,13 +148,13 @@ export const MyJobs = (): JSX.Element => {
                 </div>
               </Paper>
               <Paper
-                  title={<AppPagination
+                title={<AppPagination
                   setOffset={changeOffset}
                   currentOffset={offset}
                   total={jobData?.total}
                   limit={jobData?.limit} />}
-                  titleRight={pageViewDropdown()}
-                >
+                titleRight={pageViewDropdown()}
+              >
                 <div className="ag-theme-alpine react-table">
                   <AgGridReact
                     rowData={rowData}
