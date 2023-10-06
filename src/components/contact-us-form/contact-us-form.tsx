@@ -55,6 +55,8 @@ export const ContactUsForm = () => {
         </Form.Group>
 
         <Form.Group className="form-input-group">
+          {errors.email && !errors.email.message && <span>Email is required</span>}
+          {errors.email?.message && <span>{errors.email.message}</span>}
           <Form.Control
             type="text"
             className={errors.email ? "error-input" : "form-input-field"}
@@ -63,12 +65,10 @@ export const ContactUsForm = () => {
               required: true,
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "invalid email address"
+                message: "Enter valid email id"
               }
             })}
           />
-          {errors.email && !errors.email.message && <span>Email is required</span>}
-          {errors.email?.message && <span>Enter valid email id</span>}
         </Form.Group>
 
         <Form.Group className="form-input-group">
@@ -83,7 +83,7 @@ export const ContactUsForm = () => {
 
         <Form.Group className="form-input-group">
           {errors.phone && !errors.phone.message && <span>Contact Number is required</span>}
-          {errors.phone?.message && <span>Enter valid phone number</span>}
+          {errors.phone?.message && <span>{errors.phone.message}</span>}
           <Form.Control
             type="text"
             className={errors.phone ? "error-input" : "form-input-field"}
@@ -91,8 +91,8 @@ export const ContactUsForm = () => {
             {...register("phone", {
               required: true,
               pattern: {
-                value: /^[0-9]$/i,
-                message: "invalid phone number"
+                value: /^\d{10}$/,
+                message: "Enter valid phone number"
               }
             })}
           />
