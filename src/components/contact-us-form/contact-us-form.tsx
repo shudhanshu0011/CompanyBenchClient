@@ -33,17 +33,18 @@ export const ContactUsForm = () => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Row>
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.firstName && <span>First Name is required</span>}
           <Form.Control
             className={errors.firstName ? "error-input" : "form-input-field"}
+            aria-invalid={errors.firstName ? "true" : "false"}
             type="text"
             placeholder="First Name"
             {...register("firstName", { required: true })}
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.lastName && <span>Last Name is required</span>}
           <Form.Control
             type="text"
@@ -53,17 +54,24 @@ export const ContactUsForm = () => {
           />
         </Form.Group>
 
-        <Form.Group>
-          {errors.email && <span>Email is required</span>}
+        <Form.Group className="form-input-group">
           <Form.Control
             type="text"
             className={errors.email ? "error-input" : "form-input-field"}
             placeholder="Email"
-            {...register("email", { required: true })}
+            {...register("email", { 
+              required: true,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "invalid email address"
+              }
+            })}
           />
+          {errors.email && !errors.email.message && <span>Email is required</span>}
+          {errors.email?.message && <span>Enter valid email id</span>}
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.company && <span>Company Name is required</span>}
           <Form.Control
             type="text"
@@ -73,17 +81,24 @@ export const ContactUsForm = () => {
           />
         </Form.Group>
 
-        <Form.Group>
-          {errors.phone && <span>Contact Number is required</span>}
+        <Form.Group className="form-input-group">
+          {errors.phone && !errors.phone.message && <span>Contact Number is required</span>}
+          {errors.phone?.message && <span>Enter valid phone number</span>}
           <Form.Control
             type="text"
             className={errors.phone ? "error-input" : "form-input-field"}
             placeholder="Contact Number"
-            {...register("phone", { required: true })}
+            {...register("phone", {
+              required: true,
+              pattern: {
+                value: /^[0-9]$/i,
+                message: "invalid phone number"
+              }
+            })}
           />
         </Form.Group>   
 
-        <Form.Group>
+        <Form.Group className="form-input-group">
           {errors.description && <span>Description is required</span>}
           <Form.Control
             as="textarea"
