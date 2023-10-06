@@ -23,7 +23,7 @@ export const useGetCandidates = (
   onSuccess?: () => void,
   onError?: () => void
 ): UseQueryResult<GetCandidatesResponse, Error> => {
-  return useQuery([QueryID.candidateQuery, limit], async () => getCandidatesList(offset, limit), {
+  return useQuery([QueryID.candidateQuery], async () => getCandidatesList(offset, limit), {
     onSuccess,
     onError,
     select: (data: GetCandidatesResponse) => data,
