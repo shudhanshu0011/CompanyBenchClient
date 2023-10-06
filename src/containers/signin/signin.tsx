@@ -1,14 +1,50 @@
-import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { Col, Form, Row } from "react-bootstrap";
 import { Btn } from "@src/common/button";
-import "@styles/common/_pages.scss";
-import "./signin.scss";
-import { SignInParams } from "@src/types/components";
+import { PageWrapper } from "@src/containers/page-wrapper/page-wrapper";
 import { usePostLogin } from "@src/hooks/usePostLogin";
+// import { RootState } from "@src/store";
+import { resetUser, setUser } from "@src/store/reducer/userDataReducer";
+import { SignInParams } from "@src/types/components";
+import "@styles/common/_pages.scss";
+import { useEffect } from "react";
+import { Col, Form, Row } from "react-bootstrap";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import "./signin.scss";
+import { useGetUser } from "@src/hooks/useGetUser";
 
 export const SignIn = (): JSX.Element => {
+  const navigate = useNavigate();
+  // const user = useSelector((state: RootState) => state?.userData?.user);
+  const dispatch = useDispatch();
+  const onError = () => {
+    dispatch(resetUser());
+  };
+  const onSettled = () => {
+    refetch();
+  };
+  const { mutate: postLogin } = usePostLogin(
+    () => {},
+    () => {},
+    onSettled
+  );
+  const { data: userNewData, refetch } = useGetUser(() => {}, onError);
+
+  // useEffect(() => {
+  //   const isUserLoggedIn =
+  //     user !== undefined && Object.keys(user).length > 0 && user.guid !== "";
+  //   if (isUserLoggedIn) {
+  //     // navigate("/c/dashboard");
+  //   }
+  // }, [user]);
+
+  useEffect(() => {
+    if (userNewData !== undefined) {
+      dispatch(setUser(userNewData?.data.users[0]));
+      navigate("/c/dashboard");
+    }
+  }, [dispatch, navigate, userNewData]);
+
   const {
     handleSubmit,
     formState: { errors },
@@ -18,12 +54,10 @@ export const SignIn = (): JSX.Element => {
   const onSubmit: SubmitHandler<SignInParams> = (data) => {
     handlePostJobs(data);
   };
-  const navigate = useNavigate();
-  const { mutate: postLogin } = usePostLogin(async () => navigate("/"));
+
   const handlePostJobs = (formdata: SignInParams) => {
     postLogin(formdata);
-  }
-
+  };
   return (
     <PageWrapper>
       <div className="container">
@@ -68,7 +102,7 @@ export const SignIn = (): JSX.Element => {
                 <Form.Group className="mb-3" controlId="">
                   <Form.Label className="font-sm mb-10">Password *</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="password"
                     className="font-md"
                     placeholder="************"
                     {...register("password", { required: true })}

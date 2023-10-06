@@ -1,25 +1,46 @@
+import http from "@config/request";
 import { QueryID } from "@src/constants/constants";
-import { SignInParams } from "@src/types/components";
-import axios, { AxiosError } from "axios";
+import { GetUserResponseData, SignInParams } from "@src/types/components";
+import { AxiosError } from "axios";
 import { UseMutationResult, useMutation, useQueryClient } from "react-query";
 
 export const postLogin = async (
   params: SignInParams
-): Promise<SignInParams> => {
-  return await axios.post('/v1/user/login', params);
+): Promise<GetUserResponseData> => {
+  await http.post("/v1/user/login", params, {
+    headers: { service_ref: 123456 },
+  });
+
+  const response = await http.get<GetUserResponseData>("/v1/user", {
+    headers: { service_ref: 123456 },
+  });
+  return response.data;
 };
+
 export const usePostLogin = (
-  onSuccess?: () => void,
-  onError?: (error: AxiosError) => void
-): UseMutationResult<SignInParams, Error, SignInParams, SignInParams> => {
+  onSuccess?: () => GetUserResponseData,
+  onError?: (error: AxiosError) => void,
+  onSettled?: () => void
+): UseMutationResult<
+  GetUserResponseData,
+  Error,
+  SignInParams,
+  SignInParams
+> => {
   const queryClient = useQueryClient();
   const queryId = QueryID.postLogin;
   return useMutation({
     mutationFn: async (params: SignInParams) => postLogin(params),
-    onSettled: async () => queryClient.invalidateQueries(queryId),
-    onSuccess,
+    onSettled: async () => {
+      return queryClient.invalidateQueries(queryId).then(() => {
+        onSettled && onSettled();
+      });
+    },
+    onSuccess: (userData) =>
+      queryClient.setQueryData(
+        ["userData", userData.data.users[0]._id],
+        userData
+      ),
     onError,
   });
-
-
 };

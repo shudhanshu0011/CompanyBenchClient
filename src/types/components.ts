@@ -135,6 +135,30 @@ export interface GetJobTechnologyResponseData {
   technologys: Technology[];
 }
 
+export interface User {
+  _id: string,
+  userId: number,
+  email: string,
+  userType: string,
+  firstName: string,
+  lastName: string,
+  isEmailVerified: boolean,
+  isActive: boolean,
+  createdAt: string | Date,
+  mobile: number,
+  company: string,
+  guid: string,
+  updatedAt: string | Date,
+}
+
+export interface UserResponse {
+  users: Array<User>;
+}
+
+export interface GetUserResponseData {
+  data: UserResponse
+}
+
 export interface JobLocList {
   cityId: number;
   cityName: string;

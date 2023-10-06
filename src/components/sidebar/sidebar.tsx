@@ -10,6 +10,7 @@ import { ReactComponent as RecruitersIcon } from "@assets/page/dashboard/recruit
 import { ReactComponent as CvManageIcon } from "@assets/page/dashboard/cv-manage.svg";
 import { ReactComponent as LogoutIcon } from "@assets/page/dashboard/logout.svg";
 import "./sidebar.scss";
+import { Link } from "react-router-dom";
 
 interface Props {
   activeLink: string;
@@ -93,10 +94,10 @@ export const Sidebar = ({ activeLink }: Props): JSX.Element => {
         <ul className="nav-menu">
           {menuItems.map(({ text, icon, link }, index: number) => (
             <li key={index}>
-              <a className={getClassname(link)} href={link}>
+              <Link className={getClassname(link)} to={link}>
                 <span>{icon}</span>
                 {isExpanded && <span style={{marginLeft:'9px'}}>{text}</span>}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
